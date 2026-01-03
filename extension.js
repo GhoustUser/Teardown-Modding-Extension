@@ -1,10 +1,21 @@
 const vscode = require("vscode");
 const path = require("path");
+const fs = require("fs");
 
+
+const { workspaceFolders } = vscode.workspace;
+const rootPath = workspaceFolders[0].uri.fsPath;
+
+let modData = {
+    name: "unknown",
+    author: "unknown",
+    description: "unknown",
+    tags: [],
+    version: -1,
+}
 
 /**
- * @fileoverview Extension entry point for the Teardown API Extension.
- * Activates the Teardown API Extension.
+ * Entry point for the extension.
  * 
  * Initializes the extension by adding the Lua API path to the workspace library configuration.
  * Retrieves the existing workspace library paths from Lua configuration and appends the extension's
@@ -15,29 +26,16 @@ const path = require("path");
  */
 
 function activate(context) {
-    // Construct the path to the Lua API directory within the extension
-    const luaApiPath = path.join(context.extensionPath, "lua");
-    // Access the Lua configuration
-    const luaConfig = vscode.workspace.getConfiguration("Lua");
-    // Get existing library paths
-    const existing = luaConfig.get("workspace.library") || [];
-    // Add the Lua API path if not already present
-    if (!existing.includes(luaApiPath)) {
-        luaConfig.update(
-            "workspace.library",
-            [...existing, luaApiPath],
-            vscode.ConfigurationTarget.Workspace
-        );
-    }
 
     // check project root for 'info.txt' to determine if it's a Teardown mod
-    const workspaceFolders = vscode.workspace.workspaceFolders;
     if (workspaceFolders) {
-        const fs = require("fs");
         const rootPath = workspaceFolders[0].uri.fsPath;
         const infoTxtPath = path.join(rootPath, "info.txt");
+        // if info.txt exists, it's a teardown mod
         if (fs.existsSync(infoTxtPath)) {
-            console.log("Teardown mod detected in workspace.");
+            LoadModData();
+            LoadScriptingApi(context);
+            PrintModData();
         } else {
             console.log("No Teardown mod detected in workspace.");
         }
@@ -62,22 +60,50 @@ module.exports = {
     deactivate
 };
 
-/**
- * Adds global variable names to the Lua diagnostics configuration to prevent undefined-global warnings.
- * @param {*} config - VS Code configuration object
- * @param {String[]} globals - Array of global variable names to add
- */
-function AddGlobals(config, globals) {
-    // Add to globals to prevent undefined-global
-    const existingGlobals = config.get("diagnostics.globals") || [];
-    globals.forEach(global => {
-        if (!existingGlobals.includes(global)) {
-            existingGlobals.push(global);
+function LoadModData() {
+    const infoTxt = fs.readFileSync(path.join(rootPath, "info.txt"), "utf-8");
+    const lines = infoTxt.split("\n");
+    lines.forEach(line => {
+        const [key, value] = line.split("=");
+        if (key && value) {
+            // check if key already exists in modData
+            if (modData[key.trim()] !== undefined) {
+                // assign the value to the modData object, trimming whitespace
+                modData[key.trim()] =
+                    key.trim() === "author" ?
+                        value :
+                        value.trim();
+            }
         }
     });
-    config.update(
-        "diagnostics.globals",
-        existingGlobals,
-        vscode.ConfigurationTarget.Workspace
-    );
+}
+
+function LoadScriptingApi(context) {
+    // Construct the path to the Lua API directory within the extension
+    const luaApiPath = path.join(context.extensionPath, "teardown-lua-api");
+
+    // Access the Lua configuration
+    const luaConfig = vscode.workspace.getConfiguration("Lua");
+    // Get existing library paths
+    const existing = luaConfig.get("workspace.library") || [];
+
+    // Add the Lua API path if not already present
+    if (!existing.includes(luaApiPath)) {
+        luaConfig.update(
+            "workspace.library",
+            [...existing, luaApiPath],
+            vscode.ConfigurationTarget.Workspace
+        );
+    }
+}
+
+function PrintModData() {
+    // set color based on number of trailing spaces in modData.author
+    const trailingSpaces = modData.author.length - modData.author.trimEnd().length;
+    // create color console escape code [0-9]
+    const colorCode = 30 + Math.min(trailingSpaces, 7);
+    console.log(`Mod Name: ${modData.name}`);
+    console.log(`Author: \x1b[${colorCode}m${modData.author}\x1b[0m`);
+    console.log(`Description: ${modData.description}`);
+    console.log(`Version: ${modData.version}`);
 }
