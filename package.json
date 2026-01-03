@@ -1,0 +1,16 @@
+{
+  "name": "teardown-lua-api",
+  "displayName": "Teardown lua API",
+  "description": "Adds Teardown's Lua API to the Lua language server for better autocompletion and documentation support.",
+  "author": {"name": "GhoustUser", "url": "https://gitlab.com/GhoustUser"},
+  "keywords": ["teardown","modding","lua","api"],
+  "version": "0.1.0",
+  "icon": "./icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "activationEvents": [
+    "workspaceContains:info.txt"
+  ],
+  "main": "./extension.js"
+}
