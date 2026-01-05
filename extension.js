@@ -2,6 +2,7 @@ const vscode = require("vscode");
 const path = require("path");
 const fs = require("fs");
 const { LoadModData } = require("./scripts/load-mod-data.js");
+const CustomEditor = require('./CustomEditors/CustomEditor');
 
 
 const { workspaceFolders } = vscode.workspace;
@@ -20,17 +21,31 @@ const { workspaceFolders } = vscode.workspace;
 function activate(context) {
     console.log("Activating Teardown API Extension...");
     // check project root for 'info.txt' to determine if it's a Teardown mod
-    if (workspaceFolders) {
-        const rootPath = workspaceFolders[0].uri.fsPath;
-        const infoTxtPath = path.join(rootPath, "info.txt");
-        // if info.txt exists, it's a teardown mod
-        if (fs.existsSync(infoTxtPath)) {
-            LoadModData(context, rootPath);
-        } else {
-            console.log("No Teardown mod detected in workspace.");
-        }
+    if (!workspaceFolders) {
+        console.log("No workspace folders found.");
+        return;
     }
+
+    const rootPath = workspaceFolders[0].uri.fsPath;
+    const infoTxtPath = path.join(rootPath, "info.txt");
+    // if info.txt doesn't exist, exit early
+    if (!fs.existsSync(infoTxtPath)) {
+        console.log("No Teardown mod detected in workspace.");
+        return;
+    }
+
+    LoadModData(context, rootPath);
     console.log("Teardown API Extension activated");
+
+    // register custom editor for info.txt files
+    const customEditor = new CustomEditor(
+        context,
+        "info.txt",
+        (html, filePath, fileContent) => html
+            .replace(/<FileContent>/g, fileContent)
+            .replace(/<FilePath>/g, filePath)
+    ).register('customInfoEditor');
+    console.log("registered custom info.txt editor");
 }
 
 /**

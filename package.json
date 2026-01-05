@@ -6,13 +6,14 @@
 		"name": "GhoustUser",
 		"url": "https://gitlab.com/GhoustUser"
 	},
+	"version": "0.1.0",
+	"main": "./extension.js",
 	"keywords": [
 		"teardown",
 		"modding",
 		"lua",
 		"api"
 	],
-	"version": "0.1.0",
 	"icon": "./icon.png",
 	"engines": {
 		"vscode": "^1.85.0"
@@ -20,5 +21,17 @@
 	"activationEvents": [
 		"workspaceContains:info.txt"
 	],
-	"main": "./extension.js"
+	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "CustomEditor-info_txt",
+				"displayName": "Custom Info Editor",
+				"selector": [
+					{
+						"filenamePattern": "info.txt"
+					}
+				]
+			}
+		]
+	}
 }
