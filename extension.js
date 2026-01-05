@@ -30,11 +30,8 @@ function activate(context) {
             console.log("No Teardown mod detected in workspace.");
         }
     }
-
     console.log("Teardown API Extension activated");
-    console.log(context.extensionPath);
 }
-
 
 /**
  * Cleanup function called when the extension is deactivated.
