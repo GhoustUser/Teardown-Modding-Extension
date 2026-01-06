@@ -5,7 +5,7 @@ const fs = require("fs");
 
 /**
  * The type of mod currently opened
- * @type {"unknown"|"content"|"global"|"character"}
+ * @type {"unknown"|"content"|"global"}
  */
 let modType = "unknown";
 
@@ -25,9 +25,6 @@ function LoadModData(context, rootPath) {
         // global mod
         modType = "global";
         require("./mod-types/global.js").LoadGlobalModData(rootPath, context);
-    } else if (fs.existsSync(path.join(rootPath, "characters.txt"))) {
-        // character mod
-        modType = "character";
     } else {
         modType = "unknown";
     }

@@ -67,7 +67,7 @@ function activate(context) {
             vscode.window.showInformationMessage(
                 "Select the type of mod you are working on:",
                 { modal: true, detail: "This will enable specific features based on your mod type." },
-                "Content Mod", "Global Mod", "Character Mod"
+                "Content Mod", "Global Mod"
             ).then(modSelection => {
                 switch (modSelection) {
                     case "Content Mod":
@@ -76,21 +76,19 @@ function activate(context) {
                     case "Global Mod":
                         workspaceSettings.update("TeardownModding.modType", "global", vscode.ConfigurationTarget.Workspace);
                         break;
-                    case "Character Mod":
-                        workspaceSettings.update("TeardownModding.modType", "character", vscode.ConfigurationTarget.Workspace);
-                        break;
                 }
             });
 
         });
     }
-    if (moddingEnabled) {
-        LoadModData(context, rootPath);
-        RegisterCustomEditors(context)
-        // Load the Lua API into the workspace configuration if not already loaded
-        if (!IsScriptingApiLoaded(context)) {
-            LoadScriptingApi(context);
-        }
+    if (!moddingEnabled) return;
+
+    // Proceed with loading mod data and registering custom editors
+    LoadModData(context, rootPath);
+    RegisterCustomEditors(context)
+    // Load the Lua API into the workspace configuration if not already loaded
+    if (!IsScriptingApiLoaded(context)) {
+        LoadScriptingApi(context);
     }
 }
 
