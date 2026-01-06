@@ -43,8 +43,7 @@ function activate(context) {
         "info.txt",
         (html, filePath, fileContent) => html
             .replace(/<FileContent>/g, fileContent)
-            .replace(/<FilePath>/g, filePath)
-    ).register('customInfoEditor');
+    ).register('CustomEditor-info_txt');
     console.log("registered custom info.txt editor");
 }
 

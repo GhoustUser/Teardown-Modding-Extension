@@ -44,7 +44,7 @@ class CustomEditor {
             enableScripts: true
         };
 
-        const htmlContent = this.getHtmlForWebview(document);
+        const htmlContent = this.getHtmlForWebview(document, webviewPanel);
         if (htmlContent) {
             webviewPanel.webview.html = htmlContent;
         } else {
@@ -97,20 +97,20 @@ class CustomEditor {
     /**
      * Generates the HTML content for the webview.
      * @param {vscode.TextDocument} document - The document to display in the webview.
+     * @param {vscode.WebviewPanel} webviewPanel - The webview panel to display the content.
      * @returns {string|null} The HTML content for the webview, or null if the file cannot be loaded.
      */
-    getHtmlForWebview(document) {
-        // load the HTML file corresponding to the fileName
+    getHtmlForWebview(document, webviewPanel) {
         const htmlPath = this.context.asAbsolutePath(`./CustomEditors/${this.fileName.replace('.', '_')}/index.html`);
+        const cssPath = this.context.asAbsolutePath(`./CustomEditors/${this.fileName.replace('.', '_')}/style.css`);
         try {
-            // load the HTML content
             let htmlContent = fs.readFileSync(htmlPath, 'utf8');
-            // process the HTML content
-            htmlContent = this.htmlProcessor(htmlContent, document.uri.fsPath, document.getText());
-            // add nonce for security
+            const cssUri = webviewPanel.webview.asWebviewUri(vscode.Uri.file(cssPath));
             const nonce = this.getNonce();
-            htmlContent = htmlContent.replace(/<Nonce>/g, nonce);
 
+            htmlContent = htmlContent.replace('<link rel="stylesheet" href="style.css">', `<link rel="stylesheet" href="${cssUri}">`);
+            htmlContent = this.htmlProcessor(htmlContent, document.uri.fsPath, document.getText());
+            htmlContent = htmlContent.replace(/<Nonce>/g, nonce);
             return htmlContent;
         } catch (error) {
             console.error(`Failed to load HTML content from ${htmlPath}: ${error.message}`);
