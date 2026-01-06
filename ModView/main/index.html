@@ -6,20 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Teardown Mod View</title>
+    <style>
+        /* Hide incrementing arrows for number input */
+        input[type=number].no-spinner::-webkit-inner-spin-button,
+        input[type=number].no-spinner::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number].no-spinner {
+            -moz-appearance: textfield;
+            appearance: textfield; /* Standard property for compatibility */
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <div id="mod-title" class="title">Mod Name</div>
-
-        <div id="mod-description" class="description">Description goes here...</div>
-
-        <div class="tags-version">
-            <div class="tags">
-                <input id="tags_field" type="text" placeholder="Tags (comma-separated)" />
+        <div class="header">
+            <img id="mod-icon" src="" class="icon" alt="Mod Icon">
+            <div class="header-content">
+                <input id="mod-title" class="title" value="Mod Name" />
             </div>
-            <div class="version">
-                <input id="version_field" type="text" placeholder="Version" />
+        </div>
+
+        <div class="description-container">
+            <textarea id="mod-description" class="description">Description goes here...</textarea>
+        </div>
+
+        <div class="content">
+            <div class="field-group">
+                <label for="tags_field" class="field-label">Tags:</label>
+                <input id="tags_field" type="text" class="field-input" placeholder="Tags (comma-separated)" />
+            </div>
+
+            <div class="field-group">
+                <label for="version_field" class="field-label">Version:</label>
+                <input id="version_field" type="number" class="field-input no-spinner" placeholder="Num" min="0" max="9"
+                    maxlength="1" style="width: 50px;" />
             </div>
         </div>
 
@@ -35,17 +59,29 @@
             if (message.type === 'update') {
                 const content = message.text;
                 const fields = parseContent(content);
-                document.getElementById('mod-title').innerText = fields.name;
-                document.getElementById('mod-description').innerText = fields.description;
+                document.getElementById('mod-title').value = fields.name;
+                document.getElementById('mod-description').value = fields.description;
                 document.getElementById('tags_field').value = fields.tags;
                 document.getElementById('version_field').value = fields.version;
+            } else if (message.type === 'initialize') {
+                const modIcon = document.getElementById('mod-icon');
+                if (message.previewImagePath) {
+                    modIcon.src = message.previewImagePath;
+                    modIcon.style.display = 'block';
+                } else {
+                    modIcon.style.display = 'none';
+                }
+            } else if (message.type === 'updateIcon') {
+                const modIcon = document.getElementById('mod-icon');
+                modIcon.src = message.previewImagePath;
+                modIcon.style.display = 'block';
             }
         });
 
         // Function to parse the content into fields
         function parseContent(content) {
             const lines = content.split('\n');
-            const fields = { name: '', description: '', tags: '', version: '' };
+            const fields = { name: '', description: '', tags: '', version: '', iconPath: '' };
             let currentField = null;
 
             lines.forEach(line => {
@@ -60,6 +96,8 @@
                 } else if (line.startsWith('version = ')) {
                     fields.version = line.replace('version = ', '').trim();
                     currentField = null;
+                } else if (line.startsWith('iconPath = ')) {
+                    fields.iconPath = line.replace('iconPath = ', '').trim();
                 } else if (currentField === 'description') {
                     fields.description += '\n' + line.trim();
                 }
@@ -71,8 +109,8 @@
         // Handle the save button click
         document.getElementById('saveButton').addEventListener('click', () => {
             const fields = {
-                name: document.getElementById('mod-title').innerText,
-                description: document.getElementById('mod-description').innerText,
+                name: document.getElementById('mod-title').value,
+                description: document.getElementById('mod-description').value,
                 tags: document.getElementById('tags_field').value,
                 version: document.getElementById('version_field').value
             };
@@ -94,6 +132,11 @@
             if (fields.version) content += `version = ${fields.version}\n`;
             return content.trim();
         }
+
+        // Handle clicking on the mod icon to select a new image
+        document.getElementById('mod-icon').addEventListener('click', () => {
+            vscode.postMessage({ type: 'selectIcon' });
+        });
     </script>
 </body>
 

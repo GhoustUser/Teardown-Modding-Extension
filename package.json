@@ -25,7 +25,7 @@
 		"configuration": {
 			"title": "Teardown Modding Extension configuration",
 			"properties": {
-				"TeardownModding.OpenModViewByDefault": {
+				"teardownModding.openModViewByDefault": {
 					"type": "boolean",
 					"default": false,
 					"description": "Whether to open the Mod View automatically when the extension is activated."
@@ -36,17 +36,6 @@
 			{
 				"command": "teardownModding.openModView",
 				"title": "Open Teardown Mod View"
-			}
-		],
-		"customEditors": [
-			{
-				"viewType": "CustomEditor-info_txt",
-				"displayName": "Custom Info Editor",
-				"selector": [
-					{
-						"filenamePattern": "info.txt"
-					}
-				]
 			}
 		]
 	}

@@ -37,42 +37,47 @@ function activate(context) {
         return;
     }
 
+    // Register commands globally
+    registerCommands(context);
+
     // Check if Mod View is already open
     const existingPanel = vscode.window.visibleTextEditors.find(editor => editor.document.fileName.includes("main-mod-view"));
     if (!existingPanel) {
-        // Prompt user to open the Mod View
-        console.log("Prompting user to load Teardown Modding Extension...");
-
         vscode.window.showInformationMessage(
             "Teardown Mod detected in workspace.",
             "Open Mod View"
         ).then(selection => {
-            // handle user selection
-            switch (selection) {
-                case "Open Mod View":
-                    openModView(context);
-                    break;
-                case null:
-                    return; // user dismissed the prompt
+            if (selection === "Open Mod View") {
+                openModView(context);
             }
         });
     }
 
     if (!moddingEnabled) return;
 
-    // Proceed with loading mod data and registering commands
-    LoadModData(context, rootPath);
-    registerCommands(context)
+    // Proceed with loading mod data
+    LoadModData(context, workspaceFolders[0].uri.fsPath);
+
     // Load the Lua API into the workspace configuration if not already loaded
     if (!IsScriptingApiLoaded(context)) {
         LoadScriptingApi(context);
     }
 
     // Open Mod View by default if the setting is enabled
-    const openModViewByDefault = workspaceSettings.get("TeardownModding.OpenModViewByDefault", false);
+    const openModViewByDefault = workspaceSettings.get("teardownModding.openModViewByDefault", false);
     if (openModViewByDefault) {
         openModView(context);
     }
+
+    // Create a status bar item to open ModView
+    const modViewButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+    modViewButton.text = "$(file-code) Open ModView"; // Use an icon and label
+    modViewButton.tooltip = "Open the Teardown Mod View"; // Tooltip for additional info
+    modViewButton.command = "teardownModding.openModView"; // Command to execute
+    modViewButton.show(); // Make the button visible
+
+    // Register the status bar item for disposal
+    context.subscriptions.push(modViewButton);
 }
 
 /**

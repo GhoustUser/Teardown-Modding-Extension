@@ -1,96 +1,139 @@
 /* General body styling */
 body {
-    font-family: var(--vscode-font-family);
-    font-size: var(--vscode-font-size);
-    color: var(--vscode-foreground);
-    background-color: var(--vscode-editor-background);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 16px;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
 }
 
 /* Container styling */
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: var(--vscode-editorWidget-background);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    background: #252526;
+    border-left: 6px solid #3c3c3c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Title styling */
+/* Header styling */
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.icon {
+    width: 96px;
+    height: 96px;
+    margin-right: 20px;
+    background: #3c3c3c;
+    object-fit: cover;
+}
+
+.header-content {
+    display: flex;
+    width: calc(100% - 116px);
+    flex-direction: column;
+}
+
 .title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--vscode-editor-foreground);
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #5c9cf0;
+    margin-bottom: 12px;
+    border: none;
+    background: none;
+    padding: 0;
+    width: 100%;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+    box-sizing: border-box; /* Ensure padding and borders are included in width */
+}
+
+.title:focus {
+    border-bottom: 2px solid #5c9cf0;
 }
 
 /* Description styling */
+.description-container {
+    margin-bottom: 24px;
+    padding: 16px;
+    background: #1e1e1e;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .description {
-    border: 1px solid var(--vscode-editorWidget-border);
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 20px;
-    background: var(--vscode-input-background);
-    color: var(--vscode-input-foreground);
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* Tags and version styling */
-.tags-version {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.tags,
-.version {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.tags:last-child,
-.version:last-child {
-    margin-right: 0;
-}
-
-.tags input,
-.version input {
+    font-size: 1.2rem;
+    color: #d4d4d4;
+    line-height: 1.6;
     width: 100%;
-    padding: 10px;
-    border: 1px solid var(--vscode-editorWidget-border);
-    border-radius: 4px;
-    font-size: 1rem;
-    background: var(--vscode-input-background);
-    color: var(--vscode-input-foreground);
+    border: none;
+    background: none;
+    resize: none;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
 }
 
-.tags input:focus,
-.version input:focus {
+.description:focus {
+    border-bottom: 2px solid #5c9cf0;
+}
+
+/* Content styling */
+.content {
+    margin-top: 24px;
+}
+
+.field-group {
+    margin-bottom: 20px;
+}
+
+.field-label {
+    display: block;
+    font-size: 14px;
+    color: #808080;
+    margin-top: 16px;
+    margin-bottom: 4px;
+}
+
+.field-input {
+    border: none;
+    font-size: 16px;
+    padding: 8px;
+    background: none;
+    color: #d4d4d4;
+    width: 100%;
+    resize: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.field-input:focus {
     outline: none;
-    border-color: var(--vscode-focusBorder);
+    border-bottom: 2px solid #5c9cf0;
 }
 
 /* Save button styling */
 .save-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background: var(--vscode-button-background);
-    color: var(--vscode-button-foreground);
+    margin-top: 24px;
+    padding: 12px;
+    background-color: #007acc;
+    color: #ffffff;
     border: none;
-    border-radius: 4px;
-    font-size: 1rem;
+    font-size: 14px;
     cursor: pointer;
     text-align: center;
+    transition: background-color 0.2s;
 }
 
 .save-button:hover {
-    background: var(--vscode-button-hoverBackground);
+    background-color: #005a9e;
 }
 
-.save-button:focus {
-    outline: 2px solid var(--vscode-focusBorder);
+.save-button:active {
+    background-color: #003f73;
 }

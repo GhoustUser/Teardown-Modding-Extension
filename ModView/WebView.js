@@ -1,5 +1,6 @@
 const vscode = require('vscode');
 const fs = require('fs');
+const path = require('path');
 
 
 /**
@@ -11,7 +12,7 @@ class WebView {
      * @param {string} viewName - The name of the view to determine the HTML file to load.
      * @param {function(html: string, filePath: string, fileContent: string): string} htmlProcessor - A function to process the HTML content before displaying.
      */
-    constructor(context, viewName, htmlProcessor = (html, filePath, fileContent) => html) {
+    constructor(context, viewName, htmlProcessor = (html) => html) {
         this.context = context;
         this.viewName = viewName;
         this.htmlProcessor = htmlProcessor;
@@ -27,25 +28,79 @@ class WebView {
             viewType,
             title,
             vscode.ViewColumn.One,
-            { enableScripts: true }
+            { enableScripts: true, retainContextWhenHidden: true } // Retain context to prevent content loss
         );
 
         const htmlContent = this.getHtmlForWebview(panel);
-        if (htmlContent) {
-            panel.webview.html = htmlContent;
-        } else {
-            panel.webview.html = '<h1>Error loading view</h1>';
+        panel.webview.html = htmlContent || '<h1>Error loading view</h1>';
+
+        const previewImagePath = this.getPreviewImagePath(panel);
+        panel.webview.postMessage({ type: 'initialize', previewImagePath });
+
+        // Send the 'update' message after initialization
+        const rootPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+        const infoTxtPath = path.join(rootPath, 'info.txt');
+        if (fs.existsSync(infoTxtPath)) {
+            const infoTxtContent = fs.readFileSync(infoTxtPath, 'utf8');
+            panel.webview.postMessage({
+                type: 'update',
+                text: infoTxtContent
+            });
         }
 
-        panel.webview.onDidReceiveMessage(e => {
-            switch (e.type) {
-                case 'save':
-                    this.saveFile(e.filePath, e.content);
-                    return;
+        panel.webview.onDidReceiveMessage((e) => {
+            if (e.type === 'save') {
+                this.saveFile(e.filePath, e.content);
+            } else if (e.type === 'selectIcon') {
+                vscode.window.showOpenDialog({
+                    canSelectMany: false,
+                    openLabel: 'Select Icon',
+                    filters: {
+                        Images: ['png', 'jpg', 'jpeg']
+                    }
+                }).then(fileUri => {
+                    if (fileUri && fileUri[0]) {
+                        const selectedPath = fileUri[0].fsPath;
+                        const rootPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+                        const targetPath = path.join(rootPath, 'preview.jpg');
+
+                        fs.copyFile(selectedPath, targetPath, (err) => {
+                            if (err) {
+                                vscode.window.showErrorMessage(`Failed to set new icon: ${err.message}`);
+                            } else {
+                                vscode.window.showInformationMessage('Icon updated successfully!');
+
+                                // Dynamically update the icon in the webview
+                                panel.webview.postMessage({
+                                    type: 'updateIcon',
+                                    previewImagePath: panel.webview.asWebviewUri(vscode.Uri.file(targetPath)).toString()
+                                });
+                            }
+                        });
+                    }
+                });
             }
         });
 
-        return panel; // Ensure the panel is returned to the caller
+        return panel;
+    }
+
+    /**
+     * Resolves the preview image path.
+     * @param {vscode.WebviewPanel} panel - The webview panel.
+     * @returns {string} The URI of the preview image or an empty string if not found.
+     */
+    getPreviewImagePath(panel) {
+        const rootPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+        const previewFiles = ['preview.jpg', 'preview.png'];
+
+        for (const file of previewFiles) {
+            const filePath = path.join(rootPath, file);
+            if (fs.existsSync(filePath)) {
+                return panel.webview.asWebviewUri(vscode.Uri.file(filePath)).toString();
+            }
+        }
+        return '';
     }
 
     /**
@@ -54,7 +109,7 @@ class WebView {
      * @param {string} content - The content to save to the file.
      */
     saveFile(filePath, content) {
-        fs.writeFile(filePath, content, err => {
+        fs.writeFile(filePath, content, (err) => {
             if (err) {
                 vscode.window.showErrorMessage(`Failed to save file: ${err.message}`);
             } else {
@@ -71,15 +126,17 @@ class WebView {
     getHtmlForWebview(webviewPanel) {
         const htmlPath = this.context.asAbsolutePath(`./ModView/${this.viewName}/index.html`);
         const cssPath = this.context.asAbsolutePath(`./ModView/${this.viewName}/style.css`);
+
         try {
             let htmlContent = fs.readFileSync(htmlPath, 'utf8');
             const cssUri = webviewPanel.webview.asWebviewUri(vscode.Uri.file(cssPath));
             const nonce = this.getNonce();
 
-            htmlContent = htmlContent.replace('<link rel="stylesheet" href="style.css">', `<link rel="stylesheet" href="${cssUri}">`);
-            htmlContent = this.htmlProcessor(htmlContent, null, null);
-            htmlContent = htmlContent.replace(/<Nonce>/g, nonce);
-            return htmlContent;
+            htmlContent = htmlContent
+                .replace('<link rel="stylesheet" href="style.css">', `<link rel="stylesheet" href="${cssUri}">`)
+                .replace(/<Nonce>/g, nonce);
+
+            return this.htmlProcessor(htmlContent);
         } catch (error) {
             console.error(`Failed to load HTML content from ${htmlPath}: ${error.message}`);
             return null;
@@ -91,12 +148,11 @@ class WebView {
      * @returns {string} A random nonce string.
      */
     getNonce() {
-        let text = '';
-        const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for (let i = 0; i < 32; i++) {
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-        return text;
+        return Array.from({ length: 32 }, () =>
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.charAt(
+                Math.floor(Math.random() * 62)
+            )
+        ).join('');
     }
 }
 
