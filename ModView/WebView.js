@@ -85,9 +85,9 @@ class WebView {
         return this.panel ? true : false;
     }
 
-    sendUpdate(type, data) {
+    send(type, data) {
         if (!this.panel) return false;
-        this.panel.webview.postMessage({ type: type, data: data });
+        this.panel.webview.postMessage(JSON.stringify({ type: type, data: data }));
         return true;
     }
 
