@@ -1,8 +1,8 @@
 const vscode = require("vscode");
 const path = require("path");
 const fs = require("fs");
-const WebView = require("./ModView/WebView.js");
-const VscManager = require("./scripts/vsc-manager.js");
+const WebView = require("./scripts/classes/WebView.js");
+const VscManager = require("./scripts/classes/vsc-manager.js");
 
 const modviews = {
     /** 
@@ -82,6 +82,11 @@ function activate(context) {
                 vscode.window.showInformationMessage("Mod info saved successfully.");
                 // reset the unsaved changes indicator
                 modviews.main.setTitle(modviews.main.defaultTitle);
+                break;
+            case "setting_openByDefault":
+                // update the setting for opening mod view by default
+                vscManager.updateSetting("teardownModding.openModViewByDefault", data);
+                console.log("Setting 'openModViewByDefault' updated to:", data);
                 break;
             default:
                 console.log("Unhandled message type in Mod View:", type, data);

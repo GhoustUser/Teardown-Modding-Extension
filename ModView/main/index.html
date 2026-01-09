@@ -22,7 +22,8 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Main container -->
+    <div id="main-container">
         <div class="header">
             <img id="mod-icon" src="" class="icon" alt="Mod Icon">
             <div class="header-content">
@@ -52,6 +53,17 @@
         </div>
 
         <button id="saveButton" class="save-button">Save</button>
+    </div>
+    <!-- Settings Container -->
+     <div id="settings-container" class="settings-container">
+        <h2>Settings</h2>
+        <div id="settingsContent" class="settings-content">
+            <!-- Checkbox for whether modview should open by default -->
+            <div class="setting-item">
+                <input type="checkbox" id="setting-openByDefault" />
+                <label for="setting-openByDefault">Open Mod View by default</label>
+            </div>
+        </div>
     </div>
 
     <script src="main.js"></script>

@@ -253,3 +253,11 @@ function saveModInfo() {
         data: content
     });
 }
+
+document.getElementById('setting-openByDefault').addEventListener('change', (e) => {
+    const isChecked = e.target.checked;
+    vscode.postMessage({
+        type: 'setting_openByDefault',
+        data: isChecked
+    });
+});

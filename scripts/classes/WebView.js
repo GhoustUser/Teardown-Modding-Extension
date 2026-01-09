@@ -3,11 +3,19 @@ const fs = require('fs');
 const path = require('path');
 
 
-/**
- * A class to manage the custom webview editor for specific files or views.
+/** A class to manage the custom webview editor for specific files or views.
+ * @class WebView
+ * @property {string} name - The name of the view to determine the HTML file to load.
+ * @property {string} defaultTitle - The default title of the webview panel.
+ * @property {string} viewType - The unique identifier for the webview panel.
+ * @property {vscode.WebviewPanel|null} panel - The webview panel instance.
+ * @property {function(): string} currentTitle - A function that returns the current title of the webview panel.
+ * @property {function(): void} onOpen - A callback function that is called when the webview is opened.
+ * @property {function(string, any): void} onMessage - A callback function that is called when a message is received from the webview.
+ * @property {function(): void} onClose - A callback function that is called when the webview is closed.
  */
 class WebView {
-    /**
+    /** Creates an instance of WebView.
      * @param {string} name - The name of the view to determine the HTML file to load.
      * @param {string} title - The title of the webview panel.
      * @param {string} viewType - The unique identifier for the webview panel.
@@ -17,7 +25,7 @@ class WebView {
         this.defaultTitle = title;
         this.viewType = viewType;
         this.panel = null;
-        
+
         this.currentTitle = () => this.panel ? this.panel.title : this.defaultTitle;
 
         this.onOpen = () => { };
@@ -31,17 +39,16 @@ class WebView {
         }
     }
 
-    /**
-     * Opens the webview as a new panel.
+    /** Opens the webview as a new panel.
      * @returns {boolean} True if the panel was created successfully, false otherwise.
      */
     open(context) {
-        // If the panel is already open, reveal it
+        // if the panel is already open, reveal it
         if (this.panel) {
             this.panel.reveal(vscode.ViewColumn.One);
             return true;
         }
-        // Create a new webview panel
+        // create a new webview panel
         this.panel = vscode.window.createWebviewPanel(
             this.viewType,
             this.defaultTitle,
@@ -49,36 +56,34 @@ class WebView {
             { enableScripts: true, retainContextWhenHidden: true } // Retain context to prevent content loss
         );
 
-        const htmlContent = this.getHtmlForWebview(context, this.panel);
+        // set the HTML content for the webview
+        const htmlContent = this.getHtmlForWebview(context);
         this.panel.webview.html = htmlContent || '<h1>Error loading view</h1>';
 
-        const previewImagePath = this.getPreviewImagePath(this.panel);
-        this.panel.webview.postMessage({ type: 'initialize', previewImagePath });
-
+        // initialize message listener
         this.panel.webview.onDidReceiveMessage((e) => {
             const { type, data } = e;
             this.onMessage(type, data);
         });
 
-        this.onOpen();
-
+        // initialize close listener
         this.panel.onDidDispose(() => {
             this.onClose();
             this.panel = null;
         });
 
+        // call the onOpen callback
+        this.onOpen();
+
         return this.panel ? true : false;
     }
 
-    /**
-     * Closes the webview panel if it is open.
+    /** Closes the webview panel if it is open.
      * @return {void}
      */
     close() {
-        if (this.panel) {
+        if (this.panel)
             this.panel.dispose();
-            this.panel = null;
-        }
     }
 
     /**
@@ -106,56 +111,22 @@ class WebView {
     }
 
     /**
-     * Resolves the preview image path.
-     * @param {vscode.WebviewPanel} panel - The webview panel.
-     * @returns {string} The URI of the preview image or an empty string if not found.
-     */
-    getPreviewImagePath(panel) {
-        const rootPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
-        const previewFiles = ['preview.jpg', 'preview.png'];
-
-        for (const file of previewFiles) {
-            const filePath = path.join(rootPath, file);
-            if (fs.existsSync(filePath)) {
-                return panel.webview.asWebviewUri(vscode.Uri.file(filePath)).toString();
-            }
-        }
-        return '';
-    }
-
-    /**
-     * Saves content to a file.
-     * @param {string} filePath - The path of the file to save.
-     * @param {string} content - The content to save to the file.
-     */
-    saveFile(filePath, content) {
-        fs.writeFile(filePath, content, (err) => {
-            if (err) {
-                vscode.window.showErrorMessage(`Failed to save file: ${err.message}`);
-            } else {
-                vscode.window.showInformationMessage(`File saved: ${filePath}`);
-            }
-        });
-    }
-
-    /**
      * Generates the HTML content for the webview.
      * @param {vscode.ExtensionContext} context - The extension context.
-     * @param {vscode.WebviewPanel} webviewPanel - The webview panel to display the content.
      * @returns {string|null} The HTML content for the webview, or null if the file cannot be loaded.
      */
-    getHtmlForWebview(context, webviewPanel) {
-        const htmlPath = context.asAbsolutePath(`./ModView/${this.name}/index.html`);
+    getHtmlForWebview(context) {
         const webviewPath = context.asAbsolutePath(`./ModView/${this.name}`);
         const webviewUri = this.getWebviewUri(webviewPath);
+        const htmlPath = webviewPath + '/index.html';
 
         try {
             let htmlContent = fs.readFileSync(htmlPath, 'utf8');
             htmlContent = htmlContent.replaceAll(`src="`, `src="${webviewUri}/`);
             htmlContent = htmlContent.replaceAll(`href="`, `href="${webviewUri}/`);
-            // For debugging: write the final HTML to a log file
+            // for debugging: write the final HTML to a log file
             //fs.writeFileSync(
-            //    `C:\\Users\\gusta\\Desktop\\coding\\VSCode-Extensions\\Teardown-Modding\\logs\\debug_log.html`,
+            //    `C:\\Users\\gusta\\Desktop\\coding\\VSCode-Extensions\\Teardown-Modding\\logs\\webview_output.html`,
             //    htmlContent, 'utf8');
 
             return htmlContent;
