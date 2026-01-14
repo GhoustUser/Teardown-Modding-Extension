@@ -1,28 +1,25 @@
-const vscode = require("vscode");
-const path = require("path");
-const fs = require("fs");
-const WebView = require("./scripts/classes/WebView.js");
-const VscManager = require("./scripts/classes/vsc-manager.js");
+import vscode from "vscode";
+import path from "path";
+import fs from "fs";
+import WebView from "./scripts/classes/web-view";
+import VscManager from "./scripts/classes/vsc-manager";
 
 const modviews = {
-    /** 
-     * The main Mod View.
-     * @type {WebView|null}
+    /** The main Mod View.
+     * @type {WebView}
      */
     main: new WebView(
-        "main",
-        "Mod View",
-        "mod-view-main"
+        "mod-view-main",
+        "Mod View"
     )
 }
 
-/**
- * Entry point for the extension.
+/** Entry point for the extension.
  * @param {vscode.ExtensionContext} context - The extension context provided by VS Code
  * @returns {void}
  */
 
-function activate(context) {
+function activate(context: vscode.ExtensionContext): void {
     const vscManager = new VscManager(context);
 
     // check if there are workspace folders open
@@ -37,30 +34,29 @@ function activate(context) {
         return;
     }
 
-    modviews.main.onOpen = () => {
-        // read the contents of info.txt and send it to the webview
+    modviews.main.onOpen(() => {
+        // read and send info.txt content to webview
         const infoTxtPath = path.join(vscManager.projectPath, "info.txt");
         if (fs.existsSync(infoTxtPath)) {
             const infoTxtContent = fs.readFileSync(infoTxtPath, "utf8");
             modviews.main.send("infoTxt", infoTxtContent);
         }
-        // send the mod icon path if it exists
-        let modIconPath = path.join(vscManager.projectPath, "preview.png");
-        if (!fs.existsSync(modIconPath)) {
-            modIconPath = path.join(vscManager.projectPath, "preview.jpg");
-        }
-        if (fs.existsSync(modIconPath)) {
-            const modIconUri = modviews.main.getWebviewUri(modIconPath);
-            modviews.main.send("modIconPath", modIconUri.toString());
-        }
-        console.log("Mod View opened.");
-    };
 
-    modviews.main.onClose = () => {
-        console.log("Mod View closed.");
-    };
+        // send mod icon path if it exists (try .png first, then .jpg)
+        const iconExtensions = ["preview.png", "preview.jpg"];
+        for (const iconFile of iconExtensions) {
+            const modIconPath = path.join(vscManager.projectPath, iconFile);
+            if (fs.existsSync(modIconPath)) {
+                const modIconUri = modviews.main.getWebviewUri(modIconPath);
+                modviews.main.send("modIconPath", modIconUri.toString());
+                break;
+            }
+        }
 
-    modviews.main.onMessage = (type, data) => {
+        console.log("Mod View opened");
+    });
+
+    modviews.main.onMessage(({ type, data }) => {
         // handle different message types
         switch (type) {
             case "reload":
@@ -89,10 +85,14 @@ function activate(context) {
                 console.log("Setting 'openModViewByDefault' updated to:", data);
                 break;
             default:
-                console.log("Unhandled message type in Mod View:", type, data);
+                console.warn(`\x1b[93mUnhandled message type in Mod View: \x1b[35m${type}: \x1b[96m${data}\x1b[0m`, );
                 break;
         }
-    };
+    });
+
+    modviews.main.onClose(() => {
+        console.log("Mod View closed.");
+    });
 
     // register command to open the Mod View
     vscManager.registerCommand("teardownModding.openModView", () => {

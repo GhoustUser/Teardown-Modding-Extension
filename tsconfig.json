@@ -1,0 +1,51 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+	// File Layout
+	"rootDir": "./",
+	"outDir": "./out",
+
+	// Environment Settings
+	// See also https://aka.ms/tsconfig/module
+	"module": "commonjs",
+	"target": "ES2022",
+	//"types": [],
+	// For nodejs:
+	"lib": ["ES2022"],
+	"types": ["node"],
+	// and npm install -D @types/node
+
+	// Other Outputs
+	"sourceMap": true,
+	"declaration": true,
+	"declarationMap": true,
+
+	// Stricter Typechecking Options
+	"noUncheckedIndexedAccess": true,
+	"exactOptionalPropertyTypes": true,
+
+	// Recommended Options
+	"strict": true,
+	"jsx": "react-jsx",
+	"verbatimModuleSyntax": false,
+	"isolatedModules": true,
+	"noUncheckedSideEffectImports": true,
+	"moduleDetection": "force",
+	"skipLibCheck": true,
+	
+	// Other Options
+	"resolveJsonModule": true,
+	"noEmit": false,
+	"baseUrl": ".",
+	"esModuleInterop": true,
+	"allowSyntheticDefaultImports": true,
+	"forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "out"
+  ]
+}

@@ -1,3 +1,5 @@
-Teardown-lua-API.code-workspace
-.vscode
+.vscode/
+.github/
+/node_modules/
+/out/
 /logs/

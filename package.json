@@ -7,7 +7,14 @@
 		"url": "https://gitlab.com/GhoustUser"
 	},
 	"version": "0.1.0",
-	"main": "./extension.js",
+	"main": "./out/extension.js",
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"package": "vsce package"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://gitlab.com/ghoust1/teardown/Teardown-lua-API"
@@ -42,5 +49,9 @@
 				"title": "Open Teardown Mod View"
 			}
 		]
+	},
+	"devDependencies": {
+		"@types/node": "^25.0.8",
+		"@types/vscode": "^1.108.1"
 	}
 }
