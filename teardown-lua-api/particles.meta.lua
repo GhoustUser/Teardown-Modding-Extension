@@ -1,0 +1,17 @@
+---@meta
+
+--ParticleReset
+--ParticleType
+--ParticleTile
+--ParticleColor
+--ParticleRadius
+--ParticleAlpha
+--ParticleGravity
+--ParticleDrag
+--ParticleEmissive
+--ParticleRotation
+--ParticleStretch
+--ParticleSticky
+--ParticleCollide
+--ParticleFlags
+--SpawnParticle

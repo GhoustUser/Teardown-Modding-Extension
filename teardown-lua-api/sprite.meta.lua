@@ -1,0 +1,4 @@
+---@meta
+
+--LoadSprite
+--DrawSprite

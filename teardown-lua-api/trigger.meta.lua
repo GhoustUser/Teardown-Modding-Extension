@@ -1,0 +1,15 @@
+---@meta
+
+--FindTrigger
+--FindTriggers
+--GetTriggerTransform
+--SetTriggerTransform
+--GetTriggerBounds
+--IsBodyInTrigger
+--IsVehicleInTrigger
+--IsShapeInTrigger
+--IsPointInTrigger
+--IsPointInBoundaries
+--IsTriggerEmpty
+--GetTriggerDistance
+--GetTriggerClosestPoint

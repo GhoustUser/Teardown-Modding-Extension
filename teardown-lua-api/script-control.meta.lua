@@ -228,3 +228,12 @@ function SetValueInTable(tableId, memberName, newValue, type, length) end
     ClientCall
     ServerCall
 ]]
+
+--PauseMenuButton
+--HasFile
+--StartLevel
+--SetPaused
+--Restart
+--Menu
+--ClientCall
+--ServerCall
