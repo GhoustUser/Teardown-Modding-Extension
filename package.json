@@ -1,12 +1,12 @@
 {
-	"name": "teardown-lua-api",
-	"displayName": "Teardown lua API",
-	"description": "Adds Teardown's Lua API to the Lua language server for better autocompletion and documentation support.",
+	"name": "teardown-modding-extension",
+	"displayName": "Teardown Modding Extension",
+	"description": "A VS Code extension to make modding Teardown easier, with Lua API references and mod management.",
 	"author": {
 		"name": "GhoustUser",
 		"url": "https://github.com/GhoustUser"
 	},
-	"version": "0.2",
+	"version": "0.2.0",
 	"main": "./out/extension.js",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
