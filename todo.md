@@ -2,6 +2,7 @@
 - think of a better name for the extension
 - separate setting to toggle `"duplicate-set-field"` from `"enableScriptingApi"`.
 - fix inconsistent naming schemes (I think...)
+- add actual extension settings menu
 
 ## Lua API
 - add all api definitions as lua meta code.
