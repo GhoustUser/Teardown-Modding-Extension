@@ -1,34 +1,34 @@
 ---@meta
 
---FindBody
---FindBodies
---GetBodyTransform
---SetBodyTransform
---GetBodyMass
---IsBodyDynamic
---SetBodyDynamic
---SetBodyVelocity
---GetBodyVelocity
---GetBodyVelocityAtPos
---SetBodyAngularVelocity
---GetBodyAngularVelocity
---IsBodyActive
---SetBodyActive
---ApplyBodyImpulse
---GetBodyShapes
---GetBodyVehicle
---GetBodyAnimator
---GetBodyPlayer
---GetBodyBounds
---GetBodyCenterOfMass
---IsBodyVisible
---IsBodyBroken
---IsBodyJointedToStatic
---DrawBodyOutline
---DrawBodyHighlight
---GetBodyClosestPoint
---ConstrainVelocity
---ConstrainAngularVelocity
---ConstrainPosition
---ConstrainOrientation
---GetWorldBody
+--! FindBody
+--! FindBodies
+--! GetBodyTransform
+--! SetBodyTransform
+--! GetBodyMass
+--! IsBodyDynamic
+--! SetBodyDynamic
+--! SetBodyVelocity
+--! GetBodyVelocity
+--! GetBodyVelocityAtPos
+--! SetBodyAngularVelocity
+--! GetBodyAngularVelocity
+--! IsBodyActive
+--! SetBodyActive
+--! ApplyBodyImpulse
+--! GetBodyShapes
+--! GetBodyVehicle
+--! GetBodyAnimator
+--! GetBodyPlayer
+--! GetBodyBounds
+--! GetBodyCenterOfMass
+--! IsBodyVisible
+--! IsBodyBroken
+--! IsBodyJointedToStatic
+--! DrawBodyOutline
+--! DrawBodyHighlight
+--! GetBodyClosestPoint
+--! ConstrainVelocity
+--! ConstrainAngularVelocity
+--! ConstrainPosition
+--! ConstrainOrientation
+--! GetWorldBody

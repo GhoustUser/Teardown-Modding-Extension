@@ -1,9 +1,9 @@
 ---@meta
 
---FindRig
---GetRigWorldTransform
---SetRigWorldTransform
---GetRigLocationWorldTransform
---SetRigLocationWorldTransform
---GetRigLocationLocalTransform
---SetRigLocationLocalTransform
+--! FindRig
+--! GetRigWorldTransform
+--! SetRigWorldTransform
+--! GetRigLocationWorldTransform
+--! SetRigLocationWorldTransform
+--! GetRigLocationLocalTransform
+--! SetRigLocationLocalTransform

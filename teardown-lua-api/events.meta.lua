@@ -1,5 +1,5 @@
 ---@meta
 
---GetEventCount
---PostEvent
---GetEvent
+--! GetEventCount
+--! PostEvent
+--! GetEvent

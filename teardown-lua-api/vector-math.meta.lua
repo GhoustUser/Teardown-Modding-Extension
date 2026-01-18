@@ -1,40 +1,40 @@
 ---@meta
 
---Vec
---VecCopy
---VecStr
---VecLength
---VecNormalize
---VecScale
---VecAdd
---VecSub
---VecDot
---VecCross
---VecLerp
---Quat
---QuatCopy
---QuatAxisAngle
---QuatDeltaNormals
---QuatDeltaVectors
---QuatEuler
---QuatAlignXZ
---GetQuatEuler
---QuatLookAt
---QuatSlerp
---QuatStr
---QuatRotateQuat
---QuatRotateVec
---Transform
---TransformCopy
---TransformStr
---TransformToParentTransform
---TransformToLocalTransform
---TransformToParentVec
---TransformToLocalVec
---TransformToParentPoint
---TransformToLocalPoint
---SetRandomSeed
---GetRandomBool
---GetRandomInt
---GetRandomFloat
---GetRandomDirection
+--! Vec
+--! VecCopy
+--! VecStr
+--! VecLength
+--! VecNormalize
+--! VecScale
+--! VecAdd
+--! VecSub
+--! VecDot
+--! VecCross
+--! VecLerp
+--! Quat
+--! QuatCopy
+--! QuatAxisAngle
+--! QuatDeltaNormals
+--! QuatDeltaVectors
+--! QuatEuler
+--! QuatAlignXZ
+--! GetQuatEuler
+--! QuatLookAt
+--! QuatSlerp
+--! QuatStr
+--! QuatRotateQuat
+--! QuatRotateVec
+--! Transform
+--! TransformCopy
+--! TransformStr
+--! TransformToParentTransform
+--! TransformToLocalTransform
+--! TransformToParentVec
+--! TransformToLocalVec
+--! TransformToParentPoint
+--! TransformToLocalPoint
+--! SetRandomSeed
+--! GetRandomBool
+--! GetRandomInt
+--! GetRandomFloat
+--! GetRandomDirection

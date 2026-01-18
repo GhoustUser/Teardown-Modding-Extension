@@ -1,18 +1,18 @@
 ---@meta
 
---FindJoint
---FindJoints
---IsJointBroken
---GetJointType
---GetJointOtherShape
---GetJointShapes
---SetJointMotor
---SetJointMotorTarget
---GetJointLimits
---GetJointMovement
---GetJointedBodies
---DetachJointFromShape
---GetRopeNumberOfPoints
---GetRopePointPosition
---GetRopeBounds
---BreakRope
+--! FindJoint
+--! FindJoints
+--! IsJointBroken
+--! GetJointType
+--! GetJointOtherShape
+--! GetJointShapes
+--! SetJointMotor
+--! SetJointMotorTarget
+--! GetJointLimits
+--! GetJointMovement
+--! GetJointedBodies
+--! DetachJointFromShape
+--! GetRopeNumberOfPoints
+--! GetRopePointPosition
+--! GetRopeBounds
+--! BreakRope

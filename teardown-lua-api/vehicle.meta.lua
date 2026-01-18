@@ -1,20 +1,20 @@
 ---@meta
 
---FindVehicle
---FindVehicles
---GetVehicleTransform
---GetVehicleExhaustTransforms
---GetVehicleVitalTransforms
---GetVehicleBodies
---GetVehicleBody
---GetVehicleHealth
---GetVehicleParams
---SetVehicleParam
---GetVehicleDriverPos
---GetVehicleAvailableSeatPos
---GetVehicleSteering
---GetVehicleDrive
---DriveVehicle
---GetVehicleLocationWorldTransform
---GetVehiclePassengerCount
---SetVehicleHealth
+--! FindVehicle
+--! FindVehicles
+--! GetVehicleTransform
+--! GetVehicleExhaustTransforms
+--! GetVehicleVitalTransforms
+--! GetVehicleBodies
+--! GetVehicleBody
+--! GetVehicleHealth
+--! GetVehicleParams
+--! SetVehicleParam
+--! GetVehicleDriverPos
+--! GetVehicleAvailableSeatPos
+--! GetVehicleSteering
+--! GetVehicleDrive
+--! DriveVehicle
+--! GetVehicleLocationWorldTransform
+--! GetVehiclePassengerCount
+--! SetVehicleHealth

@@ -1,8 +1,8 @@
 ---@meta
 
---FindScreen
---FindScreens
---SetScreenEnabled
---IsScreenEnabled
---GetScreenShape
---GetScreenPlayer
+--! FindScreen
+--! FindScreens
+--! SetScreenEnabled
+--! IsScreenEnabled
+--! GetScreenShape
+--! GetScreenPlayer

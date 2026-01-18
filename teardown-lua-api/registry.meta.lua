@@ -1,19 +1,19 @@
 ---@meta
 
---ClearKey
---ListKeys
---HasKey
---SetInt
---GetInt
---SetFloat
---GetFloat
---SetBool
---GetBool
---SetString
---GetString
---SetColor
---GetColor
---GetTranslatedStringByKey
---HasTranslationByKey
---LoadLanguageTable
---GetUserNickname
+--! ClearKey
+--! ListKeys
+--! HasKey
+--! SetInt
+--! GetInt
+--! SetFloat
+--! GetFloat
+--! SetBool
+--! GetBool
+--! SetString
+--! GetString
+--! SetColor
+--! GetColor
+--! GetTranslatedStringByKey
+--! HasTranslationByKey
+--! LoadLanguageTable
+--! GetUserNickname

@@ -1,4 +1,4 @@
 ---@meta
 
---LoadSprite
---DrawSprite
+--! LoadSprite
+--! DrawSprite

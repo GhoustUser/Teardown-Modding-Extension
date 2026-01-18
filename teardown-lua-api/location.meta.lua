@@ -1,5 +1,5 @@
 ---@meta
 
---FindLocation
---FindLocations
---GetLocationTransform
+--! FindLocation
+--! FindLocations
+--! GetLocationTransform

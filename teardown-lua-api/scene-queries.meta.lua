@@ -1,15 +1,15 @@
 ---@meta
 
---QueryRequire
---QueryInclude
---QueryCollisionMask
---QueryRejectAnimator
---QueryRejectVehicle
---QueryRejectBody
---QueryRejectBodies
---QueryRejectShape
---QueryRejectShapes
---QueryRejectPlayer
+--! QueryRequire
+--! QueryInclude
+--! QueryCollisionMask
+--! QueryRejectAnimator
+--! QueryRejectVehicle
+--! QueryRejectBody
+--! QueryRejectBodies
+--! QueryRejectShape
+--! QueryRejectShapes
+--! QueryRejectPlayer
 ---@param origin TVec -- Raycast origin as world space vector
 ---@param direction TVec -- Unit length raycast direction as world space vector
 ---@param maxDist number -- Raycast maximum distance. Keep this as low as possible for good performance.
@@ -32,20 +32,20 @@
 ---end
 ---```
 function QueryRaycast(origin, direction, maxDist, radius, rejectTransparent) end
---QueryRaycastRope
---QueryRaycastWater
---QueryShot
---QueryClosestPoint
---QueryAabbShapes
---QueryAabbBodies
---QueryPath
---CreatePathPlanner
---DeletePathPlanner
---PathPlannerQuery
---AbortPath
---GetPathState
---GetPathLength
---GetPathPoint
---GetLastSound
---IsPointInWater
---GetWindVelocity
+--! QueryRaycastRope
+--! QueryRaycastWater
+--! QueryShot
+--! QueryClosestPoint
+--! QueryAabbShapes
+--! QueryAabbBodies
+--! QueryPath
+--! CreatePathPlanner
+--! DeletePathPlanner
+--! PathPlannerQuery
+--! AbortPath
+--! GetPathState
+--! GetPathLength
+--! GetPathPoint
+--! GetLastSound
+--! IsPointInWater
+--! GetWindVelocity

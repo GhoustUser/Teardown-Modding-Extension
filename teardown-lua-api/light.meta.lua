@@ -1,13 +1,13 @@
 ---@meta
 
---FindLight
---FindLights
---SetLightEnabled
---SetLightColor
---SetLightIntensity
---GetLightTransform
---GetLightShape
---IsLightActive
---IsPointAffectedByLight
---GetFlashlight
---SetFlashlight
+--! FindLight
+--! FindLights
+--! SetLightEnabled
+--! SetLightColor
+--! SetLightIntensity
+--! GetLightTransform
+--! GetLightShape
+--! IsLightActive
+--! IsPointAffectedByLight
+--! GetFlashlight
+--! SetFlashlight
