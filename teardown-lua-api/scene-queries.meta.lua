@@ -10,7 +10,28 @@
 --QueryRejectShape
 --QueryRejectShapes
 --QueryRejectPlayer
---QueryRaycast
+---@param origin TVec -- Raycast origin as world space vector
+---@param direction TVec -- Unit length raycast direction as world space vector
+---@param maxDist number -- Raycast maximum distance. Keep this as low as possible for good performance.
+---@param radius? number -- Raycast thickness. Default zero.
+---@param rejectTransparent? boolean -- Raycast through transparent materials. Default false.
+---@return boolean hit -- True if raycast hit something
+---@return number dist -- World space normal at hit point
+---@return number shape -- Handle to hit shape
+---@return TVec normal -- Hit surface normal
+---@example
+---```lua
+---function client.init()
+---	local vehicle = FindVehicle("vehicle")
+---	QueryRejectVehicle(vehicle)
+---	--Raycast from a high point straight downwards, excluding a specific vehicle
+---	local hit, d = QueryRaycast(Vec(0, 100, 0), Vec(0, -1, 0), 100)
+---	if hit then
+---		DebugPrint(d)
+---	end
+---end
+---```
+function QueryRaycast(origin, direction, maxDist, radius, rejectTransparent) end
 --QueryRaycastRope
 --QueryRaycastWater
 --QueryShot
