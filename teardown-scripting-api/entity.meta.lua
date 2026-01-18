@@ -1,0 +1,248 @@
+--- @meta
+
+--- Returns an entity with the specified tag and type. This is a universal method that is an alternative to FindBody, FindShape, FindVehicle, etc.
+--- @param tag? string -- Tag name
+--- @param global? boolean -- Search in entire scene
+--- @param type? string -- Entity type ("body", "shape", "light", "location" etc.)
+--- @return number handle -- Handle to first entity with specified tag or zero if not found
+--- @example
+--- ```lua
+--- function client.tick()
+--- 	--You may use this function in a similar way to other "Find functions" like FindBody, FindShape, FindVehicle, etc.
+--- 	local myCar = FindEntity("myCar", false, "vehicle")
+--- 	--If you do not specify the tag, the first element found will be returned
+--- 	local joint = FindEntity("", true, "joint")
+--- 	--If the type is not specified, the search will be performed for all types of entity
+--- 	local target = FindEntity("target", true)
+--- end
+--- ```
+function FindEntity(tag, global, type) end
+
+--- Returns a list of entities with the specified tag and type. This is a universal method that is an alternative to FindBody, FindShape, FindVehicle, etc.
+--- @param tag? string -- Tag name
+--- @param global? boolean -- Search in entire scene
+--- @param type? string -- Entity type ("body", "shape", "light", "location" etc.)
+--- @return table list -- Indexed table with handles to all entities with specified tag
+--- @example
+--- ```lua
+--- function client.tick()
+--- 	-- You may use this function in a similar way to other "Find functions" like FindBody, FindShape, FindVehicle, etc.
+--- 	local cars = FindEntities("car", false, "vehicle")
+--- 	-- You can get all the entities of the specified type by passing an empty string to the tag
+--- 	local allJoints = FindEntities("", true, "joint")
+--- 	-- If the type is not specified, the search will be performed for all types
+--- 	local allUnbreakables = FindEntities("unbreakable", true)
+--- end
+--- ```
+function FindEntities(tag, global, type) end
+
+--- Returns child entities
+--- @param handle number -- Entity handle
+--- @param tag? string -- Tag name
+--- @param recursive? boolean -- Search recursively
+--- @param type? string -- Entity type ("body", "shape", "light", "location" etc.)
+--- @return table list -- Indexed table with child elements of the entity
+--- @example
+--- ```lua
+--- function client.tick()
+--- 	local car = FindEntity("car", true, "vehicle")
+--- 	DebugWatch("car", car)
+--- 	local children = GetEntityChildren(entity, "", true, "wheel")
+--- 	for i = 1, #children do
+--- 		DebugWatch("wheel " .. tostring(i), children[i])
+--- 	end
+--- end
+--- ```
+function GetEntityChildren(handle, tag, recursive, type) end
+
+--- @param handle number -- Entity handle
+--- @param tag? string -- Tag name
+--- @param type? string -- Entity type ("body", "shape", "light", "location" etc.)
+--- @return number handle -- 
+--- @example
+--- ```lua
+--- function client.tick()
+--- 	local wheel = FindEntity("", true, "wheel")
+--- 	local vehicle = GetEntityParent(wheel,  "", "vehicle")
+--- 	DebugWatch("Wheel vehicle", GetEntityType(vehicle) .. " " .. tostring(vehicle))
+--- end
+--- ```
+function GetEntityParent(handle, tag, type) end
+
+--- @param handle number -- Entity handle
+--- @param tag string -- Tag name
+--- @param value? string -- Tag value
+--- @example
+--- ```lua
+--- function init()
+--- 	local handle = FindBody("body", true)
+--- 	--Add "special" tag to an entity
+--- 	SetTag(handle, "special")
+--- 	DebugPrint(HasTag(handle, "special"))
+--- 	--Add "team" tag to an entity and give it value "red"
+--- 	SetTag(handle, "team", "red")
+--- 	DebugPrint(HasTag(handle, "team"))
+--- end
+--- ```
+function SetTag(handle, tag, value) end
+
+--- Remove tag from an entity. If the tag had a value it is removed too.
+--- @param handle number -- Entity handle
+--- @param tag string -- Tag name
+--- @example
+--- ```lua
+--- function init()
+--- 	local handle = FindBody("body", true)
+--- 	--Add "special" tag to an entity
+--- 	SetTag(handle, "special")
+--- 	RemoveTag(handle, "special")
+--- 	DebugPrint(HasTag(handle, "special"))
+--- 	--Add "team" tag to an entity and give it value "red"
+--- 	SetTag(handle, "team", "red")
+--- 	DebugPrint(HasTag(handle, "team"))
+--- end
+--- ```
+function RemoveTag(handle, tag) end
+
+--- @param handle number -- Entity handle
+--- @param tag string -- Tag name
+--- @return boolean exists -- Returns true if entity has tag
+--- @example
+--- ```lua
+--- function init()
+--- 	local handle = FindBody("body", true)
+--- 	--Add "special" tag to an entity
+--- 	SetTag(handle, "special")
+--- 	DebugPrint(HasTag(handle, "special"))
+--- 	--Add "team" tag to an entity and give it value "red"
+--- 	SetTag(handle, "team", "red")
+--- 	DebugPrint(HasTag(handle, "team"))
+--- end
+--- ```
+function HasTag(handle, tag) end
+
+--- @param handle number -- Entity handle
+--- @param tag string -- Tag name
+--- @return string value -- Returns the tag value, if any. Empty string otherwise.
+--- @example
+--- ```lua
+--- function init()
+--- 	local handle = FindBody("body", true)
+--- 	--Add "team" tag to an entity and give it value "red"
+--- 	SetTag(handle, "team", "red")
+--- 	DebugPrint(GetTagValue(handle, "team"))
+--- end
+--- ```
+function GetTagValue(handle, tag) end
+
+--- @param handle number -- Entity handle
+--- @return table tags -- Indexed table of tags on entity
+--- @example
+--- ```lua
+--- function init()
+--- 	local handle = FindBody("body", true)
+--- 	--Add "team" tag to an entity and give it value "red"
+--- 	SetTag(handle, "team", "red")
+--- 	--List all tags and their tag values for a particular entity
+--- 	local tags = ListTags(handle)
+--- 	for i=1, #tags do
+--- 		DebugPrint(tags[i] .. " " .. GetTagValue(handle, tags[i]))
+--- 	end
+--- end
+--- ```
+function ListTags(handle) end
+
+--- All entities can have an associated description. For bodies and
+--- shapes this can be provided through the editor. This function
+--- retrieves that description.
+--- @param handle number -- Entity handle
+--- @return string description -- The description string
+--- @example
+--- ```lua
+--- function init()
+--- 	local body = FindBody("body", true)
+--- 	DebugPrint(GetDescription(body))
+--- end
+--- ```
+function GetDescription(handle) end
+
+--- All entities can have an associated description. The description for
+--- bodies and shapes will show up on the HUD when looking at them.
+--- @param handle number -- Entity handle
+--- @param description string -- The description string
+--- @example
+--- ```lua
+--- function init()
+--- 	local body = FindBody("body", true)
+--- 	SetDescription(body, "Target object")
+--- 	DebugPrint(GetDescription(body))
+--- end
+--- ```
+function SetDescription(handle, description) end
+
+--- Remove an entity from the scene. All entities owned by this entity
+--- will also be removed.
+--- @param handle number -- Entity handle
+--- @example
+--- ```lua
+--- function init()
+--- 	local body = FindBody("body", true)
+--- 	--All shapes associated with body will also be removed
+--- 	Delete(body)
+--- end
+--- ```
+function Delete(handle) end
+
+--- @param handle number -- Entity handle
+--- @return boolean exists -- Returns true if the entity pointed to by handle still exists
+--- @example
+--- ```lua
+--- function init()
+--- 	local body = FindBody("body", true)
+--- 	--valid is true if body still exists
+--- 	DebugPrint(IsHandleValid(body))
+--- 	Delete(body)
+--- 	--valid will now be false
+--- 	DebugPrint(IsHandleValid(body))
+--- end
+--- ```
+function IsHandleValid(handle) end
+
+--- Returns the type name of provided entity, for example "body", "shape", "light", etc.
+--- @param handle number -- Entity handle
+--- @return string type -- Type name of the provided entity
+--- @example
+--- ```lua
+--- function init()
+--- 	local body = FindBody("body", true)
+--- 	DebugPrint(GetEntityType(body))
+--- end
+--- ```
+function GetEntityType(handle) end
+
+--- @param handle number -- Entity handle
+--- @param property string -- Property name
+--- @return any value -- Property value
+--- @example
+--- ```lua
+--- function client.tick()
+--- 	local body = FindBody("testbody", true)
+--- 	local isDynamic = GetProperty(body, "dynamic")
+--- 	DebugWatch("isDynamic", isDynamic)
+--- end
+--- ```
+function GetProperty(handle, property) end
+
+---### SERVER ONLY
+--- @param handle number -- Entity handle
+--- @param property string -- Property name
+--- @param value any -- Property value
+--- @example
+--- ```lua
+--- function tick()
+--- 	local light = FindLight("mylight", true)
+--- 	SetProperty(light, "intensity", math.abs(math.sin(GetTime())))
+--- end
+--- ```
+function SetProperty(handle, property, value) end
+

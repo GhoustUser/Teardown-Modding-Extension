@@ -6,7 +6,7 @@ import VscManager from "./classes/vsc-manager";
  * @returns {boolean} True if the Lua API is loaded, false otherwise
  */
 function isScriptingApiLoaded(vscManager: VscManager): boolean {
-    const luaApiPath = path.join(vscManager.context.extensionPath, "teardown-lua-api");
+    const luaApiPath = path.join(vscManager.context.extensionPath, "teardown-scripting-api");
     const workspaceLibrary = vscManager.getSetting("Lua.workspace.library", []);
     return workspaceLibrary.includes(luaApiPath);
 }
@@ -21,12 +21,12 @@ function loadScriptingApi(vscManager: VscManager): void {
         return;
     }
 
-    const luaApiPath = path.join(vscManager.context.extensionPath, "teardown-lua-api");
+    const luaApiPath = path.join(vscManager.context.extensionPath, "teardown-scripting-api");
     const workspaceLibrary = vscManager.getSetting("Lua.workspace.library", []);
     //console.log(`\x1b[34mCurrent Lua.workspace.library: \x1b[0m${JSON.stringify(workspaceLibrary)}`);
-    // filter out any old teardown-lua-api paths from previous versions
+    // filter out any old teardown-scripting-api paths from previous versions
     const filteredLibrary = workspaceLibrary.filter((libPath: string) => 
-        !libPath.endsWith("teardown-lua-api")
+        !libPath.endsWith("teardown-scripting-api")
     );
 
     // add the new path and update setting
@@ -52,12 +52,12 @@ function unloadScriptingApi(vscManager: VscManager): void {
         return;
     }
 
-    const luaApiPath = path.join(vscManager.context.extensionPath, "teardown-lua-api");
+    const luaApiPath = path.join(vscManager.context.extensionPath, "teardown-scripting-api");
     const workspaceLibrary = vscManager.getSetting("Lua.workspace.library", []);
     
-    // filter out teardown-lua-api paths
+    // filter out teardown-scripting-api paths
     const filteredLibrary = workspaceLibrary.filter((libPath: string) => 
-        !libPath.endsWith("teardown-lua-api")
+        !libPath.endsWith("teardown-scripting-api")
     );
 
     vscManager.updateSetting("Lua.workspace.library", filteredLibrary);

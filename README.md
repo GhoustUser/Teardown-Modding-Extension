@@ -34,31 +34,7 @@ Will probably add more settings at some point.
 
 ## API progress
 
-The current progress per category for implementing type definitions of the API:
-  - [x] Parameters
-  - [ ] Script control (in progress)
-  - [ ] Registry
-  - [ ] Events
-  - [ ] Vector math
-  - [ ] Entity
-  - [ ] Body
-  - [ ] Shape
-  - [ ] Location
-  - [ ] Joint
-  - [ ] Animation
-  - [ ] Light
-  - [ ] Trigger
-  - [ ] Screen
-  - [ ] Vehicle
-  - [ ] Rig
-  - [ ] Player
-  - [ ] Sound
-  - [ ] Sprite
-  - [ ] Scene queries
-  - [ ] Particles
-  - [ ] Spawn
-  - [ ] Miscellaneous
-  - [ ] User Interface
+List of implemented definition categories can be found in `TODO.md`.
 
 I'm currently just writing these manually, since the documentation isn't very easily scrape-able as far as I can tell. If you know a way to generate the lua meta definitions, please let me know.
 
@@ -68,7 +44,7 @@ The extension adds `.meta.lua` files into the Lua Language Server's workspace li
 
 The custom interface is implemented as a VS Code webview.
 
-The Lua type definitions are located in files under `teardown-lua-api/*.meta.lua`, with one file for each category.
+The Lua type definitions are located in files under `teardown-scripting-api/*.meta.lua`, with one file for each category.
 
 ## Links
 - [Teardown Game](https://teardowngame.com) - the game this is for

@@ -15,7 +15,7 @@
   - [ ] Entity
   - [ ] Body
   - [ ] Shape
-  - [ ] Location
+  - [x] Location
   - [ ] Joint
   - [ ] Animation
   - [ ] Light

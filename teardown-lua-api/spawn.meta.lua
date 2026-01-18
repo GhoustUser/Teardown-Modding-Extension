@@ -1,5 +1,0 @@
----@meta
-
---! Spawn
---! SpawnLayer
---! SpawnTool

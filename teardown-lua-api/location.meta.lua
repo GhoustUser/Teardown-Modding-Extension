@@ -1,5 +1,0 @@
----@meta
-
---! FindLocation
---! FindLocations
---! GetLocationTransform
