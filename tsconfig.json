@@ -9,7 +9,6 @@
 	// See also https://aka.ms/tsconfig/module
 	"module": "commonjs",
 	"target": "ES2022",
-	//"types": [],
 	// For nodejs:
 	"lib": ["ES2022"],
 	"types": ["node"],

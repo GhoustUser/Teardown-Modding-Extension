@@ -72,7 +72,7 @@ class WebView {
             this._name,
             this._defaultTitle,
             vscode.ViewColumn.One,
-            { enableScripts: true, retainContextWhenHidden: true } // Retain context to prevent content loss
+            { enableScripts: true, retainContextWhenHidden: true } // retain context to prevent content loss
         );
 
         // set the HTML content for the webview

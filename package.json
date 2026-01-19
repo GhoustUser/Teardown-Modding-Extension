@@ -6,7 +6,7 @@
 		"name": "GhoustUser",
 		"url": "https://github.com/GhoustUser"
 	},
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"main": "./out/extension.js",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -34,12 +34,17 @@
 	],
 	"contributes": {
 		"configuration": {
-			"title": "Teardown Modding Extension configuration",
+			"title": "Teardown Modding Extension",
 			"properties": {
-				"teardownModding.openModViewByDefault": {
+				"teardownModding.enableScriptingAPI": {
 					"type": "boolean",
 					"default": false,
-					"description": "Whether to open the Mod View automatically when the extension is activated."
+					"description": "Whether to enable Lua scripting API references for Teardown modding. (workspace only)"
+				},
+				"teardownModding.showPrompt": {
+					"type": "boolean",
+					"default": true,
+					"description": "Used to track if the user has already seen the prompt to enable the scripting API. (workspace only)"
 				}
 			}
 		},

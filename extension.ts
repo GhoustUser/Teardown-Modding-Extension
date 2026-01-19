@@ -5,6 +5,7 @@ import fs from "fs";
 import WebView from "./scripts/web-view";
 import VscManager from "./scripts/vsc-manager";
 import initializeModViewMain from "./ModView/mod-view-main/initialize";
+import { enableScriptingApi } from "./scripts/scripting-api";
 
 
 // initialize mod views
@@ -20,17 +21,13 @@ function activate(context: vscode.ExtensionContext): void {
 
     // if no workspace folders are open, exit early
     if (!vscManager.workspaceFolders) {
-        console.log("\x1b[33mNo workspace folders found\x1b[0m");
         return;
     }
     // if info.txt doesn't exist, exit early
-    // this should already be handled by the activationEvents in package.json, but this is a fallback
+    // this should already be handled by the "activationEvents" in package.json, but this is a fallback
     if (!fs.existsSync(path.join(vscManager.projectPath, "info.txt"))) {
-        console.log("\x1b[33mNo Teardown mod detected in workspace\x1b[0m");
         return;
     }
-
-    console.log(`\x1b[32mTeardown mod detected at: \x1b[96m${vscManager.projectPath}\x1b[0m`);
 
     // initialize main mod view
     initializeModViewMain(mainModview, vscManager);
@@ -40,16 +37,31 @@ function activate(context: vscode.ExtensionContext): void {
         mainModview.open(context);
     });
 
-    // open Mod View by default if the setting is enabled
-    const shouldOpenByDefault = vscManager.getSetting("teardownModding.openModViewByDefault", false);
-    if (shouldOpenByDefault) {
-        mainModview.open(context);
-        console.log("\x1b[32mOpened Mod View by default (setting enabled)\x1b[0m");
-    } else {
+    vscManager.onWorkspaceSettingChanged("teardownModding.enableScriptingAPI", (newValue: any) => {
+        if (typeof newValue === "boolean") {
+            enableScriptingApi(newValue, vscManager);
+        }
+    });
+
+    // if the setting is not set, prompt the user to enable the scripting API
+    const doShowPrompt: boolean = vscManager.getSetting("teardownModding.showPrompt", false);
+    if (doShowPrompt) {
+        // show prompt to enable scripting API
         vscManager.showInformationMessage(
-            "Teardown Mod detected in workspace.",
-            [{ name: "Open Mod View", action: () => mainModview.open(context) }]
-        );
+            "Teardown Mod detected in workspace, enable intellisense for scripting API?",
+            [
+                { name: "Enable", action: () => vscManager.updateSetting("teardownModding.enableScriptingAPI", true) },
+                { name: "Dismiss", action: () => vscManager.updateSetting("teardownModding.enableScriptingAPI", false) },
+                { name: "Settings", action: () => vscManager.openWorkspaceSettingsUI("teardownModding.enableScriptingAPI") }
+            ]
+        ).then(selectedAction => {
+            // update setting to not show the prompt again
+            vscManager.updateSetting("teardownModding.showPrompt", false);
+            // execute the selected action
+            if (selectedAction) {
+                selectedAction.action();
+            }
+        });
     }
 }
 
