@@ -2,19 +2,22 @@
 
 A Visual Studio Code extension which adds intellisense for most features in the [Teardown scripting API (2.0.0 // Experimental)](https://teardowngame.com/experimental/api.html).
 
+Currently contains a total of `606` function definitions across `24` files/categories, as well as definitions for the `server` and `client` objects.
+
 ### Note:
 This is my first VS Code extension and public coding project, so any help, advice or feedback is appreciated.
 
 ## What it does
 
-- Adds intellisense for the Teardown Lua scripting API (must be enabled per-workspace).
-- The extension only turns on if it finds an `info.txt` file in the root folder of the workspace.
+Adds intellisense for the Teardown Lua scripting API (must be enabled per-workspace).
+
+The extension only turns on if it finds an `info.txt` file in the root folder of the workspace.
 
 ## Usage
 
 Opening a workspace with an `info.txt` for the first time with the extension installed, you should get a popup letting you enable intellisense.
 
-It can always be toggled in the workspace settings as well.
+It can always be enabled/disabled in the workspace settings.
 
 ## Installation
 

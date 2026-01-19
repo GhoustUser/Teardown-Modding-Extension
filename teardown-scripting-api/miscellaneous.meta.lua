@@ -625,6 +625,8 @@ function DebugWatch(name, value, lineWrapping) end
 --- [View Documentation](https://teardowngame.com/experimental/api.html#DebugPrint)
 function DebugPrint(message, lineWrapping) end
 
+--- ### This function is deprecated. Use the event system instead.
+--- Binds the callback function on the event
 --- @param eventName string -- Event name
 --- @param listenerFunction string -- Listener function name
 --- ### Example
@@ -640,6 +642,8 @@ function DebugPrint(message, lineWrapping) end
 --- [View Documentation](https://teardowngame.com/experimental/api.html#RegisterListenerTo)
 function RegisterListenerTo(eventName, listenerFunction) end
 
+--- ### This function is deprecated. Use the event system instead.
+--- Unbinds the callback function from the event
 --- @param eventName string -- Event name
 --- @param listenerFunction string -- Listener function name
 --- ### Example
@@ -656,6 +660,8 @@ function RegisterListenerTo(eventName, listenerFunction) end
 --- [View Documentation](https://teardowngame.com/experimental/api.html#UnregisterListener)
 function UnregisterListener(eventName, listenerFunction) end
 
+--- ### This function is deprecated. Use the event system instead.
+--- Triggers an event for all registered listeners
 --- @param eventName string -- Event name
 --- @param args? string -- Event parameters
 --- ### Example
