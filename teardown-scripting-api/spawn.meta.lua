@@ -15,6 +15,7 @@
 --- 	Spawn("&lt;voxbox size='10 10 10' prop='true' material='wood'/&gt;", Transform(Vec(0, 10, 0)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Spawn)
 function Spawn(xml, transform, allowStatic, jointExisting) end
 
 --- Same functionality as Spawn(), except using a specific layer in the vox-file
@@ -31,6 +32,7 @@ function Spawn(xml, transform, allowStatic, jointExisting) end
 --- 	Spawn("&lt;voxbox size='10 10 10' prop='true' material='wood'/&gt;", "some_vox_layer", Transform(Vec(0, 10, 0)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SpawnLayer)
 function SpawnLayer(xml, layer, transform, allowStatic, jointExisting) end
 
 --- @param id string -- Tool ID
@@ -44,5 +46,6 @@ function SpawnLayer(xml, layer, transform, allowStatic, jointExisting) end
 --- 	SpawnTool("sledge", Transform(Vec(0, 5, 0)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SpawnTool)
 function SpawnTool(id, transform, allowStatic, voxScale) end
 

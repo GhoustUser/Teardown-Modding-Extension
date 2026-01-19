@@ -13,6 +13,7 @@
 --- 	DebugCross(GetLocationTransform(loc).pos)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindLocation)
 function FindLocation(tag, global) end
 
 --- @param tag? string -- Tag name
@@ -29,6 +30,7 @@ function FindLocation(tag, global) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindLocations)
 function FindLocations(tag, global) end
 
 --- @param handle number -- Location handle
@@ -41,5 +43,6 @@ function FindLocations(tag, global) end
 --- 	DebugPrint(VecStr(GetLocationTransform(location).pos))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetLocationTransform)
 function GetLocationTransform(handle) end
 

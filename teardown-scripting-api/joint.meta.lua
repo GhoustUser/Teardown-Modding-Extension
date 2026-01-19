@@ -10,6 +10,7 @@
 --- 	DebugPrint(joint)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindJoint)
 function FindJoint(tag, global) end
 
 --- @param tag? string -- Tag name
@@ -26,6 +27,7 @@ function FindJoint(tag, global) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindJoints)
 function FindJoints(tag, global) end
 
 --- @param joint number -- Joint handle
@@ -37,6 +39,7 @@ function FindJoints(tag, global) end
 --- 	DebugPrint(broken)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsJointBroken)
 function IsJointBroken(joint) end
 
 --- Joint type is one of the following: "ball", "hinge", "prismatic" or "rope".
@@ -52,6 +55,7 @@ function IsJointBroken(joint) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetJointType)
 function GetJointType(joint) end
 
 --- A joint is always connected to two shapes. Use this function if you know
@@ -70,6 +74,7 @@ function GetJointType(joint) end
 --- 	--otherShape is now A
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetJointOtherShape)
 function GetJointOtherShape(joint, shape) end
 
 --- Get shapes connected to the joint.
@@ -102,6 +107,7 @@ function GetJointOtherShape(joint, shape) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetJointShapes)
 function GetJointShapes(joint) end
 
 --- Set joint motor target velocity. If joint is of type hinge, velocity is
@@ -118,6 +124,7 @@ function GetJointShapes(joint) end
 --- 	SetJointMotor(FindJoint("hinge"), 0.5)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetJointMotor)
 function SetJointMotor(joint, velocity, strength) end
 
 --- If a joint has a motor target, it will try to maintain its relative movement. This
@@ -137,6 +144,7 @@ function SetJointMotor(joint, velocity, strength) end
 --- 	SetJointMotorTarget(FindJoint("hinge"), 45, 3)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetJointMotorTarget)
 function SetJointMotorTarget(joint, target, maxVel, strength) end
 
 --- Return joint limits for hinge or prismatic joint. Returns angle or distance
@@ -151,6 +159,7 @@ function SetJointMotorTarget(joint, target, maxVel, strength) end
 --- 	DebugPrint(min .. "-" .. max)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetJointLimits)
 function GetJointLimits(joint) end
 
 --- Return the current position or angle or the joint, measured in same way
@@ -164,6 +173,7 @@ function GetJointLimits(joint) end
 --- 	DebugPrint(current)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetJointMovement)
 function GetJointMovement(joint) end
 
 --- @param body number -- Body handle (must be dynamic)
@@ -182,6 +192,7 @@ function GetJointMovement(joint) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetJointedBodies)
 function GetJointedBodies(body) end
 
 --- Detach joint from shape. If joint is not connected to shape, nothing happens.
@@ -193,6 +204,7 @@ function GetJointedBodies(body) end
 --- 	DetachJointFromShape(FindJoint("joint"), FindShape("door"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DetachJointFromShape)
 function DetachJointFromShape(joint, shape) end
 
 --- Returns the number of points in the rope given its handle.
@@ -206,6 +218,7 @@ function DetachJointFromShape(joint, shape) end
 --- 	local numberPoints = GetRopeNumberOfPoints(joint)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRopeNumberOfPoints)
 function GetRopeNumberOfPoints(joint) end
 
 --- Returns the world position of the rope's point.
@@ -223,6 +236,7 @@ function GetRopeNumberOfPoints(joint) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRopePointPosition)
 function GetRopePointPosition(joint, index) end
 
 --- Returns the bounds of the rope.
@@ -239,6 +253,7 @@ function GetRopePointPosition(joint, index) end
 --- 	DebugCross(ma)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRopeBounds)
 function GetRopeBounds(joint) end
 
 --- Breaks the rope at the specified point.
@@ -256,5 +271,6 @@ function GetRopeBounds(joint) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#BreakRope)
 function BreakRope(joint, point) end
 

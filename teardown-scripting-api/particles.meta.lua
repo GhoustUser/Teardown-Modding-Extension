@@ -8,6 +8,7 @@
 --- 	ParticleReset()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleReset)
 function ParticleReset() end
 
 --- Set type of particle
@@ -18,6 +19,7 @@ function ParticleReset() end
 --- 	ParticleType("smoke")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleType)
 function ParticleType(type) end
 
 --- @param type number -- Tile in the particle texture atlas (0-15)
@@ -30,6 +32,7 @@ function ParticleType(type) end
 --- 	ParticleTile(5)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleTile)
 function ParticleTile(type) end
 
 --- Set particle color to either constant (three arguments) or linear interpolation (six arguments)
@@ -42,6 +45,7 @@ function ParticleTile(type) end
 --- 	ParticleColor(1,1,0, 1,0,0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleColor)
 function ParticleColor() end
 
 --- Set the particle radius. Max radius for smoke particles is 1.0.
@@ -57,6 +61,7 @@ function ParticleColor() end
 --- 	ParticleRadius(0.1, 0.7)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleRadius)
 function ParticleRadius(interpolation, fadein, fadeout) end
 
 --- Set the particle alpha (opacity).
@@ -70,6 +75,7 @@ function ParticleRadius(interpolation, fadein, fadeout) end
 --- 	ParticleAlpha(1.0, 0.0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleAlpha)
 function ParticleAlpha(interpolation, fadein, fadeout) end
 
 --- Set particle gravity. It will be applied along the world Y axis. A negative value will move the particle downwards.
@@ -83,6 +89,7 @@ function ParticleAlpha(interpolation, fadein, fadeout) end
 --- 	ParticleGravity(2)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleGravity)
 function ParticleGravity(interpolation, fadein, fadeout) end
 
 --- Particle drag will slow down fast moving particles. It's implemented slightly different for
@@ -97,6 +104,7 @@ function ParticleGravity(interpolation, fadein, fadeout) end
 --- 	ParticleDrag(0.5)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleDrag)
 function ParticleDrag(interpolation, fadein, fadeout) end
 
 --- Draw particle as emissive (glow in the dark). This is useful for fire and embers.
@@ -110,6 +118,7 @@ function ParticleDrag(interpolation, fadein, fadeout) end
 --- 	ParticleEmissive(5, 0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleEmissive)
 function ParticleEmissive(interpolation, fadein, fadeout) end
 
 --- Makes the particle rotate. Positive values is counter-clockwise rotation.
@@ -123,6 +132,7 @@ function ParticleEmissive(interpolation, fadein, fadeout) end
 --- 	ParticleRotation(10, 1)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleRotation)
 function ParticleRotation(interpolation, fadein, fadeout) end
 
 --- Stretch particle along with velocity. 0.0 means no stretching. 1.0 stretches with the particle motion over
@@ -137,6 +147,7 @@ function ParticleRotation(interpolation, fadein, fadeout) end
 --- 	ParticleStretch(1.0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleStretch)
 function ParticleStretch(interpolation, fadein, fadeout) end
 
 --- Make particle stick when in contact with objects. This can be used for friction.
@@ -150,6 +161,7 @@ function ParticleStretch(interpolation, fadein, fadeout) end
 --- 	ParticleSticky(0.5)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleSticky)
 function ParticleSticky(interpolation, fadein, fadeout) end
 
 --- Control particle collisions. A value of zero means that collisions are ignored. One means full collision.
@@ -169,6 +181,7 @@ function ParticleSticky(interpolation, fadein, fadeout) end
 --- 	ParticleCollide(1, 1, "constant", 0.05)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleCollide)
 function ParticleCollide(interpolation, fadein, fadeout) end
 
 --- Set particle bitmask. The value 256 means fire extinguishing particles and is currently the only
@@ -182,6 +195,7 @@ function ParticleCollide(interpolation, fadein, fadeout) end
 --- 	SpawnParticle(Vec(0, 10, 0), -0.1, math.random() + 1)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ParticleFlags)
 function ParticleFlags(bitmask) end
 
 --- Spawn particle using the previously set up particle state. You can call this multiple times
@@ -200,5 +214,6 @@ function ParticleFlags(bitmask) end
 --- 	SpawnParticle(Vec(0, 5, 0), Vec(0, 1, 0), 10.0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SpawnParticle)
 function SpawnParticle(pos, velocity, lifetime) end
 

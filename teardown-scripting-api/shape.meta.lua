@@ -18,6 +18,7 @@
 --- 	DebugCross(GetShapeWorldTransform(escape).pos)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindShape)
 function FindShape(tag, global) end
 
 --- @param tag? string -- Tag name
@@ -37,6 +38,7 @@ function FindShape(tag, global) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindShapes)
 function FindShapes(tag, global) end
 
 --- @param handle number -- Shape handle
@@ -57,6 +59,7 @@ function FindShapes(tag, global) end
 --- 	DebugCross(worldTranform)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeLocalTransform)
 function GetShapeLocalTransform(handle) end
 
 --- @param handle number -- Shape handle
@@ -82,6 +85,7 @@ function GetShapeLocalTransform(handle) end
 --- 	DebugCross(worldTranform)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetShapeLocalTransform)
 function SetShapeLocalTransform(handle, transform) end
 
 --- This is a convenience function, transforming the shape out of body space
@@ -101,6 +105,7 @@ function SetShapeLocalTransform(handle, transform) end
 --- 	DebugCross(GetShapeWorldTransform(shape).pos)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeWorldTransform)
 function GetShapeWorldTransform(handle) end
 
 --- Get handle to the body this shape is owned by. A shape is always owned by a body,
@@ -117,6 +122,7 @@ function GetShapeWorldTransform(handle) end
 --- 	DebugCross(GetBodyCenterOfMass(body))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeBody)
 function GetShapeBody(handle) end
 
 --- @param shape number -- Shape handle
@@ -132,6 +138,7 @@ function GetShapeBody(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeJoints)
 function GetShapeJoints(shape) end
 
 --- @param shape number -- Shape handle
@@ -147,6 +154,7 @@ function GetShapeJoints(shape) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeLights)
 function GetShapeLights(shape) end
 
 --- Return the world space, axis-aligned bounding box for a shape.
@@ -163,6 +171,7 @@ function GetShapeLights(shape) end
 --- 	DebugPrint(VecStr(boundsSize) .. " " .. VecStr(center))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeBounds)
 function GetShapeBounds(handle) end
 
 --- Scale emissiveness for shape. If the shape has light sources attached,
@@ -179,6 +188,7 @@ function GetShapeBounds(handle) end
 --- 	SetShapeEmissiveScale(shape, scale)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetShapeEmissiveScale)
 function SetShapeEmissiveScale(handle, scale) end
 
 --- Change the material density of the shape.
@@ -193,6 +203,7 @@ function SetShapeEmissiveScale(handle, scale) end
 --- 	SetShapeDensity(shape, density)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetShapeDensity)
 function SetShapeDensity(handle, density) end
 
 --- Return material properties for a particular voxel
@@ -223,6 +234,7 @@ function SetShapeDensity(handle, density) end
 --- 	DebugLine(pos, VecAdd(pos, VecScale(dir, 10)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeMaterialAtPosition)
 function GetShapeMaterialAtPosition(handle, pos, includeUnphysical) end
 
 --- Return material properties for a particular voxel in the voxel grid indexed by integer values.
@@ -246,6 +258,7 @@ function GetShapeMaterialAtPosition(handle, pos, includeUnphysical) end
 --- 	DebugPrint("The voxel is of material: " .. mat)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeMaterialAtIndex)
 function GetShapeMaterialAtIndex(handle, x, y, z) end
 
 --- Return the size of a shape in voxels
@@ -263,6 +276,7 @@ function GetShapeMaterialAtIndex(handle, x, y, z) end
 --- 	DebugPrint("Shape size: " .. x .. ";" .. y .. ";" .. z)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeSize)
 function GetShapeSize(handle) end
 
 --- Return the number of voxels in a shape, not including empty space
@@ -277,6 +291,7 @@ function GetShapeSize(handle) end
 --- 	DebugPrint(voxelCount)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeVoxelCount)
 function GetShapeVoxelCount(handle) end
 
 --- This function does a very rudimetary check and will only return true if the 
@@ -301,6 +316,7 @@ function GetShapeVoxelCount(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsShapeVisible)
 function IsShapeVisible(handle, maxDist, rejectTransparent, playerId) end
 
 --- Determine if shape has been broken. Note that a shape can be transfered
@@ -318,6 +334,7 @@ function IsShapeVisible(handle, maxDist, rejectTransparent, playerId) end
 --- 	DebugPrint("Is shape broken: " .. tostring(IsShapeBroken(shape)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsShapeBroken)
 function IsShapeBroken(handle) end
 
 --- Render next frame with an outline around specified shape.
@@ -343,6 +360,7 @@ function IsShapeBroken(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DrawShapeOutline)
 function DrawShapeOutline(handle, r, g, b, a) end
 
 --- Flash the appearance of a shape when rendering this frame.
@@ -360,6 +378,7 @@ function DrawShapeOutline(handle, r, g, b, a) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DrawShapeHighlight)
 function DrawShapeHighlight(handle, amount) end
 
 --- This is used to filter out collisions with other shapes. Each shape can be given a layer
@@ -390,6 +409,7 @@ function DrawShapeHighlight(handle, amount) end
 --- 	SetShapeCollisionFilter(shapeD, 4, 4)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetShapeCollisionFilter)
 function SetShapeCollisionFilter(handle, layer, mask) end
 
 --- Returns the current layer/mask settings of the shape
@@ -403,6 +423,7 @@ function SetShapeCollisionFilter(handle, layer, mask) end
 --- 	local layer, mask = GetShapeCollisionFilter(shape)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeCollisionFilter)
 function GetShapeCollisionFilter(handle) end
 
 --- Create new, empty shape on existing body using the palette of a reference shape.
@@ -428,6 +449,7 @@ function GetShapeCollisionFilter(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#CreateShape)
 function CreateShape(body, transform, refShape) end
 
 --- Fill a voxel shape with zeroes, thus removing all voxels.
@@ -438,6 +460,7 @@ function CreateShape(body, transform, refShape) end
 --- 	ClearShape(FindShape("shape", true))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ClearShape)
 function ClearShape(shape) end
 
 --- Resize an existing shape. The new coordinates are expressed in the existing shape coordinate frame,
@@ -459,6 +482,7 @@ function ClearShape(shape) end
 --- 	ResizeShape(FindShape("shape", true), -5, 0, -5, 5, 5, 5)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ResizeShape)
 function ResizeShape(shape, xmi, ymi, zmi, xma, yma, zma) end
 
 --- Move existing shape to a new body, optionally providing a new local transform.
@@ -471,6 +495,7 @@ function ResizeShape(shape, xmi, ymi, zmi, xma, yma, zma) end
 --- 	SetShapeBody(FindShape("shape", true), FindBody("custombody", true), true)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetShapeBody)
 function SetShapeBody(shape, body, transform) end
 
 --- Copy voxel content from source shape to destination shape. If destination
@@ -483,6 +508,7 @@ function SetShapeBody(shape, body, transform) end
 --- 	CopyShapeContent(FindShape("shape", true), FindShape("shape2", true))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#CopyShapeContent)
 function CopyShapeContent(src, dst) end
 
 --- Copy the palette from source shape to destination shape.
@@ -494,6 +520,7 @@ function CopyShapeContent(src, dst) end
 --- 	CopyShapePalette(FindShape("shape", true), FindShape("shape2", true))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#CopyShapePalette)
 function CopyShapePalette(src, dst) end
 
 --- Return list of material entries, each entry is a material index that
@@ -510,6 +537,7 @@ function CopyShapePalette(src, dst) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapePalette)
 function GetShapePalette(shape) end
 
 --- Return material properties for specific matirial entry.
@@ -531,6 +559,7 @@ function GetShapePalette(shape) end
 --- 	DebugPrint(type)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeMaterial)
 function GetShapeMaterial(shape, entry) end
 
 --- Set material index to be used for following calls to DrawShapeLine and DrawShapeBox and ExtrudeShape.
@@ -546,6 +575,7 @@ function GetShapeMaterial(shape, entry) end
 --- 	SetBrush("sphere", 3, 3)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetBrush)
 function SetBrush(type, size, object) end
 
 --- Draw voxelized line between (x0,y0,z0) and (x1,y1,z1) into shape using the material
@@ -562,6 +592,7 @@ function SetBrush(type, size, object) end
 --- 	DrawShapeLine(FindShape("shape"), 0, 0, 0, 10, 50, 5, false, true)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DrawShapeLine)
 function DrawShapeLine(shape, paint, noOverwrite) end
 
 --- Draw box between (x0,y0,z0) and (x1,y1,z1) into shape using the material
@@ -574,6 +605,7 @@ function DrawShapeLine(shape, paint, noOverwrite) end
 --- 	DrawShapeBox(FindShape("shape", true), 0, 0, 0, 10, 50, 5)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DrawShapeBox)
 function DrawShapeBox(shape) end
 
 --- Extrude region of shape. The extruded region will be filled in with the material set up with SetBrush.
@@ -599,6 +631,7 @@ function DrawShapeBox(shape) end
 --- 	ExtrudeShape(shape, 0, 5, 0, -1, 0, 0, 50, "exact")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ExtrudeShape)
 function ExtrudeShape(shape, x, y, z, dx, dy, dz, steps, mode) end
 
 --- Trim away empty regions of shape, thus potentially making it smaller.
@@ -615,6 +648,7 @@ function ExtrudeShape(shape, x, y, z, dx, dy, dz, steps, mode) end
 --- 	TrimShape(shape)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TrimShape)
 function TrimShape(shape) end
 
 --- Split up a shape into multiple shapes based on connectivity. If the removeResidual flag
@@ -631,6 +665,7 @@ function TrimShape(shape) end
 --- 	SplitShape(shape, true)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SplitShape)
 function SplitShape(shape, removeResidual) end
 
 --- Try to merge shape with a nearby, matching shape. For a merge to happen, the
@@ -650,6 +685,7 @@ function SplitShape(shape, removeResidual) end
 --- 	DebugPrint(shape)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#MergeShape)
 function MergeShape(shape) end
 
 --- @param shape number -- Input shape
@@ -660,6 +696,7 @@ function MergeShape(shape) end
 --- 	DebugWatch("IsShapeDisconnected", IsShapeDisconnected(FindShape("shape", true)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsShapeDisconnected)
 function IsShapeDisconnected(shape) end
 
 --- @param shape number -- Input shape
@@ -670,6 +707,7 @@ function IsShapeDisconnected(shape) end
 --- 	DebugWatch("IsStaticShapeDetached", IsStaticShapeDetached(FindShape("shape_glass", true)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsStaticShapeDetached)
 function IsStaticShapeDetached(shape) end
 
 --- This will return the closest point of a specific shape
@@ -692,6 +730,7 @@ function IsStaticShapeDetached(shape) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetShapeClosestPoint)
 function GetShapeClosestPoint(shape, origin) end
 
 --- This will check if two shapes has physical overlap
@@ -710,5 +749,6 @@ function GetShapeClosestPoint(shape, origin) end
 --- 	DebugPrint(IsShapeTouching(shapeA, shapeB))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsShapeTouching)
 function IsShapeTouching(a, b) end
 

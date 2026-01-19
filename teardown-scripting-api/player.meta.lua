@@ -5,6 +5,7 @@
 --- ```lua
 --- local playerIds = GetAllPlayers()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetAllPlayers)
 function GetAllPlayers() end
 
 --- @return interger count -- Number of max players for the session. Returns 1 for non-multiplayer.
@@ -14,6 +15,7 @@ function GetAllPlayers() end
 --- -- create an UI big enough to fit a the max player count
 --- createGameModeUI(maxPlayerCount)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetMaxPlayers)
 function GetMaxPlayers() end
 
 --- @return number count -- Number of players
@@ -21,6 +23,7 @@ function GetMaxPlayers() end
 --- ```lua
 --- local playerCount = GetPlayerCount()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerCount)
 function GetPlayerCount() end
 
 --- @return table playerIds -- List of added player Ids
@@ -28,6 +31,7 @@ function GetPlayerCount() end
 --- ```lua
 --- local playerIds = GetAddedPlayers()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetAddedPlayers)
 function GetAddedPlayers() end
 
 --- @return table playerIds -- List of removed player Ids
@@ -35,6 +39,7 @@ function GetAddedPlayers() end
 --- ```lua
 --- local playerIds = GetRemovedPlayers()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRemovedPlayers)
 function GetRemovedPlayers() end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -43,6 +48,7 @@ function GetRemovedPlayers() end
 --- ```lua
 --- local name = GetPlayerName(0)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerName)
 function GetPlayerName(playerId) end
 
 --- @return number GetLocalPlayer -- Local player ID.
@@ -50,6 +56,7 @@ function GetPlayerName(playerId) end
 --- ```lua
 --- local p = GetLocalPlayer()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetLocalPlayer)
 function GetLocalPlayer() end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -60,6 +67,7 @@ function GetLocalPlayer() end
 --- 	score = score + 1
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPlayerLocal)
 function IsPlayerLocal(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -68,6 +76,7 @@ function IsPlayerLocal(playerId) end
 --- ```lua
 --- local character = GetPlayerCharacter(0)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerCharacter)
 function GetPlayerCharacter(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -76,6 +85,7 @@ function GetPlayerCharacter(playerId) end
 --- ```lua
 --- local isHost = IsPlayerHost()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPlayerHost)
 function IsPlayerHost(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -87,6 +97,7 @@ function IsPlayerHost(playerId) end
 --- 	dropFlag()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPlayerValid)
 function IsPlayerValid(playerId) end
 
 --- Return center point of player. This function is deprecated.
@@ -103,6 +114,7 @@ function IsPlayerValid(playerId) end
 --- 	DebugPrint(p)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerPos)
 function GetPlayerPos(playerId) end
 
 --- @param position TVec -- Start position of the search
@@ -122,6 +134,7 @@ function GetPlayerPos(playerId) end
 --- local _, pos, _, dir = GetPlayerAimInfo(muzzle.pos)
 --- Shoot(pos, dir)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerAimInfo)
 function GetPlayerAimInfo(position, maxdist, playerId) end
 
 --- The player pitch angle is applied to the player camera transform. This value can be used to animate tool pitch movement when using SetToolTransformOverride.
@@ -133,6 +146,7 @@ function GetPlayerAimInfo(position, maxdist, playerId) end
 --- 	local pitchRotation = Quat(Vec(1,0,0), GetPlayerPitch())
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerPitch)
 function GetPlayerPitch(playerId) end
 
 --- The player yaw angle is applied to the player camera transform. It represents the top-down angle of rotation of the player.
@@ -144,6 +158,7 @@ function GetPlayerPitch(playerId) end
 --- 	local compassBearing = GetPlayerYaw()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerYaw)
 function GetPlayerYaw(playerId) end
 
 --- ### SERVER ONLY
@@ -157,6 +172,7 @@ function GetPlayerYaw(playerId) end
 --- 	SetPlayerPitch(0.0, playerId)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerPitch)
 function SetPlayerPitch(pitch, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -170,6 +186,7 @@ function SetPlayerPitch(pitch, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerCrouch)
 function GetPlayerCrouch(playerId) end
 
 --- The player transform is located at the bottom of the player. The player transform
@@ -185,6 +202,7 @@ function GetPlayerCrouch(playerId) end
 --- 	DebugPrint(TransformStr(t))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerTransform)
 function GetPlayerTransform(playerId) end
 
 --- The player transform is located at the bottom of the player. Forward is along negative Z axis.
@@ -195,6 +213,7 @@ function GetPlayerTransform(playerId) end
 --- ```lua
 --- local t = GetPlayerTransform()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerTransformWithPitch)
 function GetPlayerTransformWithPitch(playerId) end
 
 --- ### SERVER ONLY
@@ -212,6 +231,7 @@ function GetPlayerTransformWithPitch(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerTransform)
 function SetPlayerTransform(transform, playerId) end
 
 --- ### SERVER ONLY
@@ -224,6 +244,7 @@ function SetPlayerTransform(transform, playerId) end
 --- local t = Transform(Vec(10, 0, 0), QuatEuler(30, 90, 0))
 --- SetPlayerTransform(t, playerId)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerTransformWithPitch)
 function SetPlayerTransformWithPitch(transform, playerId) end
 
 --- ### SERVER ONLY
@@ -236,6 +257,7 @@ function SetPlayerTransformWithPitch(transform, playerId) end
 --- 	SetPlayerGroundVelocity(Vec(2,0,0), playerId)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerGroundVelocity)
 function SetPlayerGroundVelocity(vel, playerId) end
 
 --- The player eye transform is the same as what you get from GetCameraTransform when playing in first-person,
@@ -250,6 +272,7 @@ function SetPlayerGroundVelocity(vel, playerId) end
 --- 	DebugPrint(TransformStr(t))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerEyeTransform)
 function GetPlayerEyeTransform(playerId) end
 
 --- The player camera transform is usually the same as what you get from GetCameraTransform,
@@ -264,6 +287,7 @@ function GetPlayerEyeTransform(playerId) end
 --- 	DebugPrint(TransformStr(t))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerCameraTransform)
 function GetPlayerCameraTransform(playerId) end
 
 --- ### CLIENT ONLY
@@ -279,6 +303,7 @@ function GetPlayerCameraTransform(playerId) end
 --- 	SetPlayerCameraOffsetTransform(t, playerId)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerCameraOffsetTransform)
 function SetPlayerCameraOffsetTransform(transform, stackable, playerId) end
 
 --- ### SERVER ONLY
@@ -292,6 +317,7 @@ function SetPlayerCameraOffsetTransform(transform, stackable, playerId) end
 --- 	SetPlayerSpawnTransform(t, playerId)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerSpawnTransform)
 function SetPlayerSpawnTransform(transform, playerId) end
 
 --- ### SERVER ONLY
@@ -304,6 +330,7 @@ function SetPlayerSpawnTransform(transform, playerId) end
 --- 	SetPlayerSpawnHealth(0.5, playerId)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerSpawnHealth)
 function SetPlayerSpawnHealth(health, playerId) end
 
 --- ### SERVER ONLY
@@ -316,6 +343,7 @@ function SetPlayerSpawnHealth(health, playerId) end
 --- 	SetPlayerSpawnTool("pistol", playerId)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerSpawnTool)
 function SetPlayerSpawnTool(id, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -327,6 +355,7 @@ function SetPlayerSpawnTool(id, playerId) end
 --- 	DebugPrint(VecStr(vel))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerVelocity)
 function GetPlayerVelocity(playerId) end
 
 --- ### SERVER ONLY
@@ -342,14 +371,17 @@ function GetPlayerVelocity(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerVehicle)
 function SetPlayerVehicle(vehicle, playerId) end
 
 --- @param animator number -- Handle to animator or zero for no animator
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerAnimator)
 function SetPlayerAnimator(animator, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number animator -- Handle to animator or zero for no animator
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerAnimator)
 function GetPlayerAnimator(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -358,6 +390,7 @@ function GetPlayerAnimator(playerId) end
 --- ```lua
 --- local bodies = GetPlayerBodies(playerId)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerBodies)
 function GetPlayerBodies(playerId) end
 
 --- ### SERVER ONLY
@@ -371,6 +404,7 @@ function GetPlayerBodies(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerVelocity)
 function SetPlayerVelocity(velocity, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -384,6 +418,7 @@ function SetPlayerVelocity(velocity, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerVehicle)
 function GetPlayerVehicle(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -392,6 +427,7 @@ function GetPlayerVehicle(playerId) end
 --- ```lua
 --- local isGrounded = IsPlayerGrounded()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPlayerGrounded)
 function IsPlayerGrounded(playerId) end
 
 --- @param handle number -- Vehicle handle
@@ -402,6 +438,7 @@ function IsPlayerGrounded(playerId) end
 --- local vehicle = FindVehicle("myvehicle")
 --- local isDriver = IsPlayerVehicleDriver(vehicle)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPlayerVehicleDriver)
 function IsPlayerVehicleDriver(handle, playerId) end
 
 --- @param handle number -- Vehicle handle
@@ -412,6 +449,7 @@ function IsPlayerVehicleDriver(handle, playerId) end
 --- local vehicle = FindVehicle("myvehicle")
 --- local isPassenger = IsPlayerVehiclePassenger(vehicle)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPlayerVehiclePassenger)
 function IsPlayerVehiclePassenger(handle, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -420,6 +458,7 @@ function IsPlayerVehiclePassenger(handle, playerId) end
 --- ```lua
 --- local isJumping = IsPlayerJumping()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPlayerJumping)
 function IsPlayerJumping(playerId) end
 
 --- Get information about player ground contact. If the output boolean (contact) is false then
@@ -439,6 +478,7 @@ function IsPlayerJumping(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerGroundContact)
 function GetPlayerGroundContact(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -452,6 +492,7 @@ function GetPlayerGroundContact(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerGrabShape)
 function GetPlayerGrabShape(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -465,6 +506,7 @@ function GetPlayerGrabShape(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerGrabBody)
 function GetPlayerGrabBody(playerId) end
 
 --- ### SERVER ONLY
@@ -478,6 +520,7 @@ function GetPlayerGrabBody(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ReleasePlayerGrab)
 function ReleasePlayerGrab(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -489,6 +532,7 @@ function ReleasePlayerGrab(playerId) end
 --- 	local pos = GetPlayerGrabPoint()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerGrabPoint)
 function GetPlayerGrabPoint(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -502,6 +546,7 @@ function GetPlayerGrabPoint(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerPickShape)
 function GetPlayerPickShape(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -515,6 +560,7 @@ function GetPlayerPickShape(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerPickBody)
 function GetPlayerPickBody(playerId) end
 
 --- Interactable shapes has to be tagged with "interact". The engine
@@ -530,6 +576,7 @@ function GetPlayerPickBody(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerInteractShape)
 function GetPlayerInteractShape(playerId) end
 
 --- Interactable shapes has to be tagged with "interact". The engine
@@ -545,6 +592,7 @@ function GetPlayerInteractShape(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerInteractBody)
 function GetPlayerInteractBody(playerId) end
 
 --- ### SERVER ONLY
@@ -565,6 +613,7 @@ function GetPlayerInteractBody(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerScreen)
 function SetPlayerScreen(handle, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -581,6 +630,7 @@ function SetPlayerScreen(handle, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerScreen)
 function GetPlayerScreen(playerId) end
 
 --- ### SERVER ONLY
@@ -598,6 +648,7 @@ function GetPlayerScreen(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerHealth)
 function SetPlayerHealth(health, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -614,6 +665,7 @@ function SetPlayerHealth(health, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerHealth)
 function GetPlayerHealth(playerId) end
 
 --- Will be false if player is in vehicle, interacting with a screen, has pause menu open, is dead or uses interactive UI.
@@ -629,6 +681,7 @@ function GetPlayerHealth(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerCanUseTool)
 function GetPlayerCanUseTool(playerId) end
 
 --- ### SERVER ONLY
@@ -642,6 +695,7 @@ function GetPlayerCanUseTool(playerId) end
 --- 	SetPlayerRegenerationState(false, playerId)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerRegenerationState)
 function SetPlayerRegenerationState(state, player) end
 
 --- ### SERVER ONLY
@@ -653,6 +707,7 @@ function SetPlayerRegenerationState(state, player) end
 --- 	SetPlayerTool("gun", playerId)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerTool)
 function SetPlayerTool(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -660,6 +715,7 @@ function SetPlayerTool(playerId) end
 --- ```lua
 --- local tool = GetPlayerTool()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerTool)
 function GetPlayerTool(playerId) end
 
 --- ### SERVER ONLY
@@ -675,6 +731,7 @@ function GetPlayerTool(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#RespawnPlayer)
 function RespawnPlayer(playerId) end
 
 --- ### SERVER ONLY
@@ -691,6 +748,7 @@ function RespawnPlayer(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#RespawnPlayerAtTransform)
 function RespawnPlayerAtTransform(transform, playerId) end
 
 --- This function gets base speed, but real player speed depends on many
@@ -703,6 +761,7 @@ function RespawnPlayerAtTransform(transform, playerId) end
 --- 	DebugPrint(GetPlayerWalkingSpeed())
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerWalkingSpeed)
 function GetPlayerWalkingSpeed(playerId) end
 
 --- ### SERVER ONLY
@@ -723,6 +782,7 @@ function GetPlayerWalkingSpeed(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerWalkingSpeed)
 function SetPlayerWalkingSpeed(speed, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -733,6 +793,7 @@ function SetPlayerWalkingSpeed(speed, playerId) end
 --- 	DebugPrint(GetPlayerCrouchSpeedScale())
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerCrouchSpeedScale)
 function GetPlayerCrouchSpeedScale(playerId) end
 
 --- ### SERVER ONLY
@@ -751,6 +812,7 @@ function GetPlayerCrouchSpeedScale(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerCrouchSpeedScale)
 function SetPlayerCrouchSpeedScale(speed, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -761,6 +823,7 @@ function SetPlayerCrouchSpeedScale(speed, playerId) end
 --- 	DebugPrint(GetPlayerHurtSpeedScale())
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerHurtSpeedScale)
 function GetPlayerHurtSpeedScale(playerId) end
 
 --- ### SERVER ONLY
@@ -776,6 +839,7 @@ function GetPlayerHurtSpeedScale(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerHurtSpeedScale)
 function SetPlayerHurtSpeedScale(speed, playerId) end
 
 --- @param parameter string -- Parameter name
@@ -809,6 +873,7 @@ function SetPlayerHurtSpeedScale(speed, playerId) end
 --- 	DebugWatch(paramName, param)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerParam)
 function GetPlayerParam(parameter, player) end
 
 --- ### SERVER ONLY
@@ -851,6 +916,7 @@ function GetPlayerParam(parameter, player) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerParam)
 function SetPlayerParam(parameter, value, player) end
 
 --- Use this function to hide the player character.
@@ -863,6 +929,7 @@ function SetPlayerParam(parameter, value, player) end
 --- 	SetPlayerHidden()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerHidden)
 function SetPlayerHidden(playerId) end
 
 --- ### SERVER ONLY
@@ -898,6 +965,7 @@ function SetPlayerHidden(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#RegisterTool)
 function RegisterTool(id, name, file, group) end
 
 --- ### SERVER ONLY
@@ -913,6 +981,7 @@ function RegisterTool(id, name, file, group) end
 --- 	SetToolAmmoPickupAmount("lasergun", 30)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetToolAmmoPickupAmount)
 function SetToolAmmoPickupAmount(toolId, ammo) end
 
 --- @param toolId string -- Tool ID
@@ -921,6 +990,7 @@ function SetToolAmmoPickupAmount(toolId, ammo) end
 --- ```lua
 --- local ammo = GetToolAmmoPickupAmount("gun")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetToolAmmoPickupAmount)
 function GetToolAmmoPickupAmount(toolId) end
 
 --- Return body handle of the visible tool. You can use this to retrieve tool shapes
@@ -937,6 +1007,7 @@ function GetToolAmmoPickupAmount(toolId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetToolBody)
 function GetToolBody(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -946,6 +1017,7 @@ function GetToolBody(playerId) end
 --- ```lua
 --- local right, left = GetToolHandPoseLocalTransform()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetToolHandPoseLocalTransform)
 function GetToolHandPoseLocalTransform(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -955,6 +1027,7 @@ function GetToolHandPoseLocalTransform(playerId) end
 --- ```lua
 --- local right, left = GetToolHandPoseWorldTransform()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetToolHandPoseWorldTransform)
 function GetToolHandPoseWorldTransform(playerId) end
 
 --- ### CLIENT ONLY
@@ -971,6 +1044,7 @@ function GetToolHandPoseWorldTransform(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetToolHandPoseLocalTransform)
 function SetToolHandPoseLocalTransform(right, left, playerId) end
 
 --- Return transform of a tool location in tool space. Locations can be defined using the tool prefab editor.
@@ -982,6 +1056,7 @@ function SetToolHandPoseLocalTransform(right, left, playerId) end
 --- local right  = GetToolLocationLocalTransform("righthand")
 --- SetToolHandPoseLocalTransform(right, nil)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetToolLocationLocalTransform)
 function GetToolLocationLocalTransform(name, playerId) end
 
 --- Return transform of a tool location in world space. Locations can be defined using the tool prefab editor. A tool location is defined in tool space and to get the world space transform a tool body is required.
@@ -994,6 +1069,7 @@ function GetToolLocationLocalTransform(name, playerId) end
 --- local muzzle = GetToolLocationWorldTransform("muzzle")
 --- Shoot(muzzle, direction)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetToolLocationWorldTransform)
 function GetToolLocationWorldTransform(name, playerId) end
 
 --- ### CLIENT ONLY
@@ -1012,6 +1088,7 @@ function GetToolLocationWorldTransform(name, playerId) end
 --- 	SetToolTransform(offset)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetToolTransform)
 function SetToolTransform(transform, sway, playerId) end
 
 --- ### CLIENT ONLY
@@ -1025,6 +1102,7 @@ function SetToolTransform(transform, sway, playerId) end
 --- 	SetToolAllowedZoom(4.0, 0.5)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetToolAllowedZoom)
 function SetToolAllowedZoom(zoom) end
 
 --- ### CLIENT ONLY
@@ -1050,6 +1128,7 @@ function SetToolAllowedZoom(zoom) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetToolTransformOverride)
 function SetToolTransformOverride(transform, playerId) end
 
 --- ### CLIENT ONLY
@@ -1067,6 +1146,7 @@ function SetToolTransformOverride(transform, playerId) end
 --- 	SetToolOffset(offset)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetToolOffset)
 function SetToolOffset(offset, playerId) end
 
 --- ### SERVER ONLY
@@ -1077,6 +1157,7 @@ function SetToolOffset(offset, playerId) end
 --- ```lua
 --- SetToolAmmo("gun", 10, 1)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetToolAmmo)
 function SetToolAmmo(toolId, ammo, playerId) end
 
 --- @param toolId string -- Tool ID
@@ -1086,6 +1167,7 @@ function SetToolAmmo(toolId, ammo, playerId) end
 --- ```lua
 --- local ammo = GetToolAmmo("gun", 1)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetToolAmmo)
 function GetToolAmmo(toolId, playerId) end
 
 --- ### SERVER ONLY
@@ -1096,6 +1178,7 @@ function GetToolAmmo(toolId, playerId) end
 --- ```lua
 --- SetToolEnabled("gun", false, playerId)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetToolEnabled)
 function SetToolEnabled(toolId, enabled, playerId) end
 
 --- @param toolId string -- Tool ID
@@ -1107,6 +1190,7 @@ function SetToolEnabled(toolId, enabled, playerId) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsToolEnabled)
 function IsToolEnabled(toolId, playerId) end
 
 --- ### SERVER ONLY
@@ -1125,6 +1209,7 @@ function IsToolEnabled(toolId, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerOrientation)
 function SetPlayerOrientation(orientation, playerId) end
 
 --- Gets the base orientation of the player.
@@ -1141,6 +1226,7 @@ function SetPlayerOrientation(orientation, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerOrientation)
 function GetPlayerOrientation(playerId) end
 
 --- This function returns the up vector of the player, which is determined by the player's base orientation.
@@ -1153,6 +1239,7 @@ function GetPlayerOrientation(playerId) end
 --- 	DebugPrint("Player up vector: " .. up)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerUp)
 function GetPlayerUp(playerId) end
 
 --- @param rig number -- Rig handle
@@ -1162,6 +1249,7 @@ function GetPlayerUp(playerId) end
 --- 	local rig = FindRig("myrig")
 --- 	SetPlayerRig(rig)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerRig)
 function SetPlayerRig(rig, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -1170,6 +1258,7 @@ function SetPlayerRig(rig, playerId) end
 --- ```lua
 --- local rig = GetPlayerRig(rigid)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerRig)
 function GetPlayerRig(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -1178,6 +1267,7 @@ function GetPlayerRig(playerId) end
 --- ```lua
 --- local t = GetPlayerRigWorldTransform()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerRigWorldTransform)
 function GetPlayerRigWorldTransform(playerId) end
 
 --- ### This function will be deprecated in the next update!
@@ -1187,6 +1277,7 @@ function GetPlayerRigWorldTransform(playerId) end
 --- ```lua
 --- 	ClearPlayerRig(someId)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ClearPlayerRig)
 function ClearPlayerRig(rigId, playerId) end
 
 --- ### This function will be deprecated in the next update!
@@ -1199,6 +1290,7 @@ function ClearPlayerRig(rigId, playerId) end
 --- 	local someBody = FindBody("bodyname")
 --- 	SetPlayerRigLocationLocalTransform(someBody, "ik_foot_l", TransformToLocalTransform(GetBodyTransform(someBody), GetLocationTransform(FindLocation("ik_foot_l"))))
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerRigLocationLocalTransform)
 function SetPlayerRigLocationLocalTransform(rigId, name, location, playerId) end
 
 --- ### This function will be deprecated in the next update!
@@ -1211,6 +1303,7 @@ function SetPlayerRigLocationLocalTransform(rigId, name, location, playerId) end
 --- 	local someBody = FindBody("bodyname")
 --- 	SetPlayerRigTransform(someBody, GetBodyTransform(someBody))
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerRigTransform)
 function SetPlayerRigTransform(rigId, location, playerId) end
 
 --- ### This function will be deprecated in the next update!
@@ -1221,6 +1314,7 @@ function SetPlayerRigTransform(rigId, location, playerId) end
 --- ```lua
 --- local t = GetPlayerRigLocationWorldTransform("ik_hand_l")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerRigLocationWorldTransform)
 function GetPlayerRigLocationWorldTransform(name, playerId) end
 
 --- ### This function will be deprecated in the next update!
@@ -1228,18 +1322,21 @@ function GetPlayerRigLocationWorldTransform(name, playerId) end
 --- @param rigId number -- Unique id
 --- @param tag string -- Tag
 --- @param playerId? number -- Player ID. On client, zero means client player.
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerRigTags)
 function SetPlayerRigTags(rigId, tag, playerId) end
 
 --- ### This function will be deprecated in the next update!
 --- @param tag string -- Tag name
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean exists -- Returns true if entity has tag
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerRigHasTag)
 function GetPlayerRigHasTag(tag, playerId) end
 
 --- ### This function will be deprecated in the next update!
 --- @param tag string -- Tag name
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return string value -- Returns the tag value, if any. Empty string otherwise.
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerRigTagValue)
 function GetPlayerRigTagValue(tag, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -1258,6 +1355,7 @@ function GetPlayerRigTagValue(tag, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerColor)
 function GetPlayerColor(playerId) end
 
 --- @param r number -- Red value
@@ -1273,6 +1371,7 @@ function GetPlayerColor(playerId) end
 --- 	DebugPrint("Set player color to: " .. r .. ", " .. g .. ", " .. b)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPlayerColor)
 function SetPlayerColor(r, g, b, playerId) end
 
 --- ### SERVER ONLY
@@ -1304,6 +1403,7 @@ function SetPlayerColor(r, g, b, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ApplyPlayerDamage)
 function ApplyPlayerDamage(targetPlayerId, damage, cause, instigatingPlayerId) end
 
 --- ### SERVER ONLY
@@ -1314,6 +1414,7 @@ function ApplyPlayerDamage(targetPlayerId, damage, cause, instigatingPlayerId) e
 --- -- Disable player 2 input as she/he is interacting with something.
 --- DisablePlayerInput(2)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DisablePlayerInput)
 function DisablePlayerInput(player) end
 
 --- ### SERVER ONLY
@@ -1327,6 +1428,7 @@ function DisablePlayerInput(player) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DisablePlayer)
 function DisablePlayer(playerId) end
 
 --- Check if player is actively disabled
@@ -1336,6 +1438,7 @@ function DisablePlayer(playerId) end
 --- --check if disabled
 --- playerDisabled = IsPlayerDisabled(playerId)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPlayerDisabled)
 function IsPlayerDisabled(playerId) end
 
 --- ### SERVER ONLY
@@ -1349,5 +1452,6 @@ function IsPlayerDisabled(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DisablePlayerDamage)
 function DisablePlayerDamage(playerId) end
 

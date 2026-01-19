@@ -19,6 +19,7 @@
 --- 	DebugPrint("b1 == b2: " .. tostring(VecStr(b1) == VecStr(b2)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Vec)
 function Vec(x, y, z) end
 
 --- Vectors should never be assigned like regular numbers. Since they are
@@ -37,6 +38,7 @@ function Vec(x, y, z) end
 --- 	local wrong2 = wrong1
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecCopy)
 function VecCopy(org) end
 
 --- Returns the string representation of vector
@@ -49,6 +51,7 @@ function VecCopy(org) end
 --- 	DebugPrint(VecStr(v))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecStr)
 function VecStr(vector) end
 
 --- @param vec TVec -- A vector
@@ -62,6 +65,7 @@ function VecStr(vector) end
 --- 	DebugPrint(l)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecLength)
 function VecLength(vec) end
 
 --- If the input vector is of zero length, the function returns {0,0,1}
@@ -76,6 +80,7 @@ function VecLength(vec) end
 --- 	DebugPrint(VecStr(n))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecNormalize)
 function VecNormalize(vec) end
 
 --- @param vec TVec -- A vector
@@ -90,6 +95,7 @@ function VecNormalize(vec) end
 --- 	DebugPrint(VecStr(n))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecScale)
 function VecScale(vec, scale) end
 
 --- @param a TVec -- Vector
@@ -105,6 +111,7 @@ function VecScale(vec, scale) end
 --- 	DebugPrint(VecStr(c))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecAdd)
 function VecAdd(a, b) end
 
 --- @param a TVec -- Vector
@@ -120,6 +127,7 @@ function VecAdd(a, b) end
 --- 	DebugPrint(VecStr(c))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecSub)
 function VecSub(a, b) end
 
 --- @param a TVec -- Vector
@@ -135,6 +143,7 @@ function VecSub(a, b) end
 --- 	DebugPrint(c)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecDot)
 function VecDot(a, b) end
 
 --- @param a TVec -- Vector
@@ -150,6 +159,7 @@ function VecDot(a, b) end
 --- 	DebugPrint(VecStr(c))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecCross)
 function VecCross(a, b) end
 
 --- @param a TVec -- Vector
@@ -169,6 +179,7 @@ function VecCross(a, b) end
 --- 	DebugPrint("c1" .. VecStr(c1) .. " == c2" .. VecStr(c2))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#VecLerp)
 function VecLerp(a, b, t) end
 
 --- Create new quaternion and optionally initializes it to the provided values.
@@ -190,6 +201,7 @@ function VecLerp(a, b, t) end
 --- 	DebugPrint(QuatStr(a1) == QuatStr(a2))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Quat)
 function Quat(x, y, z, w) end
 
 --- Quaternions should never be assigned like regular numbers. Since they are
@@ -208,6 +220,7 @@ function Quat(x, y, z, w) end
 --- 	local wrong2 = wrong1
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatCopy)
 function QuatCopy(org) end
 
 --- Create a quaternion representing a rotation around a specific axis
@@ -222,6 +235,7 @@ function QuatCopy(org) end
 --- 	DebugPrint(QuatStr(q))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatAxisAngle)
 function QuatAxisAngle(axis, angle) end
 
 --- Create a quaternion representing a rotation between the input normals
@@ -233,6 +247,7 @@ function QuatAxisAngle(axis, angle) end
 --- 	local q = QuatDeltaNormals(Vec(1,0,0), Vec(0,1,0))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatDeltaNormals)
 function QuatDeltaNormals() end
 
 --- Create a quaternion representing a rotation between the input vectors that doesn't need to be of unit-length
@@ -244,6 +259,7 @@ function QuatDeltaNormals() end
 --- 	local q = QuatDeltaVectors(Vec(10,0,0), Vec(0,5,0))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatDeltaVectors)
 function QuatDeltaVectors() end
 
 --- @param x number -- Angle around X axis in degrees, sometimes also called roll or bank
@@ -257,6 +273,7 @@ function QuatDeltaVectors() end
 --- 	local q = QuatEuler(0, 30, 25)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatEuler)
 function QuatEuler(x, y, z) end
 
 --- Return the quaternion aligned to specified axes
@@ -279,6 +296,7 @@ function QuatEuler(x, y, z) end
 --- 	DrawSprite(laserSprite, t, length, 0.5, 1.0, 0.3, 0.3, 1, true, true)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatAlignXZ)
 function QuatAlignXZ(xAxis, zAxis) end
 
 --- @param quat TQuat -- Quaternion
@@ -294,6 +312,7 @@ function QuatAlignXZ(xAxis, zAxis) end
 --- 	DebugPrint(rx .. " " .. ry .. " " .. rz)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetQuatEuler)
 function GetQuatEuler(quat) end
 
 --- Create a quaternion pointing the negative Z axis (forward) towards
@@ -311,6 +330,7 @@ function GetQuatEuler(quat) end
 --- 	SetCameraTransform(Transform(eye, rot))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatLookAt)
 function QuatLookAt(eye, target) end
 
 --- Spherical, linear interpolation between a and b, using t. This is
@@ -329,6 +349,7 @@ function QuatLookAt(eye, target) end
 --- 	DebugPrint(QuatStr(q))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatSlerp)
 function QuatSlerp(a, b, t) end
 
 --- Returns the string representation of quaternion
@@ -341,6 +362,7 @@ function QuatSlerp(a, b, t) end
 --- 	DebugPrint(QuatStr(q))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatStr)
 function QuatStr(quat) end
 
 --- Rotate one quaternion with another quaternion. This is mathematically
@@ -360,6 +382,7 @@ function QuatStr(quat) end
 --- 	DebugPrint(x .. " " .. y .. " " .. z)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatRotateQuat)
 function QuatRotateQuat(a, b) end
 
 --- Rotate a vector by a quaternion
@@ -376,6 +399,7 @@ function QuatRotateQuat(a, b) end
 --- 	DebugPrint(VecStr(r))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QuatRotateVec)
 function QuatRotateVec(a, vec) end
 
 --- A transform is a regular lua table with two entries: pos and rot,
@@ -397,6 +421,7 @@ function QuatRotateVec(a, vec) end
 --- 	DebugPrint(TransformStr(t3))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Transform)
 function Transform(pos, rot) end
 
 --- Transforms should never be assigned like regular numbers. Since they are
@@ -415,6 +440,7 @@ function Transform(pos, rot) end
 --- 	local wrong2 = wrong1
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TransformCopy)
 function TransformCopy(org) end
 
 --- Returns the string representation of transform
@@ -430,6 +456,7 @@ function TransformCopy(org) end
 --- 	DebugPrint(TransformStr(t))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TransformStr)
 function TransformStr(transform) end
 
 --- Transform child transform out of the parent transform.
@@ -449,6 +476,7 @@ function TransformStr(transform) end
 --- 	DebugPrint(TransformStr(w))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TransformToParentTransform)
 function TransformToParentTransform(parent, child) end
 
 --- Transform one transform into the local space of another transform.
@@ -468,6 +496,7 @@ function TransformToParentTransform(parent, child) end
 --- 	DebugPrint(TransformStr(s))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TransformToLocalTransform)
 function TransformToLocalTransform(parent, child) end
 
 --- Transfom vector v out of transform t only considering rotation.
@@ -484,6 +513,7 @@ function TransformToLocalTransform(parent, child) end
 --- 	DebugPrint(VecStr(up))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TransformToParentVec)
 function TransformToParentVec(t, v) end
 
 --- Transfom vector v into transform t only considering rotation.
@@ -500,6 +530,7 @@ function TransformToParentVec(t, v) end
 --- 	DebugPrint(VecStr(up))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TransformToLocalVec)
 function TransformToLocalVec(t, v) end
 
 --- Transfom position p out of transform t.
@@ -516,6 +547,7 @@ function TransformToLocalVec(t, v) end
 --- 	DebugPrint(VecStr(p))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TransformToParentPoint)
 function TransformToParentPoint(t, p) end
 
 --- Transfom position p into transform t.
@@ -532,6 +564,7 @@ function TransformToParentPoint(t, p) end
 --- 	DebugPrint(VecStr(p))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TransformToLocalPoint)
 function TransformToLocalPoint(t, p) end
 
 --- @param seed number -- Random seed
@@ -542,6 +575,7 @@ function TransformToLocalPoint(t, p) end
 --- 	result = RollDie()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetRandomSeed)
 function SetRandomSeed(seed) end
 
 --- @return boolean result -- Random true/false
@@ -554,6 +588,7 @@ function SetRandomSeed(seed) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRandomBool)
 function GetRandomBool() end
 
 --- @param min number -- Lower number
@@ -566,6 +601,7 @@ function GetRandomBool() end
 --- 	-- dieRoll is 1,2,3,4,5 or 6
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRandomInt)
 function GetRandomInt(min, max) end
 
 --- @param min number -- Lower number
@@ -578,6 +614,7 @@ function GetRandomInt(min, max) end
 --- 	randomAngleDeg = GetRandomFloat(0.0f, 360.0f)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRandomFloat)
 function GetRandomFloat(min, max) end
 
 --- @param length? number -- Optional length use to scale the generated direction.
@@ -589,5 +626,6 @@ function GetRandomFloat(min, max) end
 --- 	ricochetDirection = GetRandomDirection()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRandomDirection)
 function GetRandomDirection(length) end
 

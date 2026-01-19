@@ -9,6 +9,7 @@
 --- 	local snd = LoadSound("warning-beep.ogg")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#LoadSound)
 function LoadSound(path, nominalDistance) end
 
 --- @param handle number -- Sound handle
@@ -19,6 +20,7 @@ function LoadSound(path, nominalDistance) end
 --- 	UnloadSound(snd)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UnloadSound)
 function UnloadSound(handle) end
 
 --- @param path string -- Path to ogg sound file
@@ -35,6 +37,7 @@ function UnloadSound(handle) end
 --- 	PlayLoop(loop, pos, 1.0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#LoadLoop)
 function LoadLoop(path, nominalDistance) end
 
 --- @param handle number -- Loop handle
@@ -55,6 +58,7 @@ function LoadLoop(path, nominalDistance) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UnloadLoop)
 function UnloadLoop(handle) end
 
 --- ### CLIENT ONLY
@@ -69,6 +73,7 @@ function UnloadLoop(handle) end
 --- end
 --- --This function will move (if possible) sound to gamepad of appropriate user
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetSoundLoopUser)
 function SetSoundLoopUser(handle, nominalDistance) end
 
 --- @param handle number -- Sound handle
@@ -110,6 +115,7 @@ function SetSoundLoopUser(handle, nominalDistance) end
 --- 	end
 --- ]]
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlaySound)
 function PlaySound(handle, pos, volume, registerVolume, pitch) end
 
 --- ### CLIENT ONLY
@@ -152,6 +158,7 @@ function PlaySound(handle, pos, volume, registerVolume, pitch) end
 --- 	end
 --- ]]
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlaySoundForUser)
 function PlaySoundForUser(handle, user, pos, volume, registerVolume, pitch) end
 
 --- @param handle number -- Sound play handle
@@ -173,6 +180,7 @@ function PlaySoundForUser(handle, user, pos, volume, registerVolume, pitch) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#StopSound)
 function StopSound(handle) end
 
 --- @param handle number -- Sound play handle
@@ -195,6 +203,7 @@ function StopSound(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsSoundPlaying)
 function IsSoundPlaying(handle) end
 
 --- @param handle number -- Sound play handle
@@ -217,6 +226,7 @@ function IsSoundPlaying(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetSoundProgress)
 function GetSoundProgress(handle) end
 
 --- @param handle number -- Sound play handle
@@ -239,6 +249,7 @@ function GetSoundProgress(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetSoundProgress)
 function SetSoundProgress(handle, progress) end
 
 --- Call this function continuously to play loop
@@ -258,6 +269,7 @@ function SetSoundProgress(handle, progress) end
 --- 	PlayLoop(loop, pos, 1.0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlayLoop)
 function PlayLoop(handle, pos, volume, registerVolume, pitch) end
 
 --- @param handle number -- Loop handle
@@ -275,6 +287,7 @@ function PlayLoop(handle, pos, volume, registerVolume, pitch) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetSoundLoopProgress)
 function GetSoundLoopProgress(handle) end
 
 --- @param handle number -- Loop handle
@@ -292,6 +305,7 @@ function GetSoundLoopProgress(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetSoundLoopProgress)
 function SetSoundLoopProgress(handle, progress) end
 
 --- @param path string -- Music path
@@ -301,6 +315,7 @@ function SetSoundLoopProgress(handle, progress) end
 --- 	PlayMusic("about.ogg")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlayMusic)
 function PlayMusic(path) end
 
 --- ### Example
@@ -314,6 +329,7 @@ function PlayMusic(path) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#StopMusic)
 function StopMusic() end
 
 --- @return boolean playing -- True if music is playing, false otherwise.
@@ -328,6 +344,7 @@ function StopMusic() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsMusicPlaying)
 function IsMusicPlaying() end
 
 --- @param paused boolean -- True to pause, false to resume.
@@ -342,6 +359,7 @@ function IsMusicPlaying() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetMusicPaused)
 function SetMusicPaused(paused) end
 
 --- @return number progress -- Current music progress in seconds.
@@ -356,6 +374,7 @@ function SetMusicPaused(paused) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetMusicProgress)
 function GetMusicProgress() end
 
 --- @param progress? number -- Progress in seconds. Default 0.0.
@@ -370,6 +389,7 @@ function GetMusicProgress() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetMusicProgress)
 function SetMusicProgress(progress) end
 
 --- Override current music volume for this frame. Call continuously to keep overriding.
@@ -385,6 +405,7 @@ function SetMusicProgress(progress) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetMusicVolume)
 function SetMusicVolume(volume) end
 
 --- Override current music low pass filter for this frame. Call continuously to keep overriding.
@@ -400,5 +421,6 @@ function SetMusicVolume(volume) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetMusicLowPass)
 function SetMusicLowPass(wet) end
 

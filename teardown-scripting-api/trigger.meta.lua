@@ -9,6 +9,7 @@
 --- 	local goal = FindTrigger("goal")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindTrigger)
 function FindTrigger(tag, global) end
 
 --- @param tag? string -- Tag name
@@ -25,6 +26,7 @@ function FindTrigger(tag, global) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindTriggers)
 function FindTriggers(tag, global) end
 
 --- @param handle number -- Trigger handle
@@ -37,6 +39,7 @@ function FindTriggers(tag, global) end
 --- 	DebugPrint(t.pos)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetTriggerTransform)
 function GetTriggerTransform(handle) end
 
 --- @param handle number -- Trigger handle
@@ -49,6 +52,7 @@ function GetTriggerTransform(handle) end
 --- 	SetTriggerTransform(trigger, t)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetTriggerTransform)
 function SetTriggerTransform(handle, transform) end
 
 --- Return the lower and upper points in world space of the trigger axis aligned bounding box
@@ -66,6 +70,7 @@ function SetTriggerTransform(handle, transform) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetTriggerBounds)
 function GetTriggerBounds(handle) end
 
 --- This function will only check the center point of the body
@@ -86,6 +91,7 @@ function GetTriggerBounds(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsBodyInTrigger)
 function IsBodyInTrigger(trigger, body) end
 
 --- This function will only check origo of vehicle
@@ -106,6 +112,7 @@ function IsBodyInTrigger(trigger, body) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsVehicleInTrigger)
 function IsVehicleInTrigger(trigger, vehicle) end
 
 --- This function will only check the center point of the shape
@@ -126,6 +133,7 @@ function IsVehicleInTrigger(trigger, vehicle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsShapeInTrigger)
 function IsShapeInTrigger(trigger, shape) end
 
 --- @param trigger number -- Trigger handle
@@ -145,6 +153,7 @@ function IsShapeInTrigger(trigger, shape) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPointInTrigger)
 function IsPointInTrigger(trigger, point) end
 
 --- Checks whether the point is within the scene boundaries.
@@ -159,6 +168,7 @@ function IsPointInTrigger(trigger, point) end
 --- 	DebugWatch("In boundaries", IsPointInBoundaries(p))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPointInBoundaries)
 function IsPointInBoundaries(point) end
 
 --- This function will check if trigger is empty. If trigger contains any part of a body
@@ -181,6 +191,7 @@ function IsPointInBoundaries(point) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsTriggerEmpty)
 function IsTriggerEmpty(handle, demolision) end
 
 --- Get distance to the surface of trigger volume. Will return negative distance if inside.
@@ -197,6 +208,7 @@ function IsTriggerEmpty(handle, demolision) end
 --- 	DebugPrint(dist)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetTriggerDistance)
 function GetTriggerDistance(trigger, point) end
 
 --- Return closest point in trigger volume. Will return the input point itself if inside trigger
@@ -214,5 +226,6 @@ function GetTriggerDistance(trigger, point) end
 --- 	DebugPrint(closest)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetTriggerClosestPoint)
 function GetTriggerClosestPoint(trigger, point) end
 

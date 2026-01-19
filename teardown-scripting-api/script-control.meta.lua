@@ -9,6 +9,7 @@
 --- 	DebugPrint(v)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVersion)
 function GetVersion() end
 
 --- @param version string -- Reference version
@@ -25,6 +26,7 @@ function GetVersion() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#HasVersion)
 function HasVersion(version) end
 
 --- Returns running time of this script. If called from update, this returns
@@ -37,6 +39,7 @@ function HasVersion(version) end
 --- 	DebugPrint(t)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetTime)
 function GetTime() end
 
 --- Returns timestep of the last frame. If called from update, this returns
@@ -54,6 +57,7 @@ function GetTime() end
 --- 	DebugPrint("update dt: " .. dt)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetTimeStep)
 function GetTimeStep() end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
@@ -67,6 +71,7 @@ function GetTimeStep() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#InputLastPressedKey)
 function InputLastPressedKey(playerId) end
 
 --- @param input string -- The input identifier
@@ -80,6 +85,7 @@ function InputLastPressedKey(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#InputPressed)
 function InputPressed(input, playerId) end
 
 --- @param input string -- The input identifier
@@ -93,6 +99,7 @@ function InputPressed(input, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#InputReleased)
 function InputReleased(input, playerId) end
 
 --- @param input string -- The input identifier
@@ -106,6 +113,7 @@ function InputReleased(input, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#InputDown)
 function InputDown(input, playerId) end
 
 --- @param input string -- The input identifier
@@ -119,6 +127,7 @@ function InputDown(input, playerId) end
 --- 	DebugPrint(scrollPos)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#InputValue)
 function InputValue(input, playerId) end
 
 --- ### CLIENT ONLY
@@ -137,6 +146,7 @@ function InputValue(input, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#InputClear)
 function InputClear() end
 
 --- ### CLIENT ONLY
@@ -150,6 +160,7 @@ function InputClear() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#InputResetOnTransition)
 function InputResetOnTransition() end
 
 --- Returns the last input device id.
@@ -168,6 +179,7 @@ function InputResetOnTransition() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#LastInputDevice)
 function LastInputDevice() end
 
 --- @param variable string -- Name of number variable in the global context
@@ -194,6 +206,7 @@ function LastInputDevice() end
 --- 	DebugPrint(myValue)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetValue)
 function SetValue(variable, value, transition, time) end
 
 --- Chages the value of a table member in time according to specified args.
@@ -216,6 +229,7 @@ function SetValue(variable, value, transition, time) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetValueInTable)
 function SetValueInTable(tableId, memberName, newValue, type, length) end
 
 --- Calling this function will add a button on the bottom bar or in the main pause menu (center of the screen) when the game is paused.
@@ -265,6 +279,7 @@ function SetValueInTable(tableId, memberName, newValue, type, length) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PauseMenuButton)
 function PauseMenuButton(title, location, disabled) end
 
 --- Checks that file exists on the specified path.
@@ -280,6 +295,7 @@ function PauseMenuButton(title, location, disabled) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#HasFile)
 function HasFile(path) end
 
 --- Start a level
@@ -296,6 +312,7 @@ function HasFile(path) end
 --- 	StartLevel("level1", "MOD/level1.xml", "vehicles targets")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#StartLevel)
 function StartLevel(mission, path, layers, passThrough) end
 
 --- Set paused state of the game
@@ -309,6 +326,7 @@ function StartLevel(mission, path, layers, passThrough) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPaused)
 function SetPaused(paused) end
 
 --- Restart level
@@ -320,6 +338,7 @@ function SetPaused(paused) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Restart)
 function Restart() end
 
 --- Go to main menu
@@ -331,6 +350,7 @@ function Restart() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Menu)
 function Menu() end
 
 --- @param playerId number -- Player ID of the recipient. Use 0 to broadcast to every player.
@@ -354,6 +374,7 @@ function Menu() end
 --- 	-- spawn particles..
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ClientCall)
 function ClientCall(playerId, function) end
 
 --- @param function string -- Name of the function to be invoked. This function must exist within issuing script.
@@ -368,5 +389,6 @@ function ClientCall(playerId, function) end
 --- 	shared.playersReady[playerId] = true
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ServerCall)
 function ServerCall(function) end
 

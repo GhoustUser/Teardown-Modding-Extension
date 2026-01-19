@@ -8,6 +8,7 @@
 --- 	arrow = LoadSprite("gfx/arrowdown.png")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#LoadSprite)
 function LoadSprite(path) end
 
 --- Draw sprite in world at next frame. Call this function from the tick callback.
@@ -35,5 +36,6 @@ function LoadSprite(path) end
 --- 	DrawSprite(arrow, t, 2, 2, 1, 1, 1, 1)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DrawSprite)
 function DrawSprite(handle, transform, width, height, r, g, b, a, depthTest, additive, fogAffected) end
 

@@ -10,6 +10,7 @@
 --- 	DebugPrint(screen)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindScreen)
 function FindScreen(tag, global) end
 
 --- @param tag? string -- Tag name
@@ -26,6 +27,7 @@ function FindScreen(tag, global) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindScreens)
 function FindScreens(tag, global) end
 
 --- ### SERVER ONLY
@@ -38,6 +40,7 @@ function FindScreens(tag, global) end
 --- 	SetScreenEnabled(FindScreen("tv"), true)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetScreenEnabled)
 function SetScreenEnabled(screen, enabled) end
 
 --- @param screen number -- Screen handle
@@ -49,6 +52,7 @@ function SetScreenEnabled(screen, enabled) end
 --- 	DebugPrint(b)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsScreenEnabled)
 function IsScreenEnabled(screen) end
 
 --- Return handle to the parent shape of a screen
@@ -63,6 +67,7 @@ function IsScreenEnabled(screen) end
 --- 	DebugPrint(shape)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetScreenShape)
 function GetScreenShape(screen) end
 
 --- Return playerId that interacts with a screen, or zero if not interacted with
@@ -72,5 +77,6 @@ function GetScreenShape(screen) end
 --- ```lua
 --- local player = GetScreenPlayer(screen)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetScreenPlayer)
 function GetScreenPlayer(screen, playerId) end
 

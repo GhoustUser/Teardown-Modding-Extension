@@ -11,6 +11,7 @@
 --- 	DebugPrint(parameterBlinkCount)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetIntParam)
 function GetIntParam(name, default) end
 
 --- @param name string -- Parameter name
@@ -24,6 +25,7 @@ function GetIntParam(name, default) end
 --- 	DebugPrint(parameterSpeed)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetFloatParam)
 function GetFloatParam(name, default) end
 
 --- @param name string -- Parameter name
@@ -37,6 +39,7 @@ function GetFloatParam(name, default) end
 --- 	DebugPrint(parameterPlaySound)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBoolParam)
 function GetBoolParam(name, default) end
 
 --- @param name string -- Parameter name
@@ -50,6 +53,7 @@ function GetBoolParam(name, default) end
 --- 	DebugPrint(parameterMode)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetStringParam)
 function GetStringParam(name, default) end
 
 --- @param name string -- Parameter name
@@ -63,5 +67,6 @@ function GetStringParam(name, default) end
 --- 	DebugPrint(color_r .. " " .. color_g .. " " .. color_b)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetColorParam)
 function GetColorParam(name, default) end
 

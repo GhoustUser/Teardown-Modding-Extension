@@ -9,6 +9,7 @@
 --- 	local rig = FindRig("myrig")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindRig)
 function FindRig(tag, global) end
 
 --- @param rig number -- Rig handle
@@ -17,6 +18,7 @@ function FindRig(tag, global) end
 --- ```lua
 --- 	local t = GetRigWorldTransform(rig)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRigWorldTransform)
 function GetRigWorldTransform(rig) end
 
 --- @param rig number -- Rig handle
@@ -25,6 +27,7 @@ function GetRigWorldTransform(rig) end
 --- ```lua
 --- 	SetRigWorldTransform(rig, Transform(...))
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetRigWorldTransform)
 function SetRigWorldTransform(rig, transform) end
 
 --- @param rig number -- Rig handle
@@ -34,6 +37,7 @@ function SetRigWorldTransform(rig, transform) end
 --- ```lua
 --- local foot_t = GetRigLocationWorldTransform(rigid, "ik_foot_l")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRigLocationWorldTransform)
 function GetRigLocationWorldTransform(rig, name) end
 
 --- @param rig number -- Rig handle
@@ -43,6 +47,7 @@ function GetRigLocationWorldTransform(rig, name) end
 --- ```lua
 --- 	SetRigLocationWorldTransform(rig, "some_location_name", Transform(...))
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetRigLocationWorldTransform)
 function SetRigLocationWorldTransform(rig, name, transform) end
 
 --- @param rig number -- Rig handle
@@ -52,6 +57,7 @@ function SetRigLocationWorldTransform(rig, name, transform) end
 --- ```lua
 --- local t = GetRigLocationLocalTransform(rigid, "some_location_name")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetRigLocationLocalTransform)
 function GetRigLocationLocalTransform(rig, name) end
 
 --- @param rig number -- Rig handle
@@ -62,5 +68,6 @@ function GetRigLocationLocalTransform(rig, name) end
 --- 	local someBody = FindBody("bodyname")
 --- 	SetPlayerRigTransform(someBody, GetBodyTransform(someBody))
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetRigLocationLocalTransform)
 function SetRigLocationLocalTransform(rig, name, transform) end
 

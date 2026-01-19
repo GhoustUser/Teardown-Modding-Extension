@@ -9,6 +9,7 @@
 --- 	local name1, name2, score1, score2 = GetEvent("matchended", i)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetEventCount)
 function GetEventCount(type) end
 
 --- Post a custom event with the specified name and parameters.
@@ -18,6 +19,7 @@ function GetEventCount(type) end
 --- ```lua
 --- PostEvent("matchended", "team1", "team2", 5, 10)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PostEvent)
 function PostEvent(eventName) end
 
 --- @param type string -- Event type
@@ -30,5 +32,6 @@ function PostEvent(eventName) end
 --- 	local name1, name2, score1, score2 = GetEvent("matchended", i)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetEvent)
 function GetEvent(type, index) end
 

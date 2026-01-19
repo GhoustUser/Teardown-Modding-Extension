@@ -11,6 +11,7 @@
 --- ```lua
 --- SetAnimatorPositionIK(animator, "shoulder_l", "hand_l", Vec(10, 0, 0), 1.0, 0.9, true)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetAnimatorPositionIK)
 function SetAnimatorPositionIK(handle, begname, endname, target, weight, history, flag) end
 
 --- @param handle number -- Animator handle
@@ -25,6 +26,7 @@ function SetAnimatorPositionIK(handle, begname, endname, target, weight, history
 --- ```lua
 --- SetAnimatorTransformIK(animator, "shoulder_l", "hand_l", Transform(10, 0, 0), 1.0, 0.9, false, true)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetAnimatorTransformIK)
 function SetAnimatorTransformIK(handle, begname, endname, transform, weight, history, locktarget, useconstraints) end
 
 --- This will calculate the length of the bone-chain between the endpoints.
@@ -37,6 +39,7 @@ function SetAnimatorTransformIK(handle, begname, endname, transform, weight, his
 --- ```lua
 --- local length = GetBoneChainLength(animator, "shoulder_l", "hand_l")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBoneChainLength)
 function GetBoneChainLength(handle, begname, endname) end
 
 --- @param tag? string -- Tag name
@@ -51,6 +54,7 @@ function GetBoneChainLength(handle, begname, endname) end
 --- --Search for an animator tagged "anim2" in entire scene
 --- local anim2 = FindAnimator("anim2", true)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindAnimator)
 function FindAnimator(tag, global) end
 
 --- @param tag? string -- Tag name
@@ -65,6 +69,7 @@ function FindAnimator(tag, global) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindAnimators)
 function FindAnimators(tag, global) end
 
 --- @param handle number -- Animator handle
@@ -73,6 +78,7 @@ function FindAnimators(tag, global) end
 --- ```lua
 --- local pos = GetAnimatorTransform(animator).pos
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetAnimatorTransform)
 function GetAnimatorTransform(handle) end
 
 --- When using IK for a character you can use ik-helpers to define where the
@@ -89,6 +95,7 @@ function GetAnimatorTransform(handle) end
 --- end
 --- SetAnimatorTransformIK(animator, "shoulder_l", "hand_l", target, 1.0, 0.9)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetAnimatorAdjustTransformIK)
 function GetAnimatorAdjustTransformIK(handle, name) end
 
 --- @param handle number -- Animator handle
@@ -98,6 +105,7 @@ function GetAnimatorAdjustTransformIK(handle, name) end
 --- local t = Transform(Vec(10, 0, 0), QuatEuler(0, 90, 0))
 --- SetAnimatorTransform(animator, t)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetAnimatorTransform)
 function SetAnimatorTransform(handle, transform) end
 
 --- Make all prefab bodies physical and leave control to physics system
@@ -106,6 +114,7 @@ function SetAnimatorTransform(handle, transform) end
 --- ```lua
 --- MakeRagdoll(animator)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#MakeRagdoll)
 function MakeRagdoll(handle) end
 
 --- Take control if the prefab bodies and do an optional blend between the current ragdoll state and current animation state
@@ -116,6 +125,7 @@ function MakeRagdoll(handle) end
 --- --Take control of bodies and do a blend during one sec between the animation state and last physics state
 --- UnRagdoll(animator, 1.0)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UnRagdoll)
 function UnRagdoll(handle, time) end
 
 --- Single animations, one-shot, will be processed after looping animations.
@@ -129,6 +139,7 @@ function UnRagdoll(handle, time) end
 --- --This will play a single animation "Shooting" with a 80% influence but only on the skeleton starting at bone "Spine"
 --- PlayAnimation(animator, "Shooting", 0.8, "Spine")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlayAnimation)
 function PlayAnimation(handle, name, weight, filter) end
 
 --- @param handle number -- Animator handle
@@ -140,6 +151,7 @@ function PlayAnimation(handle, name, weight, filter) end
 --- --This will play an animation loop "Walking" with a 100% influence on the whole skeleton
 --- PlayAnimationLoop(animator, "Walking")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlayAnimationLoop)
 function PlayAnimationLoop(handle, name, weight, filter) end
 
 --- Single animations, one-shot, will be processed after looping animations.
@@ -153,11 +165,13 @@ function PlayAnimationLoop(handle, name, weight, filter) end
 --- --This will play a single animation "Shooting" with a 80% influence but only on the skeleton starting at bone "Spine"
 --- PlayAnimation(animator, "Shooting", 0.8, "Spine")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlayAnimationInstance)
 function PlayAnimationInstance(handle, instance, weight, speed) end
 
 --- This will stop the playing anim-instance
 --- @param handle number -- Animator handle
 --- @param instance number -- Instance handle
+--- [View Documentation](https://teardowngame.com/experimental/api.html#StopAnimationInstance)
 function StopAnimationInstance(handle, instance) end
 
 --- @param handle number -- Animator handle
@@ -170,6 +184,7 @@ function StopAnimationInstance(handle, instance) end
 --- --This will play an animation "Walking" at a specific time of 1.5s with a 80% influence on the whole skeleton
 --- PlayAnimationFrame(animator, "Walking", 1.5, 0.8)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlayAnimationFrame)
 function PlayAnimationFrame(handle, name, time, weight, filter) end
 
 --- You can group looping animations together and use the result of those to blend to target.
@@ -194,10 +209,12 @@ function PlayAnimationFrame(handle, name, time, weight, filter) end
 --- 	EndAnimationGroup(animator)
 --- EndAnimationGroup(animator)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#BeginAnimationGroup)
 function BeginAnimationGroup(handle, weight, filter) end
 
 --- Ends the group created by BeginAnimationGroup
 --- @param handle number -- Animator handle
+--- [View Documentation](https://teardowngame.com/experimental/api.html#EndAnimationGroup)
 function EndAnimationGroup(handle) end
 
 --- Single animations, one-shot, will be processed after looping animations.
@@ -217,6 +234,7 @@ function EndAnimationGroup(handle) end
 --- PlayAnimationInstances(animator)
 --- SetBoneRotation(animator, "Spine1", rot, 1)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlayAnimationInstances)
 function PlayAnimationInstances(handle) end
 
 --- @param handle number -- Animator handle
@@ -229,11 +247,13 @@ function PlayAnimationInstances(handle) end
 --- 	..
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetAnimationClipNames)
 function GetAnimationClipNames(handle) end
 
 --- @param handle number -- Animator handle
 --- @param name string -- Animation name
 --- @return number time -- Total duration of the animation
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetAnimationClipDuration)
 function GetAnimationClipDuration(handle, name) end
 
 --- @param handle number -- Animator handle
@@ -244,6 +264,7 @@ function GetAnimationClipDuration(handle, name) end
 --- ```lua
 --- SetAnimationClipFade(animator, "fire", 0.5, 0.5)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetAnimationClipFade)
 function SetAnimationClipFade(handle, name, fadein, fadeout) end
 
 --- @param handle number -- Animator handle
@@ -254,6 +275,7 @@ function SetAnimationClipFade(handle, name, fadein, fadeout) end
 --- --This will make the clip run 2x as normal speed
 --- SetAnimationClipSpeed(animator, "walking", 2)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetAnimationClipSpeed)
 function SetAnimationClipSpeed(handle, name, speed) end
 
 --- @param handle number -- Animator handle
@@ -265,16 +287,19 @@ function SetAnimationClipSpeed(handle, name, speed) end
 --- --This will "remove" 1s from the beginning and 2s from the end.
 --- TrimAnimationClip(animator, "walking", 1, -2)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TrimAnimationClip)
 function TrimAnimationClip(handle, name, begoffset, endoffset) end
 
 --- @param handle number -- Animator handle
 --- @param name string -- Animation name
 --- @return number time -- Time of the current playposition in the animation
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetAnimationClipLoopPosition)
 function GetAnimationClipLoopPosition(handle, name) end
 
 --- @param handle number -- Animator handle
 --- @param instance number -- Instance handle
 --- @return number time -- Time of the current playposition in the animation
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetAnimationInstancePosition)
 function GetAnimationInstancePosition(handle, instance) end
 
 --- @param handle number -- Animator handle
@@ -285,6 +310,7 @@ function GetAnimationInstancePosition(handle, instance) end
 --- --This will set the current playposition to one second
 --- SetAnimationClipLoopPosition(animator, "walking", 1)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetAnimationClipLoopPosition)
 function SetAnimationClipLoopPosition(handle, name, time) end
 
 --- @param handle number -- Animator handle
@@ -296,6 +322,7 @@ function SetAnimationClipLoopPosition(handle, name, time) end
 --- --This will set the existing rotation by QuatEuler(...)
 --- SetBoneRotation(animator, "spine", QuatEuler(0, 180, 0), 1.0)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetBoneRotation)
 function SetBoneRotation(handle, name, quat, weight) end
 
 --- @param handle number -- Animator handle
@@ -307,6 +334,7 @@ function SetBoneRotation(handle, name, quat, weight) end
 --- --This will set the existing local-rotation to point to world space point
 --- SetBoneLookAt(animator, "upper_arm_l", Vec(10, 20, 30), 1.0)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetBoneLookAt)
 function SetBoneLookAt(handle, name, point, weight) end
 
 --- @param handle number -- Animator handle
@@ -318,6 +346,7 @@ function SetBoneLookAt(handle, name, point, weight) end
 --- --This will offset the existing rotation by QuatEuler(...)
 --- RotateBone(animator, "spine", QuatEuler(0, 5, 0), 1.0)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#RotateBone)
 function RotateBone(handle, name, quat, weight) end
 
 --- @param handle number -- Animator handle
@@ -330,6 +359,7 @@ function RotateBone(handle, name, quat, weight) end
 --- 	..
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBoneNames)
 function GetBoneNames(handle) end
 
 --- @param handle number -- Animator handle
@@ -340,6 +370,7 @@ function GetBoneNames(handle) end
 --- local body = GetBoneBody(animator, "head")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBoneBody)
 function GetBoneBody(handle, name) end
 
 --- @param handle number -- Animator handle
@@ -355,6 +386,7 @@ function GetBoneBody(handle, name) end
 ---     	DebugCross(t.pos)
 --- 	end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBoneWorldTransform)
 function GetBoneWorldTransform(handle, name) end
 
 --- @param handle number -- Animator handle
@@ -364,5 +396,6 @@ function GetBoneWorldTransform(handle, name) end
 --- ```lua
 --- local lt = getBindPoseTransform(animator, "lefthand")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBoneBindPoseTransform)
 function GetBoneBindPoseTransform(handle, name) end
 

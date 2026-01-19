@@ -14,6 +14,7 @@
 --- 	DebugPrint(escape)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindBody)
 function FindBody(tag, global) end
 
 --- @param tag? string -- Tag name
@@ -30,6 +31,7 @@ function FindBody(tag, global) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindBodies)
 function FindBodies(tag, global) end
 
 --- @param handle number -- Body handle
@@ -42,6 +44,7 @@ function FindBodies(tag, global) end
 --- 	DebugPrint(TransformStr(t))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyTransform)
 function GetBodyTransform(handle) end
 
 --- @param handle number -- Body handle
@@ -56,6 +59,7 @@ function GetBodyTransform(handle) end
 --- 	SetBodyTransform(handle, t)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetBodyTransform)
 function SetBodyTransform(handle, transform) end
 
 --- @param handle number -- Body handle
@@ -69,6 +73,7 @@ function SetBodyTransform(handle, transform) end
 --- 	DebugPrint(mass)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyMass)
 function GetBodyMass(handle) end
 
 --- Check if body is dynamic. Note that something that was created static
@@ -82,6 +87,7 @@ function GetBodyMass(handle) end
 --- 	DebugPrint(IsBodyDynamic(handle))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsBodyDynamic)
 function IsBodyDynamic(handle) end
 
 --- Change the dynamic state of a body. There is very limited use for this
@@ -97,6 +103,7 @@ function IsBodyDynamic(handle) end
 --- 	DebugPrint(IsBodyDynamic(handle))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetBodyDynamic)
 function SetBodyDynamic(handle, dynamic) end
 
 --- This can be used for animating bodies with preserved physical interaction,
@@ -111,6 +118,7 @@ function SetBodyDynamic(handle, dynamic) end
 --- 	SetBodyVelocity(handle, vel)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetBodyVelocity)
 function SetBodyVelocity(handle, velocity) end
 
 --- @param handle number -- Body handle (should be a dynamic body)
@@ -130,6 +138,7 @@ function SetBodyVelocity(handle, velocity) end
 --- 	DebugPrint(VecStr(GetBodyVelocity(handle)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyVelocity)
 function GetBodyVelocity(handle) end
 
 --- Return the velocity on a body taking both linear and angular velocity into account.
@@ -151,6 +160,7 @@ function GetBodyVelocity(handle) end
 --- 	DebugPrint(VecStr(GetBodyVelocityAtPos(handle, Vec(0, 0, 0))))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyVelocityAtPos)
 function GetBodyVelocityAtPos(handle, pos) end
 
 --- This can be used for animating bodies with preserved physical interaction,
@@ -165,6 +175,7 @@ function GetBodyVelocityAtPos(handle, pos) end
 --- 	SetBodyAngularVelocity(handle, angVel)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetBodyAngularVelocity)
 function SetBodyAngularVelocity(handle, angVel) end
 
 --- @param handle number -- Body handle (should be a dynamic body)
@@ -184,6 +195,7 @@ function SetBodyAngularVelocity(handle, angVel) end
 --- 	DebugPrint(VecStr(GetBodyAngularVelocity(handle)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyAngularVelocity)
 function GetBodyAngularVelocity(handle) end
 
 --- Check if body is body is currently simulated. For performance reasons,
@@ -202,6 +214,7 @@ function GetBodyAngularVelocity(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsBodyActive)
 function IsBodyActive(handle) end
 
 --- This function makes it possible to manually activate and deactivate bodies to include or
@@ -226,6 +239,7 @@ function IsBodyActive(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetBodyActive)
 function SetBodyActive(handle, active) end
 
 --- Apply impulse to dynamic body at position (give body a push).
@@ -241,6 +255,7 @@ function SetBodyActive(handle, active) end
 --- 	ApplyBodyImpulse(handle, pos, imp)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ApplyBodyImpulse)
 function ApplyBodyImpulse(handle, position, impulse) end
 
 --- Return handles to all shapes owned by a body
@@ -257,6 +272,7 @@ function ApplyBodyImpulse(handle, position, impulse) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyShapes)
 function GetBodyShapes(handle) end
 
 --- @param body number -- Body handle
@@ -269,6 +285,7 @@ function GetBodyShapes(handle) end
 --- 	DebugPrint(vehicle)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyVehicle)
 function GetBodyVehicle(body) end
 
 --- @param body number -- Body handle
@@ -277,6 +294,7 @@ function GetBodyVehicle(body) end
 --- ```lua
 --- local animator = GetBodyAnimator(body)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyAnimator)
 function GetBodyAnimator(body) end
 
 --- @param body number -- Body handle
@@ -285,6 +303,7 @@ function GetBodyAnimator(body) end
 --- ```lua
 --- local player = GetBodyPlayer(body)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyPlayer)
 function GetBodyPlayer(body) end
 
 --- Return the world space, axis-aligned bounding box for a body.
@@ -301,6 +320,7 @@ function GetBodyPlayer(body) end
 --- 	DebugPrint(VecStr(boundsSize) .. " " .. VecStr(center))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyBounds)
 function GetBodyBounds(handle) end
 
 --- @param handle number -- Body handle
@@ -317,6 +337,7 @@ function GetBodyBounds(handle) end
 --- 	DebugCross(worldPoint)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyCenterOfMass)
 function GetBodyCenterOfMass(handle) end
 
 --- This function does a very rudimetary check and will only return true if the 
@@ -342,6 +363,7 @@ function GetBodyCenterOfMass(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsBodyVisible)
 function IsBodyVisible(handle, maxDist, rejectTransparent, playerId) end
 
 --- Determine if any shape of a body has been broken.
@@ -357,6 +379,7 @@ function IsBodyVisible(handle, maxDist, rejectTransparent, playerId) end
 --- 	DebugPrint(IsBodyBroken(handle))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsBodyBroken)
 function IsBodyBroken(handle) end
 
 --- Determine if a body is in any way connected to a static object, either by being static itself or
@@ -373,6 +396,7 @@ function IsBodyBroken(handle) end
 --- 	DebugPrint(IsBodyJointedToStatic(handle))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsBodyJointedToStatic)
 function IsBodyJointedToStatic(handle) end
 
 --- Render next frame with an outline around specified body.
@@ -398,6 +422,7 @@ function IsBodyJointedToStatic(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DrawBodyOutline)
 function DrawBodyOutline(handle, r, g, b, a) end
 
 --- Flash the appearance of a body when rendering this frame. This is
@@ -416,6 +441,7 @@ function DrawBodyOutline(handle, r, g, b, a) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DrawBodyHighlight)
 function DrawBodyHighlight(handle, amount) end
 
 --- This will return the closest point of a specific body
@@ -439,6 +465,7 @@ function DrawBodyHighlight(handle, amount) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBodyClosestPoint)
 function GetBodyClosestPoint(body, origin) end
 
 --- This will tell the physics solver to constrain the velocity between two bodies. The physics solver
@@ -465,6 +492,7 @@ function GetBodyClosestPoint(body, origin) end
 --- 	ConstrainVelocity(handleA, handleB, Vec(0, 5, 0), Vec(1, 0, 0), 3)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ConstrainVelocity)
 function ConstrainVelocity(bodyA, bodyB, point, dir, relVel, min, max) end
 
 --- This will tell the physics solver to constrain the angular velocity between two bodies. The physics solver
@@ -490,6 +518,7 @@ function ConstrainVelocity(bodyA, bodyB, point, dir, relVel, min, max) end
 --- 	ConstrainAngularVelocity(handleA, handleB, Vec(1, 0, 0), 3)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ConstrainAngularVelocity)
 function ConstrainAngularVelocity(bodyA, bodyB, dir, relAngVel, min, max) end
 
 --- This is a helper function that uses ConstrainVelocity to constrain a point on one
@@ -519,6 +548,7 @@ function ConstrainAngularVelocity(bodyA, bodyB, dir, relAngVel, min, max) end
 --- 	ConstrainPosition(handleA, handleA, GetBodyTransform(handleA).pos, GetBodyTransform(handleB).pos)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ConstrainPosition)
 function ConstrainPosition(bodyA, bodyB, pointA, pointB, maxVel, maxImpulse) end
 
 --- This is the angular counterpart to ConstrainPosition, a helper function that uses
@@ -548,6 +578,7 @@ function ConstrainPosition(bodyA, bodyB, pointA, pointB, maxVel, maxImpulse) end
 --- 	ConstrainOrientation(handleA, handleB, GetBodyTransform(handleA).rot, GetBodyTransform(handleB).rot)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ConstrainOrientation)
 function ConstrainOrientation(bodyA, bodyB, quatA, quatB, maxAngVel, maxAngImpulse) end
 
 --- Every scene in Teardown has an implicit static world body that contains all shapes that are not explicitly assigned a body in the editor.
@@ -562,5 +593,6 @@ function ConstrainOrientation(bodyA, bodyB, quatA, quatB, maxAngVel, maxAngImpul
 --- 	DebugCross(GetBodyTransform(handle).pos)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetWorldBody)
 function GetWorldBody() end
 

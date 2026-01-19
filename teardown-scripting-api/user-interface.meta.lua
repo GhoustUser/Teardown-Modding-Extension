@@ -9,6 +9,7 @@
 --- ```lua
 --- UiMakeInteractive()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiMakeInteractive)
 function UiMakeInteractive() end
 
 --- Push state onto stack. This is used in combination with UiPop to
@@ -23,6 +24,7 @@ function UiMakeInteractive() end
 --- UiPop()
 --- UiText("Red")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiPush)
 function UiPush() end
 
 --- Pop state from stack and make it the current one. This is used in
@@ -38,6 +40,7 @@ function UiPush() end
 --- UiPop()
 --- UiText("Red")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiPop)
 function UiPop() end
 
 --- @return number width -- Width of draw context
@@ -45,6 +48,7 @@ function UiPop() end
 --- ```lua
 --- local w = UiWidth()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiWidth)
 function UiWidth() end
 
 --- @return number height -- Height of draw context
@@ -52,6 +56,7 @@ function UiWidth() end
 --- ```lua
 --- local h = UiHeight()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiHeight)
 function UiHeight() end
 
 --- @return number center -- Half width of draw context
@@ -61,6 +66,7 @@ function UiHeight() end
 --- --Same as
 --- local c = UiWidth()/2
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiCenter)
 function UiCenter() end
 
 --- @return number middle -- Half height of draw context
@@ -70,6 +76,7 @@ function UiCenter() end
 --- --Same as
 --- local m = UiHeight()/2
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiMiddle)
 function UiMiddle() end
 
 --- @param r number -- Red channel
@@ -81,6 +88,7 @@ function UiMiddle() end
 --- --Set color yellow
 --- UiColor(1,1,0)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiColor)
 function UiColor(r, g, b, a) end
 
 --- Color filter, multiplied to all future colors in this scope
@@ -96,6 +104,7 @@ function UiColor(r, g, b, a) end
 --- 	drawMenu()
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiColorFilter)
 function UiColorFilter(r, g, b, a) end
 
 --- ### Example
@@ -112,6 +121,7 @@ function UiColorFilter(r, g, b, a) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiResetColor)
 function UiResetColor() end
 
 --- Translate cursor
@@ -124,6 +134,7 @@ function UiResetColor() end
 --- 	UiText("Indented")
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiTranslate)
 function UiTranslate(x, y) end
 
 --- Rotate cursor
@@ -135,6 +146,7 @@ function UiTranslate(x, y) end
 --- 	UiText("Rotated")
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiRotate)
 function UiRotate(angle) end
 
 --- Scale cursor either uniformly (one argument) or non-uniformly (two arguments)
@@ -147,6 +159,7 @@ function UiRotate(angle) end
 --- 	UiText("Double size")
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiScale)
 function UiScale(x, y) end
 
 --- Returns the ui context's scale
@@ -162,6 +175,7 @@ function UiScale(x, y) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetScale)
 function UiGetScale() end
 
 --- @param width number -- Rect width
@@ -179,6 +193,7 @@ function UiGetScale() end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiClipRect)
 function UiClipRect(width, height, inherit) end
 
 --- Set up new bounds. Calls to UiWidth, UiHeight, UiCenter and UiMiddle
@@ -197,6 +212,7 @@ function UiClipRect(width, height, inherit) end
 --- 	--w is now 400
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiWindow)
 function UiWindow(width, height, clip, inherit) end
 
 --- Returns the top left & bottom right points of the current window
@@ -210,6 +226,7 @@ function UiWindow(width, height, clip, inherit) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetCurrentWindow)
 function UiGetCurrentWindow() end
 
 --- True if the specified point is within the boundaries of the current window
@@ -226,6 +243,7 @@ function UiGetCurrentWindow() end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiIsInCurrentWindow)
 function UiIsInCurrentWindow(x, y) end
 
 --- Checks whether a rectangle with width w and height h is completely clipped
@@ -249,6 +267,7 @@ function UiIsInCurrentWindow(x, y) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiIsRectFullyClipped)
 function UiIsRectFullyClipped(w, h) end
 
 --- Checks whether a point is inside the clip region
@@ -269,6 +288,7 @@ function UiIsRectFullyClipped(w, h) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiIsInClipRegion)
 function UiIsInClipRegion(x, y) end
 
 --- Checks whether a rect is overlap the clip region
@@ -290,6 +310,7 @@ function UiIsInClipRegion(x, y) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiIsFullyClipped)
 function UiIsFullyClipped(w, h) end
 
 --- Return a safe drawing area that will always be visible regardless of
@@ -305,6 +326,7 @@ function UiIsFullyClipped(w, h) end
 --- 	drawMenu()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiSafeMargins)
 function UiSafeMargins() end
 
 --- Returns the canvas size. "Canvas" means a coordinate space in which UI is drawn
@@ -321,6 +343,7 @@ function UiSafeMargins() end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiCanvasSize)
 function UiCanvasSize() end
 
 --- @param alignment string -- Alignment keywords
@@ -331,6 +354,7 @@ function UiCanvasSize() end
 --- UiAlign("center middle")
 --- UiText("Fully centered")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiAlign)
 function UiAlign(alignment) end
 
 --- @param alignment string -- Alignment keyword
@@ -341,6 +365,7 @@ function UiAlign(alignment) end
 --- UiTextAlignment("center")
 --- UiText("Centered")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiTextAlignment)
 function UiTextAlignment(alignment) end
 
 --- Disable input for everything, except what's between UiModalBegin and UiModalEnd
@@ -362,6 +387,7 @@ function UiTextAlignment(alignment) end
 --- UiPop()
 --- --No longer modal
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiModalBegin)
 function UiModalBegin(force) end
 
 --- Disable input for everything, except what's between UiModalBegin and UiModalEnd
@@ -375,6 +401,7 @@ function UiModalBegin(force) end
 --- end
 --- UiModalEnd()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiModalEnd)
 function UiModalEnd() end
 
 --- Disable input
@@ -387,6 +414,7 @@ function UiModalEnd() end
 --- 	end
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiDisableInput)
 function UiDisableInput() end
 
 --- Enable input that has been previously disabled
@@ -401,6 +429,7 @@ function UiDisableInput() end
 --- 	--This can happen
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiEnableInput)
 function UiEnableInput() end
 
 --- This function will check current state receives input. This is the case
@@ -415,6 +444,7 @@ function UiEnableInput() end
 --- 	highlightItemAtMousePointer()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiReceivesInput)
 function UiReceivesInput() end
 
 --- Get mouse pointer position relative to the cursor
@@ -424,6 +454,7 @@ function UiReceivesInput() end
 --- ```lua
 --- local x, y = UiGetMousePos()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetMousePos)
 function UiGetMousePos() end
 
 --- @return number x -- X coordinate
@@ -435,6 +466,7 @@ function UiGetMousePos() end
 --- 	DebugPrint("x :" .. x .. " y:" .. y)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetCanvasMousePos)
 function UiGetCanvasMousePos() end
 
 --- Check if mouse pointer is within rectangle. Note that this function respects
@@ -448,6 +480,7 @@ function UiGetCanvasMousePos() end
 --- 	-- mouse pointer is in rectangle
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiIsMouseInRect)
 function UiIsMouseInRect(w, h) end
 
 --- Convert world space position to user interface X and Y coordinate relative
@@ -465,6 +498,7 @@ function UiIsMouseInRect(w, h) end
 --- UiText("Label")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiWorldToPixel)
 function UiWorldToPixel(point) end
 
 --- Convert X and Y UI coordinate to a world direction, as seen from current camera.
@@ -483,6 +517,7 @@ function UiWorldToPixel(point) end
 --- 	DebugPrint("hit distance: " .. dist)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiPixelToWorld)
 function UiPixelToWorld(x, y) end
 
 --- Returns the ui cursor's postion
@@ -494,6 +529,7 @@ function UiPixelToWorld(x, y) end
 --- 	DebugPrint("x: " .. x .. "; y: " .. y)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetCursorPos)
 function UiGetCursorPos() end
 
 --- Perform a gaussian blur on current screen content
@@ -503,6 +539,7 @@ function UiGetCursorPos() end
 --- UiBlur(1.0)
 --- drawMenu()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiBlur)
 function UiBlur(amount) end
 
 --- @param path string -- Path to TTF font file
@@ -512,6 +549,7 @@ function UiBlur(amount) end
 --- UiFont("bold.ttf", 24)
 --- UiText("Hello")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiFont)
 function UiFont(path, size) end
 
 --- @return number size -- Font size
@@ -519,6 +557,7 @@ function UiFont(path, size) end
 --- ```lua
 --- local h = UiFontHeight()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiFontHeight)
 function UiFontHeight() end
 
 --- @param text string -- Print text at cursor location
@@ -565,6 +604,7 @@ function UiFontHeight() end
 --- someText = "Goto: " .. link
 --- UiText(someText)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiText)
 function UiText(text, move, maxChars) end
 
 --- @param disable boolean -- Enable or disable wildcard [[...]] substitution support in UiText
@@ -579,6 +619,7 @@ function UiText(text, move, maxChars) end
 --- -- embedding works as expected
 --- UiText("Text with embedded icon image [[menu:menu_accept;iconsize=42,42]]")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiTextDisableWildcards)
 function UiTextDisableWildcards(disable) end
 
 --- This function toggles the use of a fixed line height for text rendering.
@@ -642,6 +683,7 @@ function UiTextDisableWildcards(disable) end
 --- 	drawDescriptions()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiTextUniformHeight)
 function UiTextUniformHeight(uniform) end
 
 --- @param text string -- A text string
@@ -653,6 +695,7 @@ function UiTextUniformHeight(uniform) end
 --- ```lua
 --- local w, h = UiGetTextSize("Some text")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetTextSize)
 function UiGetTextSize(text) end
 
 --- @param space number -- Space between lines
@@ -662,6 +705,7 @@ function UiGetTextSize(text) end
 --- ```lua
 --- local w, h = UiMeasureText(0, "Some text", "loc@key")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiMeasureText)
 function UiMeasureText(space) end
 
 --- @param text string -- Text
@@ -672,6 +716,7 @@ function UiMeasureText(space) end
 --- 	DebugPrint(UiGetSymbolsCount("Hello world!"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetSymbolsCount)
 function UiGetSymbolsCount(text) end
 
 --- Returns the substring. This function is intended to properly work with UTF8 encoded strings
@@ -685,6 +730,7 @@ function UiGetSymbolsCount(text) end
 --- 	DebugPrint(UiTextSymbolsSub("Hello world", 1, 5))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiTextSymbolsSub)
 function UiTextSymbolsSub(text, from, to) end
 
 --- @param width number -- Maximum width of text
@@ -693,6 +739,7 @@ function UiTextSymbolsSub(text, from, to) end
 --- UiWordWrap(200)
 --- UiText("Some really long text that will get wrapped into several lines")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiWordWrap)
 function UiWordWrap(width) end
 
 --- Sets the context's linespacing value of the text which is drawn using UiText
@@ -705,6 +752,7 @@ function UiWordWrap(width) end
 --- 	UiText("TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiTextLineSpacing)
 function UiTextLineSpacing(value) end
 
 --- @param r number -- Red channel
@@ -718,6 +766,7 @@ function UiTextLineSpacing(value) end
 --- UiTextOutline(0,0,0,1)
 --- UiText("Text with outline")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiTextOutline)
 function UiTextOutline(r, g, b, a, thickness) end
 
 --- @param r number -- Red channel
@@ -732,6 +781,7 @@ function UiTextOutline(r, g, b, a, thickness) end
 --- UiTextShadow(0, 0, 0, 0.5, 2.0)
 --- UiText("Text with drop shadow")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiTextShadow)
 function UiTextShadow(r, g, b, a, distance, blur) end
 
 --- Draw solid rectangle at cursor position
@@ -751,6 +801,7 @@ function UiTextShadow(r, g, b, a, distance, blur) end
 --- 	UiRect(100, 100)
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiRect)
 function UiRect(w, h) end
 
 --- Draw rectangle outline at cursor position
@@ -768,6 +819,7 @@ function UiRect(w, h) end
 --- 	UiRectOutline(100, 100, 5)
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiRectOutline)
 function UiRectOutline(width, height, thickness) end
 
 --- Draw a solid rectangle with round corners of specified radius
@@ -784,6 +836,7 @@ function UiRectOutline(width, height, thickness) end
 --- 	UiRoundedRect(100, 100, 8)
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiRoundedRect)
 function UiRoundedRect(width, height, roundingRadius) end
 
 --- Draw rectangle outline with round corners at cursor position
@@ -801,6 +854,7 @@ function UiRoundedRect(width, height, roundingRadius) end
 --- 	UiRoundedRectOutline(100, 100, 20, 5)
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiRoundedRectOutline)
 function UiRoundedRectOutline(width, height, roundingRadius, thickness) end
 
 --- Draw a solid circle at cursor position
@@ -814,6 +868,7 @@ function UiRoundedRectOutline(width, height, roundingRadius, thickness) end
 --- 	UiCircle(100)
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiCircle)
 function UiCircle(radius) end
 
 --- Draw a circle outline at cursor position
@@ -829,6 +884,7 @@ function UiCircle(radius) end
 --- 	UiCircleOutline(100, 8)
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiCircleOutline)
 function UiCircleOutline(radius, thickness) end
 
 --- Image to fill for UiRoundedRect, UiCircle
@@ -843,6 +899,7 @@ function UiCircleOutline(radius, thickness) end
 --- 	UiRoundedRect(100, 100, 8)
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiFillImage)
 function UiFillImage(path) end
 
 --- Perform a gaussian blur on the background and applies the blur to any following calls to UiRect, 
@@ -853,6 +910,7 @@ function UiFillImage(path) end
 --- UiBackgroundBlur(1.0)
 --- UiRect(300, 300)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiBackgroundBlur)
 function UiBackgroundBlur(amount) end
 
 --- Draw image at cursor position. If x0, y0, x1, y1 is provided a cropped version
@@ -869,6 +927,7 @@ function UiBackgroundBlur(amount) end
 --- 	UiImage("test.png")
 --- UiPop()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiImage)
 function UiImage(path) end
 
 --- Unloads a texture from the memory
@@ -887,6 +946,7 @@ function UiImage(path) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiUnloadImage)
 function UiUnloadImage(path) end
 
 --- @param path string -- Path to image (PNG or JPG format)
@@ -900,6 +960,7 @@ function UiUnloadImage(path) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiHasImage)
 function UiHasImage(path) end
 
 --- Get image size
@@ -910,6 +971,7 @@ function UiHasImage(path) end
 --- ```lua
 --- local w,h = UiGetImageSize("test.png")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetImageSize)
 function UiGetImageSize(path) end
 
 --- Draw 9-slice image at cursor position. Width should be at least 2*borderWidth.
@@ -923,6 +985,7 @@ function UiGetImageSize(path) end
 --- ```lua
 --- UiImageBox("menu-frame.png", 200, 200, 10, 10)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiImageBox)
 function UiImageBox(path, width, height, borderWidth, borderHeight) end
 
 --- UI sounds are not affected by acoustics simulation. Use LoadSound / PlaySound for that.
@@ -935,6 +998,7 @@ function UiImageBox(path, width, height, borderWidth, borderHeight) end
 --- ```lua
 --- UiSound("click.ogg")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiSound)
 function UiSound(path, volume, pitch, panAzimuth, panDepth) end
 
 --- Call this continuously to keep playing loop.
@@ -948,6 +1012,7 @@ function UiSound(path, volume, pitch, panAzimuth, panDepth) end
 --- 	UiSoundLoop("screech.ogg")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiSoundLoop)
 function UiSoundLoop(path, volume, pitch) end
 
 --- Mute game audio and optionally music for the next frame. Call
@@ -960,6 +1025,7 @@ function UiSoundLoop(path, volume, pitch) end
 --- 	UiMute(1.0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiMute)
 function UiMute(amount, music) end
 
 --- Set up 9-slice image to be used as background for buttons.
@@ -977,6 +1043,7 @@ function UiMute(amount, music) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiButtonImageBox)
 function UiButtonImageBox(path, borderWidth, borderHeight, r, g, b, a) end
 
 --- Button color filter when hovering mouse pointer.
@@ -991,6 +1058,7 @@ function UiButtonImageBox(path, borderWidth, borderHeight, r, g, b, a) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiButtonHoverColor)
 function UiButtonHoverColor(r, g, b, a) end
 
 --- Button color filter when pressing down.
@@ -1005,6 +1073,7 @@ function UiButtonHoverColor(r, g, b, a) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiButtonPressColor)
 function UiButtonPressColor(r, g, b, a) end
 
 --- The button offset when being pressed
@@ -1017,6 +1086,7 @@ function UiButtonPressColor(r, g, b, a) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiButtonPressDist)
 function UiButtonPressDist(distX, distY) end
 
 --- indicating how to handle text overflow.
@@ -1034,6 +1104,7 @@ function UiButtonPressDist(distX, distY) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiButtonTextHandling)
 function UiButtonTextHandling(type) end
 
 --- @param text string -- Text on button
@@ -1046,6 +1117,7 @@ function UiButtonTextHandling(type) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiTextButton)
 function UiTextButton(text, w, h) end
 
 --- @param path string -- Image path (PNG or JPG file)
@@ -1056,6 +1128,7 @@ function UiTextButton(text, w, h) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiImageButton)
 function UiImageButton(path) end
 
 --- @param w number -- Button width
@@ -1067,6 +1140,7 @@ function UiImageButton(path) end
 --- 	...
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiBlankButton)
 function UiBlankButton(w, h) end
 
 --- @param path string -- Image path (PNG or JPG file)
@@ -1080,6 +1154,7 @@ function UiBlankButton(w, h) end
 --- ```lua
 --- value = UiSlider("dot.png", "x", value, 0, 100)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiSlider)
 function UiSlider(path, axis, current, min, max) end
 
 --- Sets the slider hover color filter
@@ -1114,6 +1189,7 @@ function UiSlider(path, axis, current, min, max) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiSliderHoverColorFilter)
 function UiSliderHoverColorFilter(r, g, b, a) end
 
 --- Sets the slider thumb size
@@ -1146,6 +1222,7 @@ function UiSliderHoverColorFilter(r, g, b, a) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiSliderThumbSize)
 function UiSliderThumbSize(width, height) end
 
 --- @return number handle -- Handle to the screen running this script or zero if none.
@@ -1155,6 +1232,7 @@ function UiSliderThumbSize(width, height) end
 --- screen = UiGetScreen()
 --- SetScreenEnabled(screen, false)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetScreen)
 function UiGetScreen() end
 
 --- Declares a navigation component which participates in navigation using dpad buttons of a gamepad.
@@ -1184,6 +1262,7 @@ function UiGetScreen() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiNavComponent)
 function UiNavComponent(w, h) end
 
 --- Sets a flag to ingore the navgation in a current UI scope or not. By default, if argument isn't
@@ -1213,6 +1292,7 @@ function UiNavComponent(w, h) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiIgnoreNavigation)
 function UiIgnoreNavigation(ignore) end
 
 --- Resets navigation state as if none componets before the function call were declared
@@ -1236,6 +1316,7 @@ function UiIgnoreNavigation(ignore) end
 --- 	DebugPrint(isInFocus)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiResetNavigation)
 function UiResetNavigation() end
 
 --- Skip update of the whole navigation state in a current draw. Could be used to override
@@ -1263,6 +1344,7 @@ function UiResetNavigation() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiNavSkipUpdate)
 function UiNavSkipUpdate() end
 
 --- Returns the flag whether the component with specified id is in focus or not
@@ -1291,6 +1373,7 @@ function UiNavSkipUpdate() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiIsComponentInFocus)
 function UiIsComponentInFocus(id) end
 
 --- Begins a scope of a new navigation group. Navigation group is an entity which aggregates
@@ -1327,6 +1410,7 @@ function UiIsComponentInFocus(id) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiNavGroupBegin)
 function UiNavGroupBegin(id) end
 
 --- Ends a scope of a new navigation group. All components before that call become
@@ -1354,6 +1438,7 @@ function UiNavGroupBegin(id) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiNavGroupEnd)
 function UiNavGroupEnd() end
 
 --- Set a size of current navigation group explicitly. Can be used in cases when it's needed
@@ -1387,6 +1472,7 @@ function UiNavGroupEnd() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiNavGroupSize)
 function UiNavGroupSize(w, h) end
 
 --- Force focus to the component with specified id.
@@ -1420,6 +1506,7 @@ function UiNavGroupSize(w, h) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiForceFocus)
 function UiForceFocus(id) end
 
 --- Returns an id of the currently focused component
@@ -1451,6 +1538,7 @@ function UiForceFocus(id) end
 --- 	DebugPrint(UiFocusedComponentId())
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiFocusedComponentId)
 function UiFocusedComponentId() end
 
 --- Returns a bounding rect of the currently focused component. If the arg "n" is specified
@@ -1488,6 +1576,7 @@ function UiFocusedComponentId() end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiFocusedComponentRect)
 function UiFocusedComponentRect(n) end
 
 --- Returns the last ui item size
@@ -1507,6 +1596,7 @@ function UiFocusedComponentRect(n) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetItemSize)
 function UiGetItemSize() end
 
 --- Enables/disables auto autotranslate function when measuring the item size
@@ -1528,6 +1618,7 @@ function UiGetItemSize() end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiAutoTranslate)
 function UiAutoTranslate(value) end
 
 --- Call to start measuring the content size. After drawing part of the
@@ -1547,6 +1638,7 @@ function UiAutoTranslate(value) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiBeginFrame)
 function UiBeginFrame() end
 
 --- Resets the current frame measured values
@@ -1566,6 +1658,7 @@ function UiBeginFrame() end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiResetFrame)
 function UiResetFrame() end
 
 --- Occupies some space for current frame (between UiBeginFrame and UiEndFrame)
@@ -1585,6 +1678,7 @@ function UiResetFrame() end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiFrameOccupy)
 function UiFrameOccupy(width, height) end
 
 --- @return number width -- Width of content drawn between since UiBeginFrame was called
@@ -1602,6 +1696,7 @@ function UiFrameOccupy(width, height) end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiEndFrame)
 function UiEndFrame() end
 
 --- Sets whether to skip items in current ui scope for current ui frame. This items won't affect on the frame size
@@ -1619,6 +1714,7 @@ function UiEndFrame() end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiFrameSkipItem)
 function UiFrameSkipItem(skip) end
 
 --- @return number frameNo -- Frame number since the level start
@@ -1629,6 +1725,7 @@ function UiFrameSkipItem(skip) end
 --- 	DebugPrint(fNo)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetFrameNo)
 function UiGetFrameNo() end
 
 --- @return number index -- Language index
@@ -1636,6 +1733,7 @@ function UiGetFrameNo() end
 --- ```lua
 --- local n = UiGetLanguage()
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetLanguage)
 function UiGetLanguage() end
 
 --- @param state number -- 
@@ -1665,5 +1763,6 @@ function UiGetLanguage() end
 --- 	UiPop()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UiSetCursorState)
 function UiSetCursorState(state) end
 

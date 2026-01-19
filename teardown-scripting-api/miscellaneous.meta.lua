@@ -18,6 +18,7 @@
 --- 	AddMapMarker(1, "bonusTarget", "Bonus Target", "One of a kind", Vec(30, 40, 50), Vec(1,0,0), "MOD/gfx/bonus_info.png", "MOD/gfx/bonus_icon.png")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#AddMapMarker)
 function AddMapMarker(id, tag, name, category, showLabelOnMap, info, pos, color, infoImage, dotIcon) end
 
 --- ### CLIENT ONLY
@@ -33,6 +34,7 @@ function AddMapMarker(id, tag, name, category, showLabelOnMap, info, pos, color,
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SelectedMapMarker)
 function SelectedMapMarker() end
 
 --- ### SERVER ONLY
@@ -51,6 +53,7 @@ function SelectedMapMarker() end
 --- 	Shoot(Vec(0, 10, 0), Vec(0, -1, 0), "shotgun")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Shoot)
 function Shoot(origin, direction, type, strength, maxDist, playerId) end
 
 --- ### SERVER ONLY
@@ -65,6 +68,7 @@ function Shoot(origin, direction, type, strength, maxDist, playerId) end
 --- 	Paint(Vec(0, 2, 0), 5.0, "spraycan")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Paint)
 function Paint(origin, radius, type, probability) end
 
 --- ### SERVER ONLY
@@ -82,6 +86,7 @@ function Paint(origin, radius, type, probability) end
 --- 	PaintRGBA(Vec(0, 5, 0), 5.5, 1.0, 0.0, 0.0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PaintRGBA)
 function PaintRGBA(origin, radius, red, green, blue, alpha, probability) end
 
 --- ### SERVER ONLY
@@ -98,6 +103,7 @@ function PaintRGBA(origin, radius, red, green, blue, alpha, probability) end
 --- 	MakeHole(Vec(0, 0, 0), 5.0, 1.0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#MakeHole)
 function MakeHole(position, silent) end
 
 --- ### SERVER ONLY
@@ -109,6 +115,7 @@ function MakeHole(position, silent) end
 --- 	Explosion(Vec(0, 5, 0), 1)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Explosion)
 function Explosion(pos, size) end
 
 --- ### SERVER ONLY
@@ -119,6 +126,7 @@ function Explosion(pos, size) end
 --- 	SpawnFire(Vec(0, 2, 0))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SpawnFire)
 function SpawnFire(pos) end
 
 --- @return number count -- Number of active fires in level
@@ -129,6 +137,7 @@ function SpawnFire(pos) end
 --- 	DebugPrint("Fire count " .. c)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetFireCount)
 function GetFireCount() end
 
 --- @param origin TVec -- World space position as vector
@@ -145,6 +154,7 @@ function GetFireCount() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryClosestFire)
 function QueryClosestFire(origin, maxDist) end
 
 --- @param min TVec -- Aabb minimum point
@@ -157,6 +167,7 @@ function QueryClosestFire(origin, maxDist) end
 --- 	DebugPrint(count)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryAabbFireCount)
 function QueryAabbFireCount(min, max) end
 
 --- ### SERVER ONLY
@@ -170,6 +181,7 @@ function QueryAabbFireCount(min, max) end
 --- 	DebugPrint(removedCount)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#RemoveAabbFires)
 function RemoveAabbFires(min, max) end
 
 --- ### CLIENT ONLY
@@ -181,6 +193,7 @@ function RemoveAabbFires(min, max) end
 --- 	DebugPrint(TransformStr(t))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetCameraTransform)
 function GetCameraTransform() end
 
 --- ### CLIENT ONLY
@@ -196,6 +209,7 @@ function GetCameraTransform() end
 --- 	SetCameraTransform(Transform(Vec(0, 10, 0), QuatEuler(0, 90, 0)))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetCameraTransform)
 function SetCameraTransform(transform, fov) end
 
 --- ### CLIENT ONLY
@@ -216,6 +230,7 @@ function SetCameraTransform(transform, fov) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#RequestFirstPerson)
 function RequestFirstPerson(transition) end
 
 --- ### CLIENT ONLY
@@ -230,6 +245,7 @@ function RequestFirstPerson(transition) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#RequestThirdPerson)
 function RequestThirdPerson(transition) end
 
 --- ### CLIENT ONLY
@@ -246,6 +262,7 @@ function RequestThirdPerson(transition) end
 --- 	SetCameraOffsetTransform(tPosY, true)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetCameraOffsetTransform)
 function SetCameraOffsetTransform(transform, stackable) end
 
 --- ### CLIENT ONLY
@@ -265,6 +282,7 @@ function SetCameraOffsetTransform(transform, stackable) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#AttachCameraTo)
 function AttachCameraTo(handle, ignoreRotation) end
 
 --- ### CLIENT ONLY
@@ -289,6 +307,7 @@ function AttachCameraTo(handle, ignoreRotation) end
 --- 	SetPivotClipBody(body_2)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPivotClipBody)
 function SetPivotClipBody(bodyHandle, mainShapeIdx) end
 
 --- ### CLIENT ONLY
@@ -300,6 +319,7 @@ function SetPivotClipBody(bodyHandle, mainShapeIdx) end
 --- 	ShakeCamera(0.5)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ShakeCamera)
 function ShakeCamera(strength) end
 
 --- ### CLIENT ONLY
@@ -311,6 +331,7 @@ function ShakeCamera(strength) end
 --- 	SetCameraFov(60)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetCameraFov)
 function SetCameraFov(degrees) end
 
 --- ### CLIENT ONLY
@@ -324,6 +345,7 @@ function SetCameraFov(degrees) end
 --- 	SetCameraDof(10)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetCameraDof)
 function SetCameraDof(distance, amount) end
 
 --- ### CLIENT ONLY
@@ -336,6 +358,7 @@ function SetCameraDof(distance, amount) end
 --- 	SetLowHealthBlurThreshold(0.4)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetLowHealthBlurThreshold)
 function SetLowHealthBlurThreshold(health) end
 
 --- Add a temporary point light to the world for this frame. Call continuously
@@ -353,6 +376,7 @@ function SetLowHealthBlurThreshold(health) end
 --- 	PointLight(Vec(0, 5, 0), 1, 1, 0, intensity)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PointLight)
 function PointLight(pos, r, g, b, intensity) end
 
 --- ### SERVER ONLY
@@ -372,6 +396,7 @@ function PointLight(pos, r, g, b, intensity) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetTimeScale)
 function SetTimeScale(scale) end
 
 --- ### SERVER ONLY
@@ -383,6 +408,7 @@ function SetTimeScale(scale) end
 --- 	SetEnvironmentDefault()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetEnvironmentDefault)
 function SetEnvironmentDefault() end
 
 --- ### SERVER ONLY
@@ -399,6 +425,7 @@ function SetEnvironmentDefault() end
 --- 	SetEnvironmentProperty("nightlight", false)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetEnvironmentProperty)
 function SetEnvironmentProperty(name) end
 
 --- This function is used for querying the current environment properties. The available properties are
@@ -417,6 +444,7 @@ function SetEnvironmentProperty(name) end
 --- 	DebugPrint(enabled)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetEnvironmentProperty)
 function GetEnvironmentProperty(name) end
 
 --- Reset the post processing properties to default.
@@ -428,6 +456,7 @@ function GetEnvironmentProperty(name) end
 --- 	SetPostProcessingDefault()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPostProcessingDefault)
 function SetPostProcessingDefault() end
 
 --- This function is used for manipulating the post processing properties. The available properties are
@@ -441,6 +470,7 @@ function SetPostProcessingDefault() end
 --- 	SetPostProcessingProperty("colorbalance", 1.3, 1.0, 0.7)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetPostProcessingProperty)
 function SetPostProcessingProperty(name) end
 
 --- This function is used for querying the current post processing properties.
@@ -457,6 +487,7 @@ function SetPostProcessingProperty(name) end
 --- 	DebugPrint("colorbalance " .. r .. " " .. g .. " " .. b)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPostProcessingProperty)
 function GetPostProcessingProperty(name) end
 
 --- Draw a 3D line. In contrast to DebugLine, it will not show behind objects. Default color is white.
@@ -480,6 +511,7 @@ function GetPostProcessingProperty(name) end
 --- 	DrawLine(Vec(0, 0, 0), Vec(10, 5, 10), 1, 0, 0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DrawLine)
 function DrawLine(r, g, b, a) end
 
 --- Draw a 3D debug overlay line in the world. Default color is white.
@@ -503,6 +535,7 @@ function DrawLine(r, g, b, a) end
 --- 	DebugLine(Vec(0, 0, 0), Vec(10, 5, 10), 1, 0, 0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DebugLine)
 function DebugLine(r, g, b, a) end
 
 --- Draw a debug cross in the world to highlight a location. Default color is white.
@@ -520,6 +553,7 @@ function DebugLine(r, g, b, a) end
 --- 	DebugCross(Vec(10, 5, 5))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DebugCross)
 function DebugCross(r, g, b, a) end
 
 --- Draw the axis of the transform
@@ -535,6 +569,7 @@ function DebugCross(r, g, b, a) end
 --- 	DebugTransform(GetPlayerCameraTransform(), 0.5)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DebugTransform)
 function DebugTransform(transform, scale) end
 
 --- Show a named valued on screen for debug purposes.
@@ -561,6 +596,7 @@ function DebugTransform(transform, scale) end
 --- 	DebugWatch("table", anyTable);
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DebugWatch)
 function DebugWatch(name, value, lineWrapping) end
 
 --- Display message on screen. The last 20 lines are displayed.
@@ -586,6 +622,7 @@ function DebugWatch(name, value, lineWrapping) end
 --- 	DebugPrint(anyTable)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DebugPrint)
 function DebugPrint(message, lineWrapping) end
 
 --- @param eventName string -- Event name
@@ -600,6 +637,7 @@ function DebugPrint(message, lineWrapping) end
 --- 	TriggerEvent("LanguageChanged")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#RegisterListenerTo)
 function RegisterListenerTo(eventName, listenerFunction) end
 
 --- @param eventName string -- Event name
@@ -615,6 +653,7 @@ function RegisterListenerTo(eventName, listenerFunction) end
 --- 	TriggerEvent("LanguageChanged")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#UnregisterListener)
 function UnregisterListener(eventName, listenerFunction) end
 
 --- @param eventName string -- Event name
@@ -630,6 +669,7 @@ function UnregisterListener(eventName, listenerFunction) end
 --- 	TriggerEvent("LanguageChanged")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#TriggerEvent)
 function TriggerEvent(eventName, args) end
 
 --- ### CLIENT ONLY
@@ -647,6 +687,7 @@ function TriggerEvent(eventName, args) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#LoadHaptic)
 function LoadHaptic(filepath) end
 
 --- ### CLIENT ONLY
@@ -667,6 +708,7 @@ function LoadHaptic(filepath) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#CreateHaptic)
 function CreateHaptic(leftMotorRumble, rightMotorRumble, leftTriggerRumble, rightTriggerRumble) end
 
 --- ### CLIENT ONLY
@@ -685,6 +727,7 @@ function CreateHaptic(leftMotorRumble, rightMotorRumble, leftTriggerRumble, righ
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlayHaptic)
 function PlayHaptic(handle, amplitude) end
 
 --- ### CLIENT ONLY
@@ -705,6 +748,7 @@ function PlayHaptic(handle, amplitude) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PlayHapticDirectional)
 function PlayHapticDirectional(handle, direction, amplitude) end
 
 --- ### CLIENT ONLY
@@ -723,6 +767,7 @@ function PlayHapticDirectional(handle, direction, amplitude) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#HapticIsPlaying)
 function HapticIsPlaying(handle) end
 
 --- ### CLIENT ONLY
@@ -740,6 +785,7 @@ function HapticIsPlaying(handle) end
 --- 	SetToolHaptic("minigun", toolHaptic)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetToolHaptic)
 function SetToolHaptic(id, handle, amplitude) end
 
 --- ### CLIENT ONLY
@@ -759,6 +805,7 @@ function SetToolHaptic(id, handle, amplitude) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#StopHaptic)
 function StopHaptic(handle) end
 
 --- ### SERVER ONLY
@@ -783,6 +830,7 @@ function StopHaptic(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#AddHeat)
 function AddHeat(shape, pos, amount) end
 
 --- Returns the area of the boundary if present, otherwise the xz-area of the world body aabb.
@@ -796,6 +844,7 @@ function AddHeat(shape, pos, amount) end
 --- 	return x,z
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBoundaryArea)
 function GetBoundaryArea() end
 
 --- return the aabb bounds for the boundary if present, otherwise the boundary for the world body.
@@ -810,6 +859,7 @@ function GetBoundaryArea() end
 --- 	return x,z
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBoundaryBounds)
 function GetBoundaryBounds() end
 
 --- Returns the gravity value on the scene.
@@ -820,6 +870,7 @@ function GetBoundaryBounds() end
 --- 	DebugPrint(VecStr(GetGravity()))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetGravity)
 function GetGravity() end
 
 --- ### SERVER ONLY
@@ -840,6 +891,7 @@ function GetGravity() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetGravity)
 function SetGravity(vec) end
 
 --- Returns the fps value based on general game timestep.
@@ -851,5 +903,6 @@ function SetGravity(vec) end
 --- 	DebugWatch("fps", GetFps())
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetFps)
 function GetFps() end
 

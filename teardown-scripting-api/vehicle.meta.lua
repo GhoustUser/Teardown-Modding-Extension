@@ -9,6 +9,7 @@
 --- 	local vehicle = FindVehicle("mycar")
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindVehicle)
 function FindVehicle(tag, global) end
 
 --- @param tag? string -- Tag name
@@ -25,6 +26,7 @@ function FindVehicle(tag, global) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindVehicles)
 function FindVehicles(tag, global) end
 
 --- @param vehicle number -- Vehicle handle
@@ -36,6 +38,7 @@ function FindVehicles(tag, global) end
 --- 	local t = GetVehicleTransform(vehicle)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleTransform)
 function GetVehicleTransform(vehicle) end
 
 --- Returns the exhausts transforms in local space of the vehicle.
@@ -51,6 +54,7 @@ function GetVehicleTransform(vehicle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleExhaustTransforms)
 function GetVehicleExhaustTransforms(vehicle) end
 
 --- Returns the vitals transforms in local space of the vehicle.
@@ -66,6 +70,7 @@ function GetVehicleExhaustTransforms(vehicle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleVitalTransforms)
 function GetVehicleVitalTransforms(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
@@ -80,6 +85,7 @@ function GetVehicleVitalTransforms(vehicle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleBodies)
 function GetVehicleBodies(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
@@ -94,6 +100,7 @@ function GetVehicleBodies(vehicle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleBody)
 function GetVehicleBody(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
@@ -106,6 +113,7 @@ function GetVehicleBody(vehicle) end
 --- 	DebugPrint(health)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleHealth)
 function GetVehicleHealth(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
@@ -119,6 +127,7 @@ function GetVehicleHealth(vehicle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleParams)
 function GetVehicleParams(vehicle) end
 
 --- Available parameters: spring, damping, topspeed, acceleration, strength, antispin, antiroll, difflock, steerassist, friction
@@ -131,6 +140,7 @@ function GetVehicleParams(vehicle) end
 --- 	SetVehicleParam(FindVehicle("car", true), "topspeed", 200)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetVehicleParam)
 function SetVehicleParam(handle, param, value) end
 
 --- @param vehicle number -- Vehicle handle
@@ -145,6 +155,7 @@ function SetVehicleParam(handle, param, value) end
 --- 	DebugPrint(worldPos)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleDriverPos)
 function GetVehicleDriverPos(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
@@ -157,6 +168,7 @@ function GetVehicleDriverPos(vehicle) end
 --- 	DebugPrint(pos)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleAvailableSeatPos)
 function GetVehicleAvailableSeatPos(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
@@ -165,6 +177,7 @@ function GetVehicleAvailableSeatPos(vehicle) end
 --- ```lua
 --- local steering = GetVehicleSteering(vehicle)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleSteering)
 function GetVehicleSteering(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
@@ -173,6 +186,7 @@ function GetVehicleSteering(vehicle) end
 --- ```lua
 --- local drive = GetVehicleDrive(vehicle)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleDrive)
 function GetVehicleDrive(vehicle) end
 
 --- ### SERVER ONLY
@@ -191,6 +205,7 @@ function GetVehicleDrive(vehicle) end
 --- 	DriveVehicle(v, 1, 0, false)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DriveVehicle)
 function DriveVehicle(vehicle, drive, steering, handbrake) end
 
 --- @param vehicle number -- Vehicle handle
@@ -200,6 +215,7 @@ function DriveVehicle(vehicle, drive, steering, handbrake) end
 --- ```lua
 --- local t = GetVehicleLocationWorldTransform(vehicle, "player_steeringwheel")
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehicleLocationWorldTransform)
 function GetVehicleLocationWorldTransform(vehicle, name) end
 
 --- @param vehicle number -- Vehicle handle
@@ -210,6 +226,7 @@ function GetVehicleLocationWorldTransform(vehicle, name) end
 --- ```lua
 --- local passengers, seats, hasDriver = GetVehiclePassengerCount(vehicle)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetVehiclePassengerCount)
 function GetVehiclePassengerCount(vehicle) end
 
 --- ### SERVER ONLY
@@ -225,5 +242,6 @@ function GetVehiclePassengerCount(vehicle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetVehicleHealth)
 function SetVehicleHealth(vehicle, health) end
 

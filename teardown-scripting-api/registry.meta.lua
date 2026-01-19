@@ -15,6 +15,7 @@
 --- 	--	score
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ClearKey)
 function ClearKey(key) end
 
 --- List all child keys of a registry node.
@@ -39,6 +40,7 @@ function ClearKey(key) end
 --- --rifle
 --- -- ...
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ListKeys)
 function ListKeys(parent) end
 
 --- Returns true if the registry contains a certain key
@@ -51,6 +53,7 @@ function ListKeys(parent) end
 --- 	DebugPrint(HasKey("game.tool.rifle"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#HasKey)
 function HasKey(key) end
 
 --- @param key string -- Registry key
@@ -63,6 +66,7 @@ function HasKey(key) end
 --- 	DebugPrint(GetInt("score.levels.level1"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetInt)
 function SetInt(key, value, sync) end
 
 --- @param key string -- Registry key
@@ -74,6 +78,7 @@ function SetInt(key, value, sync) end
 --- 	DebugPrint(GetInt("score.levels.level1"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetInt)
 function GetInt(key) end
 
 --- @param key string -- Registry key
@@ -86,6 +91,7 @@ function GetInt(key) end
 --- 	DebugPrint(GetFloat("level.time"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetFloat)
 function SetFloat(key, value, sync) end
 
 --- @param key string -- Registry key
@@ -97,6 +103,7 @@ function SetFloat(key, value, sync) end
 --- 	DebugPrint(GetFloat("level.time"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetFloat)
 function GetFloat(key) end
 
 --- @param key string -- Registry key
@@ -109,6 +116,7 @@ function GetFloat(key) end
 --- 	DebugPrint(GetBool("level.robots.enabled"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetBool)
 function SetBool(key, value, sync) end
 
 --- @param key string -- Registry key
@@ -120,6 +128,7 @@ function SetBool(key, value, sync) end
 --- 	DebugPrint(GetBool("level.robots.enabled"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetBool)
 function GetBool(key) end
 
 --- @param key string -- Registry key
@@ -132,6 +141,7 @@ function GetBool(key) end
 --- 	DebugPrint(GetString("level.name"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetString)
 function SetString(key, value, sync) end
 
 --- @param key string -- Registry key
@@ -143,6 +153,7 @@ function SetString(key, value, sync) end
 --- 	DebugPrint(GetString("level.name"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetString)
 function GetString(key) end
 
 --- Sets the color registry key value
@@ -157,6 +168,7 @@ function GetString(key) end
 --- 	SetColor("game.tool.wire.color", 1.0, 0.5, 0.3)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetColor)
 function SetColor(key, r, g, b, a) end
 
 --- Returns the color registry key value
@@ -173,6 +185,7 @@ function SetColor(key, r, g, b, a) end
 --- 	DebugPrint("RGBA: " .. color[1] .. " " .. color[2] .. " " .. color[3] .. " " .. color[4])
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetColor)
 function GetColor(key) end
 
 --- Returns the translation for the specified key from the translation table. If the key is not found returns the default value
@@ -185,6 +198,7 @@ function GetColor(key) end
 --- 	DebugPrint(GetTranslatedStringByKey("TOOL_CAMERA"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetTranslatedStringByKey)
 function GetTranslatedStringByKey(key, default) end
 
 --- Checks that translation for specified key exists
@@ -196,6 +210,7 @@ function GetTranslatedStringByKey(key, default) end
 --- 	DebugPrint(HasTranslationByKey("TOOL_CAMERA"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#HasTranslationByKey)
 function HasTranslationByKey(key) end
 
 --- Loads the language table for specified language id for further localization. Possible id values below.
@@ -222,6 +237,7 @@ function HasTranslationByKey(key) end
 --- 	LoadLanguageTable(0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#LoadLanguageTable)
 function LoadLanguageTable(id) end
 
 --- Returns the user nickname with the specified id. If id is not specified, returns nickname for user with id '0'
@@ -233,5 +249,6 @@ function LoadLanguageTable(id) end
 --- 	DebugPrint(GetUserNickname(0))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetUserNickname)
 function GetUserNickname(id) end
 

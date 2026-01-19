@@ -14,6 +14,7 @@
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRequire)
 function QueryRequire(layers) end
 
 --- @param layers string -- Space separate list of layers
@@ -28,6 +29,7 @@ function QueryRequire(layers) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryInclude)
 function QueryInclude(layers) end
 
 --- Set collision mask filter for the next query. Queries have a mask of 255 by default
@@ -44,10 +46,12 @@ function QueryInclude(layers) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryCollisionMask)
 function QueryCollisionMask(mask) end
 
 --- Exclude animator from the next query
 --- @param handle number -- Animator handle
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRejectAnimator)
 function QueryRejectAnimator(handle) end
 
 --- Exclude vehicle from the next query
@@ -65,6 +69,7 @@ function QueryRejectAnimator(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRejectVehicle)
 function QueryRejectVehicle(vehicle) end
 
 --- Exclude body from the next query
@@ -82,6 +87,7 @@ function QueryRejectVehicle(vehicle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRejectBody)
 function QueryRejectBody(body) end
 
 --- Exclude bodies from the next query
@@ -100,6 +106,7 @@ function QueryRejectBody(body) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRejectBodies)
 function QueryRejectBodies(bodies) end
 
 --- Exclude shape from the next query
@@ -117,6 +124,7 @@ function QueryRejectBodies(bodies) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRejectShape)
 function QueryRejectShape(shape) end
 
 --- Exclude shapes from the next query
@@ -135,6 +143,7 @@ function QueryRejectShape(shape) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRejectShapes)
 function QueryRejectShapes(shapes) end
 
 --- Exclude player from the next query
@@ -145,6 +154,7 @@ function QueryRejectShapes(shapes) end
 --- QueryRejectPlayer(1)
 --- QueryRaycast(...)
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRejectPlayer)
 function QueryRejectPlayer(playerId) end
 
 --- This will perform a raycast or spherecast (if radius is more than zero) query.
@@ -171,6 +181,7 @@ function QueryRejectPlayer(playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRaycast)
 function QueryRaycast(origin, direction, maxDist, radius, rejectTransparent) end
 
 --- This will perform a raycast query that returns the handle of the joint of rope type when if collides with it.
@@ -194,6 +205,7 @@ function QueryRaycast(origin, direction, maxDist, radius, rejectTransparent) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRaycastRope)
 function QueryRaycastRope(origin, direction, maxDist, radius) end
 
 --- This will perform a raycast query looking for water.
@@ -213,6 +225,7 @@ function QueryRaycastRope(origin, direction, maxDist, radius) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryRaycastWater)
 function QueryRaycastWater(origin, direction, maxDist) end
 
 --- Test to see if a projectile would hit a shape or a player. It will return either a valid
@@ -255,6 +268,7 @@ function QueryRaycastWater(origin, direction, maxDist) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryShot)
 function QueryShot(origin, direction, maxDist, radius, playerId) end
 
 --- This will query the closest point to all shapes in the world. If you
@@ -278,6 +292,7 @@ function QueryShot(origin, direction, maxDist, radius, playerId) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryClosestPoint)
 function QueryClosestPoint(origin, maxDist) end
 
 --- Return all shapes within the provided world space, axis-aligned bounding box
@@ -294,6 +309,7 @@ function QueryClosestPoint(origin, maxDist) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryAabbShapes)
 function QueryAabbShapes(min, max) end
 
 --- Return all bodies within the provided world space, axis-aligned bounding box
@@ -310,6 +326,7 @@ function QueryAabbShapes(min, max) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryAabbBodies)
 function QueryAabbBodies(min, max) end
 
 --- Initiate path planning query. The result will run asynchronously as long as GetPathState
@@ -328,6 +345,7 @@ function QueryAabbBodies(min, max) end
 --- 	QueryPath(Vec(-10, 0, 0), Vec(10, 0, 0))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#QueryPath)
 function QueryPath(start, end, maxDist, targetRadius, type) end
 
 --- Creates a new path planner that can be used to calculate multiple paths in parallel.
@@ -352,6 +370,7 @@ function QueryPath(start, end, maxDist, targetRadius, type) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#CreatePathPlanner)
 function CreatePathPlanner() end
 
 --- Deletes the path planner with the specified id which can be used to save some memory.
@@ -366,6 +385,7 @@ function CreatePathPlanner() end
 --- 	-- now calling PathPlannerQuery for 'id' will result in an error
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#DeletePathPlanner)
 function DeletePathPlanner(id) end
 
 --- It works similarly to QueryPath but several paths can be built simultaneously within the same script.
@@ -393,6 +413,7 @@ function DeletePathPlanner(id) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#PathPlannerQuery)
 function PathPlannerQuery(id, start, end, maxDist, targetRadius, type) end
 
 --- Abort current path query, regardless of what state it is currently in. This is a way to
@@ -405,6 +426,7 @@ function PathPlannerQuery(id, start, end, maxDist, targetRadius, type) end
 --- 	AbortPath()
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#AbortPath)
 function AbortPath(id) end
 
 --- @param id? number -- Path planner id. Default value is 0.
@@ -421,6 +443,7 @@ function AbortPath(id) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPathState)
 function GetPathState(id) end
 
 --- Return the path length of the most recently computed path query. Note that the result can often be retrieved even
@@ -440,6 +463,7 @@ function GetPathState(id) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPathLength)
 function GetPathLength(id) end
 
 --- Return a point along the path for the most recently computed path query. Note that the result can often be retrieved even
@@ -462,6 +486,7 @@ function GetPathLength(id) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetPathPoint)
 function GetPathPoint(dist, id) end
 
 --- @return number volume -- Volume of loudest sound played last frame
@@ -475,6 +500,7 @@ function GetPathPoint(dist, id) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetLastSound)
 function GetLastSound() end
 
 --- @param point TVec -- World point as vector
@@ -489,6 +515,7 @@ function GetLastSound() end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPointInWater)
 function IsPointInWater(point) end
 
 --- Get the wind velocity at provided point. The wind will be determined by wind property of
@@ -502,5 +529,6 @@ function IsPointInWater(point) end
 --- 	DebugPrint(VecStr(v))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetWindVelocity)
 function GetWindVelocity(point) end
 

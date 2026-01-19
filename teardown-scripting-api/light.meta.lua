@@ -10,6 +10,7 @@
 --- 	DebugPrint(light)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindLight)
 function FindLight(tag, global) end
 
 --- @param tag? string -- Tag name
@@ -26,6 +27,7 @@ function FindLight(tag, global) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindLights)
 function FindLights(tag, global) end
 
 --- If light is owned by a shape, the emissive scale of that shape will be set
@@ -38,6 +40,7 @@ function FindLights(tag, global) end
 --- 	SetLightEnabled(FindLight("main"), false)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetLightEnabled)
 function SetLightEnabled(handle, enabled) end
 
 --- This will only set the color tint of the light. Use SetLightIntensity for brightness.
@@ -53,6 +56,7 @@ function SetLightEnabled(handle, enabled) end
 --- 	SetLightColor(FindLight("main"), 1, 1, 0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetLightColor)
 function SetLightColor(handle, r, g, b) end
 
 --- If the shape is owned by a shape you most likely want to use
@@ -67,6 +71,7 @@ function SetLightColor(handle, r, g, b) end
 --- 	SetLightIntensity(FindLight("main"), math.sin(GetTime())*0.5 + 1.0)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetLightIntensity)
 function SetLightIntensity(handle, intensity) end
 
 --- Lights that are owned by a dynamic shape are automatcially moved with that shape
@@ -81,6 +86,7 @@ function SetLightIntensity(handle, intensity) end
 --- 	DebugPrint(VecStr(t.pos))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetLightTransform)
 function GetLightTransform(handle) end
 
 --- @param handle number -- Light handle
@@ -94,6 +100,7 @@ function GetLightTransform(handle) end
 --- 	DebugPrint(shape)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetLightShape)
 function GetLightShape(handle) end
 
 --- @param handle number -- Light handle
@@ -108,6 +115,7 @@ function GetLightShape(handle) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsLightActive)
 function IsLightActive(handle) end
 
 --- @param handle number -- Light handle
@@ -123,6 +131,7 @@ function IsLightActive(handle) end
 --- 	DebugPrint(affected)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsPointAffectedByLight)
 function IsPointAffectedByLight(handle, point) end
 
 --- Returns the handle of the player's flashlight. You can work with it as with an entity of the Light type.
@@ -135,6 +144,7 @@ function IsPointAffectedByLight(handle, point) end
 --- 	SetProperty(flashlight, "color", Vec(0.5, 0, 1))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetFlashlight)
 function GetFlashlight(playerId) end
 
 --- Sets a new entity of the Light type as a flashlight.
@@ -150,5 +160,6 @@ function GetFlashlight(playerId) end
 --- 	SetFlashlight(FindEntity("mylight", true), playerId)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetFlashlight)
 function SetFlashlight(handle, playerId) end
 

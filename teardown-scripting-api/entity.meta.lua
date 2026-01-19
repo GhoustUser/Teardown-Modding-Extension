@@ -16,6 +16,7 @@
 --- 	local target = FindEntity("target", true)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindEntity)
 function FindEntity(tag, global, type) end
 
 --- Returns a list of entities with the specified tag and type. This is a universal method that is an alternative to FindBody, FindShape, FindVehicle, etc.
@@ -34,6 +35,7 @@ function FindEntity(tag, global, type) end
 --- 	local allUnbreakables = FindEntities("unbreakable", true)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#FindEntities)
 function FindEntities(tag, global, type) end
 
 --- Returns child entities
@@ -53,6 +55,7 @@ function FindEntities(tag, global, type) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetEntityChildren)
 function GetEntityChildren(handle, tag, recursive, type) end
 
 --- @param handle number -- Entity handle
@@ -67,6 +70,7 @@ function GetEntityChildren(handle, tag, recursive, type) end
 --- 	DebugWatch("Wheel vehicle", GetEntityType(vehicle) .. " " .. tostring(vehicle))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetEntityParent)
 function GetEntityParent(handle, tag, type) end
 
 --- @param handle number -- Entity handle
@@ -84,6 +88,7 @@ function GetEntityParent(handle, tag, type) end
 --- 	DebugPrint(HasTag(handle, "team"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetTag)
 function SetTag(handle, tag, value) end
 
 --- Remove tag from an entity. If the tag had a value it is removed too.
@@ -102,6 +107,7 @@ function SetTag(handle, tag, value) end
 --- 	DebugPrint(HasTag(handle, "team"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#RemoveTag)
 function RemoveTag(handle, tag) end
 
 --- @param handle number -- Entity handle
@@ -119,6 +125,7 @@ function RemoveTag(handle, tag) end
 --- 	DebugPrint(HasTag(handle, "team"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#HasTag)
 function HasTag(handle, tag) end
 
 --- @param handle number -- Entity handle
@@ -133,6 +140,7 @@ function HasTag(handle, tag) end
 --- 	DebugPrint(GetTagValue(handle, "team"))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetTagValue)
 function GetTagValue(handle, tag) end
 
 --- @param handle number -- Entity handle
@@ -150,6 +158,7 @@ function GetTagValue(handle, tag) end
 --- 	end
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#ListTags)
 function ListTags(handle) end
 
 --- All entities can have an associated description. For bodies and
@@ -164,6 +173,7 @@ function ListTags(handle) end
 --- 	DebugPrint(GetDescription(body))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetDescription)
 function GetDescription(handle) end
 
 --- All entities can have an associated description. The description for
@@ -178,6 +188,7 @@ function GetDescription(handle) end
 --- 	DebugPrint(GetDescription(body))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetDescription)
 function SetDescription(handle, description) end
 
 --- Remove an entity from the scene. All entities owned by this entity
@@ -191,6 +202,7 @@ function SetDescription(handle, description) end
 --- 	Delete(body)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#Delete)
 function Delete(handle) end
 
 --- @param handle number -- Entity handle
@@ -206,6 +218,7 @@ function Delete(handle) end
 --- 	DebugPrint(IsHandleValid(body))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#IsHandleValid)
 function IsHandleValid(handle) end
 
 --- Returns the type name of provided entity, for example "body", "shape", "light", etc.
@@ -218,6 +231,7 @@ function IsHandleValid(handle) end
 --- 	DebugPrint(GetEntityType(body))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetEntityType)
 function GetEntityType(handle) end
 
 --- @param handle number -- Entity handle
@@ -231,6 +245,7 @@ function GetEntityType(handle) end
 --- 	DebugWatch("isDynamic", isDynamic)
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#GetProperty)
 function GetProperty(handle, property) end
 
 --- ### SERVER ONLY
@@ -244,5 +259,6 @@ function GetProperty(handle, property) end
 --- 	SetProperty(light, "intensity", math.abs(math.sin(GetTime())))
 --- end
 --- ```
+--- [View Documentation](https://teardowngame.com/experimental/api.html#SetProperty)
 function SetProperty(handle, property, value) end
 
