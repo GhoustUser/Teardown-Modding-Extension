@@ -1,5 +1,5 @@
 import path from "path";
-import VscManager from "./classes/vsc-manager";
+import VscManager from "./vsc-manager";
 
 /** Checks if the Teardown Lua API is already loaded in the VSCode Lua workspace configuration.
  * @param {VscManager} vscManager - The VscManager instance

@@ -2,8 +2,8 @@ import vscode from "vscode";
 import path from "path";
 import fs from "fs";
 
-import WebView from "./scripts/classes/web-view";
-import VscManager from "./scripts/classes/vsc-manager";
+import WebView from "./scripts/web-view";
+import VscManager from "./scripts/vsc-manager";
 import initializeModViewMain from "./ModView/mod-view-main/initialize";
 
 

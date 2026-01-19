@@ -1,22 +1,22 @@
 # Teardown Lua API
 
-Work-in-progress VS Code extension for Teardown modding. Will include type definitions for the [Teardown scripting API](https://teardowngame.com/experimental/api.html), and a custom interface for getting an overview of your mod and managing settings.
+A Visual Studio Code extension for Teardown modding. Includes type definitions for the [Teardown scripting API](https://teardowngame.com/experimental/api.html), and a custom interface for getting an overview of your mod and managing settings.
 
 ### Note:
-This is my first VS Code extension, and I've never published any of my coding projects, so any help, advice or feedback is appreciated.
+This is my first VS Code extension and public coding project, so any help, advice or feedback is appreciated.
 
 ## What it does
 
-- Currently adds *some* of Teardown's Lua features to your autocomplete *(still a work-in-progress, there's a lot of them)*.
-- Adds a custom interface that shows your mod info, lets you edit it, and lets you change some workspace-specific modding settings.
-- The extension only turns on when it finds an `info.txt` file in the root folder.
+- Adds intellisense for the Teardown Lua scripting api (must be toggled on for each workspace).
+- Adds a custom interface that shows your mod info, lets you edit it, and lets you change some workspace-specific settings.
+- The extension only turns on when it finds an `info.txt` file in the root folder, the only requirement for a Teardown mod.
 
 ## Installation
 
-I'm not very experienced with publishing coding projects, and it's not finished yet, so you'll need to install it manually using the included `.vsix`-file:
+I will try to get this on the VSCode extension marketplace for easier installing, but for now you can install it using the included `.vsix` file.
 > Open the **extensions** tab, then click on the three dots in the top right `⋯`, then select **`Install from VSIX...`**
 
-I have included `launch.json` and `tasks.json` in the `.VS Code` folder, so you should be able to compile and debug normally.
+You can of course modify and package it yourself too.
 
 ## Usage
 
@@ -24,30 +24,24 @@ With the extension enabled, open a project with an open folder containing an `in
 > `Ctrl + Shift + p` > `Open Teardown Mod View`
 
 This opens a custom interface where you can view and change info about your mod, as well as change some settings.
-I'm planning on adding more info to get a good overview, like whether it's a global or content mod, a list of any included characters, and more.
+I'm planning on adding more info for a better overview, like whether it's a global or content mod, a list of any included player characters, and more.
 
 ## Settings:
 - **`Open Mod View by default`** : Whether or not the mod view should open whenever you open the project.
-- **`Enable Teardown Lua API`** : Enables or disables the Teardown API for this project.
+- **`Enable Teardown Lua API`** : Enables or disables the Teardown scripting API intellisense for this project.
 
-Will probably add more settings at some point.
-
-## API progress
-
-List of implemented definition categories can be found in `TODO.md`.
-
-I'm currently just writing these manually, since the documentation isn't very easily scrape-able as far as I can tell. If you know a way to generate the lua meta definitions, please let me know.
+Will probably add more settings at some point, feel free to leave suggestions.
 
 ## How it works
 
-The extension adds `.meta.lua` files into the Lua Language Server's workspace library, providing type definitions and function signatures for Teardown's API. This does not add, modify or remove any files from your project, it just tells VS Code that the meta definitions should be accessible for your workspace.
+The extension adds `.meta.lua` files into the Lua Language Server's workspace library, enabling intellisense for Teardown's scripting API. This does not add, modify or remove any files from your project, it just tells VS Code that the type definitions are part of the workspace.
 
 The custom interface is implemented as a VS Code webview.
 
 The Lua type definitions are located in files under `teardown-scripting-api/*.meta.lua`, with one file for each category.
 
 ## Links
-- [Teardown Game](https://teardowngame.com) - the game this is for
-- [Teardown API (Experimental)](https://teardowngame.com/experimental/api.html) - docs for the aforementioned API
+- [Teardown Game](https://teardowngame.com) - The game this is for
+- [Teardown API (Experimental)](https://teardowngame.com/experimental/api.html) - docs for the scripting API
 
 See `TODO.md` for planned changes and additions.

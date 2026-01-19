@@ -2,8 +2,8 @@ import vscode from "vscode";
 import path from "path";
 import fs from "fs";
 
-import WebView from "../../scripts/classes/web-view";
-import VscManager from "../../scripts/classes/vsc-manager";
+import WebView from "../../scripts/web-view";
+import VscManager from "../../scripts/vsc-manager";
 import { loadScriptingApi, isScriptingApiLoaded, unloadScriptingApi } from "../../scripts/load-lua-api";
 
 function initializeModViewMain(modview: WebView, vscManager: VscManager): void {
