@@ -3,7 +3,7 @@
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first trigger with specified tag or zero if not found
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	local goal = FindTrigger("goal")
@@ -14,7 +14,7 @@ function FindTrigger(tag, global) end
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return table list -- Indexed table with handles to all triggers with specified tag
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Find triggers tagged "toxic" in script scope
@@ -29,7 +29,7 @@ function FindTriggers(tag, global) end
 
 --- @param handle number -- Trigger handle
 --- @return TTransform transform -- Current trigger transform in world space
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local trigger = FindTrigger("toxic")
@@ -41,7 +41,7 @@ function GetTriggerTransform(handle) end
 
 --- @param handle number -- Trigger handle
 --- @param transform TTransform -- Desired trigger transform in world space
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	local trigger = FindTrigger("toxic")
@@ -55,7 +55,7 @@ function SetTriggerTransform(handle, transform) end
 --- @param handle number -- Trigger handle
 --- @return TVec min -- Lower point of trigger bounds in world space
 --- @return TVec max -- Upper point of trigger bounds in world space
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local trigger = FindTrigger("toxic")
@@ -72,7 +72,7 @@ function GetTriggerBounds(handle) end
 --- @param trigger number -- Trigger handle
 --- @param body number -- Body handle
 --- @return boolean inside -- True if body is in trigger volume
---- @example
+--- ### Example
 --- ```lua
 --- local trigger = 0
 --- local body = 0
@@ -92,7 +92,7 @@ function IsBodyInTrigger(trigger, body) end
 --- @param trigger number -- Trigger handle
 --- @param vehicle number -- Vehicle handle
 --- @return boolean inside -- True if vehicle is in trigger volume
---- @example
+--- ### Example
 --- ```lua
 --- local trigger = 0
 --- local vehicle = 0
@@ -112,7 +112,7 @@ function IsVehicleInTrigger(trigger, vehicle) end
 --- @param trigger number -- Trigger handle
 --- @param shape number -- Shape handle
 --- @return boolean inside -- True if shape is in trigger volume
---- @example
+--- ### Example
 --- ```lua
 --- local trigger = 0
 --- local shape = 0
@@ -131,7 +131,7 @@ function IsShapeInTrigger(trigger, shape) end
 --- @param trigger number -- Trigger handle
 --- @param point TVec -- Word space point as vector
 --- @return boolean inside -- True if point is in trigger volume
---- @example
+--- ### Example
 --- ```lua
 --- local trigger = 0
 --- local point = {}
@@ -152,7 +152,7 @@ function IsPointInTrigger(trigger, point) end
 --- @param point TVec -- Point
 --- @return boolean value -- True if point is inside scene boundaries or if there are no boundaries
 --- @return number dist -- Distance to the scene boundaries. Zero if there are no boundaries or if point is outside.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local p = Vec(1.5, 3, 2.5)
@@ -167,7 +167,7 @@ function IsPointInBoundaries(point) end
 --- @param demolision? boolean -- If true, small debris and vehicles are ignored
 --- @return boolean empty -- True if trigger is empty
 --- @return TVec maxpoint -- World space point of highest point (largest Y coordinate) if not empty
---- @example
+--- ### Example
 --- ```lua
 --- local trigger = 0
 --- function client.init()
@@ -187,7 +187,7 @@ function IsTriggerEmpty(handle, demolision) end
 --- @param trigger number -- Trigger handle
 --- @param point TVec -- Word space point as vector
 --- @return number distance -- Positive if point is outside, negative if inside
---- @example
+--- ### Example
 --- ```lua
 --- local trigger = 0
 --- function client.init()
@@ -204,7 +204,7 @@ function GetTriggerDistance(trigger, point) end
 --- @param trigger number -- Trigger handle
 --- @param point TVec -- Word space point as vector
 --- @return TVec closest -- Closest point in trigger as vector
---- @example
+--- ### Example
 --- ```lua
 --- local trigger = 0
 --- function client.init()

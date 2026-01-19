@@ -3,7 +3,7 @@
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first joint with specified tag or zero if not found
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local joint = FindJoint("doorhinge")
@@ -15,7 +15,7 @@ function FindJoint(tag, global) end
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return table list -- Indexed table with handles to all joints with specified tag
---- @example
+--- ### Example
 --- ```lua
 --- --Search for locations tagged "doorhinge" in script scope
 --- function client.init()
@@ -30,7 +30,7 @@ function FindJoints(tag, global) end
 
 --- @param joint number -- Joint handle
 --- @return boolean broken -- True if joint is broken
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local broken = IsJointBroken(FindJoint("joint"))
@@ -43,7 +43,7 @@ function IsJointBroken(joint) end
 --- An empty string is returned if joint handle is invalid.
 --- @param joint number -- Joint handle
 --- @return string type -- Joint type
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local joint = FindJoint("joint")
@@ -59,7 +59,7 @@ function GetJointType(joint) end
 --- @param joint number -- Joint handle
 --- @param shape number -- Shape handle
 --- @return number other -- Other shape handle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local joint = FindJoint("joint")
@@ -75,7 +75,7 @@ function GetJointOtherShape(joint, shape) end
 --- Get shapes connected to the joint.
 --- @param joint number -- Joint handle
 --- @return number shapes -- Shape handles
---- @example
+--- ### Example
 --- ```lua
 --- local mainBody
 --- local shapes
@@ -111,7 +111,7 @@ function GetJointShapes(joint) end
 --- @param joint number -- Joint handle
 --- @param velocity number -- Desired velocity
 --- @param strength? number -- Desired strength. Default is infinite. Zero to disable.
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	--Set motor speed to 0.5 radians per second
@@ -130,7 +130,7 @@ function SetJointMotor(joint, velocity, strength) end
 --- @param target number -- Desired movement target
 --- @param maxVel? number -- Maximum velocity to reach target. Default is infinite.
 --- @param strength? number -- Desired strength. Default is infinite. Zero to disable.
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	--Make joint reach a 45 degree angle, going at a maximum of 3 radians per second
@@ -144,7 +144,7 @@ function SetJointMotorTarget(joint, target, maxVel, strength) end
 --- @param joint number -- Joint handle
 --- @return number min -- Minimum joint limit (angle or distance)
 --- @return number max -- Maximum joint limit (angle or distance)
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local min, max = GetJointLimits(FindJoint("hinge"))
@@ -157,7 +157,7 @@ function GetJointLimits(joint) end
 --- as joint limits.
 --- @param joint number -- Joint handle
 --- @return number movement -- Current joint position or angle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local current = GetJointMovement(FindJoint("hinge"))
@@ -168,7 +168,7 @@ function GetJointMovement(joint) end
 
 --- @param body number -- Body handle (must be dynamic)
 --- @return table bodies -- Handles to all dynamic bodies in the jointed structure. The input handle will also be included.
---- @example
+--- ### Example
 --- ```lua
 --- local body = 0
 --- function client.init()
@@ -187,7 +187,7 @@ function GetJointedBodies(body) end
 --- Detach joint from shape. If joint is not connected to shape, nothing happens.
 --- @param joint number -- Joint handle
 --- @param shape number -- Shape handle
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	DetachJointFromShape(FindJoint("joint"), FindShape("door"))
@@ -199,7 +199,7 @@ function DetachJointFromShape(joint, shape) end
 --- Will return zero if the handle is not a rope
 --- @param joint number -- Joint handle
 --- @return number amount -- Number of points in a rope or zero if invalid
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local joint = FindJoint("joint")
@@ -213,7 +213,7 @@ function GetRopeNumberOfPoints(joint) end
 --- @param joint number -- Joint handle
 --- @param index number -- The point index, starting at 1
 --- @return TVec pos -- World position of the point, or nil, if invalid
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local joint = FindJoint("joint")
@@ -230,7 +230,7 @@ function GetRopePointPosition(joint, index) end
 --- @param joint number -- Joint handle
 --- @return TVec min -- Lower point of rope bounds in world space
 --- @return TVec max -- Upper point of rope bounds in world space
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local joint = FindJoint("joint")
@@ -244,7 +244,7 @@ function GetRopeBounds(joint) end
 --- Breaks the rope at the specified point.
 --- @param joint number -- Rope type joint handle
 --- @param point TVec -- Point of break as world space vector
---- @example
+--- ### Example
 --- ```lua
 --- function doPlayerAction(playerId)
 --- 	local playerCameraTransform = GetPlayerCameraTransform(playerId)

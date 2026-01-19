@@ -3,7 +3,7 @@
 --- @param path string -- Path to ogg sound file
 --- @param nominalDistance? number -- The distance in meters this sound is recorded at. Affects attenuation, default is 10.0
 --- @return number handle -- Sound handle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local snd = LoadSound("warning-beep.ogg")
@@ -12,7 +12,7 @@
 function LoadSound(path, nominalDistance) end
 
 --- @param handle number -- Sound handle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local snd = LoadSound("warning-beep.ogg")
@@ -24,7 +24,7 @@ function UnloadSound(handle) end
 --- @param path string -- Path to ogg sound file
 --- @param nominalDistance? number -- The distance in meters this sound is recorded at. Affects attenuation, default is 10.0
 --- @return number handle -- Loop handle
---- @example
+--- ### Example
 --- ```lua
 --- local loop
 --- function client.init()
@@ -38,7 +38,7 @@ function UnloadSound(handle) end
 function LoadLoop(path, nominalDistance) end
 
 --- @param handle number -- Loop handle
---- @example
+--- ### Example
 --- ```lua
 --- local loop = -1
 --- function client.init()
@@ -57,11 +57,11 @@ function LoadLoop(path, nominalDistance) end
 --- ```
 function UnloadLoop(handle) end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- @param handle number -- Loop handle
 --- @param nominalDistance number -- User index
 --- @return boolean flag -- TRUE if sound applied to gamepad speaker, FALSE otherwise.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local loop = LoadLoop("radio/jazz.ogg")
@@ -77,7 +77,7 @@ function SetSoundLoopUser(handle, nominalDistance) end
 --- @param registerVolume? boolean -- Register position and volume of this sound for GetLastSound. Default is true
 --- @param pitch? number -- Playback pitch. Default 1.0
 --- @return number handle -- Sound play handle
---- @example
+--- ### Example
 --- ```lua
 --- local snd
 --- function client.init()
@@ -112,7 +112,7 @@ function SetSoundLoopUser(handle, nominalDistance) end
 --- ```
 function PlaySound(handle, pos, volume, registerVolume, pitch) end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- @param handle number -- Sound handle
 --- @param user number -- Index of user to play.
 --- @param pos? TVec -- World position as vector. Default is player position.
@@ -120,7 +120,7 @@ function PlaySound(handle, pos, volume, registerVolume, pitch) end
 --- @param registerVolume? boolean -- Register position and volume of this sound for GetLastSound. Default is true
 --- @param pitch? number -- Playback pitch. Default 1.0
 --- @return number handle -- Sound play handle
---- @example
+--- ### Example
 --- ```lua
 --- local snd
 --- function client.init()
@@ -155,7 +155,7 @@ function PlaySound(handle, pos, volume, registerVolume, pitch) end
 function PlaySoundForUser(handle, user, pos, volume, registerVolume, pitch) end
 
 --- @param handle number -- Sound play handle
---- @example
+--- ### Example
 --- ```lua
 --- local snd
 --- function client.init()
@@ -177,7 +177,7 @@ function StopSound(handle) end
 
 --- @param handle number -- Sound play handle
 --- @return boolean playing -- True if sound is playing, false otherwise.
---- @example
+--- ### Example
 --- ```lua
 --- local snd
 --- function client.init()
@@ -199,7 +199,7 @@ function IsSoundPlaying(handle) end
 
 --- @param handle number -- Sound play handle
 --- @return number progress -- Current sound progress in seconds.
---- @example
+--- ### Example
 --- ```lua
 --- local snd
 --- function client.init()
@@ -221,7 +221,7 @@ function GetSoundProgress(handle) end
 
 --- @param handle number -- Sound play handle
 --- @param progress number -- Progress in seconds
---- @example
+--- ### Example
 --- ```lua
 --- local snd
 --- function client.init()
@@ -247,7 +247,7 @@ function SetSoundProgress(handle, progress) end
 --- @param volume? number -- Playback volume. Default is 1.0
 --- @param registerVolume? boolean -- Register position and volume of this sound for GetLastSound. Default is true
 --- @param pitch? number -- Playback pitch. Default 1.0
---- @example
+--- ### Example
 --- ```lua
 --- local loop
 --- function client.init()
@@ -262,7 +262,7 @@ function PlayLoop(handle, pos, volume, registerVolume, pitch) end
 
 --- @param handle number -- Loop handle
 --- @return number progress -- Current music progress in seconds.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	loop = LoadLoop("radio/jazz.ogg")
@@ -279,7 +279,7 @@ function GetSoundLoopProgress(handle) end
 
 --- @param handle number -- Loop handle
 --- @param progress? number -- Progress in seconds. Default 0.0.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	loop = LoadLoop("radio/jazz.ogg")
@@ -295,7 +295,7 @@ function GetSoundLoopProgress(handle) end
 function SetSoundLoopProgress(handle, progress) end
 
 --- @param path string -- Music path
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	PlayMusic("about.ogg")
@@ -303,7 +303,7 @@ function SetSoundLoopProgress(handle, progress) end
 --- ```
 function PlayMusic(path) end
 
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	PlayMusic("about.ogg")
@@ -317,7 +317,7 @@ function PlayMusic(path) end
 function StopMusic() end
 
 --- @return boolean playing -- True if music is playing, false otherwise.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	PlayMusic("about.ogg")
@@ -331,7 +331,7 @@ function StopMusic() end
 function IsMusicPlaying() end
 
 --- @param paused boolean -- True to pause, false to resume.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	PlayMusic("about.ogg")
@@ -345,7 +345,7 @@ function IsMusicPlaying() end
 function SetMusicPaused(paused) end
 
 --- @return number progress -- Current music progress in seconds.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	PlayMusic("about.ogg")
@@ -359,7 +359,7 @@ function SetMusicPaused(paused) end
 function GetMusicProgress() end
 
 --- @param progress? number -- Progress in seconds. Default 0.0.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	PlayMusic("about.ogg")
@@ -374,7 +374,7 @@ function SetMusicProgress(progress) end
 
 --- Override current music volume for this frame. Call continuously to keep overriding.
 --- @param volume number -- Music volume.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	PlayMusic("about.ogg")
@@ -389,7 +389,7 @@ function SetMusicVolume(volume) end
 
 --- Override current music low pass filter for this frame. Call continuously to keep overriding.
 --- @param wet number -- Music low pass filter 0.0 - 1.0.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	PlayMusic("about.ogg")

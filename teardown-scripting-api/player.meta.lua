@@ -1,14 +1,14 @@
 --- @meta
 
 --- @return list name -- List of all player Ids
---- @example
+--- ### Example
 --- ```lua
 --- local playerIds = GetAllPlayers()
 --- ```
 function GetAllPlayers() end
 
 --- @return interger count -- Number of max players for the session. Returns 1 for non-multiplayer.
---- @example
+--- ### Example
 --- ```lua
 --- local maxPlayerCount = GetMaxPlayers()
 --- -- create an UI big enough to fit a the max player count
@@ -17,21 +17,21 @@ function GetAllPlayers() end
 function GetMaxPlayers() end
 
 --- @return number count -- Number of players
---- @example
+--- ### Example
 --- ```lua
 --- local playerCount = GetPlayerCount()
 --- ```
 function GetPlayerCount() end
 
 --- @return table playerIds -- List of added player Ids
---- @example
+--- ### Example
 --- ```lua
 --- local playerIds = GetAddedPlayers()
 --- ```
 function GetAddedPlayers() end
 
 --- @return table playerIds -- List of removed player Ids
---- @example
+--- ### Example
 --- ```lua
 --- local playerIds = GetRemovedPlayers()
 --- ```
@@ -39,14 +39,14 @@ function GetRemovedPlayers() end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return string name -- Player name
---- @example
+--- ### Example
 --- ```lua
 --- local name = GetPlayerName(0)
 --- ```
 function GetPlayerName(playerId) end
 
 --- @return number GetLocalPlayer -- Local player ID.
---- @example
+--- ### Example
 --- ```lua
 --- local p = GetLocalPlayer()
 --- ```
@@ -54,7 +54,7 @@ function GetLocalPlayer() end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean IsPlayerLocal -- Whether a player is the local player.
---- @example
+--- ### Example
 --- ```lua
 --- if IsPlayerLocal(attacker) then
 --- 	score = score + 1
@@ -64,7 +64,7 @@ function IsPlayerLocal(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return string character -- Character id
---- @example
+--- ### Example
 --- ```lua
 --- local character = GetPlayerCharacter(0)
 --- ```
@@ -72,7 +72,7 @@ function GetPlayerCharacter(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean IsPlayerHost -- Whether a player is the host
---- @example
+--- ### Example
 --- ```lua
 --- local isHost = IsPlayerHost()
 --- ```
@@ -80,7 +80,7 @@ function IsPlayerHost(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean IsPlayerValid -- Whether a player is valid (existing player)
---- @example
+--- ### Example
 --- ```lua
 --- local isValid = IsPlayerValid(flagCarrier)
 --- if not isValid then
@@ -93,7 +93,7 @@ function IsPlayerValid(playerId) end
 --- Use GetPlayerTransform instead.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TVec position -- Player center position
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local p = GetPlayerPos()
@@ -116,7 +116,7 @@ function GetPlayerPos(playerId) end
 --- @return number hitdist -- Distance of the hit
 --- @return handle hitentity -- Handle of the entitiy being hit
 --- @return handle hitmaterial -- Name of the material being hit
---- @example
+--- ### Example
 --- ```lua
 --- local muzzle = GetToolLocationWorldTransform("muzzle")
 --- local _, pos, _, dir = GetPlayerAimInfo(muzzle.pos)
@@ -127,7 +127,7 @@ function GetPlayerAimInfo(position, maxdist, playerId) end
 --- The player pitch angle is applied to the player camera transform. This value can be used to animate tool pitch movement when using SetToolTransformOverride.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number pitch -- Current player pitch angle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local pitchRotation = Quat(Vec(1,0,0), GetPlayerPitch())
@@ -138,7 +138,7 @@ function GetPlayerPitch(playerId) end
 --- The player yaw angle is applied to the player camera transform. It represents the top-down angle of rotation of the player.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number yaw -- Current player yaw angle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local compassBearing = GetPlayerYaw()
@@ -146,11 +146,11 @@ function GetPlayerPitch(playerId) end
 --- ```
 function GetPlayerYaw(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Sets the player pitch.
 --- @param pitch number -- Pitch.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	-- look straight ahead
@@ -161,13 +161,13 @@ function SetPlayerPitch(pitch, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number recoil -- Current player crouch
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
----     local crouch = GetPlayerCrouch()
----     if crouch > 0.0 then
----         ...
----     end
+--- 	local crouch = GetPlayerCrouch()
+--- 	if crouch > 0.0 then
+---     	...
+--- 	end
 --- end
 --- ```
 function GetPlayerCrouch(playerId) end
@@ -178,7 +178,7 @@ function GetPlayerCrouch(playerId) end
 --- If you want the transform of the eye, use GetPlayerCameraTransform() instead.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TTransform transform -- Current player transform
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local t = GetPlayerTransform()
@@ -191,19 +191,19 @@ function GetPlayerTransform(playerId) end
 --- If you want the transform of the eye, use GetPlayerCameraTransform() instead.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return table transform -- Current player transform, including pitch (look up/down)
---- @example
+--- ### Example
 --- ```lua
 --- local t = GetPlayerTransform()
 --- ```
 function GetPlayerTransformWithPitch(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Instantly teleport the player to desired transform, excluding pitch.
 --- If you want to include pitch, use SetPlayerTransformWithPitch instead.
 --- Player velocity will be reset to zero.
 --- @param transform TTransform -- Desired player transform
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("jump", playerId) then
@@ -214,23 +214,23 @@ function GetPlayerTransformWithPitch(playerId) end
 --- ```
 function SetPlayerTransform(transform, playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Instantly teleport the player to desired transform, including pitch.
 --- Player velocity will be reset to zero.
 --- @param transform table -- Desired player transform
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- local t = Transform(Vec(10, 0, 0), QuatEuler(30, 90, 0))
 --- SetPlayerTransform(t, playerId)
 --- ```
 function SetPlayerTransformWithPitch(transform, playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Make the ground act as a conveyor belt, pushing the player even if ground shape is static.
 --- @param vel TVec -- Desired ground velocity
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	SetPlayerGroundVelocity(Vec(2,0,0), playerId)
@@ -243,7 +243,7 @@ function SetPlayerGroundVelocity(vel, playerId) end
 --- the player eye transform with this function.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TTransform transform -- Current player eye transform
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local t = GetPlayerEyeTransform()
@@ -257,7 +257,7 @@ function GetPlayerEyeTransform(playerId) end
 --- the standard player camera transform with this function.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TTransform transform -- Current player camera transform
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local t = GetPlayerCameraTransform()
@@ -266,13 +266,13 @@ function GetPlayerEyeTransform(playerId) end
 --- ```
 function GetPlayerCameraTransform(playerId) end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- Call this function continously to apply a camera offset. Can be used for camera effects
 --- such as shake and wobble.
 --- @param transform TTransform -- Desired player camera offset transform
 --- @param stackable? boolean -- True if eye offset should summ up with multiple calls per tick
 --- @param playerId? number -- Player ID. On client, zero means client player.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local t = Transform(Vec(), QuatAxisAngle(Vec(1, 0, 0), math.sin(GetTime()*3.0) * 3.0))
@@ -281,11 +281,11 @@ function GetPlayerCameraTransform(playerId) end
 --- ```
 function SetPlayerCameraOffsetTransform(transform, stackable, playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Call this function during init to alter the player spawn transform.
 --- @param transform TTransform -- Desired player spawn transform
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function setPlayerSpawnTransform(playerId)
 --- 	local t = Transform(Vec(10, 0, 0), QuatEuler(0, 90, 0))
@@ -294,11 +294,11 @@ function SetPlayerCameraOffsetTransform(transform, stackable, playerId) end
 --- ```
 function SetPlayerSpawnTransform(transform, playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Call this function during init to alter the player spawn health amount.
 --- @param health number -- Desired player spawn health (between zero and one)
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function playerJoined(playerId)
 --- 	SetPlayerSpawnHealth(0.5, playerId)
@@ -306,11 +306,11 @@ function SetPlayerSpawnTransform(transform, playerId) end
 --- ```
 function SetPlayerSpawnHealth(health, playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Call this function during init to alter the player spawn active tool.
 --- @param id string -- Tool unique identifier
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function playerJoined(playerId)
 --- 	SetPlayerSpawnTool("pistol", playerId)
@@ -320,7 +320,7 @@ function SetPlayerSpawnTool(id, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TVec velocity -- Player velocity in world space as vector
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local vel = GetPlayerVelocity()
@@ -329,11 +329,11 @@ function SetPlayerSpawnTool(id, playerId) end
 --- ```
 function GetPlayerVelocity(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Drive specified vehicle.
 --- @param vehicle number -- Handle to vehicle or zero to not drive.
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("interact", playerId) then
@@ -354,16 +354,16 @@ function GetPlayerAnimator(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return list bodies -- Get bodies associated with a player
---- @example
+--- ### Example
 --- ```lua
 --- local bodies = GetPlayerBodies(playerId)
 --- ```
 function GetPlayerBodies(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- @param velocity TVec -- Player velocity in world space as vector
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("jump", playerId) then
@@ -375,7 +375,7 @@ function SetPlayerVelocity(velocity, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Current vehicle handle, or zero if not in vehicle
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local vehicle = GetPlayerVehicle()
@@ -388,7 +388,7 @@ function GetPlayerVehicle(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean isGrounded -- Whether the player is grounded
---- @example
+--- ### Example
 --- ```lua
 --- local isGrounded = IsPlayerGrounded()
 --- ```
@@ -397,7 +397,7 @@ function IsPlayerGrounded(playerId) end
 --- @param handle number -- Vehicle handle
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean isDriver -- Whether the player is driver for this vehicle
---- @example
+--- ### Example
 --- ```lua
 --- local vehicle = FindVehicle("myvehicle")
 --- local isDriver = IsPlayerVehicleDriver(vehicle)
@@ -407,7 +407,7 @@ function IsPlayerVehicleDriver(handle, playerId) end
 --- @param handle number -- Vehicle handle
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean isPassenger -- Whether the player is a passenger of this vehicle
---- @example
+--- ### Example
 --- ```lua
 --- local vehicle = FindVehicle("myvehicle")
 --- local isPassenger = IsPlayerVehiclePassenger(vehicle)
@@ -416,7 +416,7 @@ function IsPlayerVehiclePassenger(handle, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean isGrounded -- Whether the player is jumping or not
---- @example
+--- ### Example
 --- ```lua
 --- local isJumping = IsPlayerJumping()
 --- ```
@@ -429,7 +429,7 @@ function IsPlayerJumping(playerId) end
 --- @return number shape -- Handle to shape
 --- @return Vec point -- Point of contact
 --- @return Vec normal -- Normal of contact
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	hasGroundContact, shape, point, normal = GetPlayerGroundContact()
@@ -443,7 +443,7 @@ function GetPlayerGroundContact(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Handle to grabbed shape or zero if not grabbing.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local shape = GetPlayerGrabShape()
@@ -456,7 +456,7 @@ function GetPlayerGrabShape(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Handle to grabbed body or zero if not grabbing.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local body = GetPlayerGrabBody()
@@ -467,10 +467,10 @@ function GetPlayerGrabShape(playerId) end
 --- ```
 function GetPlayerGrabBody(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Release what the player is currently holding
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("jump", playerId) then
@@ -482,7 +482,7 @@ function ReleasePlayerGrab(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TVec pos -- The world space grab point.
---- @example
+--- ### Example
 --- ```lua
 --- local body = GetPlayerGrabBody()
 --- if body ~= 0 then
@@ -493,7 +493,7 @@ function GetPlayerGrabPoint(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Handle to picked shape or zero if nothing is picked
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local shape = GetPlayerPickShape()
@@ -506,7 +506,7 @@ function GetPlayerPickShape(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Handle to picked body or zero if nothing is picked
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local body = GetPlayerPickBody()
@@ -521,7 +521,7 @@ function GetPlayerPickBody(playerId) end
 --- determines which interactable shape is currently interactable.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Handle to interactable shape or zero
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local shape = GetPlayerInteractShape()
@@ -536,7 +536,7 @@ function GetPlayerInteractShape(playerId) end
 --- determines which interactable body is currently interactable.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Handle to interactable body or zero
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local body = GetPlayerInteractBody()
@@ -547,13 +547,13 @@ function GetPlayerInteractShape(playerId) end
 --- ```
 function GetPlayerInteractBody(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Set the screen the player should interact with. For the screen
 --- to feature a mouse pointer and receieve input, the screen also
 --- needs to have interactive property.
 --- @param handle number -- Handle to screen or zero for no screen
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("interact", playerId) then
@@ -569,7 +569,7 @@ function SetPlayerScreen(handle, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Handle to interacted screen or zero if none
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("interact", playerId) then
@@ -583,10 +583,10 @@ function SetPlayerScreen(handle, playerId) end
 --- ```
 function GetPlayerScreen(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- @param health number -- Set player health (between zero and one)
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("interact", playerId) then
@@ -602,7 +602,7 @@ function SetPlayerHealth(health, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number health -- Current player health
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("interact", playerId) then
@@ -619,7 +619,7 @@ function GetPlayerHealth(playerId) end
 --- Will be false if player is in vehicle, interacting with a screen, has pause menu open, is dead or uses interactive UI.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return bool canusetool -- If the player currenty can use tool.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	for p in Players() do
@@ -631,11 +631,11 @@ function GetPlayerHealth(playerId) end
 --- ```
 function GetPlayerCanUseTool(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Enable or disable regeneration for player
 --- @param state boolean -- State of player regeneration
 --- @param player? number -- Player ID change regeneration for
---- @example
+--- ### Example
 --- ```lua
 --- function playerJoined(playerId)
 --- 	-- initially disable regeneration for player
@@ -644,9 +644,9 @@ function GetPlayerCanUseTool(playerId) end
 --- ```
 function SetPlayerRegenerationState(state, player) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function playerJoined(playerId)
 --- 	-- Server sets player tool to "gun"
@@ -656,16 +656,16 @@ function SetPlayerRegenerationState(state, player) end
 function SetPlayerTool(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- local tool = GetPlayerTool()
 --- ```
 function GetPlayerTool(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Respawn player at spawn position without modifying the scene
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	for p in Players() do
@@ -677,11 +677,11 @@ function GetPlayerTool(playerId) end
 --- ```
 function RespawnPlayer(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Respawn player at spawn position without modifying the scene
 --- @param transform transform -- Transform
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	for p in Players() do
@@ -697,7 +697,7 @@ function RespawnPlayerAtTransform(transform, playerId) end
 --- factors such as health, crouch, water, grabbing objects.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number speed -- Current player base walking speed
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	DebugPrint(GetPlayerWalkingSpeed())
@@ -705,12 +705,12 @@ function RespawnPlayerAtTransform(transform, playerId) end
 --- ```
 function GetPlayerWalkingSpeed(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- This function sets base speed, but real player speed depends on many
 --- factors such as health, crouch, water, grabbing objects.
 --- @param speed number -- Set player walking speed
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	for p in Players() do
@@ -727,7 +727,7 @@ function SetPlayerWalkingSpeed(speed, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number speed -- Current player walking speed while crouched
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	DebugPrint(GetPlayerCrouchSpeedScale())
@@ -735,11 +735,11 @@ function SetPlayerWalkingSpeed(speed, playerId) end
 --- ```
 function GetPlayerCrouchSpeedScale(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- This function sets base speed the player is changed to while crouched
 --- @param speed number -- Set player walking speed while crouched
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	for p in Players() do
@@ -755,7 +755,7 @@ function SetPlayerCrouchSpeedScale(speed, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number speed -- Current player walking speed when hurt
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	DebugPrint(GetPlayerHurtSpeedScale())
@@ -763,11 +763,11 @@ function SetPlayerCrouchSpeedScale(speed, playerId) end
 --- ```
 function GetPlayerHurtSpeedScale(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- This function sets base speed the player is interpolated towards based on the health
 --- @param speed number -- Set player walking speed when hurt
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	-- Reduce hurt penalty (default is 2/7 or roughly 0.29)
@@ -781,7 +781,25 @@ function SetPlayerHurtSpeedScale(speed, playerId) end
 --- @param parameter string -- Parameter name
 --- @param player? number -- Player ID. On player, zero means local player.
 --- @return any value -- Parameter value
---- @example
+--- ```markdown
+--- -|--------------------|---------|-------------------------------------------------------|
+--- -| Param name         | Type    | Description                                           |
+--- -|--------------------|---------|-------------------------------------------------------|
+--- -| health             | float   | Current value of the player's health.                 |
+--- -| healthRegeneration | boolean | Is the player's health regeneration enabled.          |
+--- -| walkingSpeed       | float   | The player's walking speed.                           |
+--- -| jumpSpeed          | float   | The player's jump speed.                              |
+--- -| godMode            | boolean | If the value is True, the player does not lose health |
+--- -| friction           | float   | Player body friction                                  |
+--- -| frictionMode       | string  | Player friction combine mode                          |
+--- -| flyMode            | boolean | If the value is True, the player will fly             |
+--- -| flashlightAllowed  | boolean | Changes ability to use flashlight                     |
+--- -| disableInteract    | boolean | Disable interactions for player                       |
+--- -| CollisionMask      | int     | Player collision mask bits (0-255) with respect to    |
+--- -|                    |         | ^ all shapes layer bits                               |
+--- -|--------------------|---------|-------------------------------------------------------|
+--- ```
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	-- The parameter names are case-insensitive, so any of the specified writing styles will be correct:
@@ -793,11 +811,31 @@ function SetPlayerHurtSpeedScale(speed, playerId) end
 --- ```
 function GetPlayerParam(parameter, player) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- @param parameter string -- Parameter name
 --- @param value any -- Parameter value
 --- @param player? number -- Player ID. On player, zero means local player.
---- @example
+--- ```markdown
+--- -|--------------------|---------|-------------------------------------------------------|
+--- -| Param name         | Type    | Description                                           |
+--- -|--------------------|---------|-------------------------------------------------------|
+--- -| health             | float   | Current value of the player's health.                 |
+--- -| healthRegeneration | boolean | Is the player's health regeneration enabled.          |
+--- -| walkingSpeed       | float   | **!** The player's walking speed.                     |
+--- -| jumpSpeed          | float   | **!** The player's jump speed.                        |
+--- -| godMode            | boolean | If the value is True, the player does not lose health |
+--- -| friction           | float   | Player body friction                                  |
+--- -| frictionMode       | string  | Player friction combine mode.                         |
+--- -|                    |         | ^ Can be (average|minimum|multiply|maximum)           |
+--- -| flyMode            | boolean | If the value is True, the player will fly             |
+--- -| flashlightAllowed  | boolean | Changes ability to use flashlight                     |
+--- -| disableInteract    | boolean | Disable interactions for player                       |
+--- -| CollisionMask      | int     | Player collision mask bits (0-255) with respect to    |
+--- -|                    |         | ^ all shapes layer bits                               |
+--- -|--------------------|---------|-------------------------------------------------------|
+--- **!** : This value is applied for 1 frame!
+--- ```
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	-- The parameter names are case-insensitive, so any of the specified writing styles will be correct:
@@ -817,7 +855,7 @@ function SetPlayerParam(parameter, value, player) end
 
 --- Use this function to hide the player character.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	...
@@ -827,7 +865,7 @@ function SetPlayerParam(parameter, value, player) end
 --- ```
 function SetPlayerHidden(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Register a custom tool that will show up in the player inventory and
 --- can be selected with scroll wheel. Do this only once per tool.
 --- You also need to enable the tool in the registry before it can be used.
@@ -835,7 +873,7 @@ function SetPlayerHidden(playerId) end
 --- @param name string -- Tool name to show in hud
 --- @param file string -- Path to vox file or prefab xml
 --- @param group? number -- Tool group for this tool (1-6) Default is 6.
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	RegisterTool("lasergun", "Laser Gun", "MOD/vox/lasergun.vox", 6)
@@ -862,13 +900,13 @@ function SetPlayerHidden(playerId) end
 --- ```
 function RegisterTool(id, name, file, group) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Sets the default amount of ammo granted when picking up an ammo crate
 --- associated with a specific tool. This is useful if your mod provides
 --- custom crates or ammo pickups for tools.
 --- @param toolId string -- Tool ID
 --- @param ammo number -- The default ammo pickup amount
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	RegisterTool("lasergun", "Laser Gun", "MOD/vox/lasergun.vox", 6)
@@ -879,7 +917,7 @@ function SetToolAmmoPickupAmount(toolId, ammo) end
 
 --- @param toolId string -- Tool ID
 --- @return number ammo -- The default ammo pickup amount
---- @example
+--- ### Example
 --- ```lua
 --- local ammo = GetToolAmmoPickupAmount("gun")
 --- ```
@@ -890,7 +928,7 @@ function GetToolAmmoPickupAmount(toolId) end
 --- transform, since it is controlled by the engine. Use SetToolTranform for that.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Handle to currently visible tool body or zero if none
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local toolBody = GetToolBody()
@@ -904,7 +942,7 @@ function GetToolBody(playerId) end
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TTransform right -- Transform of right hand relative to the tool body origin, or nil if the right hand is not used
 --- @return TTransform left -- Transform of left hand, or nil if left hand is not used
---- @example
+--- ### Example
 --- ```lua
 --- local right, left = GetToolHandPoseLocalTransform()
 --- ```
@@ -913,17 +951,17 @@ function GetToolHandPoseLocalTransform(playerId) end
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TTransform right -- Transform of right hand in world space, or nil if the right hand is not used
 --- @return TTransform left -- Transform of left hand, or nil if left hand is not used
---- @example
+--- ### Example
 --- ```lua
 --- local right, left = GetToolHandPoseWorldTransform()
 --- ```
 function GetToolHandPoseWorldTransform(playerId) end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- @param right TTransform -- Transform of right hand relative to the tool body origin, or nil if right hand is not used
 --- @param left TTransform -- Transform of left hand, or nil if left hand is not used
 --- @param playerId? number -- Player ID. On client, zero means client player.
---- @example
+--- ### Example
 --- ```lua
 --- if GetBool("game.thirdperson") then
 --- 	if aiming then
@@ -939,7 +977,7 @@ function SetToolHandPoseLocalTransform(right, left, playerId) end
 --- @param name string -- Name of location
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TTransform location -- Transform of a tool location in tool space or nil if location is not found.
---- @example
+--- ### Example
 --- ```lua
 --- local right  = GetToolLocationLocalTransform("righthand")
 --- SetToolHandPoseLocalTransform(right, nil)
@@ -951,14 +989,14 @@ function GetToolLocationLocalTransform(name, playerId) end
 --- @param name string -- Name of location
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TTransform location -- Transform of a tool location in world space or nil if the location is not found or if there is no visible tool body.
---- @example
+--- ### Example
 --- ```lua
 --- local muzzle = GetToolLocationWorldTransform("muzzle")
 --- Shoot(muzzle, direction)
 --- ```
 function GetToolLocationWorldTransform(name, playerId) end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- Apply an additional transform on the visible tool body. This can be used to
 --- create tool animations. You need to set this every frame from the tick function.
 --- The optional sway parameter control the amount of tool swaying when walking.
@@ -966,7 +1004,7 @@ function GetToolLocationWorldTransform(name, playerId) end
 --- @param transform TTransform -- Tool body transform
 --- @param sway? number -- Tool sway amount. Default is 1.0
 --- @param playerId? number -- Player ID. On client, zero means client player.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	--Offset the tool half a meter to the right for the local player
@@ -976,11 +1014,11 @@ function GetToolLocationWorldTransform(name, playerId) end
 --- ```
 function SetToolTransform(transform, sway, playerId) end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- Set the allowed zoom for a registered tool. The zoom sensitivity will be factored
 --- with the user options for sensitivity.
 --- @param zoom number -- Zoom factor
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	-- allow our scoped tool to zoom by factor 4.
@@ -989,12 +1027,12 @@ function SetToolTransform(transform, sway, playerId) end
 --- ```
 function SetToolAllowedZoom(zoom) end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- This function serves as an alternative to SetToolTransform, providing full control over tool animation by disabling all internal tool animations.
 --- When using this function, you must manually include pitch, sway, and crouch movements in the transform. To maintain this control, call the function every frame from the tick function.
 --- @param transform TTransform -- Tool body transform
 --- @param playerId? number -- Player ID. On client, zero means client player.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	if GetBool("game.thirdperson") then
@@ -1014,12 +1052,12 @@ function SetToolAllowedZoom(zoom) end
 --- ```
 function SetToolTransformOverride(transform, playerId) end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- Apply an additional offset on the visible tool body. This can be used to
 --- tweak tool placement for different characters. You need to set this every frame from the tick function.
 --- @param offset TVec -- Tool body offset
 --- @param playerId? number -- Player ID. On client, zero means client player.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	--Offset the tool depending on character height
@@ -1031,11 +1069,11 @@ function SetToolTransformOverride(transform, playerId) end
 --- ```
 function SetToolOffset(offset, playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- @param toolId string -- Tool ID
 --- @param ammo number -- Total ammo
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- SetToolAmmo("gun", 10, 1)
 --- ```
@@ -1044,17 +1082,17 @@ function SetToolAmmo(toolId, ammo, playerId) end
 --- @param toolId string -- Tool ID
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number ammo -- Total ammo for tool
---- @example
+--- ### Example
 --- ```lua
 --- local ammo = GetToolAmmo("gun", 1)
 --- ```
 function GetToolAmmo(toolId, playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- @param toolId string -- Tool ID
 --- @param enabled bool -- Tool enabled
 --- @param playerId? number -- Player ID
---- @example
+--- ### Example
 --- ```lua
 --- SetToolEnabled("gun", false, playerId)
 --- ```
@@ -1063,7 +1101,7 @@ function SetToolEnabled(toolId, enabled, playerId) end
 --- @param toolId string -- Tool ID
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return bool enabled -- Tool enabled for player
---- @example
+--- ### Example
 --- ```lua
 --- if IsToolEnabled("gun", 1) then
 --- 	...
@@ -1071,13 +1109,13 @@ function SetToolEnabled(toolId, enabled, playerId) end
 --- ```
 function IsToolEnabled(toolId, playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Sets the base orientation when gravity is disabled with SetGravity.
 --- This will determine what direction is "up", "right" and "forward" as
 --- gravity is completely turned off.
 --- @param orientation Quat -- Base orientation
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	SetGravity(Vec(0, 0, 0))
@@ -1092,7 +1130,7 @@ function SetPlayerOrientation(orientation, playerId) end
 --- Gets the base orientation of the player.
 --- This can be used to retrieve the base orientation of the player when using a custom gravity vector.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick(dt)
 --- 	SetGravity(Vec(0, 0, 0))
@@ -1108,7 +1146,7 @@ function GetPlayerOrientation(playerId) end
 --- This function returns the up vector of the player, which is determined by the player's base orientation.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TVec up -- Up vector of the player
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local up = GetPlayerUp()
@@ -1119,16 +1157,16 @@ function GetPlayerUp(playerId) end
 
 --- @param rig number -- Rig handle
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
----     local rig = FindRig("myrig")
----     SetPlayerRig(rig)
+--- 	local rig = FindRig("myrig")
+--- 	SetPlayerRig(rig)
 --- ```
 function SetPlayerRig(rig, playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number rig -- Rig handle
---- @example
+--- ### Example
 --- ```lua
 --- local rig = GetPlayerRig(rigid)
 --- ```
@@ -1136,57 +1174,69 @@ function GetPlayerRig(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return TTransform transform -- World transform, nil if player doesnt have a rig
---- @example
+--- ### Example
 --- ```lua
 --- local t = GetPlayerRigWorldTransform()
 --- ```
 function GetPlayerRigWorldTransform(playerId) end
 
+--- ### This function will be deprecated in the next update!
+--- @param rigId number -- Unique id
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
----     ClearPlayerRig(someId)
+--- 	ClearPlayerRig(someId)
 --- ```
-function ClearPlayerRig(playerId) end
+function ClearPlayerRig(rigId, playerId) end
 
+--- ### This function will be deprecated in the next update!
+--- @param rigId number -- Unique id
 --- @param name string -- Name of location
 --- @param location table -- Rig Local transform of the location
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
----     local someBody = FindBody("bodyname")
----     SetPlayerRigLocationLocalTransform(someBody, "ik_foot_l", TransformToLocalTransform(GetBodyTransform(someBody), GetLocationTransform(FindLocation("ik_foot_l"))))
+--- 	local someBody = FindBody("bodyname")
+--- 	SetPlayerRigLocationLocalTransform(someBody, "ik_foot_l", TransformToLocalTransform(GetBodyTransform(someBody), GetLocationTransform(FindLocation("ik_foot_l"))))
 --- ```
-function SetPlayerRigLocationLocalTransform(name, location, playerId) end
+function SetPlayerRigLocationLocalTransform(rigId, name, location, playerId) end
 
+--- ### This function will be deprecated in the next update!
+--- This will both update the rig identified by the 'id' and make it active
+--- @param rigId number -- Unique id
 --- @param location table -- New world transform
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
----     local someBody = FindBody("bodyname")
----     SetPlayerRigTransform(someBody, GetBodyTransform(someBody))
+--- 	local someBody = FindBody("bodyname")
+--- 	SetPlayerRigTransform(someBody, GetBodyTransform(someBody))
 --- ```
-function SetPlayerRigTransform(location, playerId) end
+function SetPlayerRigTransform(rigId, location, playerId) end
 
+--- ### This function will be deprecated in the next update!
 --- @param name string -- Name of location
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return table location -- Transform of a location in world space
---- @example
+--- ### Example
 --- ```lua
 --- local t = GetPlayerRigLocationWorldTransform("ik_hand_l")
 --- ```
 function GetPlayerRigLocationWorldTransform(name, playerId) end
 
----### CLIENT ONLY
+--- ### This function will be deprecated in the next update!
+--- ### CLIENT ONLY
+--- @param rigId number -- Unique id
 --- @param tag string -- Tag
 --- @param playerId? number -- Player ID. On client, zero means client player.
-function SetPlayerRigTags(tag, playerId) end
+function SetPlayerRigTags(rigId, tag, playerId) end
 
+--- ### This function will be deprecated in the next update!
 --- @param tag string -- Tag name
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean exists -- Returns true if entity has tag
 function GetPlayerRigHasTag(tag, playerId) end
 
+--- ### This function will be deprecated in the next update!
 --- @param tag string -- Tag name
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return string value -- Returns the tag value, if any. Empty string otherwise.
@@ -1197,7 +1247,7 @@ function GetPlayerRigTagValue(tag, playerId) end
 --- @return number r -- Red channel value
 --- @return number g -- Green channel value
 --- @return number b -- Blue channel value
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local inuse, r, g, b = GetPlayerColor()
@@ -1214,7 +1264,7 @@ function GetPlayerColor(playerId) end
 --- @param g number -- Green value
 --- @param b number -- Blue value
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- end
 --- function client.tick()
@@ -1225,14 +1275,14 @@ function GetPlayerColor(playerId) end
 --- ```
 function SetPlayerColor(r, g, b, playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Apply damage to a player. Instigating player ID could be used to correctly
 --- attribute the "score" to a player.
 --- @param targetPlayerId number -- Target player ID
 --- @param damage number -- Damage to apply to target player
 --- @param cause? string -- The cause of damage
 --- @param instigatingPlayerId? number -- Instigating player ID.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick(dt)
 --- 	for player in Players() do
@@ -1256,20 +1306,20 @@ function SetPlayerColor(r, g, b, playerId) end
 --- ```
 function ApplyPlayerDamage(targetPlayerId, damage, cause, instigatingPlayerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Disable input for a player. Should be called from tick.
 --- @param player playerIndex -- Player to disable input for
---- @example
+--- ### Example
 --- ```lua
 --- -- Disable player 2 input as she/he is interacting with something.
 --- DisablePlayerInput(2)
 --- ```
 function DisablePlayerInput(player) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Disables the player from any interaction, physics and rendering.
 --- @param playerId number -- Player to disable
---- @example
+--- ### Example
 --- ```lua
 --- function updateFinalScoreboard()
 --- 	for i=1,#hiddenPlayers do
@@ -1281,17 +1331,17 @@ function DisablePlayer(playerId) end
 
 --- Check if player is actively disabled
 --- @param playerId number -- Check if player is disabled
---- @example
+--- ### Example
 --- ```lua
 --- --check if disabled
 --- playerDisabled = IsPlayerDisabled(playerId)
 --- ```
 function IsPlayerDisabled(playerId) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Disables the player from any incoming damage, such as explosions, gun shots, or drowning.
 --- @param playerId number -- Player for which damage should be disabled
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	for i=1,#invulnerablePlayers do

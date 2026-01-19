@@ -5,7 +5,7 @@
 --- @param global? boolean -- Search in entire scene
 --- @param type? string -- Entity type ("body", "shape", "light", "location" etc.)
 --- @return number handle -- Handle to first entity with specified tag or zero if not found
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	--You may use this function in a similar way to other "Find functions" like FindBody, FindShape, FindVehicle, etc.
@@ -23,7 +23,7 @@ function FindEntity(tag, global, type) end
 --- @param global? boolean -- Search in entire scene
 --- @param type? string -- Entity type ("body", "shape", "light", "location" etc.)
 --- @return table list -- Indexed table with handles to all entities with specified tag
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	-- You may use this function in a similar way to other "Find functions" like FindBody, FindShape, FindVehicle, etc.
@@ -42,7 +42,7 @@ function FindEntities(tag, global, type) end
 --- @param recursive? boolean -- Search recursively
 --- @param type? string -- Entity type ("body", "shape", "light", "location" etc.)
 --- @return table list -- Indexed table with child elements of the entity
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local car = FindEntity("car", true, "vehicle")
@@ -59,7 +59,7 @@ function GetEntityChildren(handle, tag, recursive, type) end
 --- @param tag? string -- Tag name
 --- @param type? string -- Entity type ("body", "shape", "light", "location" etc.)
 --- @return number handle -- 
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local wheel = FindEntity("", true, "wheel")
@@ -72,7 +72,7 @@ function GetEntityParent(handle, tag, type) end
 --- @param handle number -- Entity handle
 --- @param tag string -- Tag name
 --- @param value? string -- Tag value
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -89,7 +89,7 @@ function SetTag(handle, tag, value) end
 --- Remove tag from an entity. If the tag had a value it is removed too.
 --- @param handle number -- Entity handle
 --- @param tag string -- Tag name
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -107,7 +107,7 @@ function RemoveTag(handle, tag) end
 --- @param handle number -- Entity handle
 --- @param tag string -- Tag name
 --- @return boolean exists -- Returns true if entity has tag
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -124,7 +124,7 @@ function HasTag(handle, tag) end
 --- @param handle number -- Entity handle
 --- @param tag string -- Tag name
 --- @return string value -- Returns the tag value, if any. Empty string otherwise.
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -137,7 +137,7 @@ function GetTagValue(handle, tag) end
 
 --- @param handle number -- Entity handle
 --- @return table tags -- Indexed table of tags on entity
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -157,7 +157,7 @@ function ListTags(handle) end
 --- retrieves that description.
 --- @param handle number -- Entity handle
 --- @return string description -- The description string
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local body = FindBody("body", true)
@@ -170,7 +170,7 @@ function GetDescription(handle) end
 --- bodies and shapes will show up on the HUD when looking at them.
 --- @param handle number -- Entity handle
 --- @param description string -- The description string
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local body = FindBody("body", true)
@@ -183,7 +183,7 @@ function SetDescription(handle, description) end
 --- Remove an entity from the scene. All entities owned by this entity
 --- will also be removed.
 --- @param handle number -- Entity handle
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local body = FindBody("body", true)
@@ -195,7 +195,7 @@ function Delete(handle) end
 
 --- @param handle number -- Entity handle
 --- @return boolean exists -- Returns true if the entity pointed to by handle still exists
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local body = FindBody("body", true)
@@ -211,7 +211,7 @@ function IsHandleValid(handle) end
 --- Returns the type name of provided entity, for example "body", "shape", "light", etc.
 --- @param handle number -- Entity handle
 --- @return string type -- Type name of the provided entity
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local body = FindBody("body", true)
@@ -223,7 +223,7 @@ function GetEntityType(handle) end
 --- @param handle number -- Entity handle
 --- @param property string -- Property name
 --- @return any value -- Property value
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local body = FindBody("testbody", true)
@@ -233,11 +233,11 @@ function GetEntityType(handle) end
 --- ```
 function GetProperty(handle, property) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- @param handle number -- Entity handle
 --- @param property string -- Property name
 --- @param value any -- Property value
---- @example
+--- ### Example
 --- ```lua
 --- function tick()
 --- 	local light = FindLight("mylight", true)

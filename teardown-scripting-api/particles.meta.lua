@@ -2,7 +2,7 @@
 
 --- Reset to default particle state, which is a plain, white particle of radius 0.5.
 --- Collision is enabled and it alpha animates from 1 to 0.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	ParticleReset()
@@ -12,7 +12,7 @@ function ParticleReset() end
 
 --- Set type of particle
 --- @param type string -- Type of particle. Can be "smoke" or "plain".
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	ParticleType("smoke")
@@ -21,7 +21,7 @@ function ParticleReset() end
 function ParticleType(type) end
 
 --- @param type number -- Tile in the particle texture atlas (0-15)
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Smoke particle
@@ -33,7 +33,7 @@ function ParticleType(type) end
 function ParticleTile(type) end
 
 --- Set particle color to either constant (three arguments) or linear interpolation (six arguments)
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Constant red
@@ -48,7 +48,7 @@ function ParticleColor() end
 --- @param interpolation? string -- Interpolation method: linear, smooth, easein, easeout or constant. Default is linear.
 --- @param fadein? number -- Fade in between t=0 and t=fadein. Default is zero.
 --- @param fadeout? number -- Fade out between t=fadeout and t=1. Default is one.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Constant radius 0.4 meters
@@ -63,7 +63,7 @@ function ParticleRadius(interpolation, fadein, fadeout) end
 --- @param interpolation? string -- Interpolation method: linear, smooth, easein, easeout or constant. Default is linear.
 --- @param fadein? number -- Fade in between t=0 and t=fadein. Default is zero.
 --- @param fadeout? number -- Fade out between t=fadeout and t=1. Default is one.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Interpolate from opaque to transparent
@@ -76,7 +76,7 @@ function ParticleAlpha(interpolation, fadein, fadeout) end
 --- @param interpolation? string -- Interpolation method: linear, smooth, easein, easeout or constant. Default is linear.
 --- @param fadein? number -- Fade in between t=0 and t=fadein. Default is zero.
 --- @param fadeout? number -- Fade out between t=fadeout and t=1. Default is one.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Move particles slowly upwards
@@ -90,7 +90,7 @@ function ParticleGravity(interpolation, fadein, fadeout) end
 --- @param interpolation? string -- Interpolation method: linear, smooth, easein, easeout or constant. Default is linear.
 --- @param fadein? number -- Fade in between t=0 and t=fadein. Default is zero.
 --- @param fadeout? number -- Fade out between t=fadeout and t=1. Default is one.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Slow down fast moving particles
@@ -103,7 +103,7 @@ function ParticleDrag(interpolation, fadein, fadeout) end
 --- @param interpolation? string -- Interpolation method: linear, smooth, easein, easeout or constant. Default is linear.
 --- @param fadein? number -- Fade in between t=0 and t=fadein. Default is zero.
 --- @param fadeout? number -- Fade out between t=fadeout and t=1. Default is one.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Highly emissive at start, not emissive at end
@@ -116,7 +116,7 @@ function ParticleEmissive(interpolation, fadein, fadeout) end
 --- @param interpolation? string -- Interpolation method: linear, smooth, easein, easeout or constant. Default is linear.
 --- @param fadein? number -- Fade in between t=0 and t=fadein. Default is zero.
 --- @param fadeout? number -- Fade out between t=fadeout and t=1. Default is one.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Rotate fast at start and slow at end
@@ -130,7 +130,7 @@ function ParticleRotation(interpolation, fadein, fadeout) end
 --- @param interpolation? string -- Interpolation method: linear, smooth, easein, easeout or constant. Default is linear.
 --- @param fadein? number -- Fade in between t=0 and t=fadein. Default is zero.
 --- @param fadeout? number -- Fade out between t=fadeout and t=1. Default is one.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Stretch particle along direction of motion
@@ -143,7 +143,7 @@ function ParticleStretch(interpolation, fadein, fadeout) end
 --- @param interpolation? string -- Interpolation method: linear, smooth, easein, easeout or constant. Default is linear.
 --- @param fadein? number -- Fade in between t=0 and t=fadein. Default is zero.
 --- @param fadeout? number -- Fade out between t=fadeout and t=1. Default is one.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Make particles stick to objects
@@ -158,7 +158,7 @@ function ParticleSticky(interpolation, fadein, fadeout) end
 --- @param interpolation? string -- Interpolation method: linear, smooth, easein, easeout or constant. Default is linear.
 --- @param fadein? number -- Fade in between t=0 and t=fadein. Default is zero.
 --- @param fadeout? number -- Fade out between t=fadeout and t=1. Default is one.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Disable collisions
@@ -174,7 +174,7 @@ function ParticleCollide(interpolation, fadein, fadeout) end
 --- Set particle bitmask. The value 256 means fire extinguishing particles and is currently the only
 --- flag in use. There might be support for custom flags and queries in the future.
 --- @param bitmask number -- Particle flags (bitmask 0-65535)
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	--Fire extinguishing particle
@@ -190,7 +190,7 @@ function ParticleFlags(bitmask) end
 --- @param pos TVec -- World space point as vector
 --- @param velocity TVec -- World space velocity as vector
 --- @param lifetime number -- Particle lifetime in seconds
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	ParticleReset()

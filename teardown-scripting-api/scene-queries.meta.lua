@@ -1,7 +1,7 @@
 --- @meta
 
 --- @param layers string -- Space separate list of layers
---- @example
+--- ### Example
 --- ```lua
 --- --Raycast dynamic, physical objects above debris threshold, but not specific vehicle
 --- function client.tick()
@@ -17,7 +17,7 @@
 function QueryRequire(layers) end
 
 --- @param layers string -- Space separate list of layers
---- @example
+--- ### Example
 --- ```lua
 --- --Raycast all the default layers and include the player layer.
 --- function client.tick()
@@ -32,7 +32,7 @@ function QueryInclude(layers) end
 
 --- Set collision mask filter for the next query. Queries have a mask of 255 by default
 --- @param mask number -- Mask bits (0-255)
---- @example
+--- ### Example
 --- ```lua
 --- --Find the closest point on any shape (within 2 meters) to the player eye that the player can collide with.
 --- function client.tick()
@@ -52,7 +52,7 @@ function QueryRejectAnimator(handle) end
 
 --- Exclude vehicle from the next query
 --- @param vehicle number -- Vehicle handle
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local vehicle = FindVehicle("vehicle")
@@ -69,7 +69,7 @@ function QueryRejectVehicle(vehicle) end
 
 --- Exclude body from the next query
 --- @param body number -- Body handle
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local body = FindBody("body")
@@ -86,7 +86,7 @@ function QueryRejectBody(body) end
 
 --- Exclude bodies from the next query
 --- @param bodies table -- Array with bodies handles
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local body = FindBody("body")
@@ -104,7 +104,7 @@ function QueryRejectBodies(bodies) end
 
 --- Exclude shape from the next query
 --- @param shape number -- Shape handle
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local shape = FindShape("shape")
@@ -121,7 +121,7 @@ function QueryRejectShape(shape) end
 
 --- Exclude shapes from the next query
 --- @param shapes table -- Array with shapes handles
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local shape = FindShape("shape")
@@ -139,7 +139,7 @@ function QueryRejectShapes(shapes) end
 
 --- Exclude player from the next query
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- --Do not include shape in next raycast
 --- QueryRejectPlayer(1)
@@ -159,7 +159,7 @@ function QueryRejectPlayer(playerId) end
 --- @return number dist -- Hit distance from origin
 --- @return TVec normal -- World space normal at hit point
 --- @return number shape -- Handle to hit shape
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local vehicle = FindVehicle("vehicle")
@@ -182,7 +182,7 @@ function QueryRaycast(origin, direction, maxDist, radius, rejectTransparent) end
 --- @return boolean hit -- True if raycast hit something
 --- @return number dist -- Hit distance from origin
 --- @return number joint -- Handle to hit joint of rope type
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local playerCameraTransform = GetPlayerCameraTransform()
@@ -203,7 +203,7 @@ function QueryRaycastRope(origin, direction, maxDist, radius) end
 --- @return boolean hit -- True if raycast hit something
 --- @return number dist -- Hit distance from origin
 --- @return TVec hitPos -- Hit point as world space vector
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Raycast from a high point straight downwards, looking for water
@@ -228,7 +228,7 @@ function QueryRaycastWater(origin, direction, maxDist) end
 --- @return number playerId -- PlayerId of hit player, zero if it did not hit a player
 --- @return number playerDamageFactor -- 1.0 for a hit on the torso, and less for a lower body hit. Applicable only if a player was hit. Use this to scale the damage.
 --- @return Vec normal -- Normal vector of the hit
---- @example
+--- ### Example
 --- ```lua
 --- -- Note: 'shape' and 'player' are IDs/handles (numbers), not object references.
 --- function server.tick()
@@ -266,7 +266,7 @@ function QueryShot(origin, direction, maxDist, radius, playerId) end
 --- @return TVec point -- World space closest point
 --- @return TVec normal -- World space normal at closest point
 --- @return number shape -- Handle to closest shape
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local vehicle = FindVehicle("vehicle")
@@ -284,7 +284,7 @@ function QueryClosestPoint(origin, maxDist) end
 --- @param min TVec -- Aabb minimum point
 --- @param max TVec -- Aabb maximum point
 --- @return table list -- Indexed table with handles to all shapes in the aabb
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local list = QueryAabbShapes(Vec(0, 0, 0), Vec(10, 10, 10))
@@ -300,7 +300,7 @@ function QueryAabbShapes(min, max) end
 --- @param min TVec -- Aabb minimum point
 --- @param max TVec -- Aabb maximum point
 --- @return table list -- Indexed table with handles to all bodies in the aabb
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local list = QueryAabbBodies(Vec(0, 0, 0), Vec(10, 10, 10))
@@ -322,7 +322,7 @@ function QueryAabbBodies(min, max) end
 --- @param maxDist? number -- Maximum path length before giving up. Default is infinite.
 --- @param targetRadius? number -- Maximum allowed distance to target in meters. Default is 2.0
 --- @param type? string -- Type of path. Can be "low", "standart", "water", "flying". Default is "standart"
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	QueryPath(Vec(-10, 0, 0), Vec(10, 0, 0))
@@ -335,7 +335,7 @@ function QueryPath(start, end, maxDist, targetRadius, type) end
 --- Returns created path planner id/handler.
 --- It is recommended to reuse previously created path planners, because they exist throughout the lifetime of the script.
 --- @return number id -- Path planner id
---- @example
+--- ### Example
 --- ```lua
 --- local paths = {}
 --- function server.init()
@@ -357,7 +357,7 @@ function CreatePathPlanner() end
 --- Deletes the path planner with the specified id which can be used to save some memory.
 --- Calling CreatePathPlanner again can initialize a new path planner with the id previously deleted.
 --- @param id number -- Path planner id
---- @example
+--- ### Example
 --- ```lua
 --- local paths = {}
 --- function server.init()
@@ -376,7 +376,7 @@ function DeletePathPlanner(id) end
 --- @param maxDist? number -- Maximum path length before giving up. Default is infinite.
 --- @param targetRadius? number -- Maximum allowed distance to target in meters. Default is 2.0
 --- @param type? string -- Type of path. Can be "low", "standart", "water", "flying". Default is "standart"
---- @example
+--- ### Example
 --- ```lua
 --- local paths = {}
 --- function server.init()
@@ -398,7 +398,7 @@ function PathPlannerQuery(id, start, end, maxDist, targetRadius, type) end
 --- Abort current path query, regardless of what state it is currently in. This is a way to
 --- save computing resources if the result of the current query is no longer of interest.
 --- @param id? number -- Path planner id. Default value is 0.
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	QueryPath(Vec(-10, 0, 0), Vec(10, 0, 0))
@@ -409,7 +409,7 @@ function AbortPath(id) end
 
 --- @param id? number -- Path planner id. Default value is 0.
 --- @return string state -- Current path planning state
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	QueryPath(Vec(-10, 0, 0), Vec(10, 0, 0))
@@ -428,7 +428,7 @@ function GetPathState(id) end
 --- to the target.
 --- @param id? number -- Path planner id. Default value is 0.
 --- @return number length -- Length of last path planning result (in meters)
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	QueryPath(Vec(-10, 0, 0), Vec(10, 0, 0))
@@ -448,7 +448,7 @@ function GetPathLength(id) end
 --- @param dist number -- The distance along path. Should be between zero and result from GetPathLength()
 --- @param id? number -- Path planner id. Default value is 0.
 --- @return TVec point -- The path point dist meters along the path
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	QueryPath(Vec(-10, 0, 0), Vec(10, 0, 0))
@@ -466,7 +466,7 @@ function GetPathPoint(dist, id) end
 
 --- @return number volume -- Volume of loudest sound played last frame
 --- @return TVec position -- World position of loudest sound played last frame
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local vol, pos = GetLastSound()
@@ -480,7 +480,7 @@ function GetLastSound() end
 --- @param point TVec -- World point as vector
 --- @return boolean inWater -- True if point is in water
 --- @return number depth -- Depth of point into water, or zero if not in water
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local wet, d = IsPointInWater(Vec(10, 0, 0))
@@ -495,7 +495,7 @@ function IsPointInWater(point) end
 --- the environment, but it varies with position procedurally.
 --- @param point TVec -- World point as vector
 --- @return TVec vel -- Wind at provided position
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local v = GetWindVelocity(Vec(0, 10, 0))

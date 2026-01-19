@@ -3,7 +3,7 @@
 --- @param name string -- Parameter name
 --- @param default number -- Default parameter value
 --- @return number value -- Parameter value
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Retrieve blinkcount parameter, or set to 5 if omitted
@@ -16,7 +16,7 @@ function GetIntParam(name, default) end
 --- @param name string -- Parameter name
 --- @param default number -- Default parameter value
 --- @return number value -- Parameter value
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Retrieve speed parameter, or set to 10.0 if omitted
@@ -29,7 +29,7 @@ function GetFloatParam(name, default) end
 --- @param name string -- Parameter name
 --- @param default boolean -- Default parameter value
 --- @return boolean value -- Parameter value
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Retrieve playsound parameter, or false if omitted
@@ -42,7 +42,7 @@ function GetBoolParam(name, default) end
 --- @param name string -- Parameter name
 --- @param default string -- Default parameter value
 --- @return string value -- Parameter value
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Retrieve mode parameter, or "idle" if omitted
@@ -55,7 +55,7 @@ function GetStringParam(name, default) end
 --- @param name string -- Parameter name
 --- @param default number -- Default parameter value
 --- @return number value -- Parameter value
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Retrieve color parameter, or set to 0.39, 0.39, 0.39 if omitted

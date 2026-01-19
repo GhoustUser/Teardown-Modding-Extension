@@ -8,7 +8,7 @@
 --- @param allowStatic? boolean -- Allow spawning static shapes and bodies (default false)
 --- @param jointExisting? boolean -- Allow joints to connect to existing scene geometry (default false)
 --- @return table entities -- Indexed table with handles to all spawned entities
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	Spawn("MOD/prefab/mycar.xml", Transform(Vec(0, 5, 0)))
@@ -24,7 +24,7 @@ function Spawn(xml, transform, allowStatic, jointExisting) end
 --- @param allowStatic? boolean -- Allow spawning static shapes and bodies (default false)
 --- @param jointExisting? boolean -- Allow joints to connect to existing scene geometry (default false)
 --- @return table entities -- Indexed table with handles to all spawned entities
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	Spawn("MOD/prefab/mycar.xml", "some_vox_layer", Transform(Vec(0, 5, 0)))
@@ -38,7 +38,7 @@ function SpawnLayer(xml, layer, transform, allowStatic, jointExisting) end
 --- @param allowStatic? boolean -- Allow spawning static shapes and bodies (default false)
 --- @param voxScale? number -- Applies a scale to voxels (default 1.0)
 --- @return table entities -- Indexed table with handles to all spawned entities
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	SpawnTool("sledge", Transform(Vec(0, 5, 0)))

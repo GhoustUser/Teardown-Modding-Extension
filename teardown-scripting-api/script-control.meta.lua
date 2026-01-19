@@ -1,7 +1,7 @@
 --- @meta
 
 --- @return string version -- Dot separated string of current version of the game
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local v = GetVersion()
@@ -13,7 +13,7 @@ function GetVersion() end
 
 --- @param version string -- Reference version
 --- @return boolean match -- True if current version is at least provided one
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	if HasVersion("1.5.0") then
@@ -30,7 +30,7 @@ function HasVersion(version) end
 --- Returns running time of this script. If called from update, this returns
 --- the simulated time, otherwise it returns wall time.
 --- @return number time -- The time in seconds since level was started
---- @example
+--- ### Example
 --- ```lua
 --- function client.update()
 --- 	local t = GetTime()
@@ -43,7 +43,7 @@ function GetTime() end
 --- the simulation time step, which is always one 60th of a second (0.0166667).
 --- If called from tick or draw it returns the actual time since last frame.
 --- @return number dt -- The timestep in seconds
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local dt = GetTimeStep()
@@ -58,7 +58,7 @@ function GetTimeStep() end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return string name -- Name of last pressed key, empty if no key is pressed
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local name = InputLastPressedKey()
@@ -72,7 +72,7 @@ function InputLastPressedKey(playerId) end
 --- @param input string -- The input identifier
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean pressed -- True if input was pressed during last frame
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	if InputPressed("interact") then
@@ -85,7 +85,7 @@ function InputPressed(input, playerId) end
 --- @param input string -- The input identifier
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean pressed -- True if input was released during last frame
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	if InputReleased("interact") then
@@ -98,7 +98,7 @@ function InputReleased(input, playerId) end
 --- @param input string -- The input identifier
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean pressed -- True if input is currently held down
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	if InputDown("interact") then
@@ -111,7 +111,7 @@ function InputDown(input, playerId) end
 --- @param input string -- The input identifier
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number value -- Depends on input type
---- @example
+--- ### Example
 --- ```lua
 --- local scrollPos = 0
 --- function client.tick()
@@ -121,14 +121,14 @@ function InputDown(input, playerId) end
 --- ```
 function InputValue(input, playerId) end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- All player input is "forgotten" by the game after calling this function
---- @example
+--- ### Example
 --- ```lua
 --- function client.update()
----     -- Prints '2' because InputClear() allows the game to "forget" the player's input
+--- 	-- Prints '2' because InputClear() allows the game to "forget" the player's input
 --- 	if InputDown("interact") then
----         InputClear()
+---     	InputClear()
 --- 		if InputDown("interact") then
 --- 			DebugPrint(1)
 --- 		else
@@ -139,13 +139,13 @@ function InputValue(input, playerId) end
 --- ```
 function InputClear() end
 
----### CLIENT ONLY
+--- ### CLIENT ONLY
 --- This function will reset everything we need to reset during state transition
---- @example
+--- ### Example
 --- ```lua
 --- function update()
 --- 	if InputDown("interact") then
----         -- In this form, you won't be able to notice the result of the function; you need a specific context
+---     	-- In this form, you won't be able to notice the result of the function; you need a specific context
 --- 		InputResetOnTransition()
 --- 	end
 --- end
@@ -155,7 +155,7 @@ function InputResetOnTransition() end
 --- Returns the last input device id.
 --- 0 - none, 1 - mouse, 2 - gamepad
 --- @return number value -- Last device id
---- @example
+--- ### Example
 --- ```lua
 --- #include "ui/ui_helpers.lua"
 --- function client.update()
@@ -174,7 +174,18 @@ function LastInputDevice() end
 --- @param value number -- The new value
 --- @param transition? string -- Transition type. See description.
 --- @param time? number -- Transition time (seconds)
---- @example
+--- ```markdown
+--- -|------------|----------------------------------|
+--- -| Transition | Description                      |
+--- -|------------|----------------------------------|
+--- -| linear     | Linear transition                |
+--- -| cosine     | Slow at beginning and end        |
+--- -| easein     | Slow at beginning                |
+--- -| easeout    | Slow at end                      |
+--- -| bounce     | Bounce and overshoot new value   |
+--- -|------------|----------------------------------|
+--- ```
+--- ### Example
 --- ```lua
 --- myValue = 0
 --- function client.tick()
@@ -192,7 +203,7 @@ function SetValue(variable, value, transition, time) end
 --- @param newValue number -- New value
 --- @param type string -- Transition type
 --- @param length number -- Transition length
---- @example
+--- ### Example
 --- ```lua
 --- local t = {}
 --- function init()
@@ -201,7 +212,7 @@ function SetValue(variable, value, transition, time) end
 --- function update()
 --- 	if InputPressed("interact") then
 --- 		SetValueInTable(t, "score", t.score + 1, "number", 1)
----         DebugPrint(t.score)
+---     	DebugPrint(t.score)
 --- 	end
 --- end
 --- ```
@@ -218,7 +229,7 @@ function SetValueInTable(tableId, memberName, newValue, type, length) end
 --- @param location? string -- Button location. If "bottom_bar" - bottom bar, if "main_bottom" - below "Main menu" button, if "main_top" - above "Main menu" button. Default "bottom_bar".
 --- @param disabled? bool -- Disable button. Button will be rendered as grayed out. Default is false. Only available when used with "bottom_bar".
 --- @return boolean clicked -- True if clicked, false otherwise
---- @example
+--- ### Example
 --- ```lua
 --- function server.startLevel(mission, path)
 --- 	StartLevel(mission, path)
@@ -260,7 +271,7 @@ function PauseMenuButton(title, location, disabled) end
 --- It is preferable to use UiHasImage whenever possible - it has better performance
 --- @param path string -- Path to file
 --- @return boolean exists -- True if file exists
---- @example
+--- ### Example
 --- ```lua
 --- local file = "gfx/circle.png"
 --- function draw()
@@ -276,7 +287,7 @@ function HasFile(path) end
 --- @param path string -- Path to level XML file
 --- @param layers? string -- Active layers. Default is no layers.
 --- @param passThrough? boolean -- If set, loading screen will have no text and music will keep playing
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	--Start level with no active layers
@@ -289,7 +300,7 @@ function StartLevel(mission, path, layers, passThrough) end
 
 --- Set paused state of the game
 --- @param paused boolean -- True if game should be paused
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	if InputPressed("interact") then
@@ -301,7 +312,7 @@ function StartLevel(mission, path, layers, passThrough) end
 function SetPaused(paused) end
 
 --- Restart level
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("interact") then
@@ -312,7 +323,7 @@ function SetPaused(paused) end
 function Restart() end
 
 --- Go to main menu
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	if InputPressed("interact") then
@@ -324,7 +335,7 @@ function Menu() end
 
 --- @param playerId number -- Player ID of the recipient. Use 0 to broadcast to every player.
 --- @param function string -- Name of the function to be invoked. This function must exist within issuing script.
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	for p in Players() do
@@ -346,7 +357,7 @@ function Menu() end
 function ClientCall(playerId, function) end
 
 --- @param function string -- Name of the function to be invoked. This function must exist within issuing script.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	if UiTextButton("I am Ready") then

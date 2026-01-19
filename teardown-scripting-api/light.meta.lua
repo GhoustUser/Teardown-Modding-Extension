@@ -3,7 +3,7 @@
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first light with specified tag or zero if not found
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local light = FindLight("main")
@@ -15,7 +15,7 @@ function FindLight(tag, global) end
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return table list -- Indexed table with handles to all lights with specified tag
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Search for lights tagged "main" in script scope
@@ -32,7 +32,7 @@ function FindLights(tag, global) end
 --- to 0.0 when light is disabled and 1.0 when light is enabled.
 --- @param handle number -- Light handle
 --- @param enabled boolean -- Set to true if light should be enabled
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	SetLightEnabled(FindLight("main"), false)
@@ -46,7 +46,7 @@ function SetLightEnabled(handle, enabled) end
 --- @param r number -- Red value
 --- @param g number -- Green value
 --- @param b number -- Blue value
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	--Set light color to yellow
@@ -60,7 +60,7 @@ function SetLightColor(handle, r, g, b) end
 --- of the shape and the brightness of the light at the same time.
 --- @param handle number -- Light handle
 --- @param intensity number -- Desired intensity of the light
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	--Pulsate light
@@ -72,7 +72,7 @@ function SetLightIntensity(handle, intensity) end
 --- Lights that are owned by a dynamic shape are automatcially moved with that shape
 --- @param handle number -- Light handle
 --- @return TTransform transform -- World space light transform
---- @example
+--- ### Example
 --- ```lua
 --- local light = 0
 --- function client.init()
@@ -85,7 +85,7 @@ function GetLightTransform(handle) end
 
 --- @param handle number -- Light handle
 --- @return number handle -- Shape handle or zero if not attached to shape
---- @example
+--- ### Example
 --- ```lua
 --- local light = 0
 --- function client.init()
@@ -98,7 +98,7 @@ function GetLightShape(handle) end
 
 --- @param handle number -- Light handle
 --- @return boolean active -- True if light is currently emitting light
---- @example
+--- ### Example
 --- ```lua
 --- local light = 0
 --- function client.init()
@@ -113,7 +113,7 @@ function IsLightActive(handle) end
 --- @param handle number -- Light handle
 --- @param point TVec -- World space point as vector
 --- @return boolean affected -- Return true if point is in light cone and range
---- @example
+--- ### Example
 --- ```lua
 --- local light = 0
 --- function client.init()
@@ -128,7 +128,7 @@ function IsPointAffectedByLight(handle, point) end
 --- Returns the handle of the player's flashlight. You can work with it as with an entity of the Light type.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return number handle -- Handle of the player's flashlight
---- @example
+--- ### Example
 --- ```lua
 --- function setFlashlightColor(playerId)
 --- 	local flashlight = GetFlashlight(playerId)
@@ -140,7 +140,7 @@ function GetFlashlight(playerId) end
 --- Sets a new entity of the Light type as a flashlight.
 --- @param handle number -- Handle of the light
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @example
+--- ### Example
 --- ```lua
 --- local oldLight = 0
 --- function server.tick()

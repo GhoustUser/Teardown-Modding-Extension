@@ -3,7 +3,7 @@
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first shape with specified tag or zero if not found
---- @example
+--- ### Example
 --- ```lua
 --- local target = 0
 --- local escape = 0
@@ -23,7 +23,7 @@ function FindShape(tag, global) end
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return table list -- Indexed table with handles to all shapes with specified tag
---- @example
+--- ### Example
 --- ```lua
 --- local shapes = {}
 --- function client.init()
@@ -41,7 +41,7 @@ function FindShapes(tag, global) end
 
 --- @param handle number -- Shape handle
 --- @return TTransform transform -- Return shape transform in body space
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -61,7 +61,7 @@ function GetShapeLocalTransform(handle) end
 
 --- @param handle number -- Shape handle
 --- @param transform TTransform -- Shape transform in body space
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function server.init()
@@ -87,7 +87,7 @@ function SetShapeLocalTransform(handle, transform) end
 --- This is a convenience function, transforming the shape out of body space
 --- @param handle number -- Shape handle
 --- @return TTransform transform -- Return shape transform in world space
---- @example
+--- ### Example
 --- ```lua
 --- --GetShapeWorldTransform is equivalent to
 --- --local shapeTransform = GetShapeLocalTransform(shape)
@@ -107,7 +107,7 @@ function GetShapeWorldTransform(handle) end
 --- but can be transfered to a new body during destruction.
 --- @param handle number -- Shape handle
 --- @return number handle -- Body handle
---- @example
+--- ### Example
 --- ```lua
 --- local body = 0
 --- function client.init()
@@ -121,7 +121,7 @@ function GetShapeBody(handle) end
 
 --- @param shape number -- Shape handle
 --- @return table list -- Indexed table with joints connected to shape
---- @example
+--- ### Example
 --- ```lua
 --- function printJoints()
 --- 	local shape = FindShape("shape", true)
@@ -136,7 +136,7 @@ function GetShapeJoints(shape) end
 
 --- @param shape number -- Shape handle
 --- @return table list -- Indexed table of lights owned by shape
---- @example
+--- ### Example
 --- ```lua
 --- function printLights()
 --- 	--Print all lights owned by a shape
@@ -153,7 +153,7 @@ function GetShapeLights(shape) end
 --- @param handle number -- Shape handle
 --- @return TVec min -- Vector representing the AABB lower bound
 --- @return TVec max -- Vector representing the AABB upper bound
---- @example
+--- ### Example
 --- ```lua
 --- function printShapeBounds()
 --- 	local shape = FindShape("shape", true)
@@ -169,7 +169,7 @@ function GetShapeBounds(handle) end
 --- their intensity will be scaled by the same amount.
 --- @param handle number -- Shape handle
 --- @param scale number -- Scale factor for emissiveness
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function server.init()
@@ -184,7 +184,7 @@ function SetShapeEmissiveScale(handle, scale) end
 --- Change the material density of the shape.
 --- @param handle number -- Shape handle
 --- @param density number -- New density for the shape
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function server.init()
@@ -205,7 +205,7 @@ function SetShapeDensity(handle, density) end
 --- @return number b -- Blue
 --- @return number a -- Alpha
 --- @return number entry -- Palette entry for voxel (zero if empty)
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -237,7 +237,7 @@ function GetShapeMaterialAtPosition(handle, pos, includeUnphysical) end
 --- @return number b -- Blue
 --- @return number a -- Alpha
 --- @return number entry -- Palette entry for voxel (zero if empty)
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -254,7 +254,7 @@ function GetShapeMaterialAtIndex(handle, x, y, z) end
 --- @return number ysize -- Size in voxels along y axis
 --- @return number zsize -- Size in voxels along z axis
 --- @return number scale -- The size of one voxel in meters (with default scale it is 0.1)
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -268,7 +268,7 @@ function GetShapeSize(handle) end
 --- Return the number of voxels in a shape, not including empty space
 --- @param handle number -- Shape handle
 --- @return number count -- Number of voxels in shape
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -287,7 +287,7 @@ function GetShapeVoxelCount(handle) end
 --- @param rejectTransparent? boolean -- See through transparent materials. Default false.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server(host) player.
 --- @return boolean visible -- Return true if shape is visible
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -308,7 +308,7 @@ function IsShapeVisible(handle, maxDist, rejectTransparent, playerId) end
 --- broken if all voxels are intact.
 --- @param handle number -- Shape handle
 --- @return boolean broken -- Return true if shape is broken
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -327,7 +327,7 @@ function IsShapeBroken(handle) end
 --- @param g? number -- Green
 --- @param b? number -- Blue
 --- @param a number -- Alpha
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -348,7 +348,7 @@ function DrawShapeOutline(handle, r, g, b, a) end
 --- Flash the appearance of a shape when rendering this frame.
 --- @param handle number -- Shape handle
 --- @param amount number -- Amount
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -369,7 +369,7 @@ function DrawShapeHighlight(handle, amount) end
 --- @param handle number -- Shape handle
 --- @param layer number -- Layer bits (0-255)
 --- @param mask number -- Mask bits (0-255)
---- @example
+--- ### Example
 --- ```lua
 --- local shapeA = 0
 --- local shapeB = 0
@@ -396,7 +396,7 @@ function SetShapeCollisionFilter(handle, layer, mask) end
 --- @param handle number -- Shape handle
 --- @return number layer -- Layer bits (0-255)
 --- @return number mask -- Mask bits (0-255)
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	local shape = FindShape("some_shape")
@@ -412,7 +412,7 @@ function GetShapeCollisionFilter(handle) end
 --- @param transform TTransform -- Shape transform in body space
 --- @param refShape number or string -- Handle to reference shape or path to vox file
 --- @return number newShape -- Handle of new shape
---- @example
+--- ### Example
 --- ```lua
 --- server.tick()
 --- 	local players = GetAllPlayers()
@@ -432,7 +432,7 @@ function CreateShape(body, transform, refShape) end
 
 --- Fill a voxel shape with zeroes, thus removing all voxels.
 --- @param shape number -- Shape handle
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	ClearShape(FindShape("shape", true))
@@ -453,7 +453,7 @@ function ClearShape(shape) end
 --- @param zma number -- Upper Z coordinate
 --- @return boolean resized -- Resized successfully
 --- @return TVec offset -- Offset vector in shape local space
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	ResizeShape(FindShape("shape", true), -5, 0, -5, 5, 5, 5)
@@ -465,7 +465,7 @@ function ResizeShape(shape, xmi, ymi, zmi, xma, yma, zma) end
 --- @param shape number -- Shape handle
 --- @param body number -- Body handle
 --- @param transform? TTransform -- New local shape transform. Default is existing local transform.
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	SetShapeBody(FindShape("shape", true), FindBody("custombody", true), true)
@@ -477,7 +477,7 @@ function SetShapeBody(shape, body, transform) end
 --- shape has a different size, it will be resized to match the source shape.
 --- @param src number -- Source shape handle
 --- @param dst number -- Destination shape handle
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	CopyShapeContent(FindShape("shape", true), FindShape("shape2", true))
@@ -488,7 +488,7 @@ function CopyShapeContent(src, dst) end
 --- Copy the palette from source shape to destination shape.
 --- @param src number -- Source shape handle
 --- @param dst number -- Destination shape handle
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	CopyShapePalette(FindShape("shape", true), FindShape("shape2", true))
@@ -501,7 +501,7 @@ function CopyShapePalette(src, dst) end
 --- shape.
 --- @param shape number -- Shape handle
 --- @return table entries -- Palette material entries
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	local palette = GetShapePalette(FindShape("shape2", true))
@@ -524,7 +524,7 @@ function GetShapePalette(shape) end
 --- @return number shininess -- Range 0 to 1
 --- @return number metallic -- Range 0 to 1
 --- @return number emissive -- Range 0 to 32
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local type, r, g, b, a, reflectivity, shininess, metallic, emissive = GetShapeMaterial(FindShape("shape2", true), 1)
@@ -540,7 +540,7 @@ function GetShapeMaterial(shape, entry) end
 --- @param type string -- One of "sphere", "cube" or "noise"
 --- @param size number -- Size of brush in voxels (must be in range 1 to 16)
 --- @param object? string -- Optional object in brush vox file if brush vox file is used
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	SetBrush("sphere", 3, 3)
@@ -555,7 +555,7 @@ function SetBrush(type, size, object) end
 --- @param shape number -- Handle to shape
 --- @param paint? boolean -- Paint mode. Default is false.
 --- @param noOverwrite? boolean -- Only fill in voxels if space isn't already occupied. Default is false.
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	SetBrush("sphere", 3, 1)
@@ -567,7 +567,7 @@ function DrawShapeLine(shape, paint, noOverwrite) end
 --- Draw box between (x0,y0,z0) and (x1,y1,z1) into shape using the material
 --- set up with SetBrush.
 --- @param shape number -- Handle to shape
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	SetBrush("sphere", 3, 4)
@@ -590,7 +590,7 @@ function DrawShapeBox(shape) end
 --- @param dz number -- Z component of extrude direction, should be -1, 0 or 1
 --- @param steps number -- Length of extrusion in voxels
 --- @param mode string -- Extrusion mode, one of "exact", "material", "geometry". Default is "exact"
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function server.init()
@@ -607,7 +607,7 @@ function ExtrudeShape(shape, x, y, z, dx, dy, dz, steps, mode) end
 --- translation is returned in shape local space.
 --- @param shape number -- Source handle
 --- @return TVec offset -- Offset vector in shape local space
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function server.init()
@@ -623,7 +623,7 @@ function TrimShape(shape) end
 --- @param shape number -- Source handle
 --- @param removeResidual boolean -- Remove residual shapes (default false)
 --- @return table newShapes -- List of shape handles created
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function server.init()
@@ -640,7 +640,7 @@ function SplitShape(shape, removeResidual) end
 --- returned, otherwise the input handle is returned.
 --- @param shape number -- Input shape
 --- @return number shape -- Shape handle after merge
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function server.init()
@@ -654,7 +654,7 @@ function MergeShape(shape) end
 
 --- @param shape number -- Input shape
 --- @return boolean disconnected -- True if shape disconnected (has detached parts)
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	DebugWatch("IsShapeDisconnected", IsShapeDisconnected(FindShape("shape", true)))
@@ -664,7 +664,7 @@ function IsShapeDisconnected(shape) end
 
 --- @param shape number -- Input shape
 --- @return boolean disconnected -- True if static shape has detached parts
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	DebugWatch("IsStaticShapeDetached", IsStaticShapeDetached(FindShape("shape_glass", true)))
@@ -678,7 +678,7 @@ function IsStaticShapeDetached(shape) end
 --- @return boolean hit -- True if a point was found
 --- @return TVec point -- World space closest point
 --- @return TVec normal -- World space normal at closest point
---- @example
+--- ### Example
 --- ```lua
 --- local shape = 0
 --- function client.init()
@@ -698,7 +698,7 @@ function GetShapeClosestPoint(shape, origin) end
 --- @param a number -- Handle to first shape
 --- @param b number -- Handle to second shape
 --- @return boolean touching -- True is shapes a and b are touching each other
---- @example
+--- ### Example
 --- ```lua
 --- local shapeA = 0
 --- local shapeB = 0

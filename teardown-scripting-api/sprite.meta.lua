@@ -2,7 +2,7 @@
 
 --- @param path string -- Path to sprite. Must be PNG or JPG format.
 --- @return number handle -- Sprite handle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	arrow = LoadSprite("gfx/arrowdown.png")
@@ -22,7 +22,7 @@ function LoadSprite(path) end
 --- @param depthTest? boolean -- Depth test enabled. Default false.
 --- @param additive? boolean -- Additive blending enabled. Default false.
 --- @param fogAffected? boolean -- Enable distance fog effect. Default false.
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	arrow = LoadSprite("gfx/arrowdown.png")

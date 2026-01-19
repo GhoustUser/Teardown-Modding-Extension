@@ -3,7 +3,7 @@
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first vehicle with specified tag or zero if not found
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local vehicle = FindVehicle("mycar")
@@ -14,7 +14,7 @@ function FindVehicle(tag, global) end
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return table list -- Indexed table with handles to all vehicles with specified tag
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	--Find all vehicles in level tagged "boat"
@@ -29,7 +29,7 @@ function FindVehicles(tag, global) end
 
 --- @param vehicle number -- Vehicle handle
 --- @return TTransform transform -- Transform of vehicle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local vehicle = FindVehicle("vehicle")
@@ -41,7 +41,7 @@ function GetVehicleTransform(vehicle) end
 --- Returns the exhausts transforms in local space of the vehicle.
 --- @param vehicle number -- Vehicle handle
 --- @return table transforms -- Transforms of vehicle exhausts
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local vehicle = FindVehicle("car", true)
@@ -56,7 +56,7 @@ function GetVehicleExhaustTransforms(vehicle) end
 --- Returns the vitals transforms in local space of the vehicle.
 --- @param vehicle number -- Vehicle handle
 --- @return table transforms -- Transforms of vehicle vitals
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local vehicle = FindVehicle("car", true)
@@ -70,7 +70,7 @@ function GetVehicleVitalTransforms(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
 --- @return table transforms -- Vehicle bodies handles
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local vehicle = FindVehicle("car", true)
@@ -84,7 +84,7 @@ function GetVehicleBodies(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
 --- @return number body -- Main body of vehicle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local vehicle = FindVehicle("vehicle")
@@ -98,7 +98,7 @@ function GetVehicleBody(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
 --- @return number health -- Vehicle health (zero to one)
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local vehicle = FindVehicle("vehicle")
@@ -110,7 +110,7 @@ function GetVehicleHealth(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
 --- @return table params -- Vehicle params
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local params = GetVehicleParams(FindVehicle("car", true))
@@ -125,7 +125,7 @@ function GetVehicleParams(vehicle) end
 --- @param handle number -- Vehicle handler
 --- @param param string -- Param name
 --- @param value number -- Param value
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	SetVehicleParam(FindVehicle("car", true), "topspeed", 200)
@@ -135,7 +135,7 @@ function SetVehicleParam(handle, param, value) end
 
 --- @param vehicle number -- Vehicle handle
 --- @return TVec pos -- Driver position as vector in vehicle space
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	local vehicle = FindVehicle("vehicle")
@@ -149,7 +149,7 @@ function GetVehicleDriverPos(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
 --- @return TVec pos -- World space position of the next available seat. {0, 0, 0} if none is available.
---- @example
+--- ### Example
 --- ```lua
 --- function client.tick()
 --- 	local vehicle = FindVehicle("vehicle")
@@ -161,7 +161,7 @@ function GetVehicleAvailableSeatPos(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
 --- @return number steering -- Driver steering value -1 to 1
---- @example
+--- ### Example
 --- ```lua
 --- local steering = GetVehicleSteering(vehicle)
 --- ```
@@ -169,13 +169,13 @@ function GetVehicleSteering(vehicle) end
 
 --- @param vehicle number -- Vehicle handle
 --- @return number drive -- Driver drive value -1 to 1
---- @example
+--- ### Example
 --- ```lua
 --- local drive = GetVehicleDrive(vehicle)
 --- ```
 function GetVehicleDrive(vehicle) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- This function applies input to vehicles, allowing for autonomous driving. The vehicle
 --- will be turned on automatically and turned off when no longer called. Call this from
 --- the tick function, not update.
@@ -183,7 +183,7 @@ function GetVehicleDrive(vehicle) end
 --- @param drive number -- Reverse/forward control -1 to 1
 --- @param steering number -- Left/right control -1 to 1
 --- @param handbrake boolean -- Handbrake control
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	--Drive mycar forwards
@@ -196,7 +196,7 @@ function DriveVehicle(vehicle, drive, steering, handbrake) end
 --- @param vehicle number -- Vehicle handle
 --- @param name string -- Name of location
 --- @return TTransform transform -- World transform
---- @example
+--- ### Example
 --- ```lua
 --- local t = GetVehicleLocationWorldTransform(vehicle, "player_steeringwheel")
 --- ```
@@ -206,18 +206,18 @@ function GetVehicleLocationWorldTransform(vehicle, name) end
 --- @return number count -- Number of passengers
 --- @return number seats -- Number of seats
 --- @return bool hasDriver -- If vehicle has a driver
---- @example
+--- ### Example
 --- ```lua
 --- local passengers, seats, hasDriver = GetVehiclePassengerCount(vehicle)
 --- ```
 function GetVehiclePassengerCount(vehicle) end
 
----### SERVER ONLY
+--- ### SERVER ONLY
 --- Works only for vehicles with 'customhealth' tag. 'customhealth' disables the common vehicles damage system.
 --- So this function needed for custom vehicle damage systems.
 --- @param vehicle number -- Vehicle handle
 --- @param health number -- Set vehicle health (between zero and one)
---- @example
+--- ### Example
 --- ```lua
 --- function server.tick()
 --- 	if InputPressed("usetool", playerId) then

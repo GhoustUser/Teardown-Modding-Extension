@@ -5,7 +5,7 @@
 --- This can be useful to make interactive user interfaces from scripts while
 --- the game is running. Call this continuously every frame as long as Ui
 --- interaction is desired.
---- @example
+--- ### Example
 --- ```lua
 --- UiMakeInteractive()
 --- ```
@@ -13,7 +13,7 @@ function UiMakeInteractive() end
 
 --- Push state onto stack. This is used in combination with UiPop to
 --- remember a state and restore to that state later.
---- @example
+--- ### Example
 --- ```lua
 --- UiColor(1,0,0)
 --- UiText("Red")
@@ -28,7 +28,7 @@ function UiPush() end
 --- Pop state from stack and make it the current one. This is used in
 --- combination with UiPush to remember a previous state and go back to
 --- it later.
---- @example
+--- ### Example
 --- ```lua
 --- UiColor(1,0,0)
 --- UiText("Red")
@@ -41,21 +41,21 @@ function UiPush() end
 function UiPop() end
 
 --- @return number width -- Width of draw context
---- @example
+--- ### Example
 --- ```lua
 --- local w = UiWidth()
 --- ```
 function UiWidth() end
 
 --- @return number height -- Height of draw context
---- @example
+--- ### Example
 --- ```lua
 --- local h = UiHeight()
 --- ```
 function UiHeight() end
 
 --- @return number center -- Half width of draw context
---- @example
+--- ### Example
 --- ```lua
 --- local c = UiCenter()
 --- --Same as
@@ -64,7 +64,7 @@ function UiHeight() end
 function UiCenter() end
 
 --- @return number middle -- Half height of draw context
---- @example
+--- ### Example
 --- ```lua
 --- local m = UiMiddle()
 --- --Same as
@@ -76,7 +76,7 @@ function UiMiddle() end
 --- @param g number -- Green channel
 --- @param b number -- Blue channel
 --- @param a? number -- Alpha channel. Default 1.0
---- @example
+--- ### Example
 --- ```lua
 --- --Set color yellow
 --- UiColor(1,1,0)
@@ -88,7 +88,7 @@ function UiColor(r, g, b, a) end
 --- @param g number -- Green channel
 --- @param b number -- Blue channel
 --- @param a? number -- Alpha channel. Default 1.0
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	--Draw menu in transparent, yellow color tint
@@ -98,11 +98,11 @@ function UiColor(r, g, b, a) end
 --- ```
 function UiColorFilter(r, g, b, a) end
 
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	UiPush()
----         UiFont("bold.ttf", 44)
+---     	UiFont("bold.ttf", 44)
 --- 		UiTranslate(100, 100)
 --- 		UiColor(1, 0, 0)
 --- 		UiText("A")
@@ -117,7 +117,7 @@ function UiResetColor() end
 --- Translate cursor
 --- @param x number -- X component
 --- @param y number -- Y component
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	UiTranslate(100, 0)
@@ -128,7 +128,7 @@ function UiTranslate(x, y) end
 
 --- Rotate cursor
 --- @param angle number -- Angle in degrees, counter clockwise
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	UiRotate(45)
@@ -140,7 +140,7 @@ function UiRotate(angle) end
 --- Scale cursor either uniformly (one argument) or non-uniformly (two arguments)
 --- @param x number -- X component
 --- @param y? number -- Y component. Default value is x.
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	UiScale(2)
@@ -152,7 +152,7 @@ function UiScale(x, y) end
 --- Returns the ui context's scale
 --- @return number x -- X scale
 --- @return number y -- Y scale
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	UiPush()
@@ -167,16 +167,16 @@ function UiGetScale() end
 --- @param width number -- Rect width
 --- @param height number -- Rect height
 --- @param inherit? boolean -- True if must include the parent's clip rect
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     UiTranslate(200, 200)
----     UiPush()
----         UiClipRect(100, 50)
----         UiTranslate(5, 15)
----         UiFont("regular.ttf", 50)
----         UiText("Text")
----     UiPop()
+--- 	UiTranslate(200, 200)
+--- 	UiPush()
+---     	UiClipRect(100, 50)
+---     	UiTranslate(5, 15)
+---     	UiFont("regular.ttf", 50)
+---     	UiText("Text")
+--- 	UiPop()
 --- end
 --- ```
 function UiClipRect(width, height, inherit) end
@@ -189,7 +189,7 @@ function UiClipRect(width, height, inherit) end
 --- @param height number -- Window height
 --- @param clip? boolean -- Clip content outside window. Default is false.
 --- @param inherit? boolean -- Inherit current clip region (for nested clip regions)
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	UiWindow(400, 200)
@@ -200,7 +200,7 @@ function UiClipRect(width, height, inherit) end
 function UiWindow(width, height, clip, inherit) end
 
 --- Returns the top left & bottom right points of the current window
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	UiPush()
@@ -216,13 +216,13 @@ function UiGetCurrentWindow() end
 --- @param x number -- X
 --- @param y number -- Y
 --- @return boolean val -- True if
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	UiPush()
 --- 		UiWindow(400, 200)
 --- 		DebugPrint("point 1: " .. tostring(UiIsInCurrentWindow(200, 100)))
----         DebugPrint("point 2: " .. tostring(UiIsInCurrentWindow(450, 100)))
+---     	DebugPrint("point 2: " .. tostring(UiIsInCurrentWindow(450, 100)))
 --- 	UiPop()
 --- end
 --- ```
@@ -232,21 +232,21 @@ function UiIsInCurrentWindow(x, y) end
 --- @param w number -- Width
 --- @param h number -- Height
 --- @return boolean value -- True if rect is fully clipped
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     UiTranslate(200, 200)
----     UiPush()
----         UiClipRect(150, 150)
----         UiColor(1.0, 1.0, 1.0, 0.15)
----         UiRect(150, 150)
----         UiRect(w, h)
----         UiTranslate(-50, 30)
----         UiColor(1, 0, 0)
----         local w, h = 100, 100
----         UiRect(w, h)
----         DebugPrint(UiIsRectFullyClipped(w, h))
----     UiPop()
+--- 	UiTranslate(200, 200)
+--- 	UiPush()
+---     	UiClipRect(150, 150)
+---     	UiColor(1.0, 1.0, 1.0, 0.15)
+---     	UiRect(150, 150)
+---     	UiRect(w, h)
+---     	UiTranslate(-50, 30)
+---     	UiColor(1, 0, 0)
+---     	local w, h = 100, 100
+---     	UiRect(w, h)
+---     	DebugPrint(UiIsRectFullyClipped(w, h))
+--- 	UiPop()
 --- end
 --- ```
 function UiIsRectFullyClipped(w, h) end
@@ -255,18 +255,18 @@ function UiIsRectFullyClipped(w, h) end
 --- @param x number -- X
 --- @param y number -- Y
 --- @return boolean value -- True if point is in clip region
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     UiPush()
----         UiTranslate(200, 200)
----         UiClipRect(150, 150)
----         UiColor(1.0, 1.0, 1.0, 0.15)
----         UiRect(150, 150)
----         UiRect(w, h)
----         DebugPrint("point 1: " .. tostring(UiIsInClipRegion(250, 250)))
----         DebugPrint("point 2: " .. tostring(UiIsInClipRegion(350, 250)))
----     UiPop()
+--- 	UiPush()
+---     	UiTranslate(200, 200)
+---     	UiClipRect(150, 150)
+---     	UiColor(1.0, 1.0, 1.0, 0.15)
+---     	UiRect(150, 150)
+---     	UiRect(w, h)
+---     	DebugPrint("point 1: " .. tostring(UiIsInClipRegion(250, 250)))
+---     	DebugPrint("point 2: " .. tostring(UiIsInClipRegion(350, 250)))
+--- 	UiPop()
 --- end
 --- ```
 function UiIsInClipRegion(x, y) end
@@ -275,19 +275,19 @@ function UiIsInClipRegion(x, y) end
 --- @param w number -- Width
 --- @param h number -- Height
 --- @return boolean value -- True if rect is not overlapping clip region
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     UiPush()
----         UiTranslate(200, 200)
----         UiClipRect(150, 150)
----         UiColor(1.0, 1.0, 1.0, 0.15)
----         UiRect(150, 150)
----         UiRect(w, h)
----         DebugPrint("rect 1: " .. tostring(UiIsFullyClipped(200, 200)))
----         UiTranslate(200, 0)
----         DebugPrint("rect 2: " .. tostring(UiIsFullyClipped(200, 200)))
----     UiPop()
+--- 	UiPush()
+---     	UiTranslate(200, 200)
+---     	UiClipRect(150, 150)
+---     	UiColor(1.0, 1.0, 1.0, 0.15)
+---     	UiRect(150, 150)
+---     	UiRect(w, h)
+---     	DebugPrint("rect 1: " .. tostring(UiIsFullyClipped(200, 200)))
+---     	UiTranslate(200, 0)
+---     	DebugPrint("rect 2: " .. tostring(UiIsFullyClipped(200, 200)))
+--- 	UiPop()
 --- end
 --- ```
 function UiIsFullyClipped(w, h) end
@@ -295,7 +295,7 @@ function UiIsFullyClipped(w, h) end
 --- Return a safe drawing area that will always be visible regardless of
 --- display aspect ratio. The safe drawing area will always be 1920 by 1080
 --- in size. This is useful for setting up a fixed size UI.
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	local x0, y0, x1, y1 = UiSafeMargins()
@@ -309,22 +309,22 @@ function UiSafeMargins() end
 
 --- Returns the canvas size. "Canvas" means a coordinate space in which UI is drawn
 --- @return table value -- Canvas width and height
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	UiPush()
----         local canvas = UiCanvasSize()
----         UiWindow(canvas.w, canvas.h)
----         --[[
----             ...
----         ]]
+---     	local canvas = UiCanvasSize()
+---     	UiWindow(canvas.w, canvas.h)
+---     	--[[
+---         	...
+---     	]]
 --- 	UiPop()
 --- end
 --- ```
 function UiCanvasSize() end
 
 --- @param alignment string -- Alignment keywords
---- @example
+--- ### Example
 --- ```lua
 --- UiAlign("left")
 --- UiText("Aligned left at baseline")
@@ -334,7 +334,7 @@ function UiCanvasSize() end
 function UiAlign(alignment) end
 
 --- @param alignment string -- Alignment keyword
---- @example
+--- ### Example
 --- ```lua
 --- UiTextAlignment("left")
 --- UiText("Aligned left at baseline")
@@ -346,7 +346,7 @@ function UiTextAlignment(alignment) end
 --- Disable input for everything, except what's between UiModalBegin and UiModalEnd
 --- (or if modal state is popped)
 --- @param force? boolean -- Pass true if you need to increase the priority of this modal in the context
---- @example
+--- ### Example
 --- ```lua
 --- UiModalBegin()
 --- if UiTextButton("Okay") then
@@ -367,7 +367,7 @@ function UiModalBegin(force) end
 --- Disable input for everything, except what's between UiModalBegin and UiModalEnd
 --- Calling this function is optional. Modality is part of the current state and will
 --- be lost if modal state is popped.
---- @example
+--- ### Example
 --- ```lua
 --- UiModalBegin()
 --- if UiTextButton("Okay") then
@@ -378,7 +378,7 @@ function UiModalBegin(force) end
 function UiModalEnd() end
 
 --- Disable input
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	UiDisableInput()
@@ -390,7 +390,7 @@ function UiModalEnd() end
 function UiDisableInput() end
 
 --- Enable input that has been previously disabled
---- @example
+--- ### Example
 --- ```lua
 --- UiDisableInput()
 --- if UiTextButton("Okay") then
@@ -409,7 +409,7 @@ function UiEnableInput() end
 --- elements already do this check internally, but it can sometimes be useful
 --- to read the input state manually to trigger things in the UI.
 --- @return boolean receives -- True if current context receives input
---- @example
+--- ### Example
 --- ```lua
 --- if UiReceivesInput() then
 --- 	highlightItemAtMousePointer()
@@ -420,7 +420,7 @@ function UiReceivesInput() end
 --- Get mouse pointer position relative to the cursor
 --- @return number x -- X coordinate
 --- @return number y -- Y coordinate
---- @example
+--- ### Example
 --- ```lua
 --- local x, y = UiGetMousePos()
 --- ```
@@ -428,7 +428,7 @@ function UiGetMousePos() end
 
 --- @return number x -- X coordinate
 --- @return number y -- Y coordinate
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	local x, y = UiGetCanvasMousePos()
@@ -442,7 +442,7 @@ function UiGetCanvasMousePos() end
 --- @param w number -- Width
 --- @param h number -- Height
 --- @return boolean inside -- True if mouse pointer is within rectangle
---- @example
+--- ### Example
 --- ```lua
 --- if UiIsMouseInRect(100, 100) then
 --- 	-- mouse pointer is in rectangle
@@ -457,7 +457,7 @@ function UiIsMouseInRect(w, h) end
 --- @return number x -- X coordinate
 --- @return number y -- Y coordinate
 --- @return number distance -- Distance to point
---- @example
+--- ### Example
 --- ```lua
 --- local x, y, dist = UiWorldToPixel(point)
 --- if dist > 0 then
@@ -472,7 +472,7 @@ function UiWorldToPixel(point) end
 --- @param x number -- X coordinate
 --- @param y number -- Y coordinate
 --- @return TVec direction -- 3D world direction as vector
---- @example
+--- ### Example
 --- ```lua
 --- UiMakeInteractive()
 --- local x, y = UiGetMousePos()
@@ -486,19 +486,19 @@ function UiWorldToPixel(point) end
 function UiPixelToWorld(x, y) end
 
 --- Returns the ui cursor's postion
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     UiTranslate(100, 50)
----     x, y = UiGetCursorPos()
----     DebugPrint("x: " .. x .. "; y: " .. y)
+--- 	UiTranslate(100, 50)
+--- 	x, y = UiGetCursorPos()
+--- 	DebugPrint("x: " .. x .. "; y: " .. y)
 --- end
 --- ```
 function UiGetCursorPos() end
 
 --- Perform a gaussian blur on current screen content
 --- @param amount number -- Blur amount (0.0 to 1.0)
---- @example
+--- ### Example
 --- ```lua
 --- UiBlur(1.0)
 --- drawMenu()
@@ -507,7 +507,7 @@ function UiBlur(amount) end
 
 --- @param path string -- Path to TTF font file
 --- @param size number -- Font size (10 to 100)
---- @example
+--- ### Example
 --- ```lua
 --- UiFont("bold.ttf", 24)
 --- UiText("Hello")
@@ -515,7 +515,7 @@ function UiBlur(amount) end
 function UiFont(path, size) end
 
 --- @return number size -- Font size
---- @example
+--- ### Example
 --- ```lua
 --- local h = UiFontHeight()
 --- ```
@@ -529,7 +529,7 @@ function UiFontHeight() end
 --- @return number x -- End x-position of text.
 --- @return number y -- End y-position of text.
 --- @return string linkId -- Link id of clicked link
---- @example
+--- ### Example
 --- ```lua
 --- UiFont("bold.ttf", 24)
 --- UiText("Hello")
@@ -568,7 +568,7 @@ function UiFontHeight() end
 function UiText(text, move, maxChars) end
 
 --- @param disable boolean -- Enable or disable wildcard [[...]] substitution support in UiText
---- @example
+--- ### Example
 --- ```lua
 --- UiFont("regular.ttf", 30)
 --- UiPush()
@@ -589,57 +589,57 @@ function UiTextDisableWildcards(disable) end
 --- When disabled (false), the line height adjusts dynamically to accommodate
 --- the tallest character in each line of text.
 --- @param uniform boolean -- Enable or disable fixed line height for text rendering
---- @example
+--- ### Example
 --- ```lua
 --- #include "script/common.lua"
 --- enabled = false
 --- group = 1
 --- local desc = {
----     {
----         {"A mod desc without descenders"},
----         {"Author: Abcd"},
----         {"Tags: map, spawnable"},
----     },
----     {
----         {"A mod with descenders, like g, j, p, q, y"},
----         {"Author: Ggjyq"},
----         {"Tags: map, spawnable"},
----     },
+--- 	{
+---     	{"A mod desc without descenders"},
+---     	{"Author: Abcd"},
+---     	{"Tags: map, spawnable"},
+--- 	},
+--- 	{
+---     	{"A mod with descenders, like g, j, p, q, y"},
+---     	{"Author: Ggjyq"},
+---     	{"Tags: map, spawnable"},
+--- 	},
 --- }
 --- -- Function to draw text with or without uniform line height
 --- local function drawDescriptions()
----     UiAlign("top")
----     for _, text in ipairs(desc[group]) do
----         UiTextUniformHeight(enabled)
----         UiText(text[1], true)
----     end
+--- 	UiAlign("top")
+--- 	for _, text in ipairs(desc[group]) do
+---     	UiTextUniformHeight(enabled)
+---     	UiText(text[1], true)
+--- 	end
 --- end
 --- function client.draw()
----     UiFont("regular.ttf", 22)
----     UiTranslate(100, 100)
----     UiPush()
----         local r,g,b
----         if enabled then
----             r,g,b = 0,1,0
----         else
----             r,g,b = 1,0,0
----         end
----         UiColor(0,0,0)
----         UiButtonImageBox("ui/common/box-solid-6.png", 6, 6, r,g,b)
----         if UiTextButton("Uniform height "..(enabled and "enabled" or "disabled")) then
----             enabled = not enabled
----         end
----         UiTranslate(0,35)
----         if UiTextButton(">") then
----             group = clamp(group + 1, 1, #desc)
----         end
----         UiTranslate(0,35)
----         if UiTextButton("<") then
----             group = clamp(group - 1, 1, #desc)
----         end
----     UiPop()
----     UiTranslate(0,80)
----     drawDescriptions()
+--- 	UiFont("regular.ttf", 22)
+--- 	UiTranslate(100, 100)
+--- 	UiPush()
+---     	local r,g,b
+---     	if enabled then
+---         	r,g,b = 0,1,0
+---     	else
+---         	r,g,b = 1,0,0
+---     	end
+---     	UiColor(0,0,0)
+---     	UiButtonImageBox("ui/common/box-solid-6.png", 6, 6, r,g,b)
+---     	if UiTextButton("Uniform height "..(enabled and "enabled" or "disabled")) then
+---         	enabled = not enabled
+---     	end
+---     	UiTranslate(0,35)
+---     	if UiTextButton(">") then
+---         	group = clamp(group + 1, 1, #desc)
+---     	end
+---     	UiTranslate(0,35)
+---     	if UiTextButton("<") then
+---         	group = clamp(group - 1, 1, #desc)
+---     	end
+--- 	UiPop()
+--- 	UiTranslate(0,80)
+--- 	drawDescriptions()
 --- end
 --- ```
 function UiTextUniformHeight(uniform) end
@@ -649,7 +649,7 @@ function UiTextUniformHeight(uniform) end
 --- @return number h -- Height of text
 --- @return number x -- Offset x-component of text AABB
 --- @return number y -- Offset y-component of text AABB
---- @example
+--- ### Example
 --- ```lua
 --- local w, h = UiGetTextSize("Some text")
 --- ```
@@ -658,7 +658,7 @@ function UiGetTextSize(text) end
 --- @param space number -- Space between lines
 --- @return number w -- Width of biggest line
 --- @return number h -- Height of all lines combined with interval
---- @example
+--- ### Example
 --- ```lua
 --- local w, h = UiMeasureText(0, "Some text", "loc@key")
 --- ```
@@ -666,10 +666,10 @@ function UiMeasureText(space) end
 
 --- @param text string -- Text
 --- @return number count -- Symbols count
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     DebugPrint(UiGetSymbolsCount("Hello world!"))
+--- 	DebugPrint(UiGetSymbolsCount("Hello world!"))
 --- end
 --- ```
 function UiGetSymbolsCount(text) end
@@ -679,16 +679,16 @@ function UiGetSymbolsCount(text) end
 --- @param from number -- From element index
 --- @param to number -- To element index
 --- @return string substring -- Substring
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     DebugPrint(UiTextSymbolsSub("Hello world", 1, 5))
+--- 	DebugPrint(UiTextSymbolsSub("Hello world", 1, 5))
 --- end
 --- ```
 function UiTextSymbolsSub(text, from, to) end
 
 --- @param width number -- Maximum width of text
---- @example
+--- ### Example
 --- ```lua
 --- UiWordWrap(200)
 --- UiText("Some really long text that will get wrapped into several lines")
@@ -697,10 +697,10 @@ function UiWordWrap(width) end
 
 --- Sets the context's linespacing value of the text which is drawn using UiText
 --- @param value number -- Text linespacing
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     UiTextLineSpacing(10)
+--- 	UiTextLineSpacing(10)
 --- 	UiWordWrap(200)
 --- 	UiText("TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT")
 --- end
@@ -712,7 +712,7 @@ function UiTextLineSpacing(value) end
 --- @param b number -- Blue channel
 --- @param a number -- Alpha channel
 --- @param thickness? number -- Outline thickness. Default is 0.1
---- @example
+--- ### Example
 --- ```lua
 --- --Black outline, standard thickness
 --- UiTextOutline(0,0,0,1)
@@ -726,7 +726,7 @@ function UiTextOutline(r, g, b, a, thickness) end
 --- @param a number -- Alpha channel
 --- @param distance? number -- Shadow distance. Default is 1.0
 --- @param blur? number -- Shadow blur. Default is 0.5
---- @example
+--- ### Example
 --- ```lua
 --- --Black drop shadow, 50% transparent, distance 2
 --- UiTextShadow(0, 0, 0, 0.5, 2.0)
@@ -737,7 +737,7 @@ function UiTextShadow(r, g, b, a, distance, blur) end
 --- Draw solid rectangle at cursor position
 --- @param w number -- Width
 --- @param h number -- Height
---- @example
+--- ### Example
 --- ```lua
 --- --Draw full-screen black rectangle
 --- UiColor(0, 0, 0)
@@ -757,7 +757,7 @@ function UiRect(w, h) end
 --- @param width number -- Rectangle width
 --- @param height number -- Rectangle height
 --- @param thickness number -- Rectangle outline thickness
---- @example
+--- ### Example
 --- ```lua
 --- --Draw a red rotating rectangle outline in center of screen
 --- UiPush()
@@ -774,7 +774,7 @@ function UiRectOutline(width, height, thickness) end
 --- @param width number -- Rectangle width
 --- @param height number -- Rectangle height
 --- @param roundingRadius number -- Round corners radius
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	UiColor(1, 0, 0)
@@ -791,7 +791,7 @@ function UiRoundedRect(width, height, roundingRadius) end
 --- @param height number -- Rectangle height
 --- @param roundingRadius number -- Round corners radius
 --- @param thickness number -- Rectangle outline thickness
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	UiColor(1, 0, 0)
@@ -805,7 +805,7 @@ function UiRoundedRectOutline(width, height, roundingRadius, thickness) end
 
 --- Draw a solid circle at cursor position
 --- @param radius number -- Circle radius
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	UiColor(1, 0, 0)
@@ -819,7 +819,7 @@ function UiCircle(radius) end
 --- Draw a circle outline at cursor position
 --- @param radius number -- Circle radius
 --- @param thickness number -- Circle outline thickness
---- @example
+--- ### Example
 --- ```lua
 --- --Draw a red rotating rectangle outline in center of screen
 --- UiPush()
@@ -833,7 +833,7 @@ function UiCircleOutline(radius, thickness) end
 
 --- Image to fill for UiRoundedRect, UiCircle
 --- @param path string -- Path to image (PNG or JPG format)
---- @example
+--- ### Example
 --- ```lua
 --- UiPush()
 --- 	UiFillImage("ui/hud/tutorial/plank-lift.jpg")
@@ -848,7 +848,7 @@ function UiFillImage(path) end
 --- Perform a gaussian blur on the background and applies the blur to any following calls to UiRect, 
 --- UiRectOutline, UiRoundedRect, UiCircle, UiCircleOutline, UiRoundedRectOutline.
 --- @param amount number -- Blur amount (0.0 to 1.0)
---- @example
+--- ### Example
 --- ```lua
 --- UiBackgroundBlur(1.0)
 --- UiRect(300, 300)
@@ -860,7 +860,7 @@ function UiBackgroundBlur(amount) end
 --- @param path string -- Path to image (PNG or JPG format)
 --- @return number w -- Width of drawn image
 --- @return number h -- Height of drawn image
---- @example
+--- ### Example
 --- ```lua
 --- --Draw image in center of screen
 --- UiPush()
@@ -873,11 +873,11 @@ function UiImage(path) end
 
 --- Unloads a texture from the memory
 --- @param path string -- Path to image (PNG or JPG format)
---- @example
+--- ### Example
 --- ```lua
 --- local image = "gfx/cursor.png"
 --- function client.draw()
----     UiTranslate(300, 300)
+--- 	UiTranslate(300, 300)
 --- 	if UiHasImage(image) then
 --- 		if InputDown("interact") then
 --- 			UiUnloadImage("img/background.jpg")
@@ -891,7 +891,7 @@ function UiUnloadImage(path) end
 
 --- @param path string -- Path to image (PNG or JPG format)
 --- @return boolean exists -- Does the image exists at the specified path
---- @example
+--- ### Example
 --- ```lua
 --- local image = "gfx/circle.png"
 --- function client.draw()
@@ -906,7 +906,7 @@ function UiHasImage(path) end
 --- @param path string -- Path to image (PNG or JPG format)
 --- @return number w -- Image width
 --- @return number h -- Image height
---- @example
+--- ### Example
 --- ```lua
 --- local w,h = UiGetImageSize("test.png")
 --- ```
@@ -919,7 +919,7 @@ function UiGetImageSize(path) end
 --- @param height number -- Height
 --- @param borderWidth? number -- Border width. Default 0
 --- @param borderHeight? number -- Border height. Default 0
---- @example
+--- ### Example
 --- ```lua
 --- UiImageBox("menu-frame.png", 200, 200, 10, 10)
 --- ```
@@ -931,7 +931,7 @@ function UiImageBox(path, width, height, borderWidth, borderHeight) end
 --- @param pitch? number -- Playback pitch. Default 1.0
 --- @param panAzimuth? number -- Playback stereo panning azimuth (-PI to PI). Default 0.0.
 --- @param panDepth? number -- Playback stereo panning depth (0.0 to 1.0). Default 1.0.
---- @example
+--- ### Example
 --- ```lua
 --- UiSound("click.ogg")
 --- ```
@@ -942,7 +942,7 @@ function UiSound(path, volume, pitch, panAzimuth, panDepth) end
 --- @param path string -- Path to looping sound file (OGG format)
 --- @param volume? number -- Playback volume. Default 1.0
 --- @param pitch? number -- Playback pitch. Default 1.0
---- @example
+--- ### Example
 --- ```lua
 --- if animating then
 --- 	UiSoundLoop("screech.ogg")
@@ -954,7 +954,7 @@ function UiSoundLoop(path, volume, pitch) end
 --- continuously to stay muted.
 --- @param amount number -- Mute by this amount (0.0 to 1.0)
 --- @param music? boolean -- Mute music as well
---- @example
+--- ### Example
 --- ```lua
 --- if menuOpen then
 --- 	UiMute(1.0)
@@ -970,7 +970,7 @@ function UiMute(amount, music) end
 --- @param g? number -- Green multiply. Default 1.0
 --- @param b? number -- Blue multiply. Default 1.0
 --- @param a? number -- Alpha channel. Default 1.0
---- @example
+--- ### Example
 --- ```lua
 --- UiButtonImageBox("button-9slice.png", 10, 10)
 --- if UiTextButton("Test") then
@@ -984,7 +984,7 @@ function UiButtonImageBox(path, borderWidth, borderHeight, r, g, b, a) end
 --- @param g number -- Green multiply
 --- @param b number -- Blue multiply
 --- @param a? number -- Alpha channel. Default 1.0
---- @example
+--- ### Example
 --- ```lua
 --- UiButtonHoverColor(1, 0, 0)
 --- if UiTextButton("Test") then
@@ -998,7 +998,7 @@ function UiButtonHoverColor(r, g, b, a) end
 --- @param g number -- Green multiply
 --- @param b number -- Blue multiply
 --- @param a? number -- Alpha channel. Default 1.0
---- @example
+--- ### Example
 --- ```lua
 --- UiButtonPressColor(0, 1, 0)
 --- if UiTextButton("Test") then
@@ -1010,7 +1010,7 @@ function UiButtonPressColor(r, g, b, a) end
 --- The button offset when being pressed
 --- @param distX number -- Press distance along X axis
 --- @param distY number -- Press distance along Y axis
---- @example
+--- ### Example
 --- ```lua
 --- UiButtonPressDistance(4, 4)
 --- if UiTextButton("Test") then
@@ -1027,7 +1027,7 @@ function UiButtonPressDist(distX, distY) end
 --- 3 - Fade,
 --- 4 - Resize (Default)
 --- @param type number -- One of the enum value
---- @example
+--- ### Example
 --- ```lua
 --- UiButtonTextHandling(1)
 --- if UiTextButton("Test") then
@@ -1040,7 +1040,7 @@ function UiButtonTextHandling(type) end
 --- @param w? number -- Button width
 --- @param h? number -- Button height
 --- @return boolean pressed -- True if user clicked button
---- @example
+--- ### Example
 --- ```lua
 --- if UiTextButton("Test") then
 --- 	...
@@ -1050,7 +1050,7 @@ function UiTextButton(text, w, h) end
 
 --- @param path string -- Image path (PNG or JPG file)
 --- @return boolean pressed -- True if user clicked button
---- @example
+--- ### Example
 --- ```lua
 --- if UiImageButton("image.png") then
 --- 	...
@@ -1061,7 +1061,7 @@ function UiImageButton(path) end
 --- @param w number -- Button width
 --- @param h number -- Button height
 --- @return boolean pressed -- True if user clicked button
---- @example
+--- ### Example
 --- ```lua
 --- if UiBlankButton(30, 30) then
 --- 	...
@@ -1076,7 +1076,7 @@ function UiBlankButton(w, h) end
 --- @param max number -- Maximum value
 --- @return number value -- New value, same as current if not changed
 --- @return boolean done -- True if user is finished changing (released slider)
---- @example
+--- ### Example
 --- ```lua
 --- value = UiSlider("dot.png", "x", value, 0, 100)
 --- ```
@@ -1087,31 +1087,31 @@ function UiSlider(path, axis, current, min, max) end
 --- @param g number -- Green channel
 --- @param b number -- Blue channel
 --- @param a number -- Alpha channel
---- @example
+--- ### Example
 --- ```lua
 --- local slider = 0
 --- function client.draw()
----     local thumbPath = "common/thumb_I218_249_2430_49029.png"
----     UiTranslate(200, 200)
----     UiPush()
----         UiMakeInteractive()
----         UiPush()
----             UiAlign("top right")
----             UiTranslate(40, 3.4)
----             UiColor(0.5291666388511658, 0.5291666388511658, 0.5291666388511658, 1)
----             UiFont("regular.ttf", 27)
----             UiText("slider")
----         UiPop()
----         UiTranslate(45.0, 3.0)
----         UiPush()
----             UiTranslate(0, 4.0)
----             UiImageBox("common/rect_c#ffffff_o0.10_cr3.png", 301.0, 12.0, 4, 4)
----         UiPop()
----         UiTranslate(2, 0)
----         UiSliderHoverColorFilter(1.0, 0.2, 0.2)
----         UiSliderThumbSize(8, 20)
----         slider = UiSlider(thumbPath, "x", slider * 295, 0, 295) / 295
----     UiPop()
+--- 	local thumbPath = "common/thumb_I218_249_2430_49029.png"
+--- 	UiTranslate(200, 200)
+--- 	UiPush()
+---     	UiMakeInteractive()
+---     	UiPush()
+---         	UiAlign("top right")
+---         	UiTranslate(40, 3.4)
+---         	UiColor(0.5291666388511658, 0.5291666388511658, 0.5291666388511658, 1)
+---         	UiFont("regular.ttf", 27)
+---         	UiText("slider")
+---     	UiPop()
+---     	UiTranslate(45.0, 3.0)
+---     	UiPush()
+---         	UiTranslate(0, 4.0)
+---         	UiImageBox("common/rect_c#ffffff_o0.10_cr3.png", 301.0, 12.0, 4, 4)
+---     	UiPop()
+---     	UiTranslate(2, 0)
+---     	UiSliderHoverColorFilter(1.0, 0.2, 0.2)
+---     	UiSliderThumbSize(8, 20)
+---     	slider = UiSlider(thumbPath, "x", slider * 295, 0, 295) / 295
+--- 	UiPop()
 --- end
 --- ```
 function UiSliderHoverColorFilter(r, g, b, a) end
@@ -1119,37 +1119,37 @@ function UiSliderHoverColorFilter(r, g, b, a) end
 --- Sets the slider thumb size
 --- @param width number -- Thumb width
 --- @param height number -- Thumb height
---- @example
+--- ### Example
 --- ```lua
 --- local slider = 0
 --- function client.draw()
----     local thumbPath = "common/thumb_I218_249_2430_49029.png"
----     UiTranslate(200, 200)
----     UiPush()
----         UiMakeInteractive()
----         UiPush()
----             UiAlign("top right")
----             UiTranslate(40, 3.4)
----             UiColor(0.5291666388511658, 0.5291666388511658, 0.5291666388511658, 1)
----             UiFont("regular.ttf", 27)
----             UiText("slider")
----         UiPop()
----         UiTranslate(45.0, 3.0)
----         UiPush()
----             UiTranslate(0, 4.0)
----             UiImageBox("common/rect_c#ffffff_o0.10_cr3.png", 301.0, 12.0, 4, 4)
----         UiPop()
----         UiTranslate(2, 0)
----         UiSliderHoverColorFilter(1.0, 0.2, 0.2)
----         UiSliderThumbSize(8, 20)
----         slider = UiSlider(thumbPath, "x", slider * 295, 0, 295) / 295
----     UiPop()
+--- 	local thumbPath = "common/thumb_I218_249_2430_49029.png"
+--- 	UiTranslate(200, 200)
+--- 	UiPush()
+---     	UiMakeInteractive()
+---     	UiPush()
+---         	UiAlign("top right")
+---         	UiTranslate(40, 3.4)
+---         	UiColor(0.5291666388511658, 0.5291666388511658, 0.5291666388511658, 1)
+---         	UiFont("regular.ttf", 27)
+---         	UiText("slider")
+---     	UiPop()
+---     	UiTranslate(45.0, 3.0)
+---     	UiPush()
+---         	UiTranslate(0, 4.0)
+---         	UiImageBox("common/rect_c#ffffff_o0.10_cr3.png", 301.0, 12.0, 4, 4)
+---     	UiPop()
+---     	UiTranslate(2, 0)
+---     	UiSliderHoverColorFilter(1.0, 0.2, 0.2)
+---     	UiSliderThumbSize(8, 20)
+---     	slider = UiSlider(thumbPath, "x", slider * 295, 0, 295) / 295
+--- 	UiPop()
 --- end
 --- ```
 function UiSliderThumbSize(width, height) end
 
 --- @return number handle -- Handle to the screen running this script or zero if none.
---- @example
+--- ### Example
 --- ```lua
 --- --Turn off screen running current script
 --- screen = UiGetScreen()
@@ -1165,23 +1165,23 @@ function UiGetScreen() end
 --- @param w number -- Width of the component
 --- @param h number -- Height of the component
 --- @return string id -- Generated ID of the component which can be used to get an info about the component state
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
 --- 		-- active mouse cursor has higher priority over the gamepad control
 --- 		-- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
----     UiTranslate(960, 540)
----     local id = UiNavComponent(100, 20)
----     local isInFocus = UiIsComponentInFocus(id)
----     if isInFocus then
----         local rect = UiFocusedComponentRect()
----         DebugPrint("Position: (" .. tostring(rect.x) .. ", " .. tostring(rect.y) .. "), Size: (" .. tostring(rect.w) .. ", " .. tostring(rect.h) .. ")")
----     end
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
+--- 	UiTranslate(960, 540)
+--- 	local id = UiNavComponent(100, 20)
+--- 	local isInFocus = UiIsComponentInFocus(id)
+--- 	if isInFocus then
+---     	local rect = UiFocusedComponentRect()
+---     	DebugPrint("Position: (" .. tostring(rect.x) .. ", " .. tostring(rect.y) .. "), Size: (" .. tostring(rect.w) .. ", " .. tostring(rect.h) .. ")")
+--- 	end
 --- end
 --- ```
 function UiNavComponent(w, h) end
@@ -1191,18 +1191,18 @@ function UiNavComponent(w, h) end
 --- won't participate in navigation as if they didn't exist on a scene. Flag resets back to false
 --- after leaving the UI scope in which the function was called.
 --- @param ignore? boolean -- Whether ignore the navigation in a current UI scope or not.
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
 --- 		-- active mouse cursor has higher priority over the gamepad control
 --- 		-- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
----     UiTranslate(960, 540)
----     UiNavComponent(100, 20)
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
+--- 	UiTranslate(960, 540)
+--- 	UiNavComponent(100, 20)
 --- 	UiTranslate(150, 40)
 --- 	UiPush()
 --- 		UiIgnoreNavigation(true)
@@ -1216,18 +1216,18 @@ function UiNavComponent(w, h) end
 function UiIgnoreNavigation(ignore) end
 
 --- Resets navigation state as if none componets before the function call were declared
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
 --- 		-- active mouse cursor has higher priority over the gamepad control
 --- 		-- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
----     UiTranslate(960, 540)
----     local id = UiNavComponent(100, 20)
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
+--- 	UiTranslate(960, 540)
+--- 	local id = UiNavComponent(100, 20)
 --- 	UiResetNavigation()
 --- 	UiTranslate(150, 40)
 --- 	UiNavComponent(100, 20)
@@ -1240,20 +1240,20 @@ function UiResetNavigation() end
 
 --- Skip update of the whole navigation state in a current draw. Could be used to override
 --- behaviour of navigation in some cases. See an example.
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
 --- 		-- active mouse cursor has higher priority over the gamepad control
 --- 		-- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
----     UiTranslate(960, 540)
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
+--- 	UiTranslate(960, 540)
 --- 	UiNavComponent(100, 20)
 --- 	UiTranslate(0, 50)
----     local id = UiNavComponent(100, 20)
+--- 	local id = UiNavComponent(100, 20)
 --- 	local isInFocus = UiIsComponentInFocus(id)
 --- 	if isInFocus and InputPressed("menu_up") then
 --- 		-- don't let navigation to update and if component in focus
@@ -1268,21 +1268,21 @@ function UiNavSkipUpdate() end
 --- Returns the flag whether the component with specified id is in focus or not
 --- @param id string -- Navigation id of the component
 --- @return boolean focus -- Flag whether the component in focus on not
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
 --- 		-- active mouse cursor has higher priority over the gamepad control
 --- 		-- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
----     UiTranslate(960, 540)
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
+--- 	UiTranslate(960, 540)
 --- 	local gId = UiNavGroupBegin()
 --- 	UiNavComponent(100, 20)
 --- 	UiTranslate(0, 50)
----     local id = UiNavComponent(100, 20)
+--- 	local id = UiNavComponent(100, 20)
 --- 	local isInFocus = UiIsComponentInFocus(id)
 --- 	UiNavGroupEnd()
 --- 	local groupInFocus = UiIsComponentInFocus(gId)
@@ -1304,21 +1304,21 @@ function UiIsComponentInFocus(id) end
 --- Group is considered in focus if any of its child is in focus.
 --- @param id? string -- Name of navigation group. If not presented, will be generated automatically.
 --- @return string id -- Generated ID of the group which can be used to get an info about the group state
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
 --- 		-- active mouse cursor has higher priority over the gamepad control
 --- 		-- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
----     UiTranslate(960, 540)
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
+--- 	UiTranslate(960, 540)
 --- 	local gId = UiNavGroupBegin()
 --- 	UiNavComponent(100, 20)
 --- 	UiTranslate(0, 50)
----     local id = UiNavComponent(100, 20)
+--- 	local id = UiNavComponent(100, 20)
 --- 	local isInFocus = UiIsComponentInFocus(id)
 --- 	UiNavGroupEnd()
 --- 	local groupInFocus = UiIsComponentInFocus(gId)
@@ -1331,21 +1331,21 @@ function UiNavGroupBegin(id) end
 
 --- Ends a scope of a new navigation group. All components before that call become
 --- children of that navigation group.
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
 --- 		-- active mouse cursor has higher priority over the gamepad control
 --- 		-- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
----     UiTranslate(960, 540)
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
+--- 	UiTranslate(960, 540)
 --- 	local gId = UiNavGroupBegin()
 --- 	UiNavComponent(100, 20)
 --- 	UiTranslate(0, 50)
----     local id = UiNavComponent(100, 20)
+--- 	local id = UiNavComponent(100, 20)
 --- 	local isInFocus = UiIsComponentInFocus(id)
 --- 	UiNavGroupEnd()
 --- 	local groupInFocus = UiIsComponentInFocus(gId)
@@ -1361,94 +1361,94 @@ function UiNavGroupEnd() end
 --- in order to catch focus from near neighbours.
 --- @param w number -- Width of the component
 --- @param h number -- Height of the component
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
 --- 		-- active mouse cursor has higher priority over the gamepad control
 --- 		-- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
 --- 	UiTranslate(960, 540)
 --- 	local gId = UiNavGroupBegin()
 --- 	UiNavGroupSize(500, 300)
 --- 	UiNavComponent(100, 20)
 --- 	UiTranslate(0, 50)
----     local id = UiNavComponent(100, 20)
+--- 	local id = UiNavComponent(100, 20)
 --- 	local isInFocus = UiIsComponentInFocus(id)
 --- 	UiNavGroupEnd()
 --- 	local groupInFocus = UiIsComponentInFocus(gId)
----     if groupInFocus then
+--- 	if groupInFocus then
 --- 		-- get a rect of the focused component parent
----         local rect = UiFocusedComponentRect(1)
----         DebugPrint("Position: (" .. tostring(rect.x) .. ", " .. tostring(rect.y) .. "), Size: (" .. tostring(rect.w) .. ", " .. tostring(rect.h) .. ")")
----     end
+---     	local rect = UiFocusedComponentRect(1)
+---     	DebugPrint("Position: (" .. tostring(rect.x) .. ", " .. tostring(rect.y) .. "), Size: (" .. tostring(rect.w) .. ", " .. tostring(rect.h) .. ")")
+--- 	end
 --- end
 --- ```
 function UiNavGroupSize(w, h) end
 
 --- Force focus to the component with specified id.
 --- @param id string -- Id of the component
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
----         -- active mouse cursor has higher priority over the gamepad control
----         -- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
+---     	-- active mouse cursor has higher priority over the gamepad control
+---     	-- so it will reset focused components if the mouse moves
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
 --- 	UiPush()
----     UiTranslate(960, 540)
----     local id1 = UiNavComponent(100, 20)
----     UiTranslate(0, 50)
----     local id2 = UiNavComponent(100, 20)
+--- 	UiTranslate(960, 540)
+--- 	local id1 = UiNavComponent(100, 20)
+--- 	UiTranslate(0, 50)
+--- 	local id2 = UiNavComponent(100, 20)
 --- 	UiPop()
----     local f1 = UiIsComponentInFocus(id1)
----     local f2 = UiIsComponentInFocus(id2)
----     local rect = UiFocusedComponentRect()
----     UiPush()
----         UiColor(1, 0, 0)
----         UiTranslate(rect.x, rect.y)
----         UiRect(rect.w, rect.h)
----     UiPop()
----     if InputPressed("menu_accept") then
----         UiForceFocus(id2)
----     end
+--- 	local f1 = UiIsComponentInFocus(id1)
+--- 	local f2 = UiIsComponentInFocus(id2)
+--- 	local rect = UiFocusedComponentRect()
+--- 	UiPush()
+---     	UiColor(1, 0, 0)
+---     	UiTranslate(rect.x, rect.y)
+---     	UiRect(rect.w, rect.h)
+--- 	UiPop()
+--- 	if InputPressed("menu_accept") then
+---     	UiForceFocus(id2)
+--- 	end
 --- end
 --- ```
 function UiForceFocus(id) end
 
 --- Returns an id of the currently focused component
 --- @return string id -- Id of the focused component
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
----         -- active mouse cursor has higher priority over the gamepad control
----         -- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
+---     	-- active mouse cursor has higher priority over the gamepad control
+---     	-- so it will reset focused components if the mouse moves
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
 --- 	UiPush()
----     UiTranslate(960, 540)
----     local id1 = UiNavComponent(100, 20)
----     UiTranslate(0, 50)
----     local id2 = UiNavComponent(100, 20)
+--- 	UiTranslate(960, 540)
+--- 	local id1 = UiNavComponent(100, 20)
+--- 	UiTranslate(0, 50)
+--- 	local id2 = UiNavComponent(100, 20)
 --- 	UiPop()
----     local f1 = UiIsComponentInFocus(id1)
----     local f2 = UiIsComponentInFocus(id2)
----     local rect = UiFocusedComponentRect()
----     UiPush()
----         UiColor(1, 0, 0)
----         UiTranslate(rect.x, rect.y)
----         UiRect(rect.w, rect.h)
----     UiPop()
----     DebugPrint(UiFocusedComponentId())
+--- 	local f1 = UiIsComponentInFocus(id1)
+--- 	local f2 = UiIsComponentInFocus(id2)
+--- 	local rect = UiFocusedComponentRect()
+--- 	UiPush()
+---     	UiColor(1, 0, 0)
+---     	UiTranslate(rect.x, rect.y)
+---     	UiRect(rect.w, rect.h)
+--- 	UiPop()
+--- 	DebugPrint(UiFocusedComponentId())
 --- end
 --- ```
 function UiFocusedComponentId() end
@@ -1462,30 +1462,30 @@ function UiFocusedComponentId() end
 --- y - y position of the component on the canvas
 --- @param n? number -- Take n-th parent of the focused component insetad of the component itself
 --- @return table rect -- Rect object with info about the component bounding rectangle
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     -- window declaration is necessary for navigation to work
----     UiWindow(1920, 1080)
----     if LastInputDevice() == UI_DEVICE_GAMEPAD then
----         -- active mouse cursor has higher priority over the gamepad control
----         -- so it will reset focused components if the mouse moves
----         UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
----     end
----     UiPush()
----     UiTranslate(960, 540)
----     local id1 = UiNavComponent(100, 20)
----     UiTranslate(0, 50)
----     local id2 = UiNavComponent(100, 20)
----     UiPop()
----     local f1 = UiIsComponentInFocus(id1)
----     local f2 = UiIsComponentInFocus(id2)
----     local rect = UiFocusedComponentRect()
----     UiPush()
----         UiColor(1, 0, 0)
----         UiTranslate(rect.x, rect.y)
----         UiRect(rect.w, rect.h)
----     UiPop()
+--- 	-- window declaration is necessary for navigation to work
+--- 	UiWindow(1920, 1080)
+--- 	if LastInputDevice() == UI_DEVICE_GAMEPAD then
+---     	-- active mouse cursor has higher priority over the gamepad control
+---     	-- so it will reset focused components if the mouse moves
+---     	UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
+--- 	end
+--- 	UiPush()
+--- 	UiTranslate(960, 540)
+--- 	local id1 = UiNavComponent(100, 20)
+--- 	UiTranslate(0, 50)
+--- 	local id2 = UiNavComponent(100, 20)
+--- 	UiPop()
+--- 	local f1 = UiIsComponentInFocus(id1)
+--- 	local f2 = UiIsComponentInFocus(id2)
+--- 	local rect = UiFocusedComponentRect()
+--- 	UiPush()
+---     	UiColor(1, 0, 0)
+---     	UiTranslate(rect.x, rect.y)
+---     	UiRect(rect.w, rect.h)
+--- 	UiPop()
 --- end
 --- ```
 function UiFocusedComponentRect(n) end
@@ -1493,39 +1493,39 @@ function UiFocusedComponentRect(n) end
 --- Returns the last ui item size
 --- @return number x -- Width
 --- @return number y -- Height
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     UiTranslate(200, 200)
----     UiPush()
----         UiBeginFrame()
----             UiFont("regular.ttf", 30)
----             UiText("Text")
----         UiEndFrame()
----         w, h = UiGetItemSize()
----         DebugPrint(w .. " " .. h)
----     UiPop()
+--- 	UiTranslate(200, 200)
+--- 	UiPush()
+---     	UiBeginFrame()
+---         	UiFont("regular.ttf", 30)
+---         	UiText("Text")
+---     	UiEndFrame()
+---     	w, h = UiGetItemSize()
+---     	DebugPrint(w .. " " .. h)
+--- 	UiPop()
 --- end
 --- ```
 function UiGetItemSize() end
 
 --- Enables/disables auto autotranslate function when measuring the item size
 --- @param value boolean -- 
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     UiPush()
----         UiBeginFrame()
----             if InputDown("interact") then
----                 UiAutoTranslate(false)
----             else
----                 UiAutoTranslate(true)
----             end
----             UiRect(50, 50)
----             local w, h = UiGetItemSize()
----             DebugPrint(math.ceil(w) .. "x" .. math.ceil(h))
----         UiEndFrame()
----     UiPop()
+--- 	UiPush()
+---     	UiBeginFrame()
+---         	if InputDown("interact") then
+---             	UiAutoTranslate(false)
+---         	else
+---             	UiAutoTranslate(true)
+---         	end
+---         	UiRect(50, 50)
+---         	local w, h = UiGetItemSize()
+---         	DebugPrint(math.ceil(w) .. "x" .. math.ceil(h))
+---     	UiEndFrame()
+--- 	UiPop()
 --- end
 --- ```
 function UiAutoTranslate(value) end
@@ -1533,37 +1533,37 @@ function UiAutoTranslate(value) end
 --- Call to start measuring the content size. After drawing part of the
 --- interface, call UiEndFrame to get its size. Useful when you want the
 --- size of the image box to match the size of the content.
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	UiPush()
----         UiBeginFrame()
----             UiColor(1.0, 1.0, 0.8)
----             UiTranslate(UiCenter(), 300)
----             UiFont("bold.ttf", 40)
----             UiText("Hello")
----         local panelWidth, panelHeight = UiEndFrame()
----         DebugPrint(math.ceil(panelWidth) .. "x" .. math.ceil(panelHeight))
----     UiPop()
+---     	UiBeginFrame()
+---         	UiColor(1.0, 1.0, 0.8)
+---         	UiTranslate(UiCenter(), 300)
+---         	UiFont("bold.ttf", 40)
+---         	UiText("Hello")
+---     	local panelWidth, panelHeight = UiEndFrame()
+---     	DebugPrint(math.ceil(panelWidth) .. "x" .. math.ceil(panelHeight))
+--- 	UiPop()
 --- end
 --- ```
 function UiBeginFrame() end
 
 --- Resets the current frame measured values
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
----     UiPush()
----         UiTranslate(UiCenter(), 300)
----         UiFont("bold.ttf", 40)
----         UiBeginFrame()
----             UiTextButton("Button1")
----             UiTranslate(200, 0)
----             UiTextButton("Button2")
----         UiResetFrame()
----         local panelWidth, panelHeight = UiEndFrame()
----         DebugPrint("w: " .. panelWidth .. "; h:" .. panelHeight)
----     UiPop()
+--- 	UiPush()
+---     	UiTranslate(UiCenter(), 300)
+---     	UiFont("bold.ttf", 40)
+---     	UiBeginFrame()
+---         	UiTextButton("Button1")
+---         	UiTranslate(200, 0)
+---         	UiTextButton("Button2")
+---     	UiResetFrame()
+---     	local panelWidth, panelHeight = UiEndFrame()
+---     	DebugPrint("w: " .. panelWidth .. "; h:" .. panelHeight)
+--- 	UiPop()
 --- end
 --- ```
 function UiResetFrame() end
@@ -1571,42 +1571,42 @@ function UiResetFrame() end
 --- Occupies some space for current frame (between UiBeginFrame and UiEndFrame)
 --- @param width number -- Width
 --- @param height number -- Height
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	UiPush()
----         UiBeginFrame()
----             UiColor(1.0, 1.0, 0.8)
----             UiRect(200, 200)
----             UiRect(300, 200)
----             UiFrameOccupy(500, 500)
----         local panelWidth, panelHeight = UiEndFrame()
----         DebugPrint(math.ceil(panelWidth) .. "x" .. math.ceil(panelHeight))
----     UiPop()
+---     	UiBeginFrame()
+---         	UiColor(1.0, 1.0, 0.8)
+---         	UiRect(200, 200)
+---         	UiRect(300, 200)
+---         	UiFrameOccupy(500, 500)
+---     	local panelWidth, panelHeight = UiEndFrame()
+---     	DebugPrint(math.ceil(panelWidth) .. "x" .. math.ceil(panelHeight))
+--- 	UiPop()
 --- end
 --- ```
 function UiFrameOccupy(width, height) end
 
 --- @return number width -- Width of content drawn between since UiBeginFrame was called
 --- @return number height -- Height of content drawn between since UiBeginFrame was called
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	UiPush()
----         UiBeginFrame()
----             UiColor(1.0, 1.0, 0.8)
----             UiRect(200, 200)
----             UiRect(300, 200)
----         local panelWidth, panelHeight = UiEndFrame()
----         DebugPrint(math.ceil(panelWidth) .. "x" .. math.ceil(panelHeight))
----     UiPop()
+---     	UiBeginFrame()
+---         	UiColor(1.0, 1.0, 0.8)
+---         	UiRect(200, 200)
+---         	UiRect(300, 200)
+---     	local panelWidth, panelHeight = UiEndFrame()
+---     	DebugPrint(math.ceil(panelWidth) .. "x" .. math.ceil(panelHeight))
+--- 	UiPop()
 --- end
 --- ```
 function UiEndFrame() end
 
 --- Sets whether to skip items in current ui scope for current ui frame. This items won't affect on the frame size
 --- @param skip boolean -- Should skip item
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	UiPush()
@@ -1622,7 +1622,7 @@ function UiEndFrame() end
 function UiFrameSkipItem(skip) end
 
 --- @return number frameNo -- Frame number since the level start
---- @example
+--- ### Example
 --- ```lua
 --- function client.draw()
 --- 	local fNo = GetFrame()
@@ -1632,14 +1632,14 @@ function UiFrameSkipItem(skip) end
 function UiGetFrameNo() end
 
 --- @return number index -- Language index
---- @example
+--- ### Example
 --- ```lua
 --- local n = UiGetLanguage()
 --- ```
 function UiGetLanguage() end
 
 --- @param state number -- 
---- @example
+--- ### Example
 --- ```lua
 --- #include "ui/ui_helpers.lua"
 --- function client.draw()
@@ -1648,20 +1648,20 @@ function UiGetLanguage() end
 --- 		if LastInputDevice() == UI_DEVICE_GAMEPAD then
 --- 			UiSetCursorState(UI_CURSOR_HIDE_AND_LOCK)
 --- 		end
----         UiMakeInteractive()
----         UiAlign("center")
----         UiColor(1.0, 1.0, 1.0)
+---     	UiMakeInteractive()
+---     	UiAlign("center")
+---     	UiColor(1.0, 1.0, 1.0)
 --- 		UiButtonHoverColor(1.0, 0.5, 0.5)
----         UiFont("regular.ttf", 50)
----         UiTranslate(UiCenter(), 200)
----         UiTranslate(0, 100)
----         if UiTextButton("1") then
----             DebugPrint(1)
----         end
----         UiTranslate(0, 100)
----         if UiTextButton("2") then
----             DebugPrint(2)
----         end
+---     	UiFont("regular.ttf", 50)
+---     	UiTranslate(UiCenter(), 200)
+---     	UiTranslate(0, 100)
+---     	if UiTextButton("1") then
+---         	DebugPrint(1)
+---     	end
+---     	UiTranslate(0, 100)
+---     	if UiTextButton("2") then
+---         	DebugPrint(2)
+---     	end
 --- 	UiPop()
 --- end
 --- ```

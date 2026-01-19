@@ -3,7 +3,7 @@
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first body with specified tag or zero if not found
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Search for a body tagged "target" in script scope
@@ -19,7 +19,7 @@ function FindBody(tag, global) end
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return table list -- Indexed table with handles to all bodies with specified tag
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Search for bodies tagged "target" in script scope
@@ -34,7 +34,7 @@ function FindBodies(tag, global) end
 
 --- @param handle number -- Body handle
 --- @return TTransform transform -- Transform of the body
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("target", true)
@@ -46,7 +46,7 @@ function GetBodyTransform(handle) end
 
 --- @param handle number -- Body handle
 --- @param transform TTransform -- Desired transform
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -60,7 +60,7 @@ function SetBodyTransform(handle, transform) end
 
 --- @param handle number -- Body handle
 --- @return number mass -- Body mass. Static bodies always return zero mass.
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -75,7 +75,7 @@ function GetBodyMass(handle) end
 --- may become dynamic due to destruction.
 --- @param handle number -- Body handle
 --- @return boolean dynamic -- Return true if body is dynamic
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -89,7 +89,7 @@ function IsBodyDynamic(handle) end
 --- Use with caution.
 --- @param handle number -- Body handle
 --- @param dynamic boolean -- True for dynamic. False for static.
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -103,7 +103,7 @@ function SetBodyDynamic(handle, dynamic) end
 --- but in most cases you are better off with a motorized joint instead.
 --- @param handle number -- Body handle (should be a dynamic body)
 --- @param velocity TVec -- Vector with linear velocity
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local handle = FindBody("body", true)
@@ -115,7 +115,7 @@ function SetBodyVelocity(handle, velocity) end
 
 --- @param handle number -- Body handle (should be a dynamic body)
 --- @return TVec velocity -- Linear velocity as vector
---- @example
+--- ### Example
 --- ```lua
 --- handle = 0
 --- function server.init()
@@ -136,7 +136,7 @@ function GetBodyVelocity(handle) end
 --- @param handle number -- Body handle (should be a dynamic body)
 --- @param pos TVec -- World space point as vector
 --- @return TVec velocity -- Linear velocity on body at pos as vector
---- @example
+--- ### Example
 --- ```lua
 --- handle = 0
 --- function server.init()
@@ -157,7 +157,7 @@ function GetBodyVelocityAtPos(handle, pos) end
 --- but in most cases you are better off with a motorized joint instead.
 --- @param handle number -- Body handle (should be a dynamic body)
 --- @param angVel TVec -- Vector with angular velocity
---- @example
+--- ### Example
 --- ```lua
 --- function server.init()
 --- 	handle = FindBody("body", true)
@@ -169,7 +169,7 @@ function SetBodyAngularVelocity(handle, angVel) end
 
 --- @param handle number -- Body handle (should be a dynamic body)
 --- @return TVec angVel -- Angular velocity as vector
---- @example
+--- ### Example
 --- ```lua
 --- handle = 0
 --- function server.init()
@@ -192,7 +192,7 @@ function GetBodyAngularVelocity(handle) end
 --- bodies can be active.
 --- @param handle number -- Body handle
 --- @return boolean active -- Return true if body is active
---- @example
+--- ### Example
 --- ```lua
 --- -- try to break the body to see the logs
 --- function client.tick()
@@ -208,7 +208,7 @@ function IsBodyActive(handle) end
 --- exclude in simulation. The engine normally handles this automatically, so use with care.
 --- @param handle number -- Body handle
 --- @param active boolean -- Set to tru if body should be active (simulated)
---- @example
+--- ### Example
 --- ```lua
 --- handle = 0
 --- function server.tick()
@@ -232,7 +232,7 @@ function SetBodyActive(handle, active) end
 --- @param handle number -- Body handle (should be a dynamic body)
 --- @param position TVec -- World space position as vector
 --- @param impulse TVec -- World space impulse as vector
---- @example
+--- ### Example
 --- ```lua
 --- function applyImpulse()
 --- 	handle = FindBody("body", true)
@@ -246,7 +246,7 @@ function ApplyBodyImpulse(handle, position, impulse) end
 --- Return handles to all shapes owned by a body
 --- @param handle number -- Body handle
 --- @return table list -- Indexed table of shape handles
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	handle = FindBody("body", true)
@@ -261,7 +261,7 @@ function GetBodyShapes(handle) end
 
 --- @param body number -- Body handle
 --- @return number handle -- Get parent vehicle for body, or zero if not part of vehicle
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	handle = FindBody("body", true)
@@ -273,7 +273,7 @@ function GetBodyVehicle(body) end
 
 --- @param body number -- Body handle
 --- @return number handle -- Get parent animator for body, or zero if not part of an animator hierarchy
---- @example
+--- ### Example
 --- ```lua
 --- local animator = GetBodyAnimator(body)
 --- ```
@@ -281,7 +281,7 @@ function GetBodyAnimator(body) end
 
 --- @param body number -- Body handle
 --- @return number playerId -- Get parent player for body, or zero if not part of a player animator hierarchy
---- @example
+--- ### Example
 --- ```lua
 --- local player = GetBodyPlayer(body)
 --- ```
@@ -291,7 +291,7 @@ function GetBodyPlayer(body) end
 --- @param handle number -- Body handle
 --- @return TVec min -- Vector representing the AABB lower bound
 --- @return TVec max -- Vector representing the AABB upper bound
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	handle = FindBody("body", true)
@@ -305,7 +305,7 @@ function GetBodyBounds(handle) end
 
 --- @param handle number -- Body handle
 --- @return TVec point -- Vector representing local center of mass in body space
---- @example
+--- ### Example
 --- ```lua
 --- function client.init()
 --- 	handle = FindBody("body", true)
@@ -327,7 +327,7 @@ function GetBodyCenterOfMass(handle) end
 --- @param rejectTransparent? boolean -- See through transparent materials. Default false.
 --- @param playerId? number -- Player ID. On player, zero means local player.
 --- @return boolean visible -- Return true if body is visible
---- @example
+--- ### Example
 --- ```lua
 --- local handle = 0
 --- function client.init()
@@ -347,7 +347,7 @@ function IsBodyVisible(handle, maxDist, rejectTransparent, playerId) end
 --- Determine if any shape of a body has been broken.
 --- @param handle number -- Body handle
 --- @return boolean broken -- Return true if body is broken
---- @example
+--- ### Example
 --- ```lua
 --- local handle = 0
 --- function client.init()
@@ -363,7 +363,7 @@ function IsBodyBroken(handle) end
 --- be being directly or indirectly jointed to something static.
 --- @param handle number -- Body handle
 --- @return boolean result -- Return true if body is in any way connected to a static body
---- @example
+--- ### Example
 --- ```lua
 --- local handle = 0
 --- function client.init()
@@ -382,7 +382,7 @@ function IsBodyJointedToStatic(handle) end
 --- @param g? number -- Green
 --- @param b? number -- Blue
 --- @param a? number -- Alpha
---- @example
+--- ### Example
 --- ```lua
 --- local handle = 0
 --- function client.init()
@@ -404,7 +404,7 @@ function DrawBodyOutline(handle, r, g, b, a) end
 --- used for valuables in the game.
 --- @param handle number -- Body handle
 --- @param amount number -- Amount
---- @example
+--- ### Example
 --- ```lua
 --- local handle = 0
 --- function client.init()
@@ -425,7 +425,7 @@ function DrawBodyHighlight(handle, amount) end
 --- @return TVec point -- World space closest point
 --- @return TVec normal -- World space normal at closest point
 --- @return number shape -- Handle to closest shape
---- @example
+--- ### Example
 --- ```lua
 --- local handle = 0
 --- function client.init()
@@ -451,7 +451,7 @@ function GetBodyClosestPoint(body, origin) end
 --- @param relVel number -- Desired relative velocity along the provided direction
 --- @param min? number -- Minimum impulse (default: -infinity)
 --- @param max? number -- Maximum impulse (default: infinity)
---- @example
+--- ### Example
 --- ```lua
 --- local handleA = 0
 --- local handleB = 0
@@ -476,7 +476,7 @@ function ConstrainVelocity(bodyA, bodyB, point, dir, relVel, min, max) end
 --- @param relAngVel number -- Desired relative angular velocity along the provided direction
 --- @param min? number -- Minimum angular impulse (default: -infinity)
 --- @param max? number -- Maximum angular impulse (default: infinity)
---- @example
+--- ### Example
 --- ```lua
 --- local handleA = 0
 --- local handleB = 0
@@ -503,7 +503,7 @@ function ConstrainAngularVelocity(bodyA, bodyB, dir, relAngVel, min, max) end
 --- @param pointB TVec -- World space point for second body
 --- @param maxVel? number -- Maximum relative velocity (default: infinite)
 --- @param maxImpulse? number -- Maximum impulse (default: infinite)
---- @example
+--- ### Example
 --- ```lua
 --- local handleA = 0
 --- local handleB = 0
@@ -533,7 +533,7 @@ function ConstrainPosition(bodyA, bodyB, pointA, pointB, maxVel, maxImpulse) end
 --- @param quatB TQuat -- World space orientation for second body
 --- @param maxAngVel? number -- Maximum relative angular velocity (default: infinite)
 --- @param maxAngImpulse? number -- Maximum angular impulse (default: infinite)
---- @example
+--- ### Example
 --- ```lua
 --- local handleA = 0
 --- local handleB = 0
@@ -552,7 +552,7 @@ function ConstrainOrientation(bodyA, bodyB, quatA, quatB, maxAngVel, maxAngImpul
 
 --- Every scene in Teardown has an implicit static world body that contains all shapes that are not explicitly assigned a body in the editor.
 --- @return number body -- Handle to the static world body
---- @example
+--- ### Example
 --- ```lua
 --- local handle
 --- function client.init()

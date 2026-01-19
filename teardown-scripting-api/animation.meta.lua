@@ -7,7 +7,7 @@
 --- @param weight? number -- Weight [0,1] of this animation, default is 1.0
 --- @param history? number -- How much of the previous frames result [0,1] that should be used when start the IK search, default is 0.0
 --- @param flag? boolean -- TRUE if constraints should be used, default is TRUE
---- @example
+--- ### Example
 --- ```lua
 --- SetAnimatorPositionIK(animator, "shoulder_l", "hand_l", Vec(10, 0, 0), 1.0, 0.9, true)
 --- ```
@@ -21,7 +21,7 @@ function SetAnimatorPositionIK(handle, begname, endname, target, weight, history
 --- @param history? number -- How much of the previous frames result [0,1] that should be used when start the IK search, default is 0.0
 --- @param locktarget? boolean -- TRUE if the end-bone should be fixed to the target-transform, FALSE if IK solution is used
 --- @param useconstraints? boolean -- TRUE if constraints should be used, default is TRUE
---- @example
+--- ### Example
 --- ```lua
 --- SetAnimatorTransformIK(animator, "shoulder_l", "hand_l", Transform(10, 0, 0), 1.0, 0.9, false, true)
 --- ```
@@ -33,7 +33,7 @@ function SetAnimatorTransformIK(handle, begname, endname, transform, weight, his
 --- @param begname string -- Name of the start-bone of the chain
 --- @param endname string -- Name of the end-bone of the chain
 --- @return number length -- Length of the bone chain between "start-bone" and "end-bone"
---- @example
+--- ### Example
 --- ```lua
 --- local length = GetBoneChainLength(animator, "shoulder_l", "hand_l")
 --- ```
@@ -42,7 +42,7 @@ function GetBoneChainLength(handle, begname, endname) end
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first animator with specified tag or zero if not found
---- @example
+--- ### Example
 --- ```lua
 --- --Search for the first animator in script scope
 --- local animator = FindAnimator()
@@ -56,7 +56,7 @@ function FindAnimator(tag, global) end
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return table list -- Indexed table with handles to all animators with specified tag
---- @example
+--- ### Example
 --- ```lua
 --- --Search for animators tagged "target" in script scope
 --- local targets = FindAnimators("target")
@@ -69,7 +69,7 @@ function FindAnimators(tag, global) end
 
 --- @param handle number -- Animator handle
 --- @return TTransform transform -- World space transform of the animator
---- @example
+--- ### Example
 --- ```lua
 --- local pos = GetAnimatorTransform(animator).pos
 --- ```
@@ -79,13 +79,13 @@ function GetAnimatorTransform(handle) end
 --- @param handle number -- Animator handle
 --- @param name string -- Name of the location node
 --- @return TTransform transform -- World space transform of the animator
---- @example
+--- ### Example
 --- ```lua
 --- --This will adjust the target transform so that the grip defined by a location node in editor called "ik_hand_l" will reach the target
 --- local target = Transform(Vec(10, 0, 0), QuatEuler(0, 90, 0))
 --- local adj = GetAnimatorAdjustTransformIK(animator, "ik_hand_l")
 --- if adj ~= nil then
----     target = TransformToParentTransform(target, adj)
+--- 	target = TransformToParentTransform(target, adj)
 --- end
 --- SetAnimatorTransformIK(animator, "shoulder_l", "hand_l", target, 1.0, 0.9)
 --- ```
@@ -93,7 +93,7 @@ function GetAnimatorAdjustTransformIK(handle, name) end
 
 --- @param handle number -- Animator handle
 --- @param transform TTransform -- Desired transform
---- @example
+--- ### Example
 --- ```lua
 --- local t = Transform(Vec(10, 0, 0), QuatEuler(0, 90, 0))
 --- SetAnimatorTransform(animator, t)
@@ -102,7 +102,7 @@ function SetAnimatorTransform(handle, transform) end
 
 --- Make all prefab bodies physical and leave control to physics system
 --- @param handle number -- Animator handle
---- @example
+--- ### Example
 --- ```lua
 --- MakeRagdoll(animator)
 --- ```
@@ -111,7 +111,7 @@ function MakeRagdoll(handle) end
 --- Take control if the prefab bodies and do an optional blend between the current ragdoll state and current animation state
 --- @param handle number -- Animator handle
 --- @param time? number -- Transition time
---- @example
+--- ### Example
 --- ```lua
 --- --Take control of bodies and do a blend during one sec between the animation state and last physics state
 --- UnRagdoll(animator, 1.0)
@@ -124,7 +124,7 @@ function UnRagdoll(handle, time) end
 --- @param weight? number -- Weight [0,1] of this animation, default is 1.0
 --- @param filter? string -- Name of the bone and its subtree that will be affected
 --- @return number handle -- Handle to the instance that can be used with PlayAnimationInstance, zero if clip reached its end
---- @example
+--- ### Example
 --- ```lua
 --- --This will play a single animation "Shooting" with a 80% influence but only on the skeleton starting at bone "Spine"
 --- PlayAnimation(animator, "Shooting", 0.8, "Spine")
@@ -135,7 +135,7 @@ function PlayAnimation(handle, name, weight, filter) end
 --- @param name string -- Animation name
 --- @param weight? number -- Weight [0,1] of this animation, default is 1.0
 --- @param filter? string -- Name of the bone and its subtree that will be affected
---- @example
+--- ### Example
 --- ```lua
 --- --This will play an animation loop "Walking" with a 100% influence on the whole skeleton
 --- PlayAnimationLoop(animator, "Walking")
@@ -148,7 +148,7 @@ function PlayAnimationLoop(handle, name, weight, filter) end
 --- @param weight? number -- Weight [0,1] of this animation, default is 1.0
 --- @param speed? number -- Weight [0,1] of this animation, default is 1.0
 --- @return number handle -- Handle to the instance that can be used with PlayAnimationInstance, zero if clip reached its end
---- @example
+--- ### Example
 --- ```lua
 --- --This will play a single animation "Shooting" with a 80% influence but only on the skeleton starting at bone "Spine"
 --- PlayAnimation(animator, "Shooting", 0.8, "Spine")
@@ -165,7 +165,7 @@ function StopAnimationInstance(handle, instance) end
 --- @param time number -- Time in the animation
 --- @param weight? number -- Weight [0,1] of this animation, default is 1.0
 --- @param filter? string -- Name of the bone and its subtree that will be affected
---- @example
+--- ### Example
 --- ```lua
 --- --This will play an animation "Walking" at a specific time of 1.5s with a 80% influence on the whole skeleton
 --- PlayAnimationFrame(animator, "Walking", 1.5, 0.8)
@@ -177,7 +177,7 @@ function PlayAnimationFrame(handle, name, time, weight, filter) end
 --- @param handle number -- Animator handle
 --- @param weight? number -- Weight [0,1] of this group, default is 1.0
 --- @param filter? string -- Name of the bone and its subtree that will be affected
---- @example
+--- ### Example
 --- ```lua
 --- --This will blend an entire group with 50% influence
 --- BeginAnimationGroup(animator, 0.5)
@@ -203,7 +203,7 @@ function EndAnimationGroup(handle) end
 --- Single animations, one-shot, will be processed after looping animations.
 --- By calling PlayAnimationInstances you can force it to be processed earlier and be able to "overwrite" the result of it if you want
 --- @param handle number -- Animator handle
---- @example
+--- ### Example
 --- ```lua
 --- --First we play a single jump animation affecting the whole skeleton
 --- --Then we play an aiming animation on the upper-body, filter="Spine1", keeping the lower-body unaffected
@@ -221,7 +221,7 @@ function PlayAnimationInstances(handle) end
 
 --- @param handle number -- Animator handle
 --- @return table list -- Indexed table with animation names
---- @example
+--- ### Example
 --- ```lua
 --- local list = GetAnimationClipNames(animator)
 --- for i=1, #list do
@@ -240,7 +240,7 @@ function GetAnimationClipDuration(handle, name) end
 --- @param name string -- Animation name
 --- @param fadein number -- Fadein time of the animation
 --- @param fadeout number -- Fadeout time of the animation
---- @example
+--- ### Example
 --- ```lua
 --- SetAnimationClipFade(animator, "fire", 0.5, 0.5)
 --- ```
@@ -249,7 +249,7 @@ function SetAnimationClipFade(handle, name, fadein, fadeout) end
 --- @param handle number -- Animator handle
 --- @param name string -- Animation name
 --- @param speed number -- Sets the speed factor of the animation
---- @example
+--- ### Example
 --- ```lua
 --- --This will make the clip run 2x as normal speed
 --- SetAnimationClipSpeed(animator, "walking", 2)
@@ -260,7 +260,7 @@ function SetAnimationClipSpeed(handle, name, speed) end
 --- @param name string -- Animation name
 --- @param begoffset number -- Time offset from the beginning of the animation
 --- @param endoffset? number -- Time offset, positive value means from the beginning and negative value means from the end, zero(default) means at end
---- @example
+--- ### Example
 --- ```lua
 --- --This will "remove" 1s from the beginning and 2s from the end.
 --- TrimAnimationClip(animator, "walking", 1, -2)
@@ -280,7 +280,7 @@ function GetAnimationInstancePosition(handle, instance) end
 --- @param handle number -- Animator handle
 --- @param name string -- Animation name
 --- @param time number -- Time in the animation
---- @example
+--- ### Example
 --- ```lua
 --- --This will set the current playposition to one second
 --- SetAnimationClipLoopPosition(animator, "walking", 1)
@@ -291,7 +291,7 @@ function SetAnimationClipLoopPosition(handle, name, time) end
 --- @param name string -- Bone name
 --- @param quat TQuat -- Orientation of the bone
 --- @param weight? number -- Weight [0,1] default is 1.0
---- @example
+--- ### Example
 --- ```lua
 --- --This will set the existing rotation by QuatEuler(...)
 --- SetBoneRotation(animator, "spine", QuatEuler(0, 180, 0), 1.0)
@@ -302,7 +302,7 @@ function SetBoneRotation(handle, name, quat, weight) end
 --- @param name string -- Bone name
 --- @param point table -- World space point as vector
 --- @param weight? number -- Weight [0,1] default is 1.0
---- @example
+--- ### Example
 --- ```lua
 --- --This will set the existing local-rotation to point to world space point
 --- SetBoneLookAt(animator, "upper_arm_l", Vec(10, 20, 30), 1.0)
@@ -313,7 +313,7 @@ function SetBoneLookAt(handle, name, point, weight) end
 --- @param name string -- Bone name
 --- @param quat TQuat -- Additive orientation
 --- @param weight? number -- Weight [0,1] default is 1.0
---- @example
+--- ### Example
 --- ```lua
 --- --This will offset the existing rotation by QuatEuler(...)
 --- RotateBone(animator, "spine", QuatEuler(0, 5, 0), 1.0)
@@ -322,7 +322,7 @@ function RotateBone(handle, name, quat, weight) end
 
 --- @param handle number -- Animator handle
 --- @return table list -- Indexed table with bone-names
---- @example
+--- ### Example
 --- ```lua
 --- local list = GetBoneNames(animator)
 --- for i=1, #list do
@@ -335,7 +335,7 @@ function GetBoneNames(handle) end
 --- @param handle number -- Animator handle
 --- @param name string -- Bone name
 --- @return number handle -- Handle to the bone's body, or zero if no bone is present.
---- @example
+--- ### Example
 --- ```lua
 --- local body = GetBoneBody(animator, "head")
 --- end
@@ -345,22 +345,22 @@ function GetBoneBody(handle, name) end
 --- @param handle number -- Animator handle
 --- @param name string -- Bone name
 --- @return TTransform transform -- World space transform of the bone
---- @example
+--- ### Example
 --- ```lua
----     local animator = GetPlayerAnimator()
----     local bones = GetBoneNames(animator)
----     for i=1, #bones do
----         local bone = bones[i]
----         local t = GetBoneWorldTransform(animator,bone)
----         DebugCross(t.pos)
----     end
+--- 	local animator = GetPlayerAnimator()
+--- 	local bones = GetBoneNames(animator)
+--- 	for i=1, #bones do
+---     	local bone = bones[i]
+---     	local t = GetBoneWorldTransform(animator,bone)
+---     	DebugCross(t.pos)
+--- 	end
 --- ```
 function GetBoneWorldTransform(handle, name) end
 
 --- @param handle number -- Animator handle
 --- @param name string -- Bone name
 --- @return TTransform transform -- Local space transform of the bone in bindpose
---- @example
+--- ### Example
 --- ```lua
 --- local lt = getBindPoseTransform(animator, "lefthand")
 --- ```

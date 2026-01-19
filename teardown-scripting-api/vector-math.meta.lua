@@ -6,7 +6,7 @@
 --- @param y? number -- Y value
 --- @param z? number -- Z value
 --- @return TVec vec -- New vector
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--These are equivalent
@@ -26,7 +26,7 @@ function Vec(x, y, z) end
 --- the same data. Use this function instead.
 --- @param org TVec -- A vector
 --- @return TVec new -- Copy of org vector
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Do this to assign a vector
@@ -42,7 +42,7 @@ function VecCopy(org) end
 --- Returns the string representation of vector
 --- @param vector TVec -- Vector
 --- @return string str -- String representation
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local v = Vec(0, 10, 0)
@@ -53,7 +53,7 @@ function VecStr(vector) end
 
 --- @param vec TVec -- A vector
 --- @return number length -- Length (magnitude) of the vector
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local v = Vec(1,1,0)
@@ -67,7 +67,7 @@ function VecLength(vec) end
 --- If the input vector is of zero length, the function returns {0,0,1}
 --- @param vec TVec -- A vector
 --- @return TVec norm -- A vector of length 1.0
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local v = Vec(0,3,0)
@@ -81,7 +81,7 @@ function VecNormalize(vec) end
 --- @param vec TVec -- A vector
 --- @param scale number -- A scale factor
 --- @return TVec norm -- A scaled version of input vector
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local v = Vec(1,2,3)
@@ -95,7 +95,7 @@ function VecScale(vec, scale) end
 --- @param a TVec -- Vector
 --- @param b TVec -- Vector
 --- @return TVec c -- New vector with sum of a and b
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local a = Vec(1,2,3)
@@ -110,7 +110,7 @@ function VecAdd(a, b) end
 --- @param a TVec -- Vector
 --- @param b TVec -- Vector
 --- @return TVec c -- New vector representing a-b
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local a = Vec(1,2,3)
@@ -125,7 +125,7 @@ function VecSub(a, b) end
 --- @param a TVec -- Vector
 --- @param b TVec -- Vector
 --- @return number c -- Dot product of a and b
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local a = Vec(1,2,3)
@@ -140,7 +140,7 @@ function VecDot(a, b) end
 --- @param a TVec -- Vector
 --- @param b TVec -- Vector
 --- @return TVec c -- Cross product of a and b (also called vector product)
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local a = Vec(1,0,0)
@@ -156,7 +156,7 @@ function VecCross(a, b) end
 --- @param b TVec -- Vector
 --- @param t number -- fraction (usually between 0.0 and 1.0)
 --- @return TVec c -- Linearly interpolated vector between a and b, using t
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local a = Vec(2,0,0)
@@ -181,7 +181,7 @@ function VecLerp(a, b, t) end
 --- @param z? number -- Z value
 --- @param w? number -- W value
 --- @return TQuat quat -- New quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--These are equivalent
@@ -197,7 +197,7 @@ function Quat(x, y, z, w) end
 --- the same data. Use this function instead.
 --- @param org TQuat -- Quaternion
 --- @return TQuat new -- Copy of org quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Do this to assign a quaternion
@@ -214,7 +214,7 @@ function QuatCopy(org) end
 --- @param axis TVec -- Rotation axis, unit vector
 --- @param angle number -- Rotation angle in degrees
 --- @return TQuat quat -- New quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Create quaternion representing rotation 30 degrees around Y axis
@@ -226,7 +226,7 @@ function QuatAxisAngle(axis, angle) end
 
 --- Create a quaternion representing a rotation between the input normals
 --- @return TQuat quat -- New quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Create quaternion representing a rotation between x-axis and y-axis
@@ -237,7 +237,7 @@ function QuatDeltaNormals() end
 
 --- Create a quaternion representing a rotation between the input vectors that doesn't need to be of unit-length
 --- @return TQuat quat -- New quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Create quaternion representing a rotation between two non-unit vectors aligned along x-axis and y-axis
@@ -250,7 +250,7 @@ function QuatDeltaVectors() end
 --- @param y number -- Angle around Y axis in degrees, sometimes also called yaw or heading
 --- @param z number -- Angle around Z axis in degrees, sometimes also called pitch or attitude
 --- @return TQuat quat -- New quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Create quaternion representing rotation 30 degrees around Y axis and 25 degrees around Z axis
@@ -263,7 +263,7 @@ function QuatEuler(x, y, z) end
 --- @param xAxis TVec -- X axis
 --- @param zAxis TVec -- Z axis
 --- @return TQuat quat -- Quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function update()
 --- 	local laserSprite = LoadSprite("gfx/laser.png")
@@ -285,7 +285,7 @@ function QuatAlignXZ(xAxis, zAxis) end
 --- @return number x -- Angle around X axis in degrees, sometimes also called roll or bank
 --- @return number y -- Angle around Y axis in degrees, sometimes also called yaw or heading
 --- @return number z -- Angle around Z axis in degrees, sometimes also called pitch or attitude
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Return euler angles from quaternion q
@@ -302,7 +302,7 @@ function GetQuatEuler(quat) end
 --- @param eye TVec -- Vector representing the camera location
 --- @param target TVec -- Vector representing the point to look at
 --- @return TQuat quat -- New quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local eye = Vec(0, 10, 0)
@@ -319,7 +319,7 @@ function QuatLookAt(eye, target) end
 --- @param b TQuat -- Quaternion
 --- @param t number -- fraction (usually between 0.0 and 1.0)
 --- @return TQuat c -- New quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local a = QuatEuler(0, 10, 0)
@@ -334,7 +334,7 @@ function QuatSlerp(a, b, t) end
 --- Returns the string representation of quaternion
 --- @param quat TQuat -- Quaternion
 --- @return string str -- String representation
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local q = QuatEuler(0, 10, 0)
@@ -348,7 +348,7 @@ function QuatStr(quat) end
 --- @param a TQuat -- Quaternion
 --- @param b TQuat -- Quaternion
 --- @return TQuat c -- New quaternion
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local a = QuatEuler(0, 10, 0)
@@ -366,7 +366,7 @@ function QuatRotateQuat(a, b) end
 --- @param a TQuat -- Quaternion
 --- @param vec TVec -- Vector
 --- @return TVec vec -- Rotated vector
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local q = QuatEuler(0, 10, 0)
@@ -383,7 +383,7 @@ function QuatRotateVec(a, vec) end
 --- @param pos? TVec -- Vector representing transform position
 --- @param rot? TQuat -- Quaternion representing transform rotation
 --- @return TTransform transform -- New transform
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Create transform located at {0, 0, 0} with no rotation
@@ -404,7 +404,7 @@ function Transform(pos, rot) end
 --- the same data. Use this function instead.
 --- @param org TTransform -- Transform
 --- @return TTransform new -- Copy of org transform
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	--Do this to assign a quaternion
@@ -420,7 +420,7 @@ function TransformCopy(org) end
 --- Returns the string representation of transform
 --- @param transform TTransform -- Transform
 --- @return string str -- String representation
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local eye = Vec(0, 10, 0)
@@ -437,7 +437,7 @@ function TransformStr(transform) end
 --- @param parent TTransform -- Transform
 --- @param child TTransform -- Transform
 --- @return TTransform transform -- New transform
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local b = GetBodyTransform(body)
@@ -456,7 +456,7 @@ function TransformToParentTransform(parent, child) end
 --- @param parent TTransform -- Transform
 --- @param child TTransform -- Transform
 --- @return TTransform transform -- New transform
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local b = GetBodyTransform(body)
@@ -474,7 +474,7 @@ function TransformToLocalTransform(parent, child) end
 --- @param t TTransform -- Transform
 --- @param v TVec -- Vector
 --- @return TVec r -- Transformed vector
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local t = GetBodyTransform(body)
@@ -490,7 +490,7 @@ function TransformToParentVec(t, v) end
 --- @param t TTransform -- Transform
 --- @param v TVec -- Vector
 --- @return TVec r -- Transformed vector
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local t = GetBodyTransform(body)
@@ -506,7 +506,7 @@ function TransformToLocalVec(t, v) end
 --- @param t TTransform -- Transform
 --- @param p TVec -- Vector representing position
 --- @return TVec r -- Transformed position
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local t = GetBodyTransform(body)
@@ -522,7 +522,7 @@ function TransformToParentPoint(t, p) end
 --- @param t TTransform -- Transform
 --- @param p TVec -- Vector representing position
 --- @return TVec r -- Transformed position
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	local t = GetBodyTransform(body)
@@ -535,7 +535,7 @@ function TransformToParentPoint(t, p) end
 function TransformToLocalPoint(t, p) end
 
 --- @param seed number -- Random seed
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	SetRandomSeed(42)
@@ -545,7 +545,7 @@ function TransformToLocalPoint(t, p) end
 function SetRandomSeed(seed) end
 
 --- @return boolean result -- Random true/false
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	isHeads = GetRandomBool()
@@ -559,7 +559,7 @@ function GetRandomBool() end
 --- @param min number -- Lower number
 --- @param max number -- Upper number
 --- @return number result -- Random number in given range, including max.
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	dieRoll = GetRandomInt(1,6)
@@ -571,7 +571,7 @@ function GetRandomInt(min, max) end
 --- @param min number -- Lower number
 --- @param max number -- Upper number
 --- @return number result -- Random number in given range, including max.
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	-- Generate a random angle in range [0, 360]
@@ -582,7 +582,7 @@ function GetRandomFloat(min, max) end
 
 --- @param length? number -- Optional length use to scale the generated direction.
 --- @return Vec3 vector -- Random direction with unit length
---- @example
+--- ### Example
 --- ```lua
 --- function init()
 --- 	-- Generate a random direction.
