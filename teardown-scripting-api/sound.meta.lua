@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- @param path string -- Path to ogg sound file
 --- @param nominalDistance? number -- The distance in meters this sound is recorded at. Affects attenuation, default is 10.0
 --- @return number handle -- Sound handle

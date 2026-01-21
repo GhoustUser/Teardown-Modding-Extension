@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- Reset to default particle state, which is a plain, white particle of radius 0.5.
 --- Collision is enabled and it alpha animates from 1 to 0.
 --- ### Example

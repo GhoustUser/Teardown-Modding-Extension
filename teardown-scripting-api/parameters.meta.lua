@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- @param name string -- Parameter name
 --- @param default number -- Default parameter value
 --- @return number value -- Parameter value

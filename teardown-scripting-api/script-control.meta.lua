@@ -1,5 +1,9 @@
 --- @meta
 
+
+--- General functions that control the operation and flow of the script. 
+
+
 ---@alias InputIdentifier ScriptControl_PhysicalInput | ScriptControl_LogicalInput
 
 --- @alias ScriptControl_PhysicalInput
@@ -308,7 +312,7 @@ function SetValueInTable(tableId, memberName, newValue, type, length) end
 --- Only one button per script is allowed. Consecutive calls replace button added in previous calls.
 --- @param title string -- Text on button
 --- @param location? string -- Button location. If "bottom_bar" - bottom bar, if "main_bottom" - below "Main menu" button, if "main_top" - above "Main menu" button. Default "bottom_bar".
---- @param disabled? bool -- Disable button. Button will be rendered as grayed out. Default is false. Only available when used with "bottom_bar".
+--- @param disabled? boolean -- Disable button. Button will be rendered as grayed out. Default is false. Only available when used with "bottom_bar".
 --- @return boolean clicked -- True if clicked, false otherwise
 --- ### Example
 --- ```lua

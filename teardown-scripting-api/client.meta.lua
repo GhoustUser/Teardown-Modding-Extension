@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- The following optional callback functions are available on the client. The client part of a script is typically used for overlay graphics and user interfaces, but it can also be used for optimization purposes to spawn local particle effects, sounds or animations. 
 --- @class client
 --- @field init? fun() -- Called once at load time

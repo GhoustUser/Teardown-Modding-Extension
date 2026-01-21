@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- @param path string -- Path to sprite. Must be PNG or JPG format.
 --- @return number handle -- Sprite handle
 --- ### Example

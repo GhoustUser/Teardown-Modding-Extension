@@ -1,12 +1,15 @@
 --- @meta
 
+
 --- ### CLIENT ONLY
 --- Adds a marker on the map with the provided info.
+
+
 --- @param id number -- An id to identify the marker, typically player ID or body ID.
 --- @param tag string -- A tag to help distinguish markers.
 --- @param name string -- Name of the marker.
 --- @param category string -- Used to group markers together in map target list.
---- @param showLabelOnMap bool -- name label will be shown on map if true
+--- @param showLabelOnMap boolean -- name label will be shown on map if true
 --- @param info string -- Additional information about the marker, displayed when selected.
 --- @param pos Vec -- The world position of the marker.
 --- @param color Vec -- The color of the marker, as a Vec table (e.g. Vec(1, 0, 0) for red)
@@ -857,7 +860,7 @@ function StopHaptic(handle) end
 function AddHeat(shape, pos, amount) end
 
 --- Returns the area of the boundary if present, otherwise the xz-area of the world body aabb.
---- @return Number area -- Number representing the area of the boundary.
+--- @return number area -- Number representing the area of the boundary.
 --- ### Example
 --- ```lua
 --- function GenerateRandomPointInLevel()

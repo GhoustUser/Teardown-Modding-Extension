@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- @alias UiAlign_Alignment
 --- | 'left' Horizontally align to the left
 --- | 'right' Horizontally align to the right
@@ -1762,7 +1763,13 @@ function UiGetFrameNo() end
 --- [View Documentation](https://teardowngame.com/experimental/api.html#UiGetLanguage)
 function UiGetLanguage() end
 
---- @param state number -- 
+--- @param state 0|1|2 -- 
+--- ```md
+--- Possible values are:
+--- 0 - show cursor (UI_CURSOR_SHOW)
+--- 1 - hide cursor (UI_CURSOR_HIDE)
+--- 2 - hide & lock cursor (UI_CURSOR_HIDE_AND_LOCK)
+--- ```
 --- ### Example
 --- ```lua
 --- #include "ui/ui_helpers.lua"
@@ -1791,4 +1798,3 @@ function UiGetLanguage() end
 --- ```
 --- [View Documentation](https://teardowngame.com/experimental/api.html#UiSetCursorState)
 function UiSetCursorState(state) end
-

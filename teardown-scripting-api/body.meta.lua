@@ -1,5 +1,9 @@
 --- @meta
 
+
+--- A body represents a rigid body in the scene. It can be either static or dynamic. Only dynamic bodies are affected by physics. 
+
+
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first body with specified tag or zero if not found

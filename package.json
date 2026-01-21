@@ -6,7 +6,7 @@
 		"name": "GhoustUser",
 		"url": "https://github.com/GhoustUser"
 	},
-	"version": "0.5.0",
+	"version": "0.5.1",
 	"main": "./out/extension.js",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

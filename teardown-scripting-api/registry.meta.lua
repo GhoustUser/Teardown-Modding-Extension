@@ -1,5 +1,14 @@
 --- @meta
 
+
+--- The Teardown engine uses a global key/value-pair registry that scripts can read and write.
+--- The engine exposes a lot of internal information through the registry, but it can also be used
+--- as way for scripts to communicate with each other.
+--- The registry is a hierarchical node structure and can store a value in each node (parent nodes can also have a value).
+--- The values can be of type floating point number, integer, boolean or string, but all types are automatically converted if another type is requested. Some registry nodes are reserved and used for special purposes.
+--- Registry node names may only contain the characters a-z, numbers 0-9, dot, dash and underscore.
+
+
 --- @alias Registry_Key
 --- | 'options' reserved for game settings (write protected from mods)
 --- | 'game' reserved for the game engine internals (see documentation)
@@ -253,4 +262,3 @@ function LoadLanguageTable(id) end
 --- ```
 --- [View Documentation](https://teardowngame.com/experimental/api.html#GetUserNickname)
 function GetUserNickname(id) end
-

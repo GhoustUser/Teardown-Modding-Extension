@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first vehicle with specified tag or zero if not found
@@ -221,7 +222,7 @@ function GetVehicleLocationWorldTransform(vehicle, name) end
 --- @param vehicle number -- Vehicle handle
 --- @return number count -- Number of passengers
 --- @return number seats -- Number of seats
---- @return bool hasDriver -- If vehicle has a driver
+--- @return boolean hasDriver -- If vehicle has a driver
 --- ### Example
 --- ```lua
 --- local passengers, seats, hasDriver = GetVehiclePassengerCount(vehicle)

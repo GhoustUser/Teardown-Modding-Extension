@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- @param tag? string -- Tag name
 --- @param global? boolean -- Search in entire scene
 --- @return number handle -- Handle to first shape with specified tag or zero if not found

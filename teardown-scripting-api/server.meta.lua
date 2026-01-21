@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- Each script has the following server callback functions that will be called by the game engine. Note that all of them are optional. In many cases, you will only need the init and tick. Most of the game logic should be implemented on the server. 
 --- @class server
 --- @field init? fun() -- Called once at load time

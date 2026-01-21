@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- @alias GetPlayerParam_parameter
 --- | 'health' Current value of the player's health.
 --- | 'healthRegeneration' Is the player's health regeneration enabled.
@@ -26,7 +27,7 @@
 --- | 'disableInteract' Disable interactions for player
 --- | 'CollisionMask' Player collision mask bits (0-255) with respect to all shapes layer bits
 
---- @return list name -- List of all player Ids
+--- @return number[] name -- List of all player Ids
 --- ### Example
 --- ```lua
 --- local playerIds = GetAllPlayers()
@@ -34,7 +35,7 @@
 --- [View Documentation](https://teardowngame.com/experimental/api.html#GetAllPlayers)
 function GetAllPlayers() end
 
---- @return interger count -- Number of max players for the session. Returns 1 for non-multiplayer.
+--- @return integer count -- Number of max players for the session. Returns 1 for non-multiplayer.
 --- ### Example
 --- ```lua
 --- local maxPlayerCount = GetMaxPlayers()
@@ -52,7 +53,7 @@ function GetMaxPlayers() end
 --- [View Documentation](https://teardowngame.com/experimental/api.html#GetPlayerCount)
 function GetPlayerCount() end
 
---- @return table playerIds -- List of added player Ids
+--- @return number[] playerIds -- List of added player Ids
 --- ### Example
 --- ```lua
 --- local playerIds = GetAddedPlayers()
@@ -60,7 +61,7 @@ function GetPlayerCount() end
 --- [View Documentation](https://teardowngame.com/experimental/api.html#GetAddedPlayers)
 function GetAddedPlayers() end
 
---- @return table playerIds -- List of removed player Ids
+--- @return number[] playerIds -- List of removed player Ids
 --- ### Example
 --- ```lua
 --- local playerIds = GetRemovedPlayers()
@@ -152,8 +153,8 @@ function GetPlayerPos(playerId) end
 --- @return TVec direction -- Direction from start position to end position
 --- @return TVec hitnormal -- Normal of the hitpoint
 --- @return number hitdist -- Distance of the hit
---- @return handle hitentity -- Handle of the entitiy being hit
---- @return handle hitmaterial -- Name of the material being hit
+--- @return number hitentity -- Handle of the entitiy being hit
+--- @return number hitmaterial -- Name of the material being hit
 --- ### Example
 --- ```lua
 --- local muzzle = GetToolLocationWorldTransform("muzzle")
@@ -411,7 +412,7 @@ function SetPlayerAnimator(animator, playerId) end
 function GetPlayerAnimator(playerId) end
 
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @return list bodies -- Get bodies associated with a player
+--- @return number[] bodies -- Get bodies associated with a player
 --- ### Example
 --- ```lua
 --- local bodies = GetPlayerBodies(playerId)
@@ -696,7 +697,7 @@ function GetPlayerHealth(playerId) end
 
 --- Will be false if player is in vehicle, interacting with a screen, has pause menu open, is dead or uses interactive UI.
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @return bool canusetool -- If the player currenty can use tool.
+--- @return boolean canusetool -- If the player currenty can use tool.
 --- ### Example
 --- ```lua
 --- function server.tick()
@@ -764,7 +765,7 @@ function RespawnPlayer(playerId) end
 
 --- ### SERVER ONLY
 --- Respawn player at spawn position without modifying the scene
---- @param transform transform -- Transform
+--- @param transform TVec -- Transform
 --- @param playerId? number -- Player ID. On server, zero means server (host) player.
 --- ### Example
 --- ```lua
@@ -1163,7 +1164,7 @@ function GetToolAmmo(toolId, playerId) end
 
 --- ### SERVER ONLY
 --- @param toolId string -- Tool ID
---- @param enabled bool -- Tool enabled
+--- @param enabled boolean -- Tool enabled
 --- @param playerId? number -- Player ID
 --- ### Example
 --- ```lua
@@ -1174,7 +1175,7 @@ function SetToolEnabled(toolId, enabled, playerId) end
 
 --- @param toolId string -- Tool ID
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
---- @return bool enabled -- Tool enabled for player
+--- @return boolean enabled -- Tool enabled for player
 --- ### Example
 --- ```lua
 --- if IsToolEnabled("gun", 1) then
@@ -1391,7 +1392,7 @@ function ApplyPlayerDamage(targetPlayerId, damage, cause, instigatingPlayerId) e
 
 --- ### SERVER ONLY
 --- Disable input for a player. Should be called from tick.
---- @param player playerIndex -- Player to disable input for
+--- @param player number -- Player to disable input for
 --- ### Example
 --- ```lua
 --- -- Disable player 2 input as she/he is interacting with something.

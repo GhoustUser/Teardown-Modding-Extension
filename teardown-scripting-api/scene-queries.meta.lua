@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- @alias QueryRequire_Layer
 --- | 'physical' have a physical representation
 --- | 'dynamic' part of a dynamic body
@@ -263,7 +264,7 @@ function QueryRaycastWater(origin, direction, maxDist) end
 --- @param maxDist number -- Shot maximum distance. Keep this as low as possible for good performance.
 --- @param radius? number -- Ray thickness. Default zero.
 --- @param playerId? number -- Instigating player, will be ignored during hit detection.
---- @return bool didHit -- If it was a valid hit.
+--- @return boolean didHit -- If it was a valid hit.
 --- @return number dist -- Distance along direction where the hit was registered.
 --- @return number shape -- Handle to hit shape, zero if it did not hit a shape
 --- @return number playerId -- PlayerId of hit player, zero if it did not hit a player

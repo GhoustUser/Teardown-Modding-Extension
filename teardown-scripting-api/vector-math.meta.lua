@@ -1,5 +1,6 @@
 --- @meta
 
+
 --- Create new vector and optionally initializes it to the provided values.
 --- A Vec is equivalent to a regular lua table with three numbers.
 --- @param x? number -- X value

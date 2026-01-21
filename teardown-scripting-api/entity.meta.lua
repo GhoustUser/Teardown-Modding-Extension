@@ -1,5 +1,11 @@
 --- @meta
 
+
+--- An Entity is the basis of most objects in the Teardown engine (bodies, shapes, lights, locations, etc). 
+--- All entities can have tags, which is a way to store custom properties on entities for scripting purposes. 
+--- Some tags are also reserved for engine use. See documentation for details. 
+
+
 --- @alias GetProperty_EntityType
 --- | 'Body' desc (string), dynamic (boolean), mass (number), transform, velocity (vector(x, y, z)), angVelocity (vector(x, y, z)), active (boolean), friction (number), restitution (number), frictionMode (average|minimum|multiply|maximum), restitutionMode (average|minimum|multiply|maximum)
 --- | 'Shape' density (number), strength (number), size (number), emissiveScale (number), localTransform, worldTransform
