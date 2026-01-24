@@ -269,7 +269,7 @@ function QueryRaycastWater(origin, direction, maxDist) end
 --- @return number shape -- Handle to hit shape, zero if it did not hit a shape
 --- @return number playerId -- PlayerId of hit player, zero if it did not hit a player
 --- @return number playerDamageFactor -- 1.0 for a hit on the torso, and less for a lower body hit. Applicable only if a player was hit. Use this to scale the damage.
---- @return Vec normal -- Normal vector of the hit
+--- @return TVec normal -- Normal vector of the hit
 --- ### Example
 --- ```lua
 --- -- Note: 'shape' and 'player' are IDs/handles (numbers), not object references.

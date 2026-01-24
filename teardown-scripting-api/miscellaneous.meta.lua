@@ -11,8 +11,8 @@
 --- @param category string -- Used to group markers together in map target list.
 --- @param showLabelOnMap boolean -- name label will be shown on map if true
 --- @param info string -- Additional information about the marker, displayed when selected.
---- @param pos Vec -- The world position of the marker.
---- @param color Vec -- The color of the marker, as a Vec table (e.g. Vec(1, 0, 0) for red)
+--- @param pos TVec -- The world position of the marker.
+--- @param color TVec -- The color of the marker, as a Vec table (e.g. Vec(1, 0, 0) for red)
 --- @param infoImage? string -- Path to the image to be displayed in the info section.
 --- @param dotIcon? string -- Path to the image used to represent the marker on map.
 --- ### Example
@@ -874,8 +874,8 @@ function AddHeat(shape, pos, amount) end
 function GetBoundaryArea() end
 
 --- return the aabb bounds for the boundary if present, otherwise the boundary for the world body.
---- @return Vec min -- Vector representing the AABB lower bound
---- @return Vec max -- Vector representing the AABB upper bound
+--- @return TVec min -- Vector representing the AABB lower bound
+--- @return TVec max -- Vector representing the AABB upper bound
 --- ### Example
 --- ```lua
 --- function GenerateRandomPointInLevel()

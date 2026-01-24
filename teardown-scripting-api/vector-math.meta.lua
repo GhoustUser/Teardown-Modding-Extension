@@ -623,7 +623,7 @@ function GetRandomInt(min, max) end
 function GetRandomFloat(min, max) end
 
 --- @param length? number -- Optional length use to scale the generated direction.
---- @return Vec3 vector -- Random direction with unit length
+--- @return TVec vector -- Random direction with unit length
 --- ### Example
 --- ```lua
 --- function init()

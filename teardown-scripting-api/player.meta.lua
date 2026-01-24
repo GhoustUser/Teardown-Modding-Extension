@@ -493,8 +493,8 @@ function IsPlayerJumping(playerId) end
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- @return boolean contact -- Whether the player is grounded
 --- @return number shape -- Handle to shape
---- @return Vec point -- Point of contact
---- @return Vec normal -- Normal of contact
+--- @return TVec point -- Point of contact
+--- @return TVec normal -- Normal of contact
 --- ### Example
 --- ```lua
 --- function client.tick()
@@ -1189,7 +1189,7 @@ function IsToolEnabled(toolId, playerId) end
 --- Sets the base orientation when gravity is disabled with SetGravity.
 --- This will determine what direction is "up", "right" and "forward" as
 --- gravity is completely turned off.
---- @param orientation Quat -- Base orientation
+--- @param orientation TQuat -- Base orientation
 --- @param playerId? number -- Player ID. On client, zero means client player. On server, zero means server (host) player.
 --- ### Example
 --- ```lua
