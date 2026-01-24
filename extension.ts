@@ -112,6 +112,10 @@ module.exports = {
     deactivate
 };
 
+/** Show prompt to enable Teardown intellisense in the workspace.
+ * @param {VscManager} vscManager - The VscManager instance
+ * @returns {void}
+ */
 function ShowWorkspaceIntellisensePrompt(vscManager: VscManager): void {
     // show prompt to enable intellisense
     vscManager.showInformationMessage(
@@ -132,6 +136,10 @@ function ShowWorkspaceIntellisensePrompt(vscManager: VscManager): void {
     });
 }
 
+/** Validate that the given directory is a valid Teardown installation.
+ * @param {string} dir - The directory to validate
+ * @returns {boolean} True if valid, false otherwise
+ */
 function validateTeardownDirectory(dir: string): boolean {
     // check if the directory exists
     if (!fs.existsSync(dir)) return false;
@@ -147,6 +155,9 @@ function validateTeardownDirectory(dir: string): boolean {
     return true;
 }
 
+/** Attempt to find the Teardown installation directory in common locations.
+ * @returns {string | null} The found directory path, or null if not found
+ */
 function findTeardownDirectory(): string | null {
     for (let i = 0; i < 4; i++) {
         const driveLetter = String.fromCharCode(67 + i); // C, D, E, F
@@ -163,6 +174,10 @@ function findTeardownDirectory(): string | null {
     return null;
 }
 
+/** Register the command to toggle Teardown intellisense setting.
+ * @param {VscManager} vscManager - The VscManager instance
+ * @returns {void}
+ */
 function registerToggleIntellisenseCommand(vscManager: VscManager): void {
     // register command to toggle intellisense setting
     vscManager.registerCommand("TeardownIntellisense.toggleIntellisense", () => {

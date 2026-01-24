@@ -1,7 +1,7 @@
 {
 	"name": "teardown-intellisense",
 	"displayName": "Teardown Intellisense",
-	"description": "Enables intellisense for Teardown's scripting API.",
+	"description": "Enables intellisense for Teardown's scripting API using Teardown's built-in Lua definitions.",
 	"version": "0.6.1",
 	"author": {
 		"name": "GhoustUser",
