@@ -24,26 +24,26 @@ function activate(context: vscode.ExtensionContext): void {
         return;
     }
 
-    vscManager.onWorkspaceSettingChanged("teardownModding.enableIntellisense", (newValue: any) => {
+    vscManager.onWorkspaceSettingChanged("TeardownIntellisense.enableIntellisense", (newValue: any) => {
         if (typeof newValue === "boolean") {
             enableScriptingApi(newValue, vscManager);
         }
     });
 
     // if the setting is not set, prompt the user to enable the scripting API
-    const doShowPrompt: boolean = vscManager.getSetting("teardownModding.showPrompt", false);
+    const doShowPrompt: boolean = vscManager.getSetting("TeardownIntellisense.showPrompt", false);
     if (doShowPrompt) {
         // show prompt to enable scripting API
         vscManager.showInformationMessage(
             "Teardown Mod detected in workspace, enable intellisense for scripting API?",
             [
-                { name: "Enable", action: () => vscManager.updateSetting("teardownModding.enableIntellisense", true) },
-                { name: "Dismiss", action: () => vscManager.updateSetting("teardownModding.enableIntellisense", false) },
-                { name: "Settings", action: () => vscManager.openWorkspaceSettingsUI("teardownModding.enableIntellisense") }
+                { name: "Enable", action: () => vscManager.updateSetting("TeardownIntellisense.enableIntellisense", true) },
+                { name: "Dismiss", action: () => vscManager.updateSetting("TeardownIntellisense.enableIntellisense", false) },
+                { name: "Settings", action: () => vscManager.openWorkspaceSettingsUI("TeardownIntellisense.enableIntellisense") }
             ]
         ).then(selectedAction => {
             // update setting to not show the prompt again
-            vscManager.updateSetting("teardownModding.showPrompt", false);
+            vscManager.updateSetting("TeardownIntellisense.showPrompt", false);
             // execute the selected action
             if (selectedAction) {
                 selectedAction.action();

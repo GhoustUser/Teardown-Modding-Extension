@@ -6,7 +6,7 @@ import VscManager from "./vsc-manager";
  * @returns {boolean} True if the Lua API is loaded, false otherwise
  */
 function isScriptingApiEnabled(vscManager: VscManager): boolean {
-    const luaApiPath = path.join(vscManager.context.extensionPath, "teardown-scripting-api");
+    const luaApiPath = path.join(vscManager.context.extensionPath, "api-definitions");
     const workspaceLibrary = vscManager.getSetting("Lua.workspace.library", []);
     return workspaceLibrary.includes(luaApiPath);
 }
@@ -21,7 +21,7 @@ function enableScriptingApi(enable: boolean, vscManager: VscManager): void {
         return;
     }
 
-    const luaApiPath = path.join(vscManager.context.extensionPath, "teardown-scripting-api");
+    const luaApiPath = path.join(vscManager.context.extensionPath, "api-definitions");
     const workspaceLibrary = vscManager.getSetting("Lua.workspace.library", []);
 
     // add the new path and update setting
@@ -29,7 +29,7 @@ function enableScriptingApi(enable: boolean, vscManager: VscManager): void {
         // add path if enabling
         [...workspaceLibrary, luaApiPath] :
         // remove path if disabling
-        workspaceLibrary.filter((libPath: string) => !libPath.endsWith("teardown-scripting-api")
+        workspaceLibrary.filter((libPath: string) => !libPath.endsWith("api-definitions")
         );
     // if updatedLibrary is empty, remove the setting completely
     if (updatedLibrary.length === 0)
