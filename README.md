@@ -36,6 +36,7 @@ I will try to get this on the VSCode extension marketplace at some point, but fo
 - **`Show Prompt`** :
   - **In User Settings:** Whether to show the popup when opening a valid workspace for the first time.
   - **In workspace settings:** Used by the extension to make sure the popup is only shown once, if enabled in user settings.
+- **`Teardown Directory`** : Path to the Teardown installation directory. Used to get built-in definitions as fallback for ones not included in this extension.
 
 ## How it works
 
@@ -45,15 +46,13 @@ Currently, the only requirement for a Teardown mod is having an `info.txt` in th
 
 ### Note:
 
-Teardown already has some lua definitions included in the game files under `Teardown`/`Data`/:
+Teardown already has lua definitions included in the game files under `Teardown`/`Data`/:
 - `script_defs.lua`
 - `voxscript_defs.lua`
 - `script`/`include`/`common.lua`
 - `script`/`include`/`player.lua`
 
-However, these are fairly limited - they contain basic function definitions but often lack proper type information, and most of the time don't include the descriptions or examples available in the web documentation.
-
-That's why this extension includes it's own type definitions instead of just referencing the built-in ones.
+This extension expands on these with definitions containing all the information found in the web documentation, like descriptions and code examples.
 
 ---
 

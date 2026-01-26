@@ -30,22 +30,40 @@ function activate(context: vscode.ExtensionContext): void {
     registerToggleIntellisenseCommand(vscManager);
 
     // listen for changes to the `enableIntellisense` setting
-    vscManager.onWorkspaceSettingChanged("TeardownIntellisense.enableIntellisense", (newValue: any) => {
-        if (typeof newValue === "boolean") {
-            configureTDIntellisense(newValue, vscManager);
-        }
+    vscManager.onWorkspaceSettingChanged("TeardownIntellisense.enableIntellisense", (newValue: boolean) => {
+        configureTDIntellisense(newValue, vscManager);
     });
 
-    // if the setting is not set, prompt the user to enable the scripting API
+    // if the setting `showPrompt` is enabled, show the prompt to enable intellisense
     const doShowPrompt: boolean = vscManager.getSetting("TeardownIntellisense.showPrompt", false);
     if (doShowPrompt) {
-        // show prompt to enable scripting API
+        // show prompt to enable intellisense
         showWorkspaceIntellisensePrompt(vscManager);
     }
-    else if (vscManager.getSetting("TeardownIntellisense.enableIntellisense", false)) {
-        // configure intellisense if the setting is already enabled
-        configureTDIntellisense(true, vscManager);
+    // configure intellisense based on current setting
+    else {
+        const enableIntellisense: boolean = vscManager.getSetting("TeardownIntellisense.enableIntellisense", false);
+        configureTDIntellisense(enableIntellisense, vscManager);
     }
+
+    // listen for changes to the `teardownDirectory` setting
+    vscManager.onUserSettingChanged("TeardownIntellisense.teardownDirectory", (newValue: string) => {
+        // check if the Teardown directory setting is set
+        const teardownDir: string = vscManager.getSetting("TeardownIntellisense.teardownDirectory", "");
+        if (teardownDir.length > 0) {
+            // validate the directory
+            const isValidDir = ValidateTeardownDirectory(teardownDir);
+            if (!isValidDir) {
+                // show warning message if the directory is invalid
+                vscManager.showInformationMessage(
+                    `The configured Teardown directory is invalid: ${teardownDir}`,
+                    [
+                        { name: "Settings", action: () => vscManager.openUserSettingsUI("TeardownIntellisense.teardownDirectory") }
+                    ]
+                );
+            }
+        }
+    });
 }
 
 /** Cleanup function called when the extension is deactivated.
@@ -54,7 +72,7 @@ function activate(context: vscode.ExtensionContext): void {
 function deactivate(): void {
     // disable Teardown intellisense on deactivate
     configureTDIntellisense(false, new VscManager(c!));
- }
+}
 
 module.exports = {
     activate,
@@ -73,7 +91,7 @@ function showWorkspaceIntellisensePrompt(vscManager: VscManager): void {
             { name: "Workspace", action: () => vscManager.updateSetting("TeardownIntellisense.enableIntellisense", true, false) },
             { name: "User", action: () => vscManager.updateSetting("TeardownIntellisense.enableIntellisense", true, true) },
             { name: "Don't show again", action: () => vscManager.updateSetting("TeardownIntellisense.showPrompt", false, true) },
-            { name: "Settings", action: () => vscManager.openWorkspaceSettingsUI("TeardownIntellisense.enableIntellisense") }
+            { name: "Settings", action: () => vscManager.openWorkspaceSettingsUI("TeardownIntellisense") }
         ]
     ).then(selectedAction => {
         // update setting to not show the prompt again
@@ -109,4 +127,22 @@ function registerToggleIntellisenseCommand(vscManager: VscManager): void {
             }
         });
     });
+}
+
+function ValidateTeardownDirectory(dirPath: string): boolean {
+    // check if the provided path exists and is a directory
+    if (!fs.existsSync(dirPath) || !fs.lstatSync(dirPath).isDirectory()) {
+        return false;
+    }
+    // check for `data` folder
+    const dataPath = path.join(dirPath, "data");
+    if (!fs.existsSync(dataPath) || !fs.lstatSync(dataPath).isDirectory()) {
+        return false;
+    }
+    // check for `data/script_defs.lua` file
+    const scriptDefsPath = path.join(dataPath, "script_defs.lua");
+    if (!fs.existsSync(scriptDefsPath) || !fs.lstatSync(scriptDefsPath).isFile()) {
+        return false;
+    }
+    return true;
 }

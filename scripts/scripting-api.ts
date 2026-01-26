@@ -31,7 +31,7 @@ interface LuaSettingsConfig {
  * @returns {void}
  */
 function configureTDIntellisense(enable: boolean, vscManager: VscManager): void {
-    const luaApiPath = path.join(vscManager.context.extensionPath, "api-definitions");
+    const luaApiPath = path.join(vscManager.context.extensionPath, "api-definitions", "default");
 
     // define what settings to configure
     const config: LuaSettingsConfig = {

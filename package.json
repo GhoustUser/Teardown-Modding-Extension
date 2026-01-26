@@ -2,7 +2,7 @@
 	"name": "teardown-intellisense",
 	"displayName": "Teardown Intellisense",
     "description": "Adds intellisense for Teardown's scripting API using custom-made definitions based on the web documentation",
-	"version": "0.5.6",
+	"version": "0.5.7",
 	"author": {
 		"name": "GhoustUser",
 		"url": "https://github.com/GhoustUser"
@@ -42,6 +42,12 @@
 		"configuration": {
 			"title": "Teardown Intellisense",
 			"properties": {
+                "TeardownIntellisense.teardownDirectory": {
+                    "type": "string",
+                    "default": "",
+                    "title": "Teardown Directory",
+                    "description": "Path to the Teardown installation directory."
+                },
 				"TeardownIntellisense.enableIntellisense": {
 					"type": "boolean",
 					"default": false,
