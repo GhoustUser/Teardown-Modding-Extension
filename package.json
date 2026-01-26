@@ -7,8 +7,8 @@
 		"name": "GhoustUser",
 		"url": "https://github.com/GhoustUser"
 	},
-  "homepage": "https://teardowngame.com/experimental/api.html",
-  "publisher": "GhoustUser",
+    "homepage": "https://teardowngame.com/experimental/api.html",
+    "publisher": "GhoustUser",
 	"icon": "./icon.png",
     "galleryBanner": {
         "color": "#b18742",
