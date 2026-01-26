@@ -12,7 +12,6 @@ let c: vscode.ExtensionContext | null = null;
  * @param {vscode.ExtensionContext} context - The extension context provided by VS Code
  * @returns {void}
  */
-
 function activate(context: vscode.ExtensionContext): void {
     c = context;
     const vscManager = new VscManager(context);
@@ -22,7 +21,7 @@ function activate(context: vscode.ExtensionContext): void {
         return;
     }
     // if info.txt doesn't exist, exit early
-    // this should already be handled by the "activationEvents" in package.json, but this is a fallback
+    // this should already be handled by the "activationEvents" in `package.json`, but this is a fallback
     if (!fs.existsSync(path.join(vscManager.projectPath, "info.txt"))) {
         return;
     }
@@ -37,6 +36,8 @@ function activate(context: vscode.ExtensionContext): void {
     vscManager.onSettingChanged("TeardownIntellisense.enableIntellisense", (newValue: boolean) => {
         configureTDIntellisense(newValue, vscManager);
     });
+    // listen for changes to the teardownDirectory setting
+    vscManager.onUserSettingChanged("TeardownIntellisense.teardownDirectory", (newValue: string) => {
 
     // if the setting `showPrompt` is enabled, show the prompt to enable intellisense
     const doShowPrompt: boolean = vscManager.getSetting("TeardownIntellisense.showPrompt", false);

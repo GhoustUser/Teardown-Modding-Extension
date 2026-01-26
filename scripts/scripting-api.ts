@@ -86,6 +86,11 @@ function configureTDIntellisense(enable: boolean, vscManager: VscManager): void 
             fs.writeFileSync(ignoreTxtPath, ignoreTxtContent, "utf-8");
         }
     }
+    // get the user's preferred indentation setting
+    const indentation = vscManager.getSetting("editor.tabSize", 4);
+    // write updated .luarc.json
+    fs.writeFileSync(luarcPath, JSON.stringify(luarcJson, null, indentation), "utf-8");
+    return true;
 }
 
 /** Updates an array-based VSCode setting by adding/removing items.
