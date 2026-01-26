@@ -41,6 +41,7 @@ I will try to get this on the VSCode extension marketplace at some point, but fo
   - **In User Settings:** Whether to show the popup when opening a valid workspace for the first time.
   - **In workspace settings:** Used by the extension to make sure the popup is only shown once, if enabled in user settings.
 - **`Teardown Directory`** : Path to the Teardown installation directory. Used to get built-in definitions as fallback for ones not included in this extension.
+- **`Additional Include Paths`** : A list of additional paths relative to the Teardown directory to load lua definitions from.
 
 ## How it works
 
